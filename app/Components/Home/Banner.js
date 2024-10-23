@@ -4,7 +4,7 @@ import { FaCirclePlay } from "react-icons/fa6";
 const Banner = () => {
   return (
     <main className="bg-gray-100 py-10 ">
-      <div className="container items-center flex gap-8 w-full mx-auto space-y-4">
+      <div className="w-[90%] items-center flex gap-8 mx-auto space-y-4">
         <div className="w-1/2 space-y-6">
           <span className="uppercase">The future is digital</span>
           <h1 className="text-4xl font-bold">

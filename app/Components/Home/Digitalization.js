@@ -3,7 +3,7 @@ import React from "react";
 const Digitalization = () => {
   return (
     <main className=" py-16 ">
-      <div className="container items-center flex gap-8 w-full mx-auto space-y-4">
+      <div className=" items-center flex gap-8 w-[90%] mx-auto space-y-4">
         <div className="w-1/2 relative">
           <img
             className=""
