@@ -1,236 +1,106 @@
-import Link from "next/link";
 import React from "react";
+import Link from "next/link";
 import { BsClockHistory } from "react-icons/bs";
 import { FaFingerprint } from "react-icons/fa";
 import { IoSettingsOutline } from "react-icons/io5";
 
-const UseCases = () => {
-  return (
-    <div className=" bg-gray-900 py-10">
-      <div className="w-[90%] m-auto ">
-        <div className="text-center text-white py-8 space-y-3">
-          <h3 className="text-md">SOLUTIONS WE PROVIDE</h3>
-          <h2 className="text-4xl font-bold">Business Use Cases</h2>
-        </div>
-        <div className="w-full items-center p-10 rounded-2xl flex justify-center gap-10 bg-gradient-to-r from-orange-500 to-green-700 shadow-md m-auto my-10 sticky top-[90px]">
-          <div className="space-y-5 text-white">
-            <h2 className="text-4xl font-bold">
-              For <br /> Law Firms
-            </h2>
-            <div className="flex items-center gap-5 border-b pb-5 border-gray-500">
-              <div className="flex items-center gap-1">
-                <BsClockHistory />
-                <span>Faster</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <FaFingerprint />
-                <span>Secure</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <IoSettingsOutline />
-                <span>Convenient</span>
-              </div>
-            </div>
-            <p>
-              We are your secret weapon for quickly & securely notarizing all
-              your documents online.
-            </p>
-            <div>
-              <Link className="bg-green-900 p-2 space-y-2" href="">
-                Learn More
-              </Link>
-            </div>
-          </div>
-          <div>
-            <img
-              src="https://bluenotary.us/assets/images/for_lawfirm.png"
-              alt=""
-            />
-          </div>
-        </div>
-        <div className="w-full p-10 rounded-2xl items-center flex justify-center gap-10 bg-gradient-to-r from-green-800 to-green-700 shadow-md m-auto my-10 sticky top-[110px]">
-          <div className="space-y-5  text-white">
-            <h2 className="text-4xl font-bold">
-              For <br /> Title Agents
-            </h2>
-            <div className="flex items-center gap-5 border-b pb-5 border-gray-500">
-              <div className="flex items-center gap-1">
-                <BsClockHistory />
-                <span>Faster</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <FaFingerprint />
-                <span>Secure</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <IoSettingsOutline />
-                <span>Convenient</span>
-              </div>
-            </div>
-            <p>
-              Unlock peace of mind with our rapid and secure online notarization
-              for all your important documents.
-            </p>
-            <div>
-              <Link className="bg-green-900 p-2 space-y-2" href="">
-                Learn More
-              </Link>
-            </div>
-          </div>
-          <div>
-            <img
-              src="https://bluenotary.us/assets/images/title_agents.png"
-              alt=""
-            />
-          </div>
-        </div>
-        <div className="w-full p-10 items-center rounded-2xl flex justify-center gap-10 bg-gradient-to-r from-blue-800 to-green-700 shadow-md m-auto my-10 sticky top-[130px]">
-          <div className="space-y-5 text-white">
-            <h2 className="text-4xl font-bold">
-              For <br /> Business
-            </h2>
-            <div className="flex items-center gap-5 border-b pb-5 border-gray-500">
-              <div className="flex items-center gap-1">
-                <BsClockHistory />
-                <span>Faster</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <FaFingerprint />
-                <span>Secure</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <IoSettingsOutline />
-                <span>Convenient</span>
-              </div>
-            </div>
-            <p>
-              Your silent partner in quickly and safely notarizing every
-              document you have—entirely online.
-            </p>
-            <div>
-              <Link className="bg-green-900 p-2 space-y-2" href="">
-                Learn More
-              </Link>
-            </div>
-          </div>
-          <div>
-            <img
-              src="https://bluenotary.us/assets/images/for_business.png"
-              alt=""
-            />
-          </div>
-        </div>
-        <div className="w-full items-center p-10 rounded-2xl flex justify-center gap-10 bg-gradient-to-r from-purple-500 to-green-700  shadow-md m-auto my-10 sticky top-[150px]">
-          <div className="space-y-5 text-white">
-            <h2 className="text-4xl font-bold">
-              For <br /> Individual
-            </h2>
-            <div className="flex items-center gap-5 border-b pb-5 border-gray-500">
-              <div className="flex items-center gap-1">
-                <BsClockHistory />
-                <span>Faster</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <FaFingerprint />
-                <span>Secure</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <IoSettingsOutline />
-                <span>Convenient</span>
-              </div>
-            </div>
-            <p>
-              We are your secret weapon for quickly & securely notarizing all
-              your documents online.
-            </p>
-            <div>
-              <Link className="bg-green-900 p-2 space-y-2" href="">
-                Learn More
-              </Link>
-            </div>
-          </div>
-          <div>
-            <img
-              src="https://bluenotary.us/assets/images/for_individual.png"
-              alt=""
-            />
-          </div>
-        </div>
-        <div className="w-full items-center p-10 rounded-2xl flex justify-center gap-10 bg-gradient-to-r from-teal-500 to-green-700  shadow-md m-auto my-10 sticky top-[170px]">
-          <div className="space-y-5 text-white">
-            <h2 className="text-4xl font-bold">
-              For <br /> Construction
-            </h2>
-            <div className="flex items-center gap-5 border-b pb-5 border-gray-500">
-              <div className="flex items-center gap-1">
-                <BsClockHistory />
-                <span>Faster</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <FaFingerprint />
-                <span>Secure</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <IoSettingsOutline />
-                <span>Convenient</span>
-              </div>
-            </div>
-            <p>
-              The hidden ace up your sleeve for fast, trustworthy online
-              document notarization.
-            </p>
-            <div>
-              <Link className="bg-green-900 p-2 space-y-2" href="">
-                Learn More
-              </Link>
-            </div>
-          </div>
-          <div>
-            <img
-              src="https://bluenotary.us/assets/images/for_construction.png"
-              alt=""
-            />
-          </div>
-        </div>
-        <div className="w-full items-center p-10 rounded-2xl flex justify-center gap-10 bg-gradient-to-r from-slate-500 to-green-700  shadow-md m-auto my-10 sticky top-[190px]">
-          <div className="space-y-5 text-white">
-            <h2 className="text-4xl font-bold">
-              For <br /> Real Estate
-            </h2>
-            <div className="flex items-center gap-5 border-b pb-5 border-gray-500">
-              <div className="flex items-center gap-1">
-                <BsClockHistory />
-                <span>Faster</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <FaFingerprint />
-                <span>Secure</span>
-              </div>
-              <div className="flex items-center gap-1">
-                <IoSettingsOutline />
-                <span>Convenient</span>
-              </div>
-            </div>
-            <p>
-              Your go-to solution for swift and secure online notarization of
-              all your documents.
-            </p>
-            <div>
-              <Link className="bg-green-900 p-2 space-y-2" href="">
-                Learn More
-              </Link>
-            </div>
-          </div>
-          <div>
-            <img
-              src="https://bluenotary.us/assets/images/for_real_estate.png"
-              alt=""
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
+const data = [
+  {
+    title: "For Law Firms",
+    description:
+      "We are your secret weapon for quickly and securely notarizing all your documents online, offering a seamless and hassle-free experience...",
+    imageUrl: "https://bluenotary.us/assets/images/for_lawfirm.png",
+    gradient: "from-orange-500 to-green-700",
+    topPosition: "top-[60px]",
+  },
+  {
+    title: "For Title Agents",
+    description:
+      "Unlock peace of mind with our rapid and secure online notarization for all your important documents...",
+    imageUrl: "https://bluenotary.us/assets/images/title_agents.png",
+    gradient: "from-green-800 to-green-700",
+    topPosition: "top-[80px]",
+  },
+  {
+    title: "For Business",
+    description:
+      "Unlock peace of mind with our rapid and secure online notarization for all your important documents...",
+    imageUrl: "https://bluenotary.us/assets/images/for_business.png",
+    gradient: "from-blue-800 to-green-700",
+    topPosition: "top-[100px]",
+  },
+  {
+    title: "For Individual",
+    description:
+      "Unlock peace of mind with our rapid and secure online notarization for all your important documents...",
+    imageUrl: "https://bluenotary.us/assets/images/for_individual.png",
+    gradient: "from-purple-500 to-green-700",
+    topPosition: "top-[120px]",
+  },
+  {
+    title: "For Construction",
+    description:
+      "Unlock peace of mind with our rapid and secure online notarization for all your important documents...",
+    imageUrl: "https://bluenotary.us/assets/images/for_construction.png",
+    gradient: "from-teal-500 to-green-700",
+    topPosition: "top-[140px]",
+  },
+  {
+    title: "For Real Estate",
+    description:
+      "Unlock peace of mind with our rapid and secure online notarization for all your important documents...",
+    imageUrl: "https://bluenotary.us/assets/images/for_real_estate.png",
+    gradient: "from-slate-500 to-green-700",
+    topPosition: "top-[190px]",
+  },
+];
 
-export default UseCases;
+const Services = () => (
+  <div className="bg-gray-100 py-5">
+    <div className="w-[90%] m-auto">
+      <div className="text-center py-8 space-y-3">
+        <h3 className="text-md">SOLUTIONS WE PROVIDE</h3>
+        <h2 className="text-4xl font-bold">Business Use Cases</h2>
+      </div>
+      {data.map(
+        ({ title, description, imageUrl, gradient, topPosition }, index) => (
+          <div
+            key={index}
+            className={`md:w-[85%] p-10 rounded-3xl flex items-center justify-center gap-10 bg-gradient-to-r ${gradient} shadow-md m-auto my-8  sticky ${topPosition}`}
+          >
+            <div className="space-y-10 text-white w-1/2">
+              <h2 className="text-6xl font-bold">
+                {title.split(" ")[0]} <br /> {title.split(" ")[1]}
+              </h2>
+              <div className="flex items-center gap-5 border-b pb-5 border-gray-500">
+                <div className="flex items-center gap-1">
+                  <BsClockHistory />
+                  <span>Faster</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <FaFingerprint />
+                  <span>Secure</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <IoSettingsOutline />
+                  <span>Convenient</span>
+                </div>
+              </div>
+              <p>{description}</p>
+              <div>
+                <Link className="bg-green-900 p-2 space-y-2" href="">
+                  Learn More
+                </Link>
+              </div>
+            </div>
+            <div>
+              <img src={imageUrl} alt="" />
+            </div>
+          </div>
+        )
+      )}
+    </div>
+  </div>
+);
+
+export default Services;
