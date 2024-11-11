@@ -1,6 +1,10 @@
 import Banner from "./Components/Home/Banner";
 import Banner1 from "./Components/Home/Banner1";
 import Digitalization from "./Components/Home/Digitalization";
+import FAQSection from "./Components/Home/FAQSection";
+import HowItWorks from "./Components/Home/HowItWorks";
+import InternationalServices from "./Components/Home/InternationalServices";
+import PopularDocuments from "./Components/Home/PopularDocuments";
 import ScrollCarosel from "./Components/Home/ScrollCarosel";
 import UseCases from "./Components/Home/UseCases";
 import YourAdvantages from "./Components/Home/YourAdvantages";
@@ -12,11 +16,15 @@ export default function Home() {
       <Banner />
       <Banner1 />
       <YourAdvantages />
-      {/* <Digitalization /> */}
+      <InternationalServices />
       <UseCases />
-      <ScrollCarosel />
+      <Digitalization />
+      {/* <ScrollCarosel /> */}
       {/* <PdfViewer /> */}
-      <PdfEditor />
+      {/* <PdfEditor /> */}
+      {/* <PopularDocuments /> */}
+      <HowItWorks />
+      <FAQSection />
     </div>
   );
 }

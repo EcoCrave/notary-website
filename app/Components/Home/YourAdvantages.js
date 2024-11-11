@@ -3,8 +3,8 @@ import Timeline from "./Timeline";
 
 const YourAdvantages = () => {
   return (
-    <div>
-      <div className="w-[90%] mx-auto text-center p-10 space-y-4">
+    <div className="bg-gray-50">
+      <div className="w-[90%] mx-auto  text-center p-10 space-y-4">
         <h3 className="text-lg uppercase ">Your advantages</h3>
         <h2 className="text-3xl font-bold ">
           Why your company should use notarity

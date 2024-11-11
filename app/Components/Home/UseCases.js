@@ -11,7 +11,7 @@ const data = [
       "We are your secret weapon for quickly and securely notarizing all your documents online, offering a seamless and hassle-free experience...",
     imageUrl: "https://bluenotary.us/assets/images/for_lawfirm.png",
     gradient: "from-orange-500 to-green-700",
-    topPosition: "top-[60px]",
+    topPosition: "top-[55px]",
   },
   {
     title: "For Title Agents",
@@ -19,7 +19,7 @@ const data = [
       "Unlock peace of mind with our rapid and secure online notarization for all your important documents...",
     imageUrl: "https://bluenotary.us/assets/images/title_agents.png",
     gradient: "from-green-800 to-green-700",
-    topPosition: "top-[80px]",
+    topPosition: "top-[65px]",
   },
   {
     title: "For Business",
@@ -27,7 +27,7 @@ const data = [
       "Unlock peace of mind with our rapid and secure online notarization for all your important documents...",
     imageUrl: "https://bluenotary.us/assets/images/for_business.png",
     gradient: "from-blue-800 to-green-700",
-    topPosition: "top-[100px]",
+    topPosition: "top-[75px]",
   },
   {
     title: "For Individual",
@@ -35,7 +35,7 @@ const data = [
       "Unlock peace of mind with our rapid and secure online notarization for all your important documents...",
     imageUrl: "https://bluenotary.us/assets/images/for_individual.png",
     gradient: "from-purple-500 to-green-700",
-    topPosition: "top-[120px]",
+    topPosition: "top-[85px]",
   },
   {
     title: "For Construction",
@@ -43,7 +43,7 @@ const data = [
       "Unlock peace of mind with our rapid and secure online notarization for all your important documents...",
     imageUrl: "https://bluenotary.us/assets/images/for_construction.png",
     gradient: "from-teal-500 to-green-700",
-    topPosition: "top-[140px]",
+    topPosition: "top-[95px]",
   },
   {
     title: "For Real Estate",
@@ -51,13 +51,13 @@ const data = [
       "Unlock peace of mind with our rapid and secure online notarization for all your important documents...",
     imageUrl: "https://bluenotary.us/assets/images/for_real_estate.png",
     gradient: "from-slate-500 to-green-700",
-    topPosition: "top-[190px]",
+    topPosition: "top-[105px]",
   },
 ];
 
 const Services = () => (
-  <div className="bg-gray-100 py-5">
-    <div className="w-[90%] m-auto">
+  <div className=" pt-10">
+    <div className="md:w-[80%] m-auto">
       <div className="text-center py-8 space-y-3">
         <h3 className="text-md">SOLUTIONS WE PROVIDE</h3>
         <h2 className="text-4xl font-bold">Business Use Cases</h2>
@@ -70,7 +70,7 @@ const Services = () => (
           >
             <div className="space-y-10 text-white w-1/2">
               <h2 className="text-6xl font-bold">
-                {title.split(" ")[0]} <br /> {title.split(" ")[1]}
+                {title.split(" ")[0]} {title.split(" ")[1]}
               </h2>
               <div className="flex items-center gap-5 border-b pb-5 border-gray-500">
                 <div className="flex items-center gap-1">

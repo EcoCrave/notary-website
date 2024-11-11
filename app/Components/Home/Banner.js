@@ -3,7 +3,7 @@ import { FaCirclePlay } from "react-icons/fa6";
 
 const Banner = () => {
   return (
-    <main className="bg-gray-100 py-10 ">
+    <main className=" py-16 ">
       <div className="w-[90%] items-center flex gap-8 mx-auto space-y-4">
         <div className="w-1/2 space-y-6">
           <span className="uppercase">The future is digital</span>
@@ -22,9 +22,9 @@ const Banner = () => {
             <button>Contact Us</button>
           </div>
         </div>
-        <div className="w-1/2 relative">
+        <div className="w-1/2 relative rounded-md">
           <img
-            className=""
+            className="rounded-xl"
             src="https://bluenotary.us/assets/ron-banner.jpg"
             alt=""
           />

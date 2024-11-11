@@ -6,26 +6,25 @@ const Digitalization = () => {
       <div className=" items-center flex gap-8 w-[90%] mx-auto space-y-4">
         <div className="w-1/2 relative">
           <img
-            className=""
+            className="rounded-xl"
             src="https://notarity.com/wp-content/uploads/2023/04/notarity_website_17-1024x685.jpg.webp"
             alt=""
           />
         </div>
 
         <div className="w-1/2 space-y-6">
-          <h1 className="text-3xl font-bold">
-            The future is digital. Are you too?
+          <h1 className="text-6xl font-bold">
+            On-demand notarization at scale <br /> within minutes
           </h1>
           <p>
-            We have developed a free product especially for law firms that
-            allows you to utilise the full potential of notarity. With
-            personalised booking links, you can present yourself to your clients
-            in a modern way. <br />
-            <br /> We would be happy to present this offer to you personally in
-            a joint appointment and show you all the advantages of notarity.
+            Over 17,000 certified online notaries performing on the
+            blockchain-secured BlueNotary platform.
           </p>
           <div className="gap-4 flex mx-auto">
             <button className="bg-green-800 px-4 py-2 rounded-md text-white">
+              Arrange a demo appointment
+            </button>
+            <button className=" px-4 py-2 rounded-md text-black border border-2">
               Arrange a demo appointment
             </button>
           </div>
