@@ -56,20 +56,20 @@ const data = [
 ];
 
 const Services = () => (
-  <div className=" pt-10">
+  <div className="bg-gray-50 pb-20 pt-10">
     <div className="md:w-[80%] m-auto">
       <div className="text-center py-8 space-y-3">
         <h3 className="text-md">SOLUTIONS WE PROVIDE</h3>
-        <h2 className="text-4xl font-bold">Business Use Cases</h2>
+        <h2 className="text-5xl font-bold">Business Use Cases</h2>
       </div>
       {data.map(
         ({ title, description, imageUrl, gradient, topPosition }, index) => (
           <div
             key={index}
-            className={`md:w-[85%] p-10 rounded-3xl flex items-center justify-center gap-10 bg-gradient-to-r ${gradient} shadow-md m-auto my-8  sticky ${topPosition}`}
+            className={`md:w-[87%] p-10 rounded-3xl flex items-center justify-center gap-10 bg-gradient-to-r ${gradient} shadow-md m-auto my-8  sticky ${topPosition}`}
           >
             <div className="space-y-10 text-white w-1/2">
-              <h2 className="text-6xl font-bold">
+              <h2 className="text-5xl font-bold">
                 {title.split(" ")[0]} {title.split(" ")[1]}
               </h2>
               <div className="flex items-center gap-5 border-b pb-5 border-gray-500">

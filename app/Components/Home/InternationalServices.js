@@ -28,9 +28,9 @@ export default function InternationalServices() {
   const [selectedService, setSelectedService] = useState(services[0]);
 
   return (
-    <div className="bg-gray-50 mt-16">
-      <div className=" p-10 flex flex-col w-[90%] mx-auto">
-        <h2 className="text-3xl font-bold text-gray-900 ">
+    <div className="pb-10 mt-16">
+      <div className=" py-10 flex flex-col space-y-10 w-[87%] mx-auto">
+        <h2 className="text-5xl font-bold text-gray-900 ">
           International Services
         </h2>
         <p className="text-gray-600 mt-4">

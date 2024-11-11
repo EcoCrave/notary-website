@@ -3,12 +3,14 @@ import { FaCirclePlay } from "react-icons/fa6";
 
 const Banner = () => {
   return (
-    <main className=" py-16 ">
-      <div className="w-[90%] items-center flex gap-8 mx-auto space-y-4">
-        <div className="w-1/2 space-y-6">
-          <span className="uppercase">The future is digital</span>
-          <h1 className="text-4xl font-bold">
-            Don’t Hesitate in Choosing the Right Notary
+    <main className=" py-20 pb-28">
+      <div className="w-[87%] items-center flex gap-8 mx-auto space-y-4">
+        <div className="w-1/2 space-y-10">
+          <p className="uppercase">
+            Starts with only <span>$25</span>{" "}
+          </p>
+          <h1 className="text-5xl font-bold">
+            Don’t Hesitate in Choosing <br /> the Right Notary
           </h1>
           <p>
             notarity helps you and your clients to digitalise the cooperation

@@ -3,10 +3,10 @@ import Image from "next/image";
 export default function NotarySection() {
   return (
     <div className=" w-[90%] pb-10 mx-auto min-h-screen flex flex-col items-center ">
-      <div className="mt-10 pl-10 w-full gap-16 justify-center items-center grid grid-cols-2 ">
-        <div className="flex flex-col space-y-8">
-          <div className="text-center mt-10">
-            <h1 className="text-5xl spac text-left font-bold text-gray-900">
+      <div className="mt-10 pl-10 w-full gap-5 justify-center items-center grid md:grid-cols-2 ">
+        <div className="flex flex-col space-y-8 md:order-2 ">
+          <div className=" mt-10">
+            <h1 className="text-5xl spac text-left  font-bold text-gray-900">
               Upload. <br />
               Verify ID. <br /> Meet Online
             </h1>
@@ -32,11 +32,11 @@ export default function NotarySection() {
             description="Sign, seal, and send to whomever needs it after meeting the notary public agent in a live video/audio session."
           />
         </div>
-        <div className="flex flex-col md:flex-row items-center mt-16 space-y-8 md:space-y-0 md:space-x-12">
+        <div className="flex order-1   flex-col md:flex-row items-center mt-16 space-y-8 md:space-y-0 md:space-x-12">
           <Image
             src="/img/how-it-works.png"
-            width={500}
-            height={500}
+            width={600}
+            height={600}
             alt="How it works"
           />
         </div>
