@@ -26,7 +26,7 @@ export default function HowItWorks() {
 
   return (
     <section className=" py-16 ">
-      <div className="container mx-auto bg-gray-100 rounded-lg p-8 md:flex md:space-x-12">
+      <div className="w-[87%] mx-auto bg-gray-100 rounded-lg p-8 md:flex md:space-x-12">
         {/* Left Section - Steps */}
         <div className="md:w-1/3 space-y-4">
           <h2 className="text-2xl font-bold text-green-900">How it works</h2>

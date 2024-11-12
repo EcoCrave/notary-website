@@ -1,7 +1,7 @@
 export default function Hero() {
   return (
-    <section className="bg-gray-50 py-16 px-6">
-      <div className="container mx-auto flex flex-col lg:flex-row items-start lg:items-center gap-10">
+    <section className="bg-gray-50 py-16 ">
+      <div className=" mx-auto w-[87%] flex flex-col lg:flex-row items-start lg:items-center gap-10">
         {/* Left Side Content */}
         <div className="lg:w-1/2 space-y-4">
           <p className="text-sm uppercase tracking-widest text-gray-500 font-semibold">
