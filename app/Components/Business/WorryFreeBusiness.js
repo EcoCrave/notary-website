@@ -3,39 +3,39 @@ import React from "react";
 
 const WorryFreeBusiness = () => {
   return (
-    <main className=" py-16 ">
-      <div className=" items-center md:flex gap-28 justify-center w-[87%] mx-auto ">
-        <div className=" relative md:order-2">
-          <Image
-            className="rounded-xl "
-            width={600}
-            height={600}
-            src="/img/digitalize.webp"
-            alt=""
-          />
+    <section className="bg-white py-16 px-6">
+      <div className="container mx-auto flex flex-col md:flex-row items-center md:justify-between">
+        {/* Testimonial Text */}
+        <div className="md:w-2/3 space-y-6">
+          <p className="text-2xl md:text-3xl font-semibold text-gray-900 leading-relaxed">
+            “With Proof, we now have the technology to identify and automate the
+            transactions that need to be notarized and securely signed. The
+            Proof platform gives us greater visibility into the customers we are
+            transacting with and increases trust in the documents we rely upon.
+            Consolidating to one identity management platform reduces our fees
+            and complexity, and better positions us to securely serve our
+            customers online.”
+          </p>
+          <div>
+            <p className="font-semibold text-gray-900">Morgan Cavallo</p>
+            <p className="text-gray-500">Director, Titling Compliance, Vroom</p>
+          </div>
         </div>
 
-        <div className="w-1/2 md:order-1 space-y-6">
-          <h1 className="text-4xl font-bold">
-            The future is digital.
-            <br /> Are you too?
-          </h1>
-          <p>
-            We have developed a free product especially for law firms that
-            allows you to utilise the full potential of notarity. With
-            personalised booking links, you can present yourself to your clients
-            in a modern way. <br /> We would be happy to present this offer to
-            you personally in a joint appointment and show you all the
-            advantages of notarity.
-          </p>
-          <div className="gap-4 flex mx-auto">
-            <button className="bg-green-800 px-4 py-2 rounded-md text-white">
-              Arrange a demo appointment
-            </button>
+        {/* Testimonial Image */}
+        <div className="md:w-1/3 flex justify-center mt-8 md:mt-0">
+          <div className=" rounded-full ">
+            <Image
+              src="/img/bedi.svg" // Replace this path with the actual path to the image
+              alt="Morgan Cavallo"
+              width={260}
+              height={260}
+              className="object-cover rounded-full "
+            />
           </div>
         </div>
       </div>
-    </main>
+    </section>
   );
 };
 

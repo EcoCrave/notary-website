@@ -26,17 +26,17 @@ export default function HowItWorks() {
 
   return (
     <section className=" py-16 ">
-      <div className="w-[87%] mx-auto bg-gray-100 rounded-lg p-8 md:flex md:space-x-12">
+      <div className="w-[87%] mx-auto bg-gray-900 rounded-lg p-8 md:flex md:space-x-12">
         {/* Left Section - Steps */}
         <div className="md:w-1/3 space-y-4">
-          <h2 className="text-2xl font-bold text-green-900">How it works</h2>
+          <h2 className="text-4xl font-bold text-green-500">How it works</h2>
           <ul className="mt-4 space-y-4">
             {steps.map((step, index) => (
               <li
                 key={index}
                 onClick={() => setActiveStep(index)}
                 className={`cursor-pointer text-lg font-medium ${
-                  activeStep === index ? "text-green-900" : "text-gray-900"
+                  activeStep === index ? "text-green-500" : "text-white"
                 }`}
               >
                 {step.title}
@@ -47,10 +47,10 @@ export default function HowItWorks() {
 
         {/* Right Section - Description */}
         <div className="md:w-2/3 mt-8 md:mt-0">
-          <h3 className="text-lg font-semibold text-gray-900">
+          <h3 className="text-2xl font-semibold text-white">
             {steps[activeStep].title}
           </h3>
-          <p className="text-gray-700 mt-4">{steps[activeStep].description}</p>
+          <p className="text-gray-50 mt-4">{steps[activeStep].description}</p>
         </div>
       </div>
     </section>

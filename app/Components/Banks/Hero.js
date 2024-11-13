@@ -30,43 +30,14 @@ export default function Hero() {
         </div>
 
         {/* Right Side Cards */}
-        <div className="lg:w-1/2 grid grid-cols-2 gap-6">
-          <div className=" shadow-lg rounded-lg">
-            <Image
-              className="rounded-xl w-full "
-              width={500}
-              height={500}
-              src="/img/digitalize.webp"
-              alt=""
-            />
-          </div>
-          <div className=" shadow-lg rounded-lg">
-            <Image
-              className="rounded-xl w-full "
-              width={500}
-              height={500}
-              src="/img/digitalize.webp"
-              alt=""
-            />
-          </div>
-          <div className="  shadow-lg rounded-lg flex flex-col justify-between">
-            <Image
-              className="rounded-xl w-full "
-              width={500}
-              height={500}
-              src="/img/digitalize.webp"
-              alt=""
-            />
-          </div>
-          <div className="  shadow-lg ">
-            <Image
-              className="rounded-xl w-full "
-              width={500}
-              height={500}
-              src="/img/digitalize.webp"
-              alt=""
-            />
-          </div>
+        <div className="w-1/2 ">
+          <Image
+            className="rounded-xl w-full "
+            width={500}
+            height={500}
+            src="/img/digitalize.webp"
+            alt=""
+          />
         </div>
       </div>
     </section>

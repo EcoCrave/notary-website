@@ -1,48 +1,73 @@
 import Image from "next/image";
 import React from "react";
+import { MdOutlineCheckCircle } from "react-icons/md";
 
 const ReachSignature = () => {
   return (
-    <main className=" py-16 ">
-      <div className="text-center w-full pb-20">
-        <span className="font-semibold text-xl">Introducing</span>
-        <h1 className="text-6xl font-bold">Online Notary</h1>
-      </div>
-      <div className=" items-center md:flex gap-28 justify-center w-[87%] mx-auto space-y-4">
-        <div className=" relative">
+    <section className=" py-16 px-6">
+      <div className="container mx-auto  flex justify-between items-center lg:flex-row   gap-12">
+        {/* Left Side Image */}
+
+        <div className="rounded-3xl overflow-hidden">
           <Image
-            className="rounded-xl "
-            width={600}
-            height={600}
-            src="/img/digitalize.webp"
-            alt=""
+            src="/img/bedi1.webp" // Replace this path with the actual path to the image
+            alt="Person on Laptop"
+            width={500}
+            height={500}
+            className="object-cover"
           />
         </div>
 
-        <div className="w-1/2 space-y-6">
-          <h1 className="text-4xl font-bold">
-            The future is digital.
-            <br /> Are you too?
-          </h1>
-          <p>
-            We have developed a free product especially for law firms that
-            allows you to utilise the full potential of notarity. With
-            personalised booking links, you can present yourself to your clients
-            in a modern way. <br /> We would be happy to present this offer to
-            you personally in a joint appointment and show you all the
-            advantages of notarity.
+        {/* Right Side Content */}
+        <div className="lg:w-1/2 space-y-6">
+          <h2 className="text-3xl font-bold text-gray-900">
+            What you can expect
+          </h2>
+          <p className="text-gray-700">
+            With Proof, you’ll get an all-in-one identity verification platform
+            for all your business transactions.
           </p>
-          <div className="gap-4 flex mx-auto">
-            <button className="bg-green-800 px-4 py-2 rounded-md text-white">
-              Arrange a demo appointment
-            </button>
-            <button className=" px-4 py-2 rounded-md text-black  border-2">
-              Arrange a demo appointment
-            </button>
-          </div>
+
+          {/* List of Expectations */}
+          <ul className="space-y-4">
+            <li className="flex items-start">
+              <MdOutlineCheckCircle className="w-6 h-6 text-green-900 mr-3" />
+              <span className="text-gray-700">
+                An enterprise-grade platform to drive accurate, compliant
+                notarizations that are accepted nationwide
+              </span>
+            </li>
+            <li className="flex items-start">
+              <MdOutlineCheckCircle className="w-6 h-6 text-green-900 mr-3" />
+              <span className="text-gray-700">
+                Access to the world’s leading on-demand notary network that has
+                completed millions of online notarizations
+              </span>
+            </li>
+            <li className="flex items-start">
+              <MdOutlineCheckCircle className="w-6 h-6 text-green-900 mr-3" />
+              <span className="text-gray-700">
+                The ability to use your in-house notaries or leverage our
+                on-demand Notarize Network, available 24/7
+              </span>
+            </li>
+            <li className="flex items-start">
+              <MdOutlineCheckCircle className="w-6 h-6 text-green-900 mr-3" />
+              <span className="text-gray-700">
+                A comprehensive platform to handle everything from online
+                notarization to eSign and identity verification in one seamless
+                experience
+              </span>
+            </li>
+          </ul>
+
+          {/* Learn More Button */}
+          <button className="mt-6 bg-green-900 text-white py-2 px-4 rounded-md font-medium flex items-center hover:bg-green-950 transition">
+            Learn more
+          </button>
         </div>
       </div>
-    </main>
+    </section>
   );
 };
 

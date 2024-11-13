@@ -39,15 +39,15 @@ export default function AdvantagesForClients() {
           {advantages.map((advantage, index) => (
             <div
               key={index}
-              className="flex flex-col items-start bg-gray-50 p-6 rounded-lg shadow-md"
+              className="flex flex-col items-start bg-gray-900 p-6 rounded-lg shadow-md"
             >
-              <div className="bg-green-900 p-2 rounded-full mb-4">
+              <div className="bg-green-500 p-2 rounded-full mb-4">
                 {advantage.icon}
               </div>
-              <h3 className="text-xl font-semibold text-gray-900">
+              <h3 className="text-xl font-semibold text-green-500">
                 {advantage.title}
               </h3>
-              <p className="text-gray-700 mt-2">{advantage.description}</p>
+              <p className="text-white mt-2">{advantage.description}</p>
             </div>
           ))}
         </div>
