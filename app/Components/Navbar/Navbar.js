@@ -22,7 +22,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white border-b border-gray-200 p-4">
+    <nav className="bg-white border-b p-4 font-bold border-none">
       <div className="container mx-auto flex justify-between items-center">
         {/* Left Side - Website Name */}
         <div className="text-xl font-bold">
@@ -32,29 +32,35 @@ const Navbar = () => {
         </div>
 
         {/* Right Side - Menu */}
+
         <div className="hidden md:flex items-center space-x-6">
+
           {/* Map through the main menu items */}
+
           {Object.entries(menuItems).map(([label, path]) => (
-            <div key={label} className="relative group">
+            <div key={label} className="relative group flex">
               {label === "Industries" ? (
                 <>
                   <button
-                    className="text-gray-800 hover:text-blue-500"
+                    className="relative text-gray-800 hover:text-blue-500 transition duration-300 font-bold"
                     onMouseEnter={() => setIsIndustriesOpen(true)}
                     onMouseLeave={() => setIsIndustriesOpen(false)}
                   >
                     {label}
                   </button>
+
                   {/* Subcategories */}
+
                   {isIndustriesOpen && (
                     <div
-                      className="absolute top-8 bg-white shadow-lg rounded-md py-2"
+                      className="font-bold absolute left-1/2 transform -translate-x-1/2 mt-2 bg-white shadow-lg rounded-md py-2 flex space-x-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out"
+                    //   className="absolute top-8 bg-white shadow-2xl rounded-md py-2 flex px-4 rounded"
                       onMouseEnter={() => setIsIndustriesOpen(true)}
                       onMouseLeave={() => setIsIndustriesOpen(false)}
                     >
                       {Object.entries(industriesSubCategories).map(([subLabel, subPath]) => (
                         <Link key={subLabel} href={subPath} legacyBehavior>
-                          <a className="block px-4 py-2 text-gray-800 hover:bg-blue-100">{subLabel}</a>
+                          <a className="block px-4 py-2 text-gray-800 hover:bg-blue-100 rounded">{subLabel}</a>
                         </Link>
                       ))}
                     </div>
@@ -65,7 +71,7 @@ const Navbar = () => {
                   <a
                     className={`${
                       label === "How It Works" || label === "Login"
-                        ? "px-4 py-2 bg-blue-100 text-blue-500 rounded hover:bg-blue-200"
+                        ? "px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-400"
                         : "text-gray-800 hover:text-blue-500"
                     }`}
                   >
@@ -105,7 +111,7 @@ const Navbar = () => {
                     <div className="ml-4">
                       {Object.entries(industriesSubCategories).map(([subLabel, subPath]) => (
                         <Link key={subLabel} href={subPath} legacyBehavior>
-                          <a className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
+                          <a className="block px-4 py-2 text-gray-800 hover:bg-blue-400 hover:rounded">
                             {subLabel}
                           </a>
                         </Link>
@@ -118,7 +124,7 @@ const Navbar = () => {
                   <a
                     className={`block w-full text-left px-4 py-2 ${
                       label === "How It Works" || label === "Login"
-                        ? "bg-blue-100 text-blue-500 rounded hover:bg-blue-200"
+                        ? "bg-blue-500 text-white rounded hover:bg-blue-400"
                         : "text-gray-800 hover:bg-blue-100"
                     }`}
                   >
