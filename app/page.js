@@ -6,7 +6,6 @@ import HowItWorks from "./Components/Home/HowItWorks";
 import InternationalServices from "./Components/Home/InternationalServices";
 import PopularDocuments from "./Components/Home/PopularDocuments";
 import PriceBox from "./Components/Home/PriceBox";
-import ScrollCarosel from "./Components/Home/ScrollCarosel";
 import TestimonialsSlider from "./Components/Home/TestimonialsSlider";
 
 import UseCases from "./Components/Home/UseCases";
@@ -25,7 +24,6 @@ export default function Home() {
       <TestimonialsSlider />
       {/* <Digitalization /> */}
       <HowItWorks />
-      {/* <ScrollCarosel /> */}
       {/* <PdfViewer /> */}
       {/* <PdfEditor /> */}
       {/* <PopularDocuments /> */}

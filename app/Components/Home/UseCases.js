@@ -68,8 +68,8 @@ const Services = () => (
             key={index}
             className={`md:w-[87%] p-10 rounded-3xl flex items-center justify-center gap-10 bg-gradient-to-r ${gradient} shadow-md m-auto my-8  sticky ${topPosition}`}
           >
-            <div className="space-y-10 text-white w-1/2">
-              <h2 className="text-5xl font-bold">
+            <div className="space-y-5 text-white w-1/2">
+              <h2 className="text-4xl font-bold">
                 {title.split(" ")[0]} {title.split(" ")[1]}
               </h2>
               <div className="flex items-center gap-5 border-b pb-5 border-gray-500">
@@ -88,13 +88,16 @@ const Services = () => (
               </div>
               <p>{description}</p>
               <div>
-                <Link className="bg-green-900 p-2 space-y-2" href="">
+                <Link
+                  className="bg-green-700 p-2 rounded hover:bg-green-900 space-y-2"
+                  href=""
+                >
                   Learn More
                 </Link>
               </div>
             </div>
             <div>
-              <img src={imageUrl} alt="" />
+              <img className="h-80" src={imageUrl} alt="" />
             </div>
           </div>
         )
