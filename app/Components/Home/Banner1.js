@@ -19,28 +19,53 @@ const Banner1 = () => {
             alt=""
           />
           <img
-            className="w-40"
+            className="w-40 rounded"
             src="https://bluenotary.us/assets/clients/img-1.webp"
             alt=""
           />
           <img
             className="w-40"
-            src="https://bluenotary.us/assets/clients/img-3.webp"
+            src="https://bluenotary.us/assets/clients/img-2.webp"
             alt=""
           />
           <img
-            className="w-40"
-            src="https://bluenotary.us/assets/clients/img-4.webp"
-            alt=""
-          />
-          <img
-            className="w-40"
-            src="https://bluenotary.us/assets/clients/img-5.webp"
-            alt=""
-          />
-          <img
-            className="w-40"
+            className="w-40 rounded"
             src="https://bluenotary.us/assets/clients/img-1.webp"
+            alt=""
+          />
+          <img
+            className="w-40"
+            src="https://bluenotary.us/assets/clients/img-2.webp"
+            alt=""
+          />
+          <img
+            className="w-40 rounded"
+            src="https://bluenotary.us/assets/clients/img-1.webp"
+            alt=""
+          />
+          <img
+            className="w-40"
+            src="https://bluenotary.us/assets/clients/img-2.webp"
+            alt=""
+          />
+          <img
+            className="w-40 rounded"
+            src="https://bluenotary.us/assets/clients/img-1.webp"
+            alt=""
+          />
+          <img
+            className="w-40"
+            src="https://bluenotary.us/assets/clients/img-2.webp"
+            alt=""
+          />
+          <img
+            className="w-40 rounded"
+            src="https://bluenotary.us/assets/clients/img-1.webp"
+            alt=""
+          />
+          <img
+            className="w-40"
+            src="https://bluenotary.us/assets/clients/img-2.webp"
             alt=""
           />
         </div>

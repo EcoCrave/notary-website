@@ -1,112 +1,161 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 
 const Pricing = () => {
-  // Pricing cards data
-  const pricingCards = [
-    {
-      id: 1,
-      title: "For individuals",
-      description: "to get personal documents notarized",
-      price: "$25",
-      priceDescription: "with the Notarize™ Network",
-      details: [
-        "$10 for each additional seal",
-        "$10 for each on-demand witness",
-        "$5 for each additional signer",
-      ],
-      buttonText: "Notarize a document now",
-      features: [
-        "Legal nationwide",
-        "Connect with a notary in less than a second",
-        "Complete your notarization in minutes",
-        "Access and share your completed document immediately",
-        "Your account includes eSign with unlimited signers for $4 per transaction",
-      ],
-      bgColor: "bg-gray-900",
-      textColor: "text-white",
-      buttonColor: "bg-blue-500",
-    },
-    {
-      id: 2,
-      title: "For notaries",
-      description:
-        "who want to join the Notarize Network to take on-demand calls or provide online notarization to your customers",
-      price: "Join for free",
-      priceDescription:
-        "Earn $5 per completed notarization from our on-demand queue. Set the price when notarizing a document for your own customers.",
-      buttonText: "Get started today",
-      features: [
-        "Work as much or as little as you want, taking meetings as an online notary",
-        "Electronic seal and notary journal included",
-        "Comprehensive platform and fraud training",
-        "Set the price for your own customers – Notarize charges you $10 per notarization (+$3 for additional seals) and you keep the rest",
-      ],
-      bgColor: "bg-blue-100",
-      textColor: "text-gray-900",
-      buttonColor: "bg-blue-500",
-    },
-    {
-      id: 3,
-      title: "For businesses",
-      description:
-        "that want one platform for online notarization, eSign and identity verification",
-      price: "Varied Pricing",
-      priceDescription:
-        "Create a business account on Proof and secure all of your important transactions",
-      buttonText: "Learn more on Proof.com",
-      features: [
-        "24/7 access to the Notarize Network",
-        "Compliant with notarization laws in all 50 states",
-        "Allows your business to use employee notaries to serve transactions in-house",
-        "Online notarization and eSignature in an all-in-one platform",
-      ],
-      bgColor: "bg-gray-100",
-      textColor: "text-gray-900",
-      buttonColor: "bg-blue-500",
-    },
-  ];
-
-  // Debugging
-  console.log(pricingCards);
+  const [notarySeats, setNotarySeats] = useState(1);
+  const subscriptionCost = 43 + (notarySeats - 1) * 10;
 
   return (
-    <section className="bg-gray-50 py-16 px-6">
-      {/* <div className="container mx-auto text-center mb-12">
-        <h1 className="text-3xl font-bold text-gray-900">Pricing</h1>
-      </div>
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-        {pricingCards.map((card) => (
-          <div
-            key={card.id}
-            className={`${card.bgColor} ${card.textColor} rounded-lg shadow-lg p-8`}
-          >
-            <h2 className="text-xl font-semibold mb-1">{card.title}</h2>
-            <p className="text-sm mb-4">{card.description}</p>
-            <h3 className="text-3xl font-bold mb-2">{card.price}</h3>
-            <p className="text-sm mb-6">{card.priceDescription}</p>
-            <div className="text-sm mb-4 space-y-1">
-              {card.details.map((detail, index) => (
-                <p key={index}>{detail}</p>
-              ))}
+    <div className="bg-gray-100 text-gray-900 py-16 px-6">
+      {/* Header Section */}
+      <header className="text-center mb-12">
+        <h1 className="text-4xl font-bold">
+          Choose the best plan for your business
+        </h1>
+        <p className="text-gray-600 mt-2">
+          No contracts. No surprise fees. Cancel anytime.
+        </p>
+        <div className="mt-4 flex justify-center items-center space-x-4">
+          <button className="py-2 px-4 bg-black text-white rounded-md font-medium">
+            For Notaries
+          </button>
+          <button className="py-2 px-4 border border-gray-300 rounded-md font-medium">
+            For Businesses / GNW
+          </button>
+          <button className="py-2 px-4 border border-gray-300 rounded-md font-medium">
+            For Closings
+          </button>
+          <button className="py-2 px-4 border border-gray-300 rounded-md font-medium">
+            eSign Only
+          </button>
+        </div>
+        <div className="mt-6">
+          <label className="flex items-center gap-2">
+            <input type="checkbox" className="form-checkbox" />
+            <span>Buy annual and get extra discount!</span>
+          </label>
+        </div>
+      </header>
+
+      {/* Pricing Section */}
+      <div className="grid md:grid-cols-2 gap-8">
+        {/* Dead Simple Pricing */}
+        <div className="bg-white rounded-lg shadow-lg p-6">
+          <h3 className="text-2xl font-bold">Dead Simple Pricing</h3>
+          <p className="text-gray-600 mt-2">
+            Simple subscription that's easy to understand and simple to use. No
+            contracts. No hidden fees.
+          </p>
+          <button className="mt-4 bg-blue-600 text-white py-2 px-6 rounded-md">
+            Get Business Pro
+          </button>
+
+          <div className="mt-6 p-4 bg-gray-100 rounded-lg">
+            <div className="flex justify-between items-center">
+              <span>I have RON Certified in-house notaries</span>
+              <input type="checkbox" className="form-checkbox" />
             </div>
-            <button
-              className={`${card.buttonColor} text-white font-semibold py-3 px-6 rounded-md w-full mb-6`}
-            >
-              {card.buttonText}
-            </button>
-            <ul className="space-y-2 text-sm">
-              {card.features.map((feature, index) => (
-                <li key={index} className="flex items-center">
-                  <span className="mr-2">✔️</span>
-                  {feature}
-                </li>
-              ))}
-            </ul>
+            <h3 className="text-4xl font-bold mt-4">Monthly Subscription</h3>
+            <p className="text-3xl font-bold">${subscriptionCost}</p>
+            <p className="text-gray-600">
+              per user per month + 2 free sessions
+            </p>
+            <div className="mt-4">
+              <label className="block text-sm">
+                Notary Seats ({notarySeats})
+              </label>
+              <input
+                type="range"
+                min="1"
+                max="15"
+                value={notarySeats}
+                onChange={(e) => setNotarySeats(Number(e.target.value))}
+                className="w-full"
+              />
+            </div>
           </div>
-        ))}
-      </div> */}
-    </section>
+
+          <div className="grid grid-cols-3 gap-4 mt-6">
+            <PricingBox title="Notarization" cost={10} />
+            <PricingBox title="Additional Stamps" cost={0} />
+            <PricingBox title="Additional Signers" cost={5} />
+            <PricingBox title="Additional Docs" cost={0} />
+            <PricingBox title="Your Own Witness" cost={0} />
+            <PricingBox title="BlueNotary Witness" cost={0} />
+            <PricingBox title="Hidden Costs" cost={0} highlight />
+          </div>
+
+          <ul className="mt-6 space-y-2 text-gray-700">
+            <li>
+              ✔ Free 2 sessions per seat per month with Business Pro - saving
+              $50 every month!
+            </li>
+            <li>✔ KBA & Biometrics Multi-Step identity verification process</li>
+            <li>✔ Legal & Compliant with all 50 states</li>
+            <li>✔ 10k+ Notaries available from 40 states</li>
+            <li>✔ Live Chat Support with average response time under 5 mins</li>
+            <li>✔ Templates for auto-tagging</li>
+            <li>✔ Detailed Audit Logs & Video stored for 10+ years</li>
+          </ul>
+
+          <button className="mt-6 w-full bg-blue-600 text-white py-3 rounded-md">
+            Get Business Pro
+          </button>
+        </div>
+
+        {/* Enterprise Custom Pricing */}
+        <div className="bg-white rounded-lg shadow-lg p-6">
+          <h3 className="text-2xl font-bold">For Enterprise Custom Pricing</h3>
+          <p className="text-gray-600 mt-2">
+            For teams that require access to advanced features and tailored
+            services.
+          </p>
+          <button className="mt-4 bg-blue-600 text-white py-2 px-6 rounded-md">
+            Contact Sales
+          </button>
+
+          <ul className="mt-6 space-y-4">
+            <li>✔ Volume Discount</li>
+            <li>✔ Access to BlueNotary API</li>
+            <li>✔ White Label Solution</li>
+            <li>✔ CRM / LMS Integration</li>
+            <li>✔ Dedicated Customer Success Manager</li>
+            <li>✔ Custom Development</li>
+            <li>✔ Priority Support</li>
+          </ul>
+
+          <div className="mt-6">
+            <h3 className="text-xl font-bold">Book a Demo Now</h3>
+            <p className="text-gray-600">
+              Book a demo with our customer expert team & get a live demo on a
+              15 min call
+            </p>
+            <button className="mt-4 bg-blue-600 text-white py-2 px-6 rounded-md">
+              Book a Demo Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
+
+const PricingBox = ({ title, cost, highlight }) => (
+  <div
+    className={`p-4 border rounded-lg ${
+      highlight ? "bg-yellow-100" : "bg-gray-50"
+    }`}
+  >
+    <h4 className="text-sm font-semibold">{title}</h4>
+    <p
+      className={`text-xl font-bold ${
+        highlight ? "text-blue-600" : "text-gray-800"
+      }`}
+    >
+      ${cost}
+    </p>
+  </div>
+);
 
 export default Pricing;
