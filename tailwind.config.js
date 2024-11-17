@@ -12,6 +12,16 @@ module.exports = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      keyframes: {
+        hideAndShow: {
+          "0%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-100%)" },
+          "100%": { transform: "translateY(0)" },
+        },
+      },
+      animation: {
+        "hide-and-show": "hideAndShow 1s ease-in-out",
+      },
     },
   },
   plugins: [],
