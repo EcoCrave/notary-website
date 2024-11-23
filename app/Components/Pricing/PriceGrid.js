@@ -130,7 +130,7 @@ const PriceGrid = (props) => {
             <tbody>
               {features.map((feature, featureIndex) => (
                 <tr key={featureIndex} className="border-t">
-                  <td className="p-4 text-gray-700">{feature}</td>
+                  <td className="p-4 text-gray-800 font-semibold">{feature}</td>
                   {plans.map((plan, planIndex) => (
                     <td key={planIndex} className="text-center p-4">
                       {plan.features[featureIndex] ? (
