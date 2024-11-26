@@ -1,3 +1,4 @@
+import SignBorad from "./Components/ESign/SignBorad";
 import Banner from "./Components/Home/Banner";
 import Banner1 from "./Components/Home/Banner1";
 import FAQSection from "./Components/Home/FAQSection";
@@ -19,6 +20,7 @@ export default function Home() {
       <UseCases />
       <TestimonialsSlider />
       <HowItWorks />
+      <SignBorad />
       <FAQSection />
     </div>
   );
