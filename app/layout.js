@@ -1,5 +1,5 @@
 import Footer from "./Components/H&F/Footer";
-import Header from "./Components/H&F/Header";
+import Header from "./Components/H&F/Navbar";
 import "./globals.css";
 
 export const metadata = {

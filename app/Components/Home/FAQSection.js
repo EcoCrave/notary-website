@@ -38,7 +38,7 @@ export default function FAQSection() {
   };
 
   return (
-    <div className="bg-gray-50 py-12  ">
+    <div className=" py-12  ">
       <div className="flex flex-col md:flex-row md:justify-between w-[87%] mx-auto">
         {/* Left Section */}
         <div className="md:w-1/2 mb-10 md:mb-0">

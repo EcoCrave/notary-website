@@ -3,7 +3,7 @@ import React from "react";
 
 const Customers = () => {
   return (
-    <section className=" py-16 px-8">
+    <div className=" py-16 px-8">
       <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
         {/* Left Content */}
         <div className="space-y-6 lg:order-2">
@@ -39,7 +39,7 @@ const Customers = () => {
           />
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

@@ -25,7 +25,7 @@ export default function HowItWorks() {
   const [activeStep, setActiveStep] = useState(0);
 
   return (
-    <section className=" py-16 ">
+    <div className=" py-16 ">
       <div className="w-[87%] mx-auto bg-gray-900 rounded-lg p-8 md:flex md:space-x-12">
         {/* Left Section - Steps */}
         <div className="md:w-1/3 space-y-4">
@@ -53,6 +53,6 @@ export default function HowItWorks() {
           <p className="text-gray-50 mt-4">{steps[activeStep].description}</p>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

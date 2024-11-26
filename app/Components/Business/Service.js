@@ -3,7 +3,7 @@ import { FaCheck } from "react-icons/fa";
 
 const Service = () => {
   return (
-    <section className="bg-gray-50 py-16">
+    <div className="bg-gray-50 py-16">
       <div className="container mx-auto text-center">
         {/* Heading */}
         <h2 className="text-3xl font-bold text-gray-900">
@@ -38,7 +38,7 @@ const Service = () => {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

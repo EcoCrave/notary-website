@@ -2,11 +2,11 @@ import { motion } from "framer-motion";
 
 const ServiceCard = () => {
   return (
-    <section className=" px-4 py-12">
+    <div className=" px-4 py-12">
       <div className="mx-auto w-fit">
         <Card />
       </div>
-    </section>
+    </div>
   );
 };
 

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="bg-gray-50 py-16 ">
+    <div className="bg-gray-50 py-16 ">
       <div className=" mx-auto w-[87%] flex flex-col lg:flex-row items-start lg:items-center gap-10">
         {/* Left Side Content */}
         <div className="lg:w-1/2 ">
@@ -69,6 +69,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

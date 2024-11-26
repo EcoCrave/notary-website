@@ -2,7 +2,7 @@ import React from "react";
 
 const WhyUs = () => {
   return (
-    <section className="bg-gray-50 py-16 px-6">
+    <div className="bg-gray-50 py-16 px-6">
       <div className="w-[87%] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
         {/* Left Section */}
         <div className="space-y-5">
@@ -54,7 +54,7 @@ const WhyUs = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

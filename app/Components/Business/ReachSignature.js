@@ -4,7 +4,7 @@ import { MdOutlineCheckCircle } from "react-icons/md";
 
 const ReachSignature = () => {
   return (
-    <section className=" py-16 px-6">
+    <div className=" py-16 px-6">
       <div className="container mx-auto  flex justify-between items-center lg:flex-row   gap-12">
         {/* Left Side Image */}
 
@@ -67,7 +67,7 @@ const ReachSignature = () => {
           </button>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

@@ -5,7 +5,7 @@ const HowItWorks = () => {
   return (
     <div className="bg-gray-50 space-y-5 text-gray-900">
       {/* Header Section */}
-      <section className="text-center py-16 px-4">
+      <div className="text-center py-16 px-4">
         <h2 className="text-lg uppercase font-semibold text-gray-500">
           How It Works
         </h2>
@@ -20,10 +20,10 @@ const HowItWorks = () => {
         <button className="mt-6 bg-green-600 text-white py-3 px-8 rounded-md font-semibold hover:bg-green-700 transition">
           Book appointment now
         </button>
-      </section>
+      </div>
 
       {/* Steps Section */}
-      <section className="space-y-10 py-12">
+      <div className="space-y-10 py-12">
         {steps.map((step, index) => (
           <div
             key={index}
@@ -57,10 +57,10 @@ const HowItWorks = () => {
             </div>
           </div>
         ))}
-      </section>
+      </div>
 
       {/* Video Section */}
-      <section className="bg-gray-900 py-20 shadow-lg p-8 text-center">
+      <div className="bg-gray-900 py-20 shadow-lg p-8 text-center">
         <h3 className="text-2xl text-white font-bold">
           Still have questions? Our explanatory video will help.
         </h3>
@@ -79,7 +79,7 @@ const HowItWorks = () => {
             Your browser does not support the video tag.
           </video>
         </div>
-      </section>
+      </div>
     </div>
   );
 };

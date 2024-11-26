@@ -3,7 +3,7 @@ import React from "react";
 
 const ReceiveDocument = () => {
   return (
-    <section className="bg-gray-900 py-16 px-8">
+    <div className="bg-gray-900 py-16 px-8">
       <div className="container w-[90%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         {/* Left Content */}
         <div className="space-y-6">
@@ -25,7 +25,7 @@ const ReceiveDocument = () => {
           />
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

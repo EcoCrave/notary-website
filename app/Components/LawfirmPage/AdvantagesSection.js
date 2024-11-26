@@ -1,6 +1,6 @@
 export default function AdvantagesSection() {
   return (
-    <section className="bg-white py-16 px-6">
+    <div className="bg-white py-16 px-6">
       <div className="w-[87%] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
         {/* Left Section */}
         <div>
@@ -50,6 +50,6 @@ export default function AdvantagesSection() {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

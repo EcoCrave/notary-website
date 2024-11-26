@@ -23,7 +23,7 @@ export default function AdvantagesForClients() {
   ];
 
   return (
-    <section className="bg-white py-16 px-6">
+    <div className="bg-white py-16 px-6">
       <div className="w-[87%] mx-auto">
         {/* Heading */}
         <div className="mb-12">
@@ -52,6 +52,6 @@ export default function AdvantagesForClients() {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 }

@@ -2,7 +2,7 @@ import React from "react";
 
 const Booking = () => {
   return (
-    <section className="flex   mx-auto justify-center items-center py-12 px-4">
+    <div className="flex   mx-auto justify-center items-center py-12 px-4">
       <div className="bg-gray-900 shadow-md rounded-2xl text-center p-8 py-10 w-[87%] mx-auto">
         {/* Heading */}
         <h2 className="text-4xl font-bold text-white mb-4">
@@ -21,7 +21,7 @@ const Booking = () => {
           Book an appointment
         </button>
       </div>
-    </section>
+    </div>
   );
 };
 

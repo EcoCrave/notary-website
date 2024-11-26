@@ -46,7 +46,7 @@ export default function TestimonialsSlider() {
   const goToPrevious = () => sliderRef.current.slickPrev();
 
   return (
-    <section className="bg-gray-900 py-12">
+    <div className="bg-gray-900 py-12">
       <div className="w-[87%] mx-auto py-6">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
           {/* Left Section */}
@@ -132,6 +132,6 @@ export default function TestimonialsSlider() {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

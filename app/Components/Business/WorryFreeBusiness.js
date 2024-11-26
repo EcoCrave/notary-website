@@ -3,7 +3,7 @@ import React from "react";
 
 const WorryFreeBusiness = () => {
   return (
-    <section className="bg-white py-16 px-6">
+    <div className="bg-white py-16 px-6">
       <div className="container mx-auto flex flex-col md:flex-row items-center md:justify-between">
         {/* Testimonial Text */}
         <div className="md:w-2/3 space-y-6">
@@ -35,7 +35,7 @@ const WorryFreeBusiness = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

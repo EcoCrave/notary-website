@@ -1,116 +1,139 @@
+"use client";
 import Link from "next/link";
-import {
-  FaFacebookF,
-  FaLinkedinIn,
-  FaTwitter,
-  FaInstagram,
-  FaPinterest,
-  FaTiktok,
-} from "react-icons/fa";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
+import { FaXTwitter, FaTiktok, FaLinkedin } from "react-icons/fa6";
+
 const Footer = () => {
-  const columns = {
-    "Online Notary": [
-      "Street address",
-      "State name",
-      "Online notary LLC",
-      "Terms and Privacy Policy",
-    ],
-    Solutions: ["For Real Estate", "For Business", "For Law Firms"],
-    Platform: [
-      "Remote Online Notarization",
-      "In Person Notarization",
-      "eSignature",
-    ],
-    Resources: [
-      "Contact Sales",
-      "Case Studies",
-      "Blog",
-      "Notary Near Me",
-      "Notary By State",
-    ],
-    Support: ["Live Support", "Support Desk", "BF Support Group"],
-  };
   return (
-    <footer className="bg-gray-900 text-white px-6 py-10">
-      {/* Section 1 */}
-      <div className="w-[90%] mx-auto">
-        <div className="mb-10">
-          <div className="flex flex-col md:flex-row items-center justify-between border-b border-gray-700 pb-6">
-            {/* Left Part */}
-            <div className="flex flex-col w-full md:w-1/2 mb-6 md:mb-0">
-              <h2 className="text-lg font-bold mb-4 ml-8">
-                Join our newsletter
-              </h2>
-              <div className="flex items-center w-1/2">
-                <div className="relative w-full">
-                  <input
-                    type="email"
-                    placeholder="Send us your email address"
-                    className="ml-8 w-full border border-gray-700 p-3 pl-10 rounded-md bg-gray-800 text-white placeholder-gray-400 outline-none"
-                  />
-                  <span className="ml-8 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500">
-                    @
-                  </span>
-                </div>
-                <button className="ml-12 bg-white text-gray-900 px-6 py-3 rounded-md mr-14">
-                  Join
-                </button>
-              </div>
-            </div>
-            {/* Right Part */}
-            <div className="flex flex-col w-full md:w-1/2">
-              <h2 className="text-lg font-bold mb-4 mx-24">Follow Us</h2>
-              <div className="flex space-x-10 mx-24">
-                <Link href="#">
-                  <FaFacebookF className="text-2xl cursor-pointer text-white hover:text-gray-400" />
-                </Link>
-                <Link href="#">
-                  <FaLinkedinIn className="text-2xl cursor-pointer text-white hover:text-gray-400" />
-                </Link>
-                <Link href="#">
-                  <FaTwitter className="text-2xl cursor-pointer text-white hover:text-gray-400" />
-                </Link>
-                <Link href="#">
-                  <FaInstagram className="text-2xl cursor-pointer text-white hover:text-gray-400" />
-                </Link>
-                <Link href="#">
-                  <FaPinterest className="text-2xl cursor-pointer text-white hover:text-gray-400" />
-                </Link>
-                <Link href="#">
-                  <FaTiktok className="text-2xl cursor-pointer text-white hover:text-gray-400" />
-                </Link>
-              </div>
-            </div>
+    <footer className="bg-gray-900 text-white text-lg py-10">
+      <div className="w-[87%] mx-auto gap-8 grid grid-cols-2 md:grid-cols-5 ">
+        {/* Logo and Address */}
+        <div className=" space-y-5">
+          <div className="flex items-center space-x-2">
+            {/* <img src="" alt="Logo" className="h-8" /> */}
+            <h3 className="text-3xl font-bold">Online Notary</h3>
+          </div>
+          <p>
+            1 East Erie Street, 1 East Erie Street, 1 East Erie Street, 1 East
+            Erie Street,
+          </p>
+
+          {/* Social Media Icons */}
+          <div className="flex space-x-8 pt-3 ">
+            <Link href="#">
+              <FaFacebookF className="text-xl" />
+            </Link>
+            <Link href="#">
+              <FaInstagram className="text-xl" />
+            </Link>
+            <Link href="#">
+              {" "}
+              <FaXTwitter className="text-xl" />
+            </Link>
+            <Link href="#">
+              {" "}
+              <FaTiktok className="text-xl" />
+            </Link>
+            <Link href="#">
+              {" "}
+              <FaLinkedin className="text-xl" />
+            </Link>
           </div>
         </div>
-        {/* Section 2 */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mb-10 ">
-          {Object.entries(columns).map(([title, items], index) => (
-            <div key={index}>
-              <h2 className="text-lg font-bold mb-4">{title}</h2>
-              <ul>
-                {items.map((item, idx) => (
-                  <li key={idx} className="mb-2">
-                    <Link
-                      href="#"
-                      className="hover:underline text-gray-300 hover:text-white"
-                    >
-                      {item}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+
+        {/* Industries */}
+        <div>
+          <h3 className="font-bold text-3xl mb-4">Industries</h3>
+          <ul className="space-y-2 text-gray-300 ">
+            <li>
+              <Link href="#" className="hover:underline">
+                Bank
+              </Link>
+            </li>
+            <li>
+              <Link href="#" className="hover:underline">
+                Business
+              </Link>
+            </li>
+            <li>
+              <Link href="#" className="hover:underline">
+                Law Firm
+              </Link>
+            </li>
+          </ul>
         </div>
-        {/* Section 3 */}
-        <div className="text-center">
-          <p className="text-lg font-bold text-gray-300">
-            All rights reserved 2024 Online Notary
-          </p>
+
+        {/* Solutions */}
+        <div>
+          <h3 className="font-bold text-3xl mb-4">Solutions</h3>
+          <ul className="space-y-2 text-gray-300 ">
+            <li>
+              <Link href="#" className="hover:underline">
+                Online Notarization
+              </Link>
+            </li>
+            <li>
+              <Link href="#" className="hover:underline">
+                In-Person Notarization
+              </Link>
+            </li>
+            <li>
+              <Link href="#" className="hover:underline">
+                eSignature
+              </Link>
+            </li>
+          </ul>
         </div>
+
+        {/* Resources */}
+        <div>
+          <h3 className="font-bold text-3xl mb-4">Resources</h3>
+          <ul className="space-y-2 text-gray-300 ">
+            <li>
+              <Link href="#" className="hover:underline">
+                How it works
+              </Link>
+            </li>
+            <li>
+              <Link href="#" className="hover:underline">
+                Articals
+              </Link>
+            </li>
+            <li>
+              <Link href="#" className="hover:underline">
+                Contact Us
+              </Link>
+            </li>
+            <li>
+              <Link href="#" className="hover:underline">
+                Desclaimer & Policy
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* Support */}
+        <div className="space-y-5">
+          <h3 className="font-bold text-2xl mb-4">
+            Subscribe To Our Newsletter :
+          </h3>
+          <form className="flex flex-col space-y-1">
+            <input
+              type="email"
+              className="p-3 outline-none rounded text-black"
+              placeholder="email.."
+            />
+            <input
+              type="submit"
+              className="bg-green-700 hover:bg-green-900 outline-none px-4 py-2 rounded w-28 cursor-pointer"
+            />
+          </form>
+        </div>
+
+        {/* Forms */}
       </div>
     </footer>
   );
 };
+
 export default Footer;
