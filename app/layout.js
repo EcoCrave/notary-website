@@ -1,5 +1,3 @@
-import Footer from "./Components/H&F/Footer";
-import Header from "./Components/H&F/Navbar";
 import "./globals.css";
 
 export const metadata = {
@@ -10,9 +8,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={``}>
-        <Header /> {children} <Footer />
-      </body>
+      <body className={``}> {children}</body>
     </html>
   );
 }

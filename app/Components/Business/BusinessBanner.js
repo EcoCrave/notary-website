@@ -1,8 +1,7 @@
 import React from "react";
-
 const BusinessBanner = () => {
   return (
-    <div className="bg-gray-50 py-16 px-6 back bg-[url('/img/bghome.png')] bg-cover bg-no-repeat bg-center">
+    <section className="bg-gray-50 py-16 px-6 back bg-[url('/img/bghome.png')] bg-cover bg-no-repeat bg-center">
       <div className="container mx-auto flex flex-col lg:flex-row items-start lg:items-center gap-10">
         {/* Left Side Content */}
         <div className="lg:w-1/2 space-y-4 p-10">
@@ -31,7 +30,7 @@ const BusinessBanner = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

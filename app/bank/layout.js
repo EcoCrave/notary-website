@@ -6,7 +6,7 @@ export const metadata = {
 export default function BankLayout({ children }) {
   return (
     <html lang="en">
-      <body className={``}>{children}</body>
+      <body className={``}> {children}</body>
     </html>
   );
 }

@@ -6,7 +6,7 @@ import WorryFreeBusiness from "../Components/Business/WorryFreeBusiness";
 import Banner1 from "../Components/Home/Banner1";
 import FAQSection from "../Components/Home/FAQSection";
 
-export default function BusinessService() {
+const BusinessService = () => {
   return (
     <div>
       <BusinessBanner />
@@ -18,4 +18,6 @@ export default function BusinessService() {
       <FAQSection />
     </div>
   );
-}
+};
+
+export default BusinessService;

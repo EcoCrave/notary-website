@@ -7,13 +7,13 @@ import Booking from "../Components/Banks/Booking";
 
 const page = () => {
   return (
-    <div>
+    <>
       <Hero />
       <UseCase />
       <WhyUs />
       <Process />
       <Booking />
-    </div>
+    </>
   );
 };
 

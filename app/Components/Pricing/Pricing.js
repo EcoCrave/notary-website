@@ -12,7 +12,7 @@ const Pricing = () => {
       {" "}
       <div className=" w-[90%] mx-auto text-gray-900 py-16 px-6">
         {/* Header Section */}
-        <header className="text-center mb-12">
+        <div className="text-center mb-12">
           <h1 className="text-4xl font-bold">
             Choose the best plan for your business
           </h1>
@@ -59,7 +59,7 @@ const Pricing = () => {
               <span>Buy annual and get extra discount!</span>
             </label>
           </div>
-        </header>
+        </div>
         {/* Pricing Section */}
 
         {service === "business" || service === "closing" ? (
@@ -67,7 +67,6 @@ const Pricing = () => {
         ) : (
           <PriceGrid service={service} />
         )}
-        {/* -------------------- */}
       </div>
     </div>
   );
