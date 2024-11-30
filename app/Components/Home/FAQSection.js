@@ -39,13 +39,13 @@ export default function FAQSection() {
 
   return (
     <div className=" py-20  ">
-      <div className="flex flex-col md:flex-row md:justify-between w-[85%] mx-auto">
+      <div className="flex flex-col items-center md:flex-row md:justify-between w-[85%] mx-auto">
         {/* Left Section */}
         <div className="md:w-1/2 mb-10 md:mb-0">
           <button className="mb-4 px-4 py-2 border rounded-full text-sm font-semibold text-gray-800 border-gray-300">
             FAQ'S
           </button>
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-5xl font-bold text-gray-900 ">
             Frequently Asked Questions
           </h2>
           <button className="mt-6 px-6 py-3 bg-green-900 text-white rounded-lg font-medium">

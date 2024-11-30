@@ -2,8 +2,8 @@ import Image from "next/image";
 
 const Testimonial = () => {
   return (
-    <div className="bg-gray-50">
-      <div className=" w-[90%] mx-auto py-10  px-6">
+    <div className="bg-gray-50 bg-gradient-to-b from-blue-50 to-white py-10">
+      <div className=" w-[85%] mx-auto py-10  ">
         <div className=" mx-auto text-center space-y-6">
           {/* Quotation and Text */}
           <p className="text-gray-600 text-lg font-medium flex justify-center items-start">

@@ -4,10 +4,10 @@ import React from "react";
 const WorryFreeBusiness = () => {
   return (
     <div className="bg-white py-16 px-6">
-      <div className="container mx-auto flex flex-col md:flex-row items-center md:justify-between">
+      <div className="w-[85%] mx-auto flex flex-col md:flex-row items-center md:justify-between">
         {/* Testimonial Text */}
         <div className="md:w-2/3 space-y-6">
-          <p className="text-2xl md:text-3xl font-semibold text-gray-900 leading-relaxed">
+          <p className="text-2xl  font-semibold text-gray-800 leading-relaxed">
             “With Proof, we now have the technology to identify and automate the
             transactions that need to be notarized and securely signed. The
             Proof platform gives us greater visibility into the customers we are

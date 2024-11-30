@@ -8,7 +8,7 @@ const FancyBox = (props) => {
   const subscriptionCost = 43 + (notarySeats - 1) * 10;
   return (
     <div>
-      <div className="grid md:grid-cols-2 gap-8">
+      <div className="grid md:grid-cols-2  gap-8">
         {/* Dead Simple Pricing */}
         <div className="bg-white rounded-lg shadow-lg p-6">
           <h3 className="text-2xl font-bold">Dead Simple Pricing</h3>

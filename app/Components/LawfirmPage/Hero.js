@@ -2,12 +2,12 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <div className="bg-gray-50 py-16 ">
-      <div className=" mx-auto w-[87%] flex flex-col lg:flex-row items-start lg:items-center gap-10">
+    <div className="bg-gradient-to-b from-blue-50 to-white py-24 ">
+      <div className=" mx-auto w-[85%] flex flex-col lg:flex-row items-start lg:items-center gap-10">
         {/* Left Side Content */}
         <div className="lg:w-1/2 ">
           <div className="pr-9 space-y-8">
-            <p className="text-sm uppercase tracking-widest text-gray-500 font-semibold">
+            <p className=" uppercase tracking-widest text-gray-500 font-semibold">
               The future is digital
             </p>
             <h1 className="text-5xl font-bold text-gray-900 leading-tight">

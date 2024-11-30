@@ -3,7 +3,7 @@ import { FaCheck } from "react-icons/fa";
 
 const Service = () => {
   return (
-    <div className="bg-gray-50 py-16">
+    <div className="bg-gradient-to-t from-blue-50 to-white py-16">
       <div className="container mx-auto text-center">
         {/* Heading */}
         <h2 className="text-3xl font-bold text-gray-900">

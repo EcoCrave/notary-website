@@ -1,14 +1,14 @@
 import React from "react";
 const BusinessBanner = () => {
   return (
-    <section className="bg-gray-50 py-16 px-6 back bg-[url('/img/bghome.png')] bg-cover bg-no-repeat bg-center">
-      <div className="container mx-auto flex flex-col lg:flex-row items-start lg:items-center gap-10">
+    <section className="bg-gray-50 py-24  back bg-[url('/img/bghome.png')] bg-cover bg-no-repeat bg-center">
+      <div className="w-[85%] mx-auto flex flex-col lg:flex-row items-start lg:items-center gap-10">
         {/* Left Side Content */}
         <div className="lg:w-1/2 space-y-4 p-10">
           <p className="text-sm uppercase tracking-widest text-gray-500 font-semibold">
             The future is digital
           </p>
-          <h1 className="text-6xl font-bold text-gray-900 leading-tight">
+          <h1 className="text-5xl font-bold text-gray-900 leading-tight">
             Expand your business across the nation
           </h1>
           <p className="text-gray-700 text-lg">

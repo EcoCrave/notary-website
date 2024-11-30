@@ -34,7 +34,7 @@ const data = [
 const Services = () => (
   <div className=" pb-20 pt-10">
     <div className="md:w-[80%] m-auto">
-      <div className="text-center py-8 space-y-3">
+      <div className="text-center pt-5 space-y-3">
         <p className=" font-semibold">SOLUTIONS WE PROVIDE</p>
         <h2 className="text-5xl font-bold">Business Use Cases</h2>
       </div>

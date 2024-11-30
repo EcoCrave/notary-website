@@ -23,8 +23,8 @@ export default function AdvantagesForClients() {
   ];
 
   return (
-    <div className="bg-white py-16 px-6">
-      <div className="w-[87%] mx-auto">
+    <div className="bg-white bg-gradient-to-b from-gray-50 to-white py-16 px-6">
+      <div className="w-[85%] mx-auto">
         {/* Heading */}
         <div className="mb-12">
           <h2 className="text-4xl font-bold text-gray-900">
@@ -39,7 +39,7 @@ export default function AdvantagesForClients() {
           {advantages.map((advantage, index) => (
             <div
               key={index}
-              className="flex flex-col items-start bg-gray-900 p-6 rounded-lg shadow-md"
+              className="flex flex-col items-start bg-gradient-to-b from-blue-50 to-white hover:-translate-y-2 cursor-pointer duration-300 p-6 rounded-lg shadow-md"
             >
               <div className="bg-green-500 p-2 rounded-full mb-4">
                 {advantage.icon}
@@ -47,7 +47,7 @@ export default function AdvantagesForClients() {
               <h3 className="text-xl font-semibold text-green-500">
                 {advantage.title}
               </h3>
-              <p className="text-white mt-2">{advantage.description}</p>
+              <p className=" mt-2">{advantage.description}</p>
             </div>
           ))}
         </div>

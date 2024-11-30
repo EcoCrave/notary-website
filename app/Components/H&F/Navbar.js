@@ -45,7 +45,7 @@ const Navbar = () => {
         { label: "Contact Us", path: "/contact" },
       ],
     },
-    { label: "Login / Register", path: "/login", special: true },
+    { label: "Login / Register", path: "/login" },
     { label: "Book An Appointment", path: "/login", special: true },
   ];
   const handleSubMenuToggle = (label) => {
@@ -73,7 +73,7 @@ const Navbar = () => {
                 <Link
                   className={`${
                     special
-                      ? "px-4 py-2 bg-white text-gray-900 rounded hover:bg-gray-300"
+                      ? "px-4 py-2 bg-white text-gray-900 rounded hover:bg-green-800 hover:text-white"
                       : "text-white hover:text-gray-300"
                   }`}
                   href={path}

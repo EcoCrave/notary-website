@@ -4,7 +4,7 @@ import React from "react";
 const Digitalization = () => {
   return (
     <main className=" py-16 ">
-      <div className=" items-center md:flex gap-28 justify-center w-[87%] mx-auto space-y-4">
+      <div className=" items-center md:flex gap-28 justify-center w-[85%] mx-auto space-y-4">
         <div className=" relative">
           <Image
             className="rounded-xl "

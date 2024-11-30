@@ -4,8 +4,8 @@ import { MdOutlineCheckCircle } from "react-icons/md";
 
 const ReachSignature = () => {
   return (
-    <div className=" py-16 px-6">
-      <div className="container mx-auto  flex justify-between items-center lg:flex-row   gap-12">
+    <div className=" py-16 px-6 bg-gray-50 ">
+      <div className="w-[85%] mx-auto  flex justify-between items-center lg:flex-row   gap-12">
         {/* Left Side Image */}
 
         <div className="rounded-3xl overflow-hidden">
@@ -32,32 +32,32 @@ const ReachSignature = () => {
           <ul className="space-y-4">
             <li className="flex items-start">
               <MdOutlineCheckCircle className="w-6 h-6 text-green-900 mr-3" />
-              <span className="text-gray-700">
+              <p className="text-gray-700">
                 An enterprise-grade platform to drive accurate, compliant
                 notarizations that are accepted nationwide
-              </span>
+              </p>
             </li>
             <li className="flex items-start">
               <MdOutlineCheckCircle className="w-6 h-6 text-green-900 mr-3" />
-              <span className="text-gray-700">
+              <p className="text-gray-700">
                 Access to the world’s leading on-demand notary network that has
                 completed millions of online notarizations
-              </span>
+              </p>
             </li>
             <li className="flex items-start">
               <MdOutlineCheckCircle className="w-6 h-6 text-green-900 mr-3" />
-              <span className="text-gray-700">
+              <p className="text-gray-700">
                 The ability to use your in-house notaries or leverage our
                 on-demand Notarize Network, available 24/7
-              </span>
+              </p>
             </li>
             <li className="flex items-start">
               <MdOutlineCheckCircle className="w-6 h-6 text-green-900 mr-3" />
-              <span className="text-gray-700">
+              <p className="text-gray-700">
                 A comprehensive platform to handle everything from online
                 notarization to eSign and identity verification in one seamless
                 experience
-              </span>
+              </p>
             </li>
           </ul>
 

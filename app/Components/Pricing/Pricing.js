@@ -8,12 +8,12 @@ const Pricing = () => {
   const [service, setService] = useState("notarise");
   console.log(service);
   return (
-    <div className="bg-gray-100">
+    <div className="bg-gray-100 pt-10 pb-20">
       {" "}
-      <div className=" w-[90%] mx-auto text-gray-900 py-16 px-6">
+      <div className=" w-[85%] mx-auto text-gray-900 py-16 px-6">
         {/* Header Section */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold">
+        <div className="text-center  mb-5">
+          <h1 className="text-5xl px-40  font-bold">
             Choose the best plan for your business
           </h1>
           <p className="text-gray-600 mt-2">
@@ -53,7 +53,7 @@ const Pricing = () => {
               eSign Only
             </button>
           </div>
-          <div className="mt-6">
+          <div className="mt-6 ">
             <label className="flex items-center gap-2">
               <input type="checkbox" className="form-checkbox" />
               <span>Buy annual and get extra discount!</span>

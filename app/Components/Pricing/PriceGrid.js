@@ -77,15 +77,15 @@ const PriceGrid = (props) => {
   ];
 
   return (
-    <div className="bg-gray-50 rounded shadow-lg lg:w-[90%] mx-auto py-10 px-6">
+    <div className="bg-gray-50 rounded-lg shadow-lg ">
       <div className="mx-auto">
         {/* Pricing Table */}
-        <div className="overflow-x-auto">
-          <table className="w-full border-collapse border border-gray-200">
+        <div className="overflow-x-auto p-3">
+          <table className="w-full border-collapse  border-gray-200">
             {/* Header */}
             <thead>
               <tr>
-                <th className="text-left p-6 lg:w-1/2 bg-gray-50">
+                <th className="text-left py-6 lg:w-1/2 bg-gray-50">
                   <div className="flex items-center gap-4 mb-6 p-4 rounded-lg">
                     <div>
                       <p className="text-black text-3xl font-semibold">
