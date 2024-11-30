@@ -3,7 +3,7 @@ import React from "react";
 const Banner1 = () => {
   return (
     <main className=" bg-gray-900  py-10 pb-16">
-      <div className="text-center space-y-8 m-auto w-[87%]">
+      <div className="text-center space-y-8 m-auto w-[85%]">
         <h2 className="text-3xl text-white font-bold">
           Trusted by over 3,000 law firms, title agencies and businesses.
         </h2>

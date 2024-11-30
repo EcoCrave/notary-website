@@ -1,0 +1,13 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "name": "Colorado" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[[]]]
+      }
+    }
+  ]
+}

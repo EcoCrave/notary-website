@@ -2,43 +2,45 @@ import React from "react";
 import Image from "next/image";
 export default function NotarySection() {
   return (
-    <div className=" w-[90%] pb-10 mx-auto min-h-screen flex flex-col items-center ">
-      <div className="mt-10 pl-10 w-full gap-5 justify-center items-center grid md:grid-cols-2 ">
-        <div className="flex flex-col space-y-8 md:order-2 ">
-          <div className=" mt-10">
-            <h1 className="text-5xl spac text-left  font-bold text-gray-900">
-              Upload. <br />
-              Verify ID. <br /> Meet Online
-            </h1>
+    <div className="bg-gradient-to-t from-blue-50 to-white pb-20">
+      <div className=" w-[85%]   mx-auto min-h-screen flex flex-col items-center ">
+        <div className="mt-10  w-full gap-5 justify-center items-center grid md:grid-cols-2 ">
+          <div className="flex flex-col space-y-8 md:order-2 ">
+            <div className=" mt-10">
+              <h1 className="text-5xl spac text-left  font-bold text-gray-900">
+                Upload. <br />
+                Verify ID. <br /> Meet Online
+              </h1>
+            </div>
+            <Step
+              number="1"
+              title="Create an User Account"
+              description="Quickly upload your document in any file form."
+            />
+            <Step
+              number="2"
+              title="Upload Your Documents"
+              description="Quickly upload your document in any file form."
+            />
+            <Step
+              number="3"
+              title="Verify Your Identity"
+              description="Check Signer's ID through Biometrics, KBA, or even Credible Witness."
+            />
+            <Step
+              number="4"
+              title="Meet The Notary"
+              description="Sign, seal, and send to whomever needs it after meeting the notary public agent in a live video/audio session."
+            />
           </div>
-          <Step
-            number="1"
-            title="Create an User Account"
-            description="Quickly upload your document in any file form."
-          />
-          <Step
-            number="2"
-            title="Upload Your Documents"
-            description="Quickly upload your document in any file form."
-          />
-          <Step
-            number="3"
-            title="Verify Your Identity"
-            description="Check Signer's ID through Biometrics, KBA, or even Credible Witness."
-          />
-          <Step
-            number="4"
-            title="Meet The Notary"
-            description="Sign, seal, and send to whomever needs it after meeting the notary public agent in a live video/audio session."
-          />
-        </div>
-        <div className="flex order-1   flex-col md:flex-row items-center mt-16 space-y-8 md:space-y-0 md:space-x-12">
-          <Image
-            src="/img/how-it-works.png"
-            width={600}
-            height={600}
-            alt="How it works"
-          />
+          <div className="flex order-1   flex-col md:flex-row items-center mt-16 space-y-8 md:space-y-0 md:space-x-12">
+            <Image
+              src="/img/how-it-works.png"
+              width={600}
+              height={600}
+              alt="How it works"
+            />
+          </div>
         </div>
       </div>
     </div>

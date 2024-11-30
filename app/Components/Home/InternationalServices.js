@@ -28,12 +28,12 @@ export default function InternationalServices() {
   const [selectedService, setSelectedService] = useState(services[0]);
 
   return (
-    <div className="pb-10 mt-16">
-      <div className=" py-10 flex flex-col space-y-10 w-[87%] mx-auto">
+    <div className="pb-10 mt-5 bg-gradient-to-t from-blue-50 to-white">
+      <div className=" py-10 flex flex-col space-y-6 w-[85%] mx-auto">
         <h2 className="text-5xl font-bold text-gray-900 ">
           International Services
         </h2>
-        <p className="text-gray-600 mt-4">
+        <p className="text-gray-600 pb-3">
           Our international partner notaries offer a wide range of online
           notarial services tailored to the diverse needs of internationally
           active companies. Our platform ensures secure, efficient, and legally
@@ -43,16 +43,16 @@ export default function InternationalServices() {
           your company can benefit from them.
         </p>
 
-        <div className="mt-8 flex flex-col md:flex-row items-start w-full max-w-4xl">
+        <div className=" flex flex-col md:flex-row items-start w-full max-w-4xl ">
           {/* Service List */}
           <div className="flex flex-col space-y-4 md:w-1/3">
             {services.map((service, index) => (
               <button
                 key={index}
                 onClick={() => setSelectedService(service)}
-                className={`px-4 py-2 text-left font-medium border rounded-lg ${
+                className={`px-4 py-2 text-left font-medium shadow-md bg-white hover:bg-white rounded-lg ${
                   selectedService.title === service.title
-                    ? "text-green-900 border-green-900"
+                    ? "text-green-900 bg-green-100  border-green-900"
                     : "text-gray-700 border-gray-300"
                 }`}
               >

@@ -10,7 +10,7 @@ const Timeline = () => {
             <MdOutlineDoneAll className="" />
           </span>
           <div className=" text-left px-5 space-y-2">
-            <h2 className="text-green-900 font-bold text-xl">Hello</h2>
+            <h2 className="text-green-900 font-bold text-2xl">Hello</h2>
             <p className=" ">
               All of the pages and components are first designed in Figma and we
               keep a parity between the two versions even as we update the
@@ -28,7 +28,7 @@ const Timeline = () => {
           </span>
 
           <div className=" text-left px-5 space-y-2">
-            <h2 className="text-green-900 font-bold text-xl">Hello</h2>
+            <h2 className="text-green-900 font-bold text-2xl">Hello</h2>
             <p className=" ">
               All of the pages and components are first designed in Figma and we
               keep a parity between the two versions even as we update the
@@ -46,7 +46,7 @@ const Timeline = () => {
           </span>
 
           <div className=" text-left px-5 space-y-2">
-            <h2 className="text-green-900 font-bold text-xl">Hello</h2>
+            <h2 className="text-green-900 font-bold text-2xl">Hello</h2>
             <p className=" ">
               All of the pages and components are first designed in Figma and we
               keep a parity between the two versions even as we update the
@@ -64,7 +64,7 @@ const Timeline = () => {
           </span>
 
           <div className=" text-left px-5 space-y-2">
-            <h2 className=" font-bold text-xl text-green-900">Hello</h2>
+            <h2 className=" font-bold text-2xl text-green-900">Hello</h2>
             <p className=" ">
               All of the pages and components are first designed in Figma and we
               keep a parity between the two versions even as we update the

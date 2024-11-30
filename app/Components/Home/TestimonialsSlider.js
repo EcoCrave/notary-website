@@ -15,6 +15,7 @@ export default function TestimonialsSlider() {
     slidesToShow: 2,
     slidesToScroll: 1,
     centerMode: false,
+    arrows: false,
     responsive: [
       {
         breakpoint: 1024,
@@ -47,7 +48,7 @@ export default function TestimonialsSlider() {
 
   return (
     <div className="bg-gray-900 py-12">
-      <div className="w-[87%] mx-auto py-6">
+      <div className="w-[85%] mx-auto py-6 px-10">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
           {/* Left Section */}
           <div className="max-w-md mb-8 md:mb-0">

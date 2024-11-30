@@ -3,11 +3,12 @@ import { FaCirclePlay } from "react-icons/fa6";
 
 const Banner = () => {
   return (
-    <main className=" py-20 pb-28">
-      <div className="w-[87%] items-center flex gap-8 mx-auto space-y-4">
+    <main className=" py-36 bg-gradient-to-b from-blue-50 to-white">
+      <div className="w-[85%] items-center flex gap-12 mx-auto ">
         <div className="w-1/2 space-y-10">
-          <p className="uppercase">
-            Starts with only <span>$25</span>{" "}
+          <p className="uppercase font-semibold ">
+            Starts with only{" "}
+            <span className="font-bold text-4xl text-green-900">$25</span>{" "}
           </p>
           <h1 className="text-5xl font-bold">
             Don’t Hesitate in Choosing <br /> the Right Notary

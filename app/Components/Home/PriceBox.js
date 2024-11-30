@@ -1,9 +1,9 @@
 export default function PriceBox() {
   return (
-    <div className="bg-gray-900 text-white p-8 rounded-lg w-[87%] mx-auto flex flex-col md:flex-row md:justify-between">
+    <div className="bg-gray-900 text-white p-8 rounded-lg w-[85%] mx-auto flex flex-col md:flex-row md:justify-between ">
       {/* Left Section */}
       <div className="md:w-1/2 space-y-4">
-        <h2 className="text-3xl font-bold">For individuals</h2>
+        <h2 className="text-3xl text-white font-bold">For individuals</h2>
         <p className="text-gray-400">
           Get personal documents notarized with the Notarize<sup>®</sup> Network
         </p>

@@ -4,7 +4,11 @@ import UseCase from "../Components/Banks/UseCase";
 import WhyUs from "../Components/Banks/WhyUs";
 import Process from "../Components/Banks/Process";
 import Booking from "../Components/Banks/Booking";
-
+export const metadata = {
+  title: "hello world",
+  description:
+    "This is the business page where we can talk about how we can help you to grow your business",
+};
 const page = () => {
   return (
     <>

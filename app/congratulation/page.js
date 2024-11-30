@@ -1,28 +1,13 @@
-"use client";
+import Congratulation from "../Components/Congratulation/Congratulation";
 
-import React from "react";
-import Lottie from "lottie-react";
-import Congratulate from "./congratulate.json";
+export const metadata = {
+  title: "Business page",
+  description:
+    "This is the business page where we can talk about how we can help you to grow your business",
+};
 
 const page = () => {
-  return (
-    <div>
-      <h1 className="text-center text-5xl mt-20 font-bold">
-        Congratulaitons !
-      </h1>
-      <Lottie
-        animationData={Congratulate}
-        loop={true}
-        className="max-w-4xl mx-auto"
-      />
-      <h4 className="text-center font-bold mx-auto text-3xl">
-        Thank you for taking our service
-      </h4>
-      <h4 className="text-center font-semibold mx-auto text-2xl">
-        We will contact with you soon
-      </h4>
-    </div>
-  );
+  return <Congratulation />;
 };
 
 export default page;

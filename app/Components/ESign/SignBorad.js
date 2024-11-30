@@ -25,11 +25,11 @@ const SignBoard = () => {
   };
 
   return (
-    <div className="">
-      <div className="mx-auto flex justify-center text-center bg-gray-50 p-10">
+    <div className="space-y-24">
+      <div className="mx-auto pb-20 flex justify-center text-center bg-gradient-to-t from-blue-50 to-white ">
         {/* Signature Canvas */}
         <div className="space-y-3">
-          <h1 className="text-5xl font-bold leading-[60px]">
+          <h1 className="text-5xl pt-10 font-bold leading-[60px]">
             Use our eSign service <br /> 100% FREE
           </h1>
           <h2 className="text-3xl font-semibold pb-4 text-gray-700">
