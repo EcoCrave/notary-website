@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@docuseal/react": "^1.0.47",
     "@react-pdf/renderer": "^4.0.0",
     "file-saver": "^2.0.5",
     "framer-motion": "^11.11.9",
