@@ -1,14 +1,28 @@
 "use client";
 
+import useFirebase from "@/app/Server/authentication/useFirebase";
 import React, { useState } from "react";
-// import { FcGoogle } from "react-icons/fc";
-// import { FaSquareFacebook, FaXTwitter } from "react-icons/fa6";
+import { FcGoogle } from "react-icons/fc";
+import { FaSquareFacebook, FaXTwitter } from "react-icons/fa6";
 
 const Login = () => {
   const [loginTrigered, setLoginTrigered] = useState(true);
+  const {
+    handleSignIn,
+    handleFacebookSignIn,
+    handleGoogleSignIn,
+    handleSignUp,
+    emailRef,
+    f_nameRef,
+    l_nameRef,
+    repasswordRef,
+    passwordRef,
+    handleResetPassword,
+    error,
+  } = useFirebase();
   return (
     <div className="bg-gray-100">
-      <div className="container m-auto ">
+      <div className="w-[85%] m-auto ">
         <div className="flex py-10 w-full justify-between">
           <div className="space-y-8 w-1/2 ">
             <span className="text-xl">Remote Online Notarization</span>
@@ -45,23 +59,31 @@ const Login = () => {
               </button>
             </div>
 
-            {/*-------------------------------- Login form ----------------------------------- */}
+            {/*-------------------------------- Login form --------------------------------- */}
+
             {loginTrigered ? (
-              <form className="p-10 pb-0">
+              <form className="p-10 pb-0" onSubmit={handleSignIn}>
                 <div className="space-y-5">
                   <input
+                    ref={emailRef}
                     type="email"
                     className="border-b-2 w-full p-2"
                     placeholder="Email address"
                   />
                   <div>
                     <input
+                      ref={passwordRef}
                       type="password"
                       placeholder="Password"
                       className="border-b-2 w-full p-2"
                     />
                   </div>
-                  <p className="text-right">Forgot Password ?</p>
+                  <p className="text-right">
+                    <button onClick={handleResetPassword}>
+                      {" "}
+                      Forgot Password ?
+                    </button>
+                  </p>
                   <input
                     className="w-full bg-green-900 rounded mt-10 text-white font-semibold p-2"
                     type="submit"
@@ -70,26 +92,44 @@ const Login = () => {
                 </div>
               </form>
             ) : (
-              <form className="p-10 pb-0">
+              <form className="p-10 pb-0" onSubmit={handleSignUp}>
                 <div className="space-y-5">
+                  <div className="flex gap-10">
+                    <input
+                      type="text"
+                      className="border-b-2 w-full p-2"
+                      placeholder="First Name"
+                      ref={f_nameRef}
+                    />
+                    <input
+                      type="text"
+                      className="border-b-2 w-full p-2"
+                      placeholder="Last Name"
+                      ref={l_nameRef}
+                    />
+                  </div>
                   <input
                     type="email"
                     className="border-b-2 w-full p-2"
                     placeholder="Email address"
+                    ref={emailRef}
                   />
                   <div>
                     <input
                       type="password"
-                      placeholder="Password"
+                      placeholder="Password (more then 6 charecters)"
                       className="border-b-2 w-full p-2"
+                      ref={passwordRef}
                     />
                   </div>
                   <div>
                     <input
                       type="password"
                       placeholder="Confirm Password"
+                      ref={repasswordRef}
                       className="border-b-2 w-full p-2"
                     />
+                    {/* <p>password should be at least 6 chareters long</p> */}
                   </div>
 
                   <input
@@ -100,19 +140,18 @@ const Login = () => {
                 </div>
               </form>
             )}
-
-            {/*---------------------------- Register form ------------- */}
-
-            {/* <div className="w-full mt-20 text-center space-y-5">
+            <div className="w-full mt-20 text-center space-y-5">
               <p className="text-center font-semibold">
                 --------------Or------------
               </p>
               <div className="flex justify-around">
-                <FcGoogle className="text-4xl" />
-                <FaSquareFacebook className="text-4xl" />
-                <FaXTwitter className="text-4xl" />
+                <FcGoogle onClick={handleGoogleSignIn} className="text-4xl" />
+                <FaSquareFacebook
+                  onClick={handleFacebookSignIn}
+                  className="text-4xl"
+                />
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
       </div>
