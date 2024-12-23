@@ -1,6 +1,15 @@
 import FirebaseInitialize from "./firebaseInitialize";
-import { doc, setDoc, getDoc } from "firebase/firestore";
-
+import {
+  doc,
+  setDoc,
+  getDoc,
+  collection,
+  addDoc,
+  getDocs,
+  updateDoc,
+  deleteDoc,
+} from "firebase/firestore";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import {
   createUserWithEmailAndPassword,
   FacebookAuthProvider,
@@ -15,7 +24,6 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-import { getStorage } from "firebase/storage";
 import { useRef, useState } from "react";
 import { useEffect } from "react";
 FirebaseInitialize();
@@ -33,6 +41,8 @@ const useFirebase = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const repasswordRef = useRef();
+
+  // Function to upload files (images, PDFs, etc.)
 
   // Save User data --------------------------
 
@@ -187,13 +197,56 @@ const useFirebase = () => {
     sendPasswordResetEmail(auth, emailRef.current.value)
       .then(() => {
         // Password reset email sent!
-        // ..
 
         setError("Please check your mail to reset the password");
       })
       .catch((error) => {
         setError(error.message);
       });
+  };
+
+  // ----------------------------------------------------------------
+
+  const uploadFile = async (folder, file) => {
+    try {
+      const storage = getStorage();
+      const fileRef = ref(storage, `${folder}/${file.name}`);
+      const uploadTask = await uploadBytes(fileRef, file);
+      return await getDownloadURL(uploadTask.ref);
+    } catch (error) {
+      console.error("Error uploading file:", error);
+      throw new Error("File upload failed");
+    }
+  };
+  // CREATE: Add form data to Firestore
+  const addFormData = async (data) => {
+    try {
+      const docRef = await addDoc(collection(db, "userForms"), data);
+      console.log("Form submitted successfully with ID:", docRef.id);
+      return docRef.id;
+    } catch (error) {
+      console.error("Error submitting form:", error);
+    }
+  };
+
+  // READ: Fetch all form data
+  const getFormData = async () => {
+    const querySnapshot = await getDocs(collection(db, "userForms"));
+    return querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  };
+
+  // UPDATE: Update form data
+  const updateFormData = async (id, data) => {
+    const formRef = doc(db, "userForms", id);
+    await updateDoc(formRef, data);
+    console.log("Form data updated successfully");
+  };
+
+  // DELETE: Delete form data
+  const deleteFormData = async (id) => {
+    const formRef = doc(db, "userForms", id);
+    await deleteDoc(formRef);
+    console.log("Form data deleted successfully");
   };
 
   return {
@@ -203,6 +256,8 @@ const useFirebase = () => {
     l_nameRef,
     emailRef,
     passwordRef,
+    addFormData,
+    uploadFile,
     repasswordRef,
     handleLogout,
     handleGoogleSignIn,

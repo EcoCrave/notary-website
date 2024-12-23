@@ -1,212 +1,241 @@
 "use client";
 
 import { useState } from "react";
-import { useForm } from "react-hook-form";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-
+import useFirebase from "../../Server/authentication/useFirebase.js";
 export default function Form() {
-  const { register, handleSubmit, watch, reset } = useForm();
-  const [dob, setDob] = useState(null);
-  const [appointment, setAppointment] = useState(null);
+  const [formData, setFormData] = useState({
+    assignedEmail: " ",
+    address: { country: " ", street: " ", zipcode: " " },
+    chosenServices: [],
+    adviserEmail: " ",
+    dateOfBirth: " ",
+    phoneNumber: " ",
+    idCardType: " ",
+    idCardNumber: " ",
+    bookedDate: " ",
+    bookedTime: " ",
+  });
 
-  const onSubmit = (data) => {
-    data.dob = dob;
-    data.appointment = appointment;
-    console.log(data);
-    reset();
+  const [files, setFiles] = useState({
+    selfie: null,
+    document: null,
+    signature: null,
+  });
+
+  const { user, addFormData, uploadFile } = useFirebase(); // Corrected usage of the custom hook
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => {
+      const keys = name.split(".");
+      if (keys.length > 1) {
+        const [outerKey, innerKey] = keys;
+        return {
+          ...prev,
+          [outerKey]: {
+            ...prev[outerKey],
+            [innerKey]: value,
+          },
+        };
+      } else {
+        return { ...prev, [name]: value };
+      }
+    });
+  };
+
+  const handleFileChange = (e) => {
+    const { name } = e.target;
+    const file = e.target.files[0];
+    const allowedTypes = ["image/jpeg", "image/png", "application/pdf"];
+
+    if (file && !allowedTypes.includes(file.type)) {
+      alert("Invalid file type. Please upload a JPEG, PNG, or PDF.");
+      return;
+    }
+
+    setFiles((prev) => ({ ...prev, [name]: file }));
+  };
+
+  const validateForm = () => {
+    if (!formData.assignedEmail || !formData.adviserEmail) {
+      alert("Assigned Email and Adviser Email are required.");
+      return false;
+    }
+    if (!files.selfie || !files.document || !files.signature) {
+      alert("All files are required.");
+      return false;
+    }
+    return true;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+
+    try {
+      const uploadedSelfie = files.selfie
+        ? await uploadFile("selfies", files.selfie)
+        : null;
+      const uploadedDocument = files.document
+        ? await uploadFile("documents", files.document)
+        : null;
+      const uploadedSignature = files.signature
+        ? await uploadFile("signatures", files.signature)
+        : null;
+
+      const finalData = {
+        ...formData,
+        userEmail: user.email,
+        userId: user.uid,
+        selfieURL: uploadedSelfie,
+        documentURL: uploadedDocument,
+        signatureURL: uploadedSignature,
+        createdAt: new Date(),
+      };
+      console.log("Final Data", finalData);
+      await addFormData(finalData);
+      alert("Form submitted successfully!");
+
+      setFormData({
+        assignedEmail: "",
+        address: { country: "", street: "", zipcode: "" },
+        chosenServices: [],
+        adviserEmail: "",
+        dateOfBirth: "",
+        phoneNumber: "",
+        idCardType: "",
+        idCardNumber: "",
+        bookedDate: "",
+        bookedTime: "",
+      });
+      setFiles({ selfie: null, document: null, signature: null });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Failed to submit the form. Please try again.");
+    }
   };
 
   return (
-    <div className="max-[90%] bg-gray-50 bg mx-auto p-6 ">
-      <h2 className="text-4xl space-y-3 text-center font-bold mb-4">
-        Service Request Form
-      </h2>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="space-y-4 bg-white shadow-md rounded p-10 mx-auto max-w-4xl"
-      >
-        {/* Name */}
-        <div className="space-y-1">
-          <label className="block text-lg font-medium mb-1">Name</label>
-          <input
-            {...register("name", { required: true })}
-            type="text"
-            className="w-full px-3 py-2 border rounded"
-            placeholder="Your Name"
-          />
-        </div>
+    <form
+      onSubmit={handleSubmit}
+      className="flex my-16 flex-col gap-5 justify-center bg-gray-50 w-[85%] mx-auto p-10"
+    >
+      <h2 className="text-5xl font-bold">Submit Your Details</h2>
 
-        {/* Email */}
-        <div className="space-y-1">
-          <label className="block text-lg font-medium mb-1">Email</label>
-          <input
-            {...register("email", { required: true })}
-            type="email"
-            className="w-full px-3 py-2 border rounded"
-            placeholder="Your Email"
-          />
-        </div>
+      <input
+        className="p-3"
+        type="email"
+        name="assignedEmail"
+        placeholder="Assigned Email"
+        onChange={handleChange}
+      />
 
-        {/* Date of Birth */}
-        <div className="space-y-1">
-          <label className="block text-lg font-medium mb-1">
-            Date of Birth
-          </label>
-          <DatePicker
-            selected={dob}
-            onChange={(date) => setDob(date)}
-            className="w-full px-3 py-2 border rounded"
-            placeholderText="Select Date of Birth"
-          />
-        </div>
+      <input
+        className="p-3"
+        type="text"
+        name="address.street"
+        placeholder="Street Address"
+        onChange={handleChange}
+      />
+      <input
+        className="p-3"
+        type="text"
+        name="address.country"
+        placeholder="Country"
+        onChange={handleChange}
+      />
+      <input
+        className="p-3"
+        type="text"
+        name="address.zipcode"
+        placeholder="Zipcode"
+        onChange={handleChange}
+      />
 
-        {/* Address */}
-        <div className="space-y-1">
-          <label className="block text-lg font-medium mb-1">Country</label>
-          <input
-            {...register("country", { required: true })}
-            type="text"
-            className="w-full px-3 py-2 border rounded"
-            placeholder="Country"
-          />
-        </div>
-        <div className="space-y-1">
-          <label className="block text-lg font-medium mb-1">State</label>
-          <input
-            {...register("state", { required: true })}
-            type="text"
-            className="w-full px-3 py-2 border rounded"
-            placeholder="State"
-          />
-        </div>
-        <div className="space-y-1">
-          <label className="block text-lg font-medium mb-1">Zip Code</label>
-          <input
-            {...register("zipcode", { required: true })}
-            type="text"
-            className="w-full px-3 py-2 border rounded"
-            placeholder="Zip Code"
-          />
-        </div>
+      <input
+        className="p-3"
+        type="text"
+        name="adviserEmail"
+        placeholder="Adviser Email"
+        onChange={handleChange}
+      />
 
-        {/* Services */}
-        <div className="space-y-1">
-          <label className="block text-lg font-medium mb-1">
-            Choose Services
-          </label>
-          <div className="flex flex-wrap gap-2">
-            {["Digital Sign", "Notarize", "Affidavit"].map((service) => (
-              <label key={service} className="flex items-center space-x-2">
-                <input
-                  {...register("services")}
-                  type="checkbox"
-                  value={service}
-                  className="h-4 w-4"
-                />
-                <span>{service}</span>
-              </label>
-            ))}
-          </div>
-        </div>
+      <input
+        className="p-3"
+        type="date"
+        name="dateOfBirth"
+        placeholder="Date of Birth"
+        onChange={handleChange}
+      />
 
-        {/* Advisor Email */}
-        <div className="space-y-1">
-          <label className="block text-lg font-medium mb-1">
-            Advisor Email
-          </label>
-          <input
-            {...register("advisor_email", { required: true })}
-            type="email"
-            className="w-full px-3 py-2 border rounded"
-            placeholder="Advisor Email"
-          />
-        </div>
+      <input
+        className="p-3"
+        type="text"
+        name="phoneNumber"
+        placeholder="Phone Number"
+        onChange={handleChange}
+      />
 
-        {/* Phone Number */}
-        <div className="space-y-1">
-          <label className="block text-lg font-medium mb-1">Phone Number</label>
-          <input
-            {...register("phone", { required: true })}
-            type="tel"
-            className="w-full px-3 py-2 border rounded"
-            placeholder="Phone Number"
-          />
-        </div>
+      <input
+        className="p-3"
+        type="text"
+        name="idCardType"
+        placeholder="ID Card Type"
+        onChange={handleChange}
+      />
+      <input
+        className="p-3"
+        type="text"
+        name="idCardNumber"
+        placeholder="ID Card Number"
+        onChange={handleChange}
+      />
 
-        {/* ID Type */}
-        <div className="space-y-1">
-          <label className="block text-lg font-medium mb-1">ID Type</label>
-          <select
-            {...register("id_type", { required: true })}
-            className="w-full px-3 py-2 border rounded"
-          >
-            <option value="">Select</option>
-            <option value="NID">NID</option>
-            <option value="Passport">Passport</option>
-            <option value="Driving License">Driving License</option>
-          </select>
-        </div>
+      <input
+        className="p-3"
+        type="date"
+        name="bookedDate"
+        placeholder="Booked Date"
+        onChange={handleChange}
+      />
+      <input
+        className="p-3"
+        type="time"
+        name="bookedTime"
+        placeholder="Booked Time"
+        onChange={handleChange}
+      />
 
-        {/* Upload ID Card Photo */}
-        <div className="space-y-1">
-          <label className="block text-lg font-medium mb-1">
-            Upload ID Card Photo
-          </label>
-          <input
-            {...register("id_card_photo", { required: true })}
-            type="file"
-            className="w-full"
-          />
-        </div>
+      <label>Selfie with ID Card:</label>
+      <input
+        className="p-3"
+        type="file"
+        name="selfie"
+        onChange={handleFileChange}
+      />
 
-        {/* Upload eSignature */}
-        <div className="space-y-1">
-          <label className="block text-lg font-medium mb-1">
-            Upload eSignature
-          </label>
-          <input
-            {...register("esignature", { required: true })}
-            type="file"
-            className="w-full"
-          />
-        </div>
+      <label>Upload Document (PDF/DOC):</label>
+      <input
+        className="p-3"
+        type="file"
+        name="document"
+        onChange={handleFileChange}
+      />
 
-        {/* Upload file's Photo */}
-        <div className="space-y-1">
-          <label className="block text-lg font-medium mb-1">Upload Files</label>
-          <input
-            {...register("id_card_photo", { required: true })}
-            type="file"
-            className="w-full"
-          />
-        </div>
-
-        {/* Calendar Time Picker */}
-        <div className="space-y-1">
-          <label className="block text-lg font-medium mb-1">
-            Appointment Time
-          </label>
-          <DatePicker
-            selected={appointment}
-            onChange={(date) => setAppointment(date)}
-            showTimeSelect
-            dateFormat="Pp"
-            className="w-full px-3 py-2 border rounded"
-            placeholderText="Select Appointment Time"
-          />
-        </div>
-
-        {/* Submit Button */}
-        <div className="space-y-1">
-          <button
-            type="submit"
-            className="w-full py-2 bg-green-600 text-white rounded hover:bg-green-700"
-          >
-            Submit
-          </button>
-        </div>
-      </form>
-    </div>
+      <label>Upload Signature:</label>
+      <input
+        className="p-3"
+        type="file"
+        name="signature"
+        onChange={handleFileChange}
+      />
+      <input type="submit" value="Submit" />
+      <button type="submit" className="p-3 bg-blue-500 text-white">
+        Submit
+      </button>
+    </form>
   );
 }

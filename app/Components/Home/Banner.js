@@ -1,6 +1,7 @@
 import React from "react";
 import { FaCirclePlay } from "react-icons/fa6";
-
+import { motion } from "framer-motion";
+import { fadeIn } from "@/variants";
 const Banner = () => {
   return (
     <main className=" py-36 bg-gradient-to-b from-blue-50 to-white">

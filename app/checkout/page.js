@@ -1,5 +1,6 @@
 import React from "react";
 import Form from "../Components/Checkout/Form";
+
 export const metadata = {
   title: "Business page",
   description:
