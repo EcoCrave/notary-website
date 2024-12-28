@@ -205,7 +205,7 @@ const useFirebase = () => {
       });
   };
 
-  // ----------------------------------------------------------------
+  // ------------------Upload data to FireStore and Storage Database-------------------------------------------
 
   const uploadFile = async (folder, file) => {
     try {
