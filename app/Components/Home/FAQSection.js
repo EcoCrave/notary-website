@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-
+import { motion } from "framer-motion";
+import { fadeIn, fadeInAnimationVariants } from "@/variants";
 export default function FAQSection() {
   const faqs = [
     {
@@ -45,13 +46,11 @@ export default function FAQSection() {
           <button className="mb-4 px-4 py-2 border rounded-full text-sm font-semibold text-gray-800 border-gray-300">
             FAQ'S
           </button>
-          <h2 className="text-5xl font-bold text-gray-900 ">
+          <h2 className="md:text-5xl text-4xl font-bold text-gray-900 ">
             Frequently Asked Questions
           </h2>
-          <button className="mt-6 px-6 py-3 bg-green-900 text-white rounded-lg font-medium">
-            See All Questions →
-          </button>
-          <p className="text-gray-600 mt-4">
+
+          <p className="text-gray-600 mt-4 font-semibold">
             Need more help?{" "}
             <a href="#" className="text-blue-600 underline">
               Contact Us
@@ -62,7 +61,15 @@ export default function FAQSection() {
         {/* Right Section */}
         <div className="md:w-1/2 space-y-4">
           {faqs.map((faq, index) => (
-            <div key={index} className="border-b border-gray-200 pb-4">
+            <motion.div
+              variants={fadeInAnimationVariants}
+              custom={index}
+              initial="initial"
+              whileInView={"animate"}
+              viewport={{ once: true }}
+              key={index}
+              className="border-b border-gray-200 pb-4"
+            >
               <div
                 onClick={() => toggleFAQ(index)}
                 className="flex justify-between items-center cursor-pointer text-gray-900 font-semibold text-lg"
@@ -73,9 +80,17 @@ export default function FAQSection() {
                 </span>
               </div>
               {openIndex === index && (
-                <p className="mt-2 text-gray-700">{faq.answer}</p>
+                <motion.p
+                  variants={fadeIn("up", 0, 0.3)}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.7 }}
+                  className="mt-2 bg-gray-100 p-4 text-gray-700"
+                >
+                  {faq.answer}
+                </motion.p>
               )}
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

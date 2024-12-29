@@ -1,7 +1,8 @@
 "use client";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import { motion } from "framer-motion";
+import { fadeIn, fadeInAnimationVariants } from "@/variants";
 import Slider from "react-slick";
 import { useRef } from "react";
 
@@ -48,19 +49,35 @@ export default function TestimonialsSlider() {
 
   return (
     <div className="bg-gray-900 py-12">
-      <div className="w-[85%] mx-auto py-6 px-10">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
+      <div className="w-[85%] mx-auto py-6 ">
+        <div className="lg:flex flex-col md:flex-row justify-between items-start md:items-center">
           {/* Left Section */}
-          <div className="max-w-md mb-8 md:mb-0">
-            <h2 className="text-5xl font-bold text-white mb-4">
+          <div className=" mb-8 md:mb-0">
+            <motion.h2
+              variants={fadeIn("left", 0, 0.3)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.7 }}
+              className="md:text-5xl text-4xl font-bold text-white mb-4"
+            >
               Don't just take our word for it...
-            </h2>
-            <p className="text-gray-200 mb-6">
+            </motion.h2>
+            <motion.p
+              variants={fadeIn("left", 0, 0.5)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.7 }}
+              className="text-gray-200 mb-6"
+            >
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas
               veritatis illo placeat harum porro optio fugit a culpa sunt id!
-            </p>
+            </motion.p>
             <div className="flex gap-2">
-              <button
+              <motion.button
+                variants={fadeIn("up", 0, 0.7)}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.7 }}
                 onClick={goToPrevious}
                 className="rounded-full border border-green-600 p-3 text-green-600 transition hover:bg-green-600 hover:text-white"
               >
@@ -78,8 +95,12 @@ export default function TestimonialsSlider() {
                     d="M15 19l-7-7 7-7"
                   />
                 </svg>
-              </button>
-              <button
+              </motion.button>
+              <motion.button
+                variants={fadeIn("up", 0, 0.9)}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.7 }}
                 onClick={goToNext}
                 className="rounded-full border border-green-600 p-3 text-green-600 transition hover:bg-green-600 hover:text-white"
               >
@@ -97,12 +118,18 @@ export default function TestimonialsSlider() {
                     d="M9 5l7 7-7 7"
                   />
                 </svg>
-              </button>
+              </motion.button>
             </div>
           </div>
 
           {/* Slider Section */}
-          <div className="w-full md:w-2/3">
+          <motion.div
+            variants={fadeIn("right", 0, 0.5)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.7 }}
+            className="w-full lg:w-2/3"
+          >
             <Slider ref={sliderRef} {...settings}>
               {testimonials.map((testimonial, index) => (
                 <div key={index} className="p-4">
@@ -130,7 +157,7 @@ export default function TestimonialsSlider() {
                 </div>
               ))}
             </Slider>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

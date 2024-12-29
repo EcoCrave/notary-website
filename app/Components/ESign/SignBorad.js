@@ -1,7 +1,8 @@
 "use client";
 import React, { useState, useRef } from "react";
 import SignatureCanvas from "react-signature-canvas";
-
+import { motion } from "framer-motion";
+import { fadeIn, fadeInAnimationVariants } from "@/variants";
 const SignBoard = () => {
   const canvasRef = useRef(null); // Reference for SignatureCanvas
   const [result, setResult] = useState(null); // Store the signature data URL
@@ -25,27 +26,51 @@ const SignBoard = () => {
   };
 
   return (
-    <div className="space-y-24">
-      <div className="mx-auto pb-20 flex justify-center text-center bg-gradient-to-t from-blue-50 to-white ">
+    <div className="space-y-24 bg-gradient-to-t from-blue-50 to-white">
+      <div className="mx-auto w-[85%] pb-20 flex justify-center text-center  ">
         {/* Signature Canvas */}
         <div className="space-y-3">
-          <h1 className="text-5xl pt-10 font-bold leading-[60px]">
+          <motion.h1
+            variants={fadeIn("up", 0, 0.3)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.7 }}
+            className="md:text-5xl text-4xl pt-10 font-bold leading-[60px]"
+          >
             Use our eSign service <br /> 100% FREE
-          </h1>
-          <h2 className="text-3xl font-semibold pb-4 text-gray-700">
+          </motion.h1>
+          <motion.h2
+            variants={fadeIn("up", 0, 0.5)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.7 }}
+            className="md:text-3xl text-2xl font-semibold pb-4 text-gray-700"
+          >
             Draw your eSignature
-          </h2>
-          <div className="border mx-auto w-[1000px] bg-white rounded">
+          </motion.h2>
+          <motion.div
+            variants={fadeIn("up", 0, 0.7)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.7 }}
+            className="border mx-auto w-[1000px] bg-white rounded"
+          >
             <SignatureCanvas
               ref={canvasRef}
               onEnd={handleDraw} // Trigger handleDraw when the user finishes drawing
               penColor={brushColor}
               maxWidth={3}
               canvasProps={{ width: 1000, height: 400, className: "sigCanvas" }}
-              className="border border-red-500"
+              className="border w-full border-red-500"
             />
-          </div>
-          <div className="mt-4 flex items-center justify-between">
+          </motion.div>
+          <motion.div
+            variants={fadeIn("up", 0, 0.7)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.7 }}
+            className="mt-4 flex items-center justify-between"
+          >
             <div className="flex space-x-2">
               <div
                 onClick={() => {
@@ -78,12 +103,18 @@ const SignBoard = () => {
             >
               Clear & Draw Again
             </button>
-          </div>
+          </motion.div>
 
           <div>
             {/* Conditional Download Link */}
             {result && (
-              <div className="mt-4 space-y-3 bg-gray-900 rounded p-10 ">
+              <motion.div
+                variants={fadeIn("down", 0, 0.7)}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.7 }}
+                className="mt-4 space-y-3 bg-gray-900 rounded p-10 "
+              >
                 <a
                   href={result}
                   download="signature.png"
@@ -109,7 +140,7 @@ const SignBoard = () => {
                     className="border p-2 w-2/3 text-center text-white bg-green-800 hover:bg-green-900 cursor-pointer outline-none"
                   />
                 </form>
-              </div>
+              </motion.div>
             )}
           </div>
         </div>

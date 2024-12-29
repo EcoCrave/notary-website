@@ -1,8 +1,11 @@
+"use client";
 import React from "react";
 import Link from "next/link";
 import { BsClockHistory } from "react-icons/bs";
 import { FaFingerprint } from "react-icons/fa";
 import { IoSettingsOutline } from "react-icons/io5";
+import { motion } from "framer-motion";
+import { fadeIn, fadeInAnimationVariants } from "@/variants";
 
 const data = [
   {
@@ -32,20 +35,40 @@ const data = [
 ];
 
 const Services = () => (
-  <div className=" pb-20 pt-10">
-    <div className="md:w-[80%] m-auto">
+  <div className=" pb-20 pt-10 ">
+    <div className="w-[85%] lg:w-[80%] m-auto">
       <div className="text-center pt-5 space-y-3">
-        <p className=" font-semibold">SOLUTIONS WE PROVIDE</p>
-        <h2 className="text-5xl font-bold">Business Use Cases</h2>
+        <motion.p
+          variants={fadeIn("up", 0, 0.3)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.7 }}
+          className=" font-semibold"
+        >
+          SOLUTIONS WE PROVIDE
+        </motion.p>
+        <motion.h2
+          variants={fadeIn("up", 0, 0.5)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.7 }}
+          className="md:text-5xl text-4xl font-bold"
+        >
+          Business Use Cases
+        </motion.h2>
       </div>
       {data.map(
         ({ title, description, imageUrl, gradient, topPosition }, index) => (
-          <div
+          <motion.div
+            variants={fadeIn("up", 0, 0.3)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.7 }}
             key={index}
-            className={`md:w-[87%] p-10 rounded-3xl flex items-center justify-center gap-10 bg-gradient-to-r ${gradient} shadow-md m-auto my-8  sticky ${topPosition}`}
+            className={`md:w-[87%] p-10 rounded-3xl md:flex items-center md:justify-center gap-10 bg-gradient-to-r ${gradient} shadow-md m-auto my-8  sticky ${topPosition}`}
           >
-            <div className="space-y-5 text-white w-1/2">
-              <h2 className="text-4xl text-white font-bold">
+            <div className="space-y-5 text-white md:w-1/2">
+              <h2 className="md:text-4xl text-3xl text-white font-bold">
                 {title.split(" ")[0]} {title.split(" ")[1]}
               </h2>
               <div className="flex items-center gap-5 border-b pb-5 border-gray-500">
@@ -62,7 +85,7 @@ const Services = () => (
                   <span>Convenient</span>
                 </div>
               </div>
-              <p className="text-white">{description}</p>
+              <p className="text-white w-full ">{description}</p>
               <div>
                 <Link
                   className="bg-green-700 p-2 rounded hover:bg-green-900 space-y-2"
@@ -73,9 +96,9 @@ const Services = () => (
               </div>
             </div>
             <div>
-              <img className="h-80" src={imageUrl} alt="" />
+              <img className="md:h-80" src={imageUrl} alt="" />
             </div>
-          </div>
+          </motion.div>
         )
       )}
     </div>

@@ -1,13 +1,22 @@
+"use client";
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { fadeIn, fadeInAnimationVariants } from "@/variants";
 export default function NotarySection() {
   return (
     <div className="bg-gradient-to-t from-blue-50 to-white pb-20">
       <div className=" w-[85%]   mx-auto min-h-screen flex flex-col items-center ">
         <div className="mt-10  w-full gap-5 justify-center items-center grid md:grid-cols-2 ">
-          <div className="flex flex-col space-y-8 md:order-2 ">
-            <div className=" mt-10">
-              <h1 className="text-5xl spac text-left  font-bold text-gray-900">
+          <motion.div
+            variants={fadeIn("left", 0, 0.5)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.7 }}
+            className="flex flex-col space-y-8 md:order-2 "
+          >
+            <div className=" mt-8">
+              <h1 className="md:text-5xl text-4xl spac text-left  font-bold text-gray-900">
                 Upload. <br />
                 Verify ID. <br /> Meet Online
               </h1>
@@ -32,15 +41,21 @@ export default function NotarySection() {
               title="Meet The Notary"
               description="Sign, seal, and send to whomever needs it after meeting the notary public agent in a live video/audio session."
             />
-          </div>
-          <div className="flex order-1   flex-col md:flex-row items-center mt-16 space-y-8 md:space-y-0 md:space-x-12">
+          </motion.div>
+          <motion.div
+            variants={fadeIn("right", 0, 0.3)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.7 }}
+            className="flex order-1   flex-col md:flex-row items-center mt-16 space-y-8 md:space-y-0 md:space-x-12"
+          >
             <Image
               src="/img/how-it-works.png"
               width={600}
               height={600}
               alt="How it works"
             />
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>
@@ -50,8 +65,8 @@ export default function NotarySection() {
 function Step({ number, title, description }) {
   return (
     <div className="space-y-2">
-      <h3 className="text-gray-500 text-sm font-semibold">STEP {number}.</h3>
-      <h2 className="text-xl font-semibold text-gray-900">{title}</h2>
+      <h3 className="text-gray-500 text-md font-semibold">STEP {number}.</h3>
+      <h2 className="text-2xl font-semibold text-gray-900">{title}</h2>
       <p className="text-gray-700 mt-2">{description}</p>
       <hr className="mt-4 border-gray-200" />
     </div>

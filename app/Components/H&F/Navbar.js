@@ -2,24 +2,39 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { VscThreeBars } from "react-icons/vsc";
+import { FaChevronDown } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { fadeIn, fadeInAnimationVariants } from "@/variants";
+
 const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openSubMenu, setOpenSubMenu] = useState(null);
+
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      setIsVisible(scrollY <= lastScrollY || scrollY <= 50);
-      setLastScrollY(scrollY);
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
+        // Scrolling down, hide navbar
+        setIsVisible(false);
+      } else {
+        // Scrolling up, show navbar
+        setIsVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
+
   const menuItems = [
     { label: "Pricing", path: "/pricing" },
     {
-      label: "Industries ⬇",
+      label: "Industries",
       path: "#",
       subcategories: [
         { label: "For Law Firms", path: "/law-firm" },
@@ -28,7 +43,7 @@ const Navbar = () => {
       ],
     },
     {
-      label: "Solutions ⬇",
+      label: "Solutions",
       path: "#",
       subcategories: [
         { label: "Online Notarization", path: "/online-notary" },
@@ -37,7 +52,7 @@ const Navbar = () => {
       ],
     },
     {
-      label: "Resources ⬇",
+      label: "Resources",
       path: "#",
       subcategories: [
         { label: "How It Works", path: "/how-it-works" },
@@ -46,18 +61,29 @@ const Navbar = () => {
       ],
     },
     { label: "Login / Register", path: "/login" },
-    { label: "Book An Appointment", path: "/login", special: true },
+    { label: "Book Appointment", path: "/login", special: true },
   ];
+
   const handleSubMenuToggle = (label) => {
     setOpenSubMenu((prev) => (prev === label ? null : label));
   };
+
   return (
-    <nav
-      className={`bg-gray-900 border-b py-6 font-bold fixed top-0 w-full z-20 transition-transform duration-300 ease-in-out ${
-        isVisible ? "translate-y-0" : "-translate-y-full"
-      }`}
+    <motion.nav
+      variants={{
+        hidden: { y: -100, opacity: 0 }, // Slide up and fade out
+        visible: { y: 0, opacity: 1, transition: { duration: 0.3 } }, // Slide down and fade in
+      }}
+      animate={isVisible ? "visible" : "hidden"}
+      className="bg-gray-900 border-b py-6 font-bold fixed top-0 w-full z-20 transition-transform duration-300 ease-in-out"
     >
-      <div className="w-[85%] mx-auto flex justify-between items-center">
+      <motion.div
+        variants={fadeIn("down", 0, 0.2)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0 }}
+        className="w-[85%] mx-auto flex justify-between items-center"
+      >
         {/* Left Side - Website Name */}
         <Link
           className="text-xl font-bold text-white hover:text-gray-300"
@@ -65,10 +91,19 @@ const Navbar = () => {
         >
           Online Notary
         </Link>
+
         {/* Right Side - Desktop Menu */}
-        <div className="hidden md:flex items-center space-x-6">
-          {menuItems.map(({ label, path, subcategories, special }) => (
-            <div key={label} className="relative group">
+        <div className="hidden lg:flex items-center space-x-4">
+          {menuItems.map(({ label, path, subcategories, special }, index) => (
+            <motion.div
+              variants={fadeInAnimationVariants}
+              custom={index}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              key={label}
+              className="relative group"
+            >
               {!subcategories ? (
                 <Link
                   className={`${
@@ -82,10 +117,14 @@ const Navbar = () => {
                 </Link>
               ) : (
                 <>
-                  <Link className="text-white hover:text-gray-300" href={path}>
+                  <Link
+                    className="text-white flex items-center gap-1 hover:text-gray-300"
+                    href={path}
+                  >
                     {label}
+                    <FaChevronDown className="text-[10px] text-gray-300" />
                   </Link>
-                  <div className="absolute p-4 top-[69%] mt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300 ease-in-out">
+                  <div className="absolute md:w-64 -left-14 p-4 top-[69%] mt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-400 ease-in-out">
                     <div className="bg-gray-800 rounded-md py-2">
                       {subcategories.map(
                         ({ label: subLabel, path: subPath }) => (
@@ -102,16 +141,18 @@ const Navbar = () => {
                   </div>
                 </>
               )}
-            </div>
+            </motion.div>
           ))}
         </div>
+
         {/* Mobile Menu Icon */}
         <button
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="md:hidden text-white focus:outline-none"
+          className="lg:hidden text-white focus:outline-none"
         >
           <VscThreeBars size={24} />
         </button>
+
         {/* Mobile Dropdown Menu */}
         {isMobileMenuOpen && (
           <div className="absolute right-0 top-full mt-2 bg-gray-800 shadow-lg rounded-md py-2 z-10 w-full">
@@ -153,8 +194,9 @@ const Navbar = () => {
             ))}
           </div>
         )}
-      </div>
-    </nav>
+      </motion.div>
+    </motion.nav>
   );
 };
+
 export default Navbar;

@@ -1,8 +1,23 @@
+"use client";
+import { motion } from "framer-motion";
+import { fadeIn } from "@/variants";
 export default function PriceBox() {
   return (
-    <div className="bg-gray-900 text-white p-8 rounded-lg w-[85%] mx-auto flex flex-col md:flex-row md:justify-between ">
+    <motion.div
+      variants={fadeIn("up", 0, 0.3)}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.7 }}
+      className="bg-gray-900 text-white p-8 rounded-lg w-[85%] mx-auto flex flex-col md:flex-row md:justify-between "
+    >
       {/* Left Section */}
-      <div className="md:w-1/2 space-y-4">
+      <motion.div
+        variants={fadeIn("up", 0, 0.5)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.7 }}
+        className="md:w-1/2 space-y-4"
+      >
         <h2 className="text-3xl text-white font-bold">For individuals</h2>
         <p className="text-gray-400">
           Get personal documents notarized with the Notarize<sup>®</sup> Network
@@ -20,13 +35,19 @@ export default function PriceBox() {
           <li>$10 for each on-demand witness</li>
           <li>$5 for each additional signer</li>
         </ul>
-      </div>
+      </motion.div>
 
       {/* Divider Line for Large Screens */}
       <div className="hidden md:block border-r border-gray-700 mx-6"></div>
 
       {/* Right Section */}
-      <div className="md:w-1/2 space-y-2 mt-6 md:mt-0">
+      <motion.div
+        variants={fadeIn("up", 0, 0.3)}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.7 }}
+        className="md:w-1/2 space-y-2 mt-6 md:mt-0"
+      >
         <h3 className="text-xl font-semibold">Includes:</h3>
         <ul className="text-gray-200 space-y-2">
           <li className="flex items-center">
@@ -52,7 +73,7 @@ export default function PriceBox() {
             document immediately
           </li>
         </ul>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }

@@ -1,8 +1,8 @@
-export const fadeIn = (direction, delay) => {
+export const fadeIn = (direction, delay, duration) => {
   return {
     hidden: {
-      y: direction === "up" ? 40 : direction === "down" ? -40 : 0,
-      x: direction === "left" ? 40 : direction === "right" ? -40 : 0,
+      y: direction === "up" ? 50 : direction === "down" ? -50 : 0,
+      x: direction === "left" ? 50 : direction === "right" ? -50 : 0,
     },
     show: {
       y: 0,
@@ -10,7 +10,7 @@ export const fadeIn = (direction, delay) => {
       opacity: 1,
       transition: {
         type: "tween",
-        duration: 1.2,
+        duration: duration,
         delay: delay,
         ease: [0.25, 0.25, 0.25, 0.75],
       },
@@ -18,7 +18,7 @@ export const fadeIn = (direction, delay) => {
   };
 };
 
-// variations = {fadeIn("left",0.2)}
+// variants = {fadeIn("left",0.2)}
 // initial = "hidden"
 // whileInView = {"show"}
 // viewport = {{once:false, amout : 0.7}}
@@ -34,12 +34,12 @@ export const fadeInAnimationVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      delay: 0.05 * index,
+      delay: 0.15 * index,
     },
   }),
 };
 
-// variations = {fucntion name ex: fadeInAnimationVariants}
+// variants = {fucntion name ex: fadeInAnimationVariants}
 // initial = "initial"
 // whileInView = {"animate"}
 // viewport = {{once:true}}
