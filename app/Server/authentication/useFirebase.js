@@ -1,4 +1,4 @@
-import FirebaseInitialize from "./firebaseInitialize";
+import { auth, storage, firestore } from "./firebaseConfig";
 import {
   doc,
   setDoc,
@@ -26,11 +26,8 @@ import {
 import { getFirestore } from "firebase/firestore";
 import { useRef, useState } from "react";
 import { useEffect } from "react";
-FirebaseInitialize();
+
 const useFirebase = () => {
-  const auth = getAuth();
-  const db = getFirestore();
-  const storage = getStorage();
   const [user, setUser] = useState({});
   const [error, setError] = useState("");
   const googleProvider = new GoogleAuthProvider();
@@ -47,7 +44,7 @@ const useFirebase = () => {
   // Save User data --------------------------
 
   const saveUserData = async (user) => {
-    const userRef = doc(db, "users", user.uid); // Firestore 'users' collection with user UID as document ID
+    const userRef = doc(firestore, "users", user.uid); // Firestore 'users' collection with user UID as document ID
     try {
       // Check if user data already exists
       const userDoc = await getDoc(userRef);
@@ -221,7 +218,7 @@ const useFirebase = () => {
   // CREATE: Add form data to Firestore
   const addFormData = async (data) => {
     try {
-      const docRef = await addDoc(collection(db, "userForms"), data);
+      const docRef = await addDoc(collection(firestore, "userForms"), data);
       console.log("Form submitted successfully with ID:", docRef.id);
       return docRef.id;
     } catch (error) {
@@ -231,20 +228,20 @@ const useFirebase = () => {
 
   // READ: Fetch all form data
   const getFormData = async () => {
-    const querySnapshot = await getDocs(collection(db, "userForms"));
+    const querySnapshot = await getDocs(collection(firestore, "userForms"));
     return querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
   };
 
   // UPDATE: Update form data
   const updateFormData = async (id, data) => {
-    const formRef = doc(db, "userForms", id);
+    const formRef = doc(firestore, "userForms", id);
     await updateDoc(formRef, data);
     console.log("Form data updated successfully");
   };
 
   // DELETE: Delete form data
   const deleteFormData = async (id) => {
-    const formRef = doc(db, "userForms", id);
+    const formRef = doc(firestore, "userForms", id);
     await deleteDoc(formRef);
     console.log("Form data deleted successfully");
   };
