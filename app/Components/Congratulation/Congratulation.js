@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Lottie from "lottie-react";
-import Congratulate from "./Congratulate.json";
+import congratulate from "./Congratulate.json";
 const Congratulation = () => {
   return (
     <div>
@@ -9,7 +9,7 @@ const Congratulation = () => {
         Congratulaitons !
       </h1>
       <Lottie
-        animationData={Congratulate}
+        animationData={congratulate}
         loop={true}
         className="max-w-4xl mx-auto"
       />
