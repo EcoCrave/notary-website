@@ -1,25 +1,45 @@
+"use client";
 import React from "react";
 import { FaCheck } from "react-icons/fa";
-
+import { motion } from "framer-motion";
+import { fadeIn, fadeInAnimationVariants } from "@/variants";
 const Service = () => {
   return (
-    <div className="bg-gradient-to-t from-blue-50 to-white py-16">
-      <div className="container mx-auto text-center">
+    <div className="bg-gradient-to-t  from-blue-50 to-white py-8">
+      <div className="w-[85%] mx-auto md:text-center">
         {/* Heading */}
-        <h2 className="text-3xl font-bold text-gray-900">
+        <motion.h2
+          variants={fadeIn("up", 0, 0.3)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.7 }}
+          className="text-4xl font-bold text-gray-900"
+        >
           We’re fueling the digital economy
-        </h2>
+        </motion.h2>
 
         {/* Subheading */}
-        <p className="text-gray-700 mt-4 max-w-2xl mx-auto">
+        <motion.p
+          variants={fadeIn("up", 0, 0.5)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.7 }}
+          className="text-gray-700 mt-4 max-w-2xl mx-auto"
+        >
           When notarizations are convenient, compliant, and more easily
           verifiable, everyone wins. See how our award-winning online
           notarization platform is bringing the nation’s largest industries
           online – and how we can do the same for your business.
-        </p>
+        </motion.p>
 
         {/* Industry Links */}
-        <div className="flex flex-wrap justify-center gap-6 mt-8">
+        <motion.div
+          variants={fadeIn("up", 0, 0.7)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.7 }}
+          className="flex flex-wrap justify-center gap-6 mt-8"
+        >
           {[
             "Real Estate",
             "Financial Services",
@@ -27,16 +47,20 @@ const Service = () => {
             "Credit Unions",
             "Solar and Energy",
             "Insurance",
-          ].map((industry) => (
-            <div
-              key={industry}
+          ].map((industry, index) => (
+            <motion.div
+              variants={fadeInAnimationVariants}
+              custom={index}
+              initial="initial"
+              whileInView={"animate"}
+              viewport={{ once: true }}
               className="flex items-center space-x-1 text-lg font-medium text-gray-900  transition"
             >
               <FaCheck className="w-5 h-5 text-green-900" />
               <span>{industry}</span>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

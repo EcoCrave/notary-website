@@ -93,7 +93,7 @@ const Navbar = () => {
         </Link>
 
         {/* Right Side - Desktop Menu */}
-        <div className="hidden lg:flex items-center space-x-4">
+        <div className="hidden lg:flex items-center space-x-5">
           {menuItems.map(({ label, path, subcategories, special }, index) => (
             <motion.div
               variants={fadeInAnimationVariants}

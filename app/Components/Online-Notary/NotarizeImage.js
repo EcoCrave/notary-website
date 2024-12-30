@@ -4,8 +4,8 @@ import React from "react";
 const NotarizeImage = () => {
   return (
     <div className="py-10">
-      <div className="w-[90%] space-y-20 mx-auto text-center">
-        <h2 className="text-5xl font-bold w-[60%] mx-auto ">
+      <div className="w-[85%] space-y-12 mx-auto lg:text-center">
+        <h2 className="text-4xl lg:text-5xl font-bold lg:w-[60%] mx-auto ">
           The painless way to notarize docs on the blockchain.
         </h2>
         <div className="relative">
@@ -13,7 +13,7 @@ const NotarizeImage = () => {
             src="/img/notarize-img.svg"
             width={650}
             height={650}
-            className="mx-auto w-[70%]"
+            className=" lg:w-[100%]"
           />
           <Image
             src="/img/hand.png"

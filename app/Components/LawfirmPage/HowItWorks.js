@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
 
+import { motion } from "framer-motion";
+import { fadeIn, fadeInAnimationVariants } from "@/variants";
 export default function HowItWorks() {
   // Define steps and descriptions
   const steps = [
@@ -32,25 +34,46 @@ export default function HowItWorks() {
           <h2 className="text-4xl font-bold text-green-500">How it works</h2>
           <ul className="mt-4 space-y-4">
             {steps.map((step, index) => (
-              <li
+              <motion.button
+                variants={fadeInAnimationVariants}
+                custom={index}
+                initial="initial"
+                whileInView={"animate"}
+                viewport={{ once: true }}
                 key={index}
                 onClick={() => setActiveStep(index)}
-                className={`cursor-pointer text-lg font-medium ${
-                  activeStep === index ? "text-green-500" : "text-white"
+                className={`cursor-pointer flex flex-col text-lg font-medium ${
+                  activeStep === index
+                    ? "text-green-500 border-green-600 border p-2 w-52"
+                    : "text-white"
                 }`}
               >
                 {step.title}
-              </li>
+              </motion.button>
             ))}
           </ul>
         </div>
 
         {/* Right Section - Description */}
-        <div className="md:w-2/3 mt-8 md:mt-0">
-          <h3 className="text-2xl font-semibold text-white">
+        <div className=" mt-8 md:mt-0">
+          <motion.h3
+            variants={fadeIn("up", 0, 0.3)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.7 }}
+            className="text-2xl font-semibold text-white"
+          >
             {steps[activeStep].title}
-          </h3>
-          <p className="text-gray-50 mt-4">{steps[activeStep].description}</p>
+          </motion.h3>
+          <motion.p
+            variants={fadeIn("up", 0, 0.5)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.7 }}
+            className="text-gray-50 mt-4"
+          >
+            {steps[activeStep].description}
+          </motion.p>
         </div>
       </div>
     </div>

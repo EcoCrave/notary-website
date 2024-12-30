@@ -1,5 +1,7 @@
+"use client";
 import { FaRegClock, FaUsers, FaGlobeAmericas } from "react-icons/fa";
-
+import { motion } from "framer-motion";
+import { fadeIn, fadeInAnimationVariants } from "@/variants";
 export default function AdvantagesForClients() {
   const advantages = [
     {
@@ -27,17 +29,28 @@ export default function AdvantagesForClients() {
       <div className="w-[85%] mx-auto">
         {/* Heading */}
         <div className="mb-12">
-          <h2 className="text-4xl font-bold text-gray-900">
+          <motion.h2
+            variants={fadeIn("up", 0, 0.3)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.7 }}
+            className="text-4xl md:text-5xl font-bold text-gray-900"
+          >
             Advantages{" "}
             <span className="text-green-900">digital notary appointments</span>{" "}
             for your clients
-          </h2>
+          </motion.h2>
         </div>
 
         {/* Advantages Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {advantages.map((advantage, index) => (
-            <div
+            <motion.div
+              variants={fadeInAnimationVariants}
+              custom={index}
+              initial="initial"
+              whileInView={"animate"}
+              viewport={{ once: true }}
               key={index}
               className="flex flex-col items-start bg-gradient-to-b from-blue-50 to-white hover:-translate-y-2 cursor-pointer duration-300 p-6 rounded-lg shadow-md"
             >
@@ -48,7 +61,7 @@ export default function AdvantagesForClients() {
                 {advantage.title}
               </h3>
               <p className=" mt-2">{advantage.description}</p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

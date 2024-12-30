@@ -13,11 +13,11 @@ const ContactUs = () => {
   return (
     <div className="bg-gray-100">
       {" "}
-      <div className="min-h-screen w-[90%] mx-auto flex items-center justify-center ">
+      <div className="min-h-screen w-[85%] mx-auto py-20 flex items-center justify-center ">
         <div className="container mx-auto bg-white shadow-lg rounded-lg flex flex-col lg:flex-row overflow-hidden">
           {/* Left Section - Form */}
           <div className="lg:w-1/2 p-10 space-y-6">
-            <h2 className="text-5xl font-bold">Contact Us</h2>
+            <h2 className="lg:text-5xl text-4xl font-bold">Contact Us</h2>
             <p className="text-gray-600">
               Feel free to contact us any time. We will get back to you as soon
               as we can!
@@ -64,7 +64,7 @@ const ContactUs = () => {
 
           {/* Right Section - Contact Info */}
           <div className=" p-10 bg-gray-900 text-white">
-            <h2 className="text-5xl font-bold mb-8">Contact Info</h2>
+            <h2 className="text-5xl font-bold text-white mb-8">Contact Info</h2>
             <div className="space-y-4">
               <li className="list-none items-center">
                 <span className="text-green-600 font-bold text-2xl">

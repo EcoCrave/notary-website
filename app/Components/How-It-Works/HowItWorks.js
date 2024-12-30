@@ -4,13 +4,13 @@ import React from "react";
 const HowItWorks = () => {
   return (
     <div className="bg-gray-50 space-y-5 text-gray-900">
-      <div>
+      <div className="w-[85%] mx-auto pb-10">
         {/* Header Section */}
-        <div className="text-center py-16 px-4">
-          <h2 className="text-2xl uppercase font-semibold text-gray-500">
+        <div className="lg:text-center py-16 space-y-4">
+          <h2 className="text-xl uppercase font-semibold text-gray-500">
             How It Works
           </h2>
-          <h1 className="text-5xl font-bold text-gray-900 mt-2">
+          <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 my-2">
             In 5 steps to your online notary appointment
           </h1>
           <p className="text-gray-700 mt-4 max-w-2xl mx-auto">
@@ -67,8 +67,8 @@ const HowItWorks = () => {
         </div>
 
         {/* Video Section */}
-        <div className="bg-gradient-to-b from-blue-50 py-20 shadow-lg p-8 text-center">
-          <h3 className="text-5xl  font-bold">
+        <div className="bg-gradient-to-b from-blue-50 py-20 shadow-lg p-8 lg:text-center ">
+          <h3 className="text-4xl lg:text-5xl font-bold">
             Still have questions? Our explanatory video will help.
           </h3>
           <p className=" mt-3 max-w-xl mx-auto">

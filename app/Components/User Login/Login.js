@@ -22,11 +22,13 @@ const Login = () => {
   } = useFirebase();
   return (
     <div className="bg-gray-100">
-      <div className="w-[85%] m-auto ">
-        <div className="flex py-10 w-full justify-between">
-          <div className="space-y-8 w-1/2 ">
-            <span className="text-xl">Remote Online Notarization</span>
-            <h1 className="text-6xl font-bold">
+      <div className="w-[85%] py-10 mx-auto ">
+        <div className="lg:flex items-center py-10 w-full justify-between">
+          <div className="space-y-5 md:w-1/2 mb-8">
+            <span className="text-xl font-semibold text-gray-600">
+              Remote Online Notarization
+            </span>
+            <h1 className="lg:text-5xl text-4xl font-bold">
               {" "}
               <span className="text-green-800">notarize</span> documents from
               anywhere. <br /> anytime.
@@ -34,12 +36,8 @@ const Login = () => {
             <p className="text-xl pt-4">
               notarity makes working with notaries a breeze.
             </p>
-            <img
-              src="https://app.notarity.com/decorations/ic-prozesse.svg"
-              alt=""
-            />
           </div>
-          <div className="w-1/2 p-10 space-y-8 rounded bg-white">
+          <div className="lg:w-1/2 p-10 space-y-8 rounded bg-white">
             <div className="flex justify-around gap-5 text-xl font-semibold">
               <button
                 onClick={() => setLoginTrigered(true)}
@@ -142,9 +140,9 @@ const Login = () => {
             )}
             <div className="w-full mt-20 text-center space-y-5">
               <p className="text-center font-semibold">
-                --------------Or------------
+                ----------Or----------
               </p>
-              <div className="flex justify-around">
+              <div className="flex justify-center items-center space-x-10">
                 <FcGoogle onClick={handleGoogleSignIn} className="text-4xl" />
                 <FaSquareFacebook
                   onClick={handleFacebookSignIn}

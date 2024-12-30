@@ -3,8 +3,8 @@ import { FaCheck } from "react-icons/fa";
 
 const Service = () => {
   return (
-    <div className="bg-gray-900 my-10 w-[90%] rounded mx-auto py-16">
-      <div className="container mx-auto text-center">
+    <div className="bg-gray-900 my-10 w-[85%] rounded mx-auto py-16">
+      <div className="container mx-auto p-5 lg:text-center">
         {/* Heading */}
         <h2 className="text-3xl font-bold text-white">
           We’re fueling the digital economy
@@ -19,7 +19,7 @@ const Service = () => {
         </p>
 
         {/* Industry Links */}
-        <div className="flex flex-wrap justify-center gap-6 mt-8">
+        <div className="flex flex-wrap lg:justify-center gap-6 mt-8">
           {[
             "Real Estate",
             "Financial Services",

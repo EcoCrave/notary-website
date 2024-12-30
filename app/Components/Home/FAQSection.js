@@ -39,23 +39,41 @@ export default function FAQSection() {
   };
 
   return (
-    <div className=" py-20  ">
+    <div className=" py-4 pb-16  ">
       <div className="flex flex-col items-center md:flex-row md:justify-between w-[85%] mx-auto">
         {/* Left Section */}
         <div className="md:w-1/2 mb-10 md:mb-0">
-          <button className="mb-4 px-4 py-2 border rounded-full text-sm font-semibold text-gray-800 border-gray-300">
+          <motion.button
+            variants={fadeIn("up", 0, 0.3)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.7 }}
+            className="mb-4 px-4 py-2 border rounded-full text-sm font-semibold text-gray-800 border-gray-300"
+          >
             FAQ'S
-          </button>
-          <h2 className="md:text-5xl text-4xl font-bold text-gray-900 ">
+          </motion.button>
+          <motion.h2
+            variants={fadeIn("up", 0, 0.5)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.7 }}
+            className="lg:text-5xl text-4xl font-bold text-gray-900 "
+          >
             Frequently Asked Questions
-          </h2>
+          </motion.h2>
 
-          <p className="text-gray-600 mt-4 font-semibold">
+          <motion.p
+            variants={fadeIn("up", 0, 0.7)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.7 }}
+            className="text-gray-600 mt-4 font-semibold"
+          >
             Need more help?{" "}
             <a href="#" className="text-blue-600 underline">
               Contact Us
             </a>
-          </p>
+          </motion.p>
         </div>
 
         {/* Right Section */}

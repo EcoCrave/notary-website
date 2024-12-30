@@ -3,11 +3,11 @@ import Image from "next/image";
 
 const Hero = () => {
   return (
-    <div className="bg-gray-50 py-16 px-8">
-      <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+    <div className="bg-gray-50 py-20 ">
+      <div className="w-[85%] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         {/* Left Content */}
         <div className="space-y-6">
-          <h1 className="text-4xl font-bold text-gray-900 leading-snug">
+          <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-snug">
             Notarize your documents affordably and{" "}
             <span className="text-green-600 underline">fraud-free</span> with
             the convenience customers expect with{" "}

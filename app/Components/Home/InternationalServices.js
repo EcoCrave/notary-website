@@ -67,9 +67,9 @@ export default function InternationalServices() {
                 whileInView={"animate"}
                 viewport={{ once: true }}
                 onClick={() => setSelectedService(service)}
-                className={`px-4 py-2 text-left font-medium shadow-md bg-white w-full rounded-lg ${
+                className={`px-4 py-2 text-left  shadow-md  w-full rounded-lg ${
                   selectedService.title === service.title
-                    ? "text-green-900 bg-green-600  border-green-500"
+                    ? "text-white bg-green-600 font-bold "
                     : "text-gray-700 border-gray-300"
                 }`}
               >
@@ -106,7 +106,7 @@ export default function InternationalServices() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.7 }}
-            className="flex lg:justify-center  "
+            className="flex lg:justify-center"
           >
             <div className="bg-white p-8 rounded-lg shadow-md text-center  border border-gray-200">
               {/* Title */}

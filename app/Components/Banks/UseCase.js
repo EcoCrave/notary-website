@@ -1,39 +1,78 @@
+"use client";
 import Image from "next/image";
 import React from "react";
-
+import { motion } from "framer-motion";
+import { fadeIn } from "@/variants";
 const UseCase = () => {
   return (
     <main className=" py-16 ">
-      <div className=" items-center md:grid grid-cols-2 gap-10 justify-center w-[87%] mx-auto space-y-4">
-        <div className=" relative flex justify-center">
+      <div className=" items-center lg:grid grid-cols-2 gap-10 justify-center w-[87%] mx-auto space-y-4">
+        <motion.div
+          variants={fadeIn("up", 0, 0.3)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, amount: 0.7 }}
+          className=" relative  justify-center"
+        >
           <Image
-            className="rounded-xl items-center w-[60%]"
+            className="rounded-xl items-center lg:w-[60%]"
             width={600}
             height={600}
             src="/img/useCase.webp"
             alt=""
           />
-        </div>
+        </motion.div>
 
         <div className=" space-y-8 md:pr-40">
-          <h1 className="text-4xl font-bold">Use cases for banks</h1>
+          <motion.h1
+            variants={fadeIn("up", 0, 0.3)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.7 }}
+            className="text-4xl font-bold"
+          >
+            Use cases for banks
+          </motion.h1>
           <div className="space-y-3">
-            <p className="text-lg">
+            <motion.p
+              variants={fadeIn("up", 0, 0.3)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.7 }}
+              className="text-lg"
+            >
               There are many authentication requirements in a lending bank.
               These concern in many cases :
-            </p>
-            <li className="m-5">The certification of pledge documents</li>
-            <li className="m-5">The certification of pledge documents</li>
+            </motion.p>
+            <motion.li
+              variants={fadeIn("up", 0, 0.3)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.7 }}
+              className="m-5"
+            >
+              The certification of pledge documents
+            </motion.li>
+            <motion.li
+              variants={fadeIn("up", 0, 0.3)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.7 }}
+              className="m-5"
+            >
+              The certification of pledge documents
+            </motion.li>
 
-            <p className="text-lg">
+            <motion.p
+              variants={fadeIn("up", 0, 0.3)}
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.7 }}
+              className="text-lg"
+            >
               There are many authentication requirements in a lending bank.
               These concern in many cases :
-            </p>
-          </div>
-          <div className="gap-4 flex mx-auto">
-            <button className="bg-green-800 px-4 py-2 rounded-md text-white">
-              Arrange a demo appointment
-            </button>
+            </motion.p>
           </div>
         </div>
       </div>

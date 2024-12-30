@@ -32,20 +32,22 @@ const Banner1 = () => {
         </motion.h2>
 
         {/* Map through images */}
-        <div className="flex w-full overflow-x-scroll banner-scroll gap-5">
+        <motion.div
+          variants={fadeIn("up", 0.2)}
+          initial="hidden"
+          whileInView={"show"}
+          viewport={{ once: true, amount: 0.0 }}
+          className="flex w-full overflow-x-scroll banner-scroll gap-5"
+        >
           {images.map((src, index) => (
-            <motion.img
-              variants={fadeIn("up", 0.2)}
-              initial="hidden"
-              whileInView={"show"}
-              viewport={{ once: true, amount: 0.0 }}
+            <img
               key={index}
               className={`w-40 ${index % 2 === 0 ? "rounded" : ""}`} // Conditional styling for rounded corners
               src={src}
               alt={`Client ${index + 1}`}
             />
           ))}
-        </div>
+        </motion.div>
       </div>
     </main>
   );
