@@ -25,7 +25,7 @@ export default function Hero() {
               viewport={{ once: true, amount: 0.7 }}
               className="lg:text-5xl text-4xl font-bold text-gray-900 leading-tight"
             >
-              Digitise your law firm's cooperation with notaries
+              Digitize the Way Your Bank Works with Notaries
             </motion.h1>
             <motion.p
               variants={fadeIn("up", 0, 0.7)}
@@ -34,9 +34,10 @@ export default function Hero() {
               viewport={{ once: true, amount: 0.7 }}
               className="text-gray-700"
             >
-              Notarity helps you and your clients to digitalise the cooperation
-              with notaries. This enables you to work more efficiently, save
-              time and money and offer your clients an innovative service.
+              Authorized bank signatories may digitally sign and have
+               our partner notaries certify papers. Let us digitize your document
+                certification procedures.
+
             </motion.p>
             <div className="flex flex-wrap gap-4 mt-6">
               <motion.button

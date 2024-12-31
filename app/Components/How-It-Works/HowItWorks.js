@@ -14,9 +14,8 @@ const HowItWorks = () => {
             In 5 steps to your online notary appointment
           </h1>
           <p className="text-gray-700 mt-4 max-w-2xl mx-auto">
-            With notarity, no geographical barriers slow you down. Get your
-            documents notarised remotely and without delay by our partner
-            notaries. No matter where in the world you are.
+          With our platform, you can experience secure, fast, and hassle-free notarization. Follow these simple steps to have your documents notarized in just 10 minutes.
+
           </p>
           <button className="mt-6 bg-green-600 text-white py-3 px-8 rounded-md font-semibold hover:bg-green-700 transition">
             Book appointment now

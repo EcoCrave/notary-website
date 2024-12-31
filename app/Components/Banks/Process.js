@@ -41,10 +41,9 @@ const Process = () => {
               viewport={{ once: true, amount: 0.7 }}
               className="text-lg"
             >
-              Via interfaces, documents to be signed can be transferred directly
-              to notarity and certified documents are automatically returned to
-              the bank's system. It is no longer necessary to run errands or
-              send documents by post or e-mail.
+              Interfaces allow papers to be signed directly to websitename and certified documents to be returned to the bank's system.
+               Running errands or sending papers via mail or email is unnecessary.
+
             </motion.p>
           </div>
         </div>

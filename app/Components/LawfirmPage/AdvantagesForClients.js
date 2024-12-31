@@ -6,21 +6,21 @@ export default function AdvantagesForClients() {
   const advantages = [
     {
       icon: <FaRegClock className="w-6 h-6 text-white" />,
-      title: "Time saving",
+      title: "Time Saving - Increasing Efficiency",
       description:
-        "Your clients save time travelling to your office or the notary's office.",
+        "Clients can complete notarizations quickly without the need for travel or waiting in-office, streamlining the process and saving valuable time.",
     },
     {
       icon: <FaUsers className="w-6 h-6 text-white" />,
-      title: "Flexibility",
+      title: "Unmatched Flexibility",
       description:
-        "Your clients can make notary appointments online flexibly and at very short notice.",
+        "Digital appointments offer clients the ability to schedule and complete notarizations at their convenience, accommodating different time zones and busy lifestyles.",
     },
     {
       icon: <FaGlobeAmericas className="w-6 h-6 text-white" />,
-      title: "Digital business processes",
+      title: "Integration with Digital Business Processes",
       description:
-        "The documents are genuinely electronic and fit seamlessly into the digital business processes of your clients.",
+        "Seamlessly aligning with modern digital workflows, digital notarization simplifies document management, allowing clients to upload, notarize, and receive documents electronically.",
     },
   ];
 

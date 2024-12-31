@@ -14,7 +14,7 @@ export default function AdvantagesSection() {
             viewport={{ once: true, amount: 0.7 }}
             className="text-lg uppercase tracking-widest text-gray-500 font-semibold"
           >
-            Why Notarity
+            Why websitename
           </motion.p>
           <motion.h2
             variants={fadeIn("up", 0, 0.5)}
@@ -24,7 +24,7 @@ export default function AdvantagesSection() {
             className="text-4xl md:text-5xl pr-10 font-bold text-gray-900 leading-tight my-2 mb-6"
           >
             Advantages{" "}
-            <span className="text-green-900">digital notary appointments</span>{" "}
+            <span className="text-green-900">websitename appointments</span>{" "}
             for your law firm
           </motion.h2>
         </div>
@@ -39,10 +39,10 @@ export default function AdvantagesSection() {
             viewport={{ once: true, amount: 0.7 }}
             className="bg-gradient-to-b from-green-50 hover:-translate-y-2 cursor-pointer duration-300 to-white shadow-md p-5 rounded "
           >
-            <h3 className="text-2xl font-semibold ">Effort reduction</h3>
+            <h3 className="text-2xl font-semibold ">Increased Client Convenience </h3>
             <p className="   text-lg mt-2">
-              Reduce your administrative workload when organising notary
-              appointments for your clients by 90%.
+            Digital notary appointments allow clients to notarize documents remotely, 
+            eliminating the need for travel and accommodating busy schedules, thus enhancing client satisfaction.
             </p>
           </motion.div>
           {/* Benefit 2 */}
@@ -53,10 +53,10 @@ export default function AdvantagesSection() {
             viewport={{ once: true, amount: 0.7 }}
             className="bg-gradient-to-b from-blue-50 hover:-translate-y-2 cursor-pointer duration-300 shadow-md to-white p-5 rounded "
           >
-            <h3 className="text-2xl font-semibold ">Effort reduction</h3>
+            <h3 className="text-2xl font-semibold ">Time and Cost Efficiency</h3>
             <p className="   text-lg mt-2">
-              Reduce your administrative workload when organising notary
-              appointments for your clients by 90%.
+            Remote notarization reduces administrative overhead, optimizes staff productivity, 
+            and eliminates expenses associated with in-person notarizations, such as office space and materials.
             </p>
           </motion.div>
           {/* Benefit 3 */}
@@ -67,10 +67,11 @@ export default function AdvantagesSection() {
             viewport={{ once: true, amount: 0.7 }}
             className="bg-gradient-to-b hover:-translate-y-2 cursor-pointer duration-300 from-blue-50 shadow-md to-white p-5 rounded "
           >
-            <h3 className="text-2xl font-semibold ">Effort reduction</h3>
+            <h3 className="text-2xl font-semibold ">Expanded Reach</h3>
             <p className="   text-lg mt-2">
-              Reduce your administrative workload when organising notary
-              appointments for your clients by 90%.
+            Digital notarization enables your firm to serve clients beyond geographical boundaries,
+             offering services to a broader audience and increasing accessibility for all.
+
             </p>
           </motion.div>
           {/* Benefit 4 */}
@@ -81,10 +82,11 @@ export default function AdvantagesSection() {
             viewport={{ once: true, amount: 0.7 }}
             className="bg-gradient-to-b hover:-translate-y-2 cursor-pointer duration-300 from-blue-50 shadow-md to-white p-5 rounded "
           >
-            <h3 className="text-2xl font-semibold ">Effort reduction</h3>
+            <h3 className="text-2xl font-semibold ">Enhanced Security and Compliance            </h3>
             <p className="   text-lg mt-2">
-              Reduce your administrative workload when organising notary
-              appointments for your clients by 90%.
+            Digital platforms provide encrypted communication, identity verification,
+            and tamper-evident seals, ensuring legal compliance while safeguarding sensitive client information.
+
             </p>
           </motion.div>
         </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import NotarizeImage from "../Components/Online-Notary/NotarizeImage";
 import ReceiveDocument from "../Components/In-Person-Notarization/ReceiveDocument";
-import FAQ from "../Components/Business/FAQ";
+import FAQ from "../Components/Business/FAQbusiness";
 import SignBoard from "../Components/ESign/SignBorad";
 export const metadata = {
   title: "Business page",

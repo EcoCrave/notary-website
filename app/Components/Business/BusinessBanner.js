@@ -24,7 +24,7 @@ const BusinessBanner = () => {
             viewport={{ once: true, amount: 0.7 }}
             className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight"
           >
-            Expand your business across the nation
+            Grow Your Business and Reach Customers Nationwide
           </motion.h1>
           <motion.p
             variants={fadeIn("up", 0, 0.7)}
@@ -33,11 +33,11 @@ const BusinessBanner = () => {
             viewport={{ once: true, amount: 0.7 }}
             className="text-gray-700 text-lg"
           >
-            With the power of{" "}
+            Experience the convenience of{" "}
             <span className="font-bold text-xl">
               Remote Online Notarization
             </span>{" "}
-            Notarize Anytime, Anywhere, 100% Online in minutes.
+            certify documents anytime, anywhere, completely online in minutes.
           </motion.p>
           <motion.div
             variants={fadeIn("up", 0, 0.3)}

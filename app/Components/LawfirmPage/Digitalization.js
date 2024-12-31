@@ -38,7 +38,7 @@ const Digitalization = () => {
             className="md:text-5xl text-4xl font-bold text-gray-900 leading-tight"
           >
             The future is digital.
-            <br /> Are you too?
+            <br /> Are You Ready to Transform?
           </motion.h1>
           <motion.p
             variants={fadeIn("up", 0, 0.7)}
@@ -46,12 +46,10 @@ const Digitalization = () => {
             whileInView="show"
             className="text-gray-700"
           >
-            We have developed a free product especially for law firms that
-            allows you to utilise the full potential of notarity. With
-            personalised booking links, you can present yourself to your clients
-            in a modern way. <br /> We would be happy to present this offer to
-            you personally in a joint appointment and show you all the
-            advantages of notarity.
+            We designed a free platform for legal firms to maximize notarization. 
+            Personalized booking links provide you a current image with customers. 
+            <br /> 
+            We'd be pleased to propose this offer in a joint appointment and demonstrate websitename benefits
           </motion.p>
         </motion.div>
       </div>
