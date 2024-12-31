@@ -39,7 +39,7 @@ export default function FAQSection() {
   };
 
   return (
-    <div className=" py-4 pb-16  ">
+    <div className=" pt-10 pb-16  ">
       <div className="flex flex-col items-center md:flex-row md:justify-between w-[85%] mx-auto">
         {/* Left Section */}
         <div className="md:w-1/2 mb-10 md:mb-0">

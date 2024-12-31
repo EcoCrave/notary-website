@@ -4,10 +4,11 @@ import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { FaXTwitter, FaTiktok, FaLinkedin } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import { fadeIn, fadeInAnimationVariants } from "@/variants";
+import Image from "next/image";
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white text-lg py-20">
-      <div className="w-[85%] mx-auto gap-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+    <footer className="bg-gray-900 text-white text-lg ">
+      <div className="w-[85%] mx-auto gap-8 grid grid-cols-2 py-14 md:grid-cols-3 lg:grid-cols-5">
         {/* Logo and Address */}
         <motion.div
           variants={fadeIn("up", 0, 0.3)}
@@ -145,18 +146,33 @@ const Footer = () => {
           <h3 className="font-bold text-2xl mb-4">
             Subscribe To Our Newsletter :
           </h3>
-          <form className="flex flex-col space-y-1">
+          <form className="flex flex-col space-y-2">
             <input
               type="email"
-              className="p-3 outline-none rounded text-black"
+              className="p-2 outline-none rounded text-black"
               placeholder="email.."
             />
             <input
               type="submit"
-              className="bg-green-700 hover:bg-green-900 outline-none px-4 py-2 rounded w-28 cursor-pointer"
+              value="Submit"
+              className="bg-green-700 hover:bg-green-900 text-md outline-none rounded w-24 py-1 cursor-pointer"
             />
           </form>
         </motion.div>
+      </div>
+      <div className="bg-gray-950 py-5">
+        <div className="text-center space-y-3 lg:flex justify-between w-[85%] mx-auto">
+          <p className="text-gray-400 text-sm">
+            © 2025 Online Notary. All Rights Reserved
+          </p>
+          <Image
+            src="/img/payment.png"
+            width={500}
+            height={500}
+            alt="Picture of payment gateway"
+            className="w-80 mx-auto lg:mx-0"
+          />
+        </div>
       </div>
     </footer>
   );
