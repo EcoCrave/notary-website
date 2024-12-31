@@ -41,9 +41,8 @@ const Banner = () => {
             whileInView="show"
             viewport={{ once: true, amount: 0.7 }}
           >
-            notarity helps you and your clients to digitalise the cooperation
-            with notaries. This enables you to work more efficiently, save time
-            and money and offer your clients an innovative service.
+            Websitename streamlines digital collaboration with notaries,
+             boosting efficiency, saving time and money, and providing innovative services to your clients.
           </motion.p>
           <div className="gap-4 flex mx-auto">
             <motion.button

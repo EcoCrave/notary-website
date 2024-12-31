@@ -29,7 +29,7 @@ const YourAdvantages = () => {
           viewport={{ once: true, amount: 0.7 }}
           className="md:text-5xl text-left md:text-center text-4xl font-bold "
         >
-          Why your company should use notarity
+          Why your company should use websitename
         </motion.h2>
         <motion.p
           variants={fadeIn("up", 0, 0.7)}
@@ -38,11 +38,11 @@ const YourAdvantages = () => {
           viewport={{ once: true, amount: 0.7 }}
           className=" mx-auto pt-5 text-left md:text-center"
         >
-          Effortlessly manage complex legal tasks across borders with notarity.
+          Effortlessly manage complex legal tasks across borders with websitename.
           Our platform facilitates secure, fast, and cost-effective online
           notarisation for your global teams, eliminating the need for physical
           appointments and extensive paperwork. Enhance your operational
-          efficiency and ensure compliance with notarity's innovative digital
+          efficiency and ensure compliance with websitename innovative digital
           solutions, designed to streamline legal workflows.
         </motion.p>
         <Timeline />

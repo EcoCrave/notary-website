@@ -18,7 +18,7 @@ const Digitalization = () => {
           </h1>
           <p>
             Over 17,000 certified online notaries performing on the
-            blockchain-secured BlueNotary platform.
+            blockchain-secured websitename platform.
           </p>
           <div className="gap-4 flex mx-auto">
             <button className="bg-green-800 px-4 py-2 rounded-md text-white">
