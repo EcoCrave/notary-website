@@ -160,7 +160,7 @@ const Footer = () => {
           </form>
         </motion.div>
       </div>
-      <div className="bg-gray-950 py-5">
+      <div className="bg-gray-950  py-5">
         <div className="text-center space-y-3 lg:flex justify-between w-[85%] mx-auto">
           <p className="text-gray-400 text-sm">
             © 2025 Online Notary. All Rights Reserved

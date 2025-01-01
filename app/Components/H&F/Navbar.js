@@ -60,8 +60,7 @@ const Navbar = () => {
         { label: "Contact Us", path: "/contact" },
       ],
     },
-    { label: "Login / Register", path: "/login" },
-    { label: "Book Appointment", path: "/login", special: true },
+    { label: "Login / Register", path: "/login", special: true },
   ];
 
   const handleSubMenuToggle = (label) => {

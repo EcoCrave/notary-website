@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { fadeIn, fadeInAnimationVariants } from "@/variants";
+import Link from "next/link";
 export default function FAQSection() {
   const faqs = [
     {
@@ -70,9 +71,9 @@ export default function FAQSection() {
             className="text-gray-600 mt-4 font-semibold"
           >
             Need more help?{" "}
-            <a href="#" className="text-blue-600 underline">
+            <Link href="/contact" className="text-blue-600 underline">
               Contact Us
-            </a>
+            </Link>
           </motion.p>
         </div>
 

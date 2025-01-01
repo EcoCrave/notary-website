@@ -3,6 +3,8 @@ import React from "react";
 import { FaCirclePlay } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/variants";
+import BookingForm from "../Checkout/BookingForm";
+import Link from "next/link";
 
 const Banner = () => {
   return (
@@ -45,26 +47,22 @@ const Banner = () => {
             with notaries. This enables you to work more efficiently, save time
             and money and offer your clients an innovative service.
           </motion.p>
-          <div className="gap-4 flex mx-auto">
-            <motion.button
-              variants={fadeIn("up", 0, 0.9)}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.9 }}
-              className="bg-green-800 px-4 py-2 rounded-md text-white"
-            >
-              Arrange an appointment
-            </motion.button>
-            <motion.button
-              variants={fadeIn("up", 0, 1.1)}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.9 }}
-              className="px-4 py-2 rounded-md border border-green-800 text-green-800 hover:bg-green-800 hover:text-white"
+          <motion.div
+            variants={fadeIn("up", 0, 0.9)}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.9 }}
+            className="gap-4 flex items-center mx-auto"
+          >
+            <BookingForm appointment_title="Arrange an appointment" />
+
+            <Link
+              className="px-4 py-3 rounded-md border border-green-800 text-green-800 hover:bg-green-800 hover:text-white"
+              href="/contact"
             >
               Contact Us
-            </motion.button>
-          </div>
+            </Link>
+          </motion.div>
         </motion.div>
 
         {/* Right Content */}
