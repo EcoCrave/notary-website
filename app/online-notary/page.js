@@ -3,7 +3,7 @@ import Hero from "../Components/Online-Notary/Hero";
 import Customers from "../Components/Online-Notary/Customers";
 import NotarizeImage from "../Components/Online-Notary/NotarizeImage";
 import Features from "../Components/Online-Notary/Features";
-import FAQ from "../Components/Business/FAQ";
+import FAQ from "../Components/Business/FAQbusiness";
 import Services from "../Components/Online-Notary/Services";
 export const metadata = {
   title: "Create Next App",

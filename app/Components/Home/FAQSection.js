@@ -9,27 +9,27 @@ export default function FAQSection() {
     {
       question: "How does online notarization work?",
       answer:
-        "Online notarization works by connecting you with a licensed notary through a secure video call. You verify your identity, sign the document digitally, and the notary seals it electronically.",
+        "Online notarization connects you with a licensed notary via a secure video call. After verifying your identity, you digitally sign the document, and the notary applies an electronic seal.",
     },
     {
-      question: "What documents can be notarized on BlueNotary?",
+      question: "What documents can be notarized on websitename?",
       answer:
-        "Documents like affidavits, powers of attorney, real estate documents, and more can be notarized on BlueNotary.",
+        "Documents such as affidavits, powers of attorney, real estate papers, and more can be notarized on Websitename.",
     },
     {
       question: "Can you Notarize documents from overseas?",
       answer:
-        "Yes, BlueNotary allows notarization of documents from overseas as long as the document is valid in the U.S. or the intended jurisdiction.",
+        "Yes, Websitename enables notarization of documents from abroad, provided the document is valid in the U.S. or the intended jurisdiction.",
     },
     {
-      question: "What types of documents can be notarized on BlueNotary?",
+      question: "What types of documents can be notarized on websitename?",
       answer:
-        "BlueNotary can notarize a wide range of documents, including legal, financial, and personal documents.",
+        "Websitename can notarize a variety of documents, including legal, financial, and personal ones.",
     },
     {
       question: "Is online notarization legal?",
       answer:
-        "Yes, online notarization is legal in many states in the U.S. and recognized in multiple countries.",
+        "Yes, online notarization is legally recognized in many U.S. states and is accepted in several countries worldwide.",
     },
   ];
 

@@ -1,32 +1,32 @@
 "use client";
 import React, { useState } from "react";
 
-const FAQ = () => {
+const Faqlawfirm = () => {
   const faqs = [
     {
-      question: "How does online notarization work?",
+      question: "What is a notary service for a law firm?",
       answer:
-        "Online notarization works by connecting you with a licensed notary through a secure video call. You verify your identity, sign the document digitally, and the notary seals it electronically.",
+        "A service that authenticates legal documents, ensures validity, and deters fraud through notarization, often used for contracts, affidavits, or powers of attorney.",
     },
     {
-      question: "What documents can be notarized on BlueNotary?",
+      question: "Why do law firms need notary services?",
       answer:
-        "Documents like affidavits, powers of attorney, real estate documents, and more can be notarized on BlueNotary.",
+        "Notary services ensure legal compliance, authenticate client signatures, and provide credibility to important legal documents for court or official use",
     },
     {
-      question: "Can you Notarize documents from overseas?",
+      question: "Can notary services be digital for law firms?",
       answer:
-        "Yes, BlueNotary allows notarization of documents from overseas as long as the document is valid in the U.S. or the intended jurisdiction.",
+        "Yes, digital notarization allows remote authentication of documents using secure online platforms, saving time and enhancing accessibility.",
     },
     {
-      question: "What types of documents can be notarized on BlueNotary?",
+      question: "What documents require notarization in law firms?",
       answer:
-        "BlueNotary can notarize a wide range of documents, including legal, financial, and personal documents.",
+        "Contracts, affidavits, real estate agreements, wills, and power of attorney documents often require notarization for legal validity.",
     },
     {
-      question: "Is online notarization legal?",
+      question: "How does notarization protect law firms?",
       answer:
-        "Yes, online notarization is legal in many states in the U.S. and recognized in multiple countries.",
+        "Notarization prevents forgery and fraud by verifying identities, ensuring legal compliance, and providing evidence of the document’s authenticity.",
     },
   ];
 
@@ -37,7 +37,7 @@ const FAQ = () => {
   };
   return (
     <div className=" py-12  ">
-      <div className="flex flex-col md:flex-row md:justify-between w-[87%] p-6 mx-auto">
+      <div className="flex flex-col md:flex-row md:justify-between w-[85%] p-6 mx-auto">
         {/* Left Section */}
         <div className="md:w-1/2 mb-10 md:mb-0">
           <button className="mb-4 px-4 py-2 border rounded-full text-sm font-semibold text-gray-800 border-gray-300">
@@ -79,4 +79,4 @@ const FAQ = () => {
   );
 };
 
-export default FAQ;
+export default Faqlawfirm;

@@ -19,7 +19,7 @@ const Hero = () => {
             Notarize your documents affordably and{" "}
             <span className="text-green-600 underline">fraud-free</span> with
             the convenience customers expect with{" "}
-            <span className="italic">online notary</span>.
+            <span className="italic">websitename</span>.
           </motion.h1>
           <motion.p
             variants={fadeIn("up", 0, 0.5)}

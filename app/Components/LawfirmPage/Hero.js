@@ -38,7 +38,7 @@ export default function Hero() {
               viewport={{ once: true, amount: 0.7 }}
               className="md:text-5xl text-4xl font-bold text-gray-900 leading-tight"
             >
-              Digitise your law firm's cooperation with notaries
+              Digitise your law firm's co-operation with notaries
             </motion.h1>
             <motion.p
               variants={fadeIn("up", 0, 0.7)}
@@ -47,9 +47,9 @@ export default function Hero() {
               viewport={{ once: true, amount: 0.7 }}
               className="text-gray-700"
             >
-              Notarity helps you and your clients to digitalise the cooperation
-              with notaries. This enables you to work more efficiently, save
-              time and money and offer your clients an innovative service.
+              websitename simplifies notarization with safe, remote, 
+              and online services. Partner notaries handle all document types, 
+              ensuring convenience. If unsure, select "Notarized signature" or "Signature notarized" for tailored assistance.
             </motion.p>
             <div className="flex flex-wrap gap-4 mt-6">
               <motion.button

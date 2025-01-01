@@ -15,7 +15,7 @@ const Service = () => {
           viewport={{ once: true, amount: 0.7 }}
           className="text-4xl font-bold text-gray-900"
         >
-          We’re fueling the digital economy
+         Driving the Digital Economy Forward 
         </motion.h2>
 
         {/* Subheading */}
@@ -26,10 +26,9 @@ const Service = () => {
           viewport={{ once: true, amount: 0.7 }}
           className="text-gray-700 mt-4 max-w-2xl mx-auto"
         >
-          When notarizations are convenient, compliant, and more easily
-          verifiable, everyone wins. See how our award-winning online
-          notarization platform is bringing the nation’s largest industries
-          online – and how we can do the same for your business.
+          Everyone benefits when notarizations are easy, legal, and can be checked more quickly. View our award-winning 
+          online notarization platform to learn how it is moving some of the biggest businesses in the country online.
+           We can do the same for you.
         </motion.p>
 
         {/* Industry Links */}

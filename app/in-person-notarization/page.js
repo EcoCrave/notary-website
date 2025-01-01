@@ -5,7 +5,7 @@ import NotarizeImage from "../Components/Online-Notary/NotarizeImage";
 import Features from "../Components/Online-Notary/Features";
 import Service from "../Components/Business/Service";
 import ReceiveDocument from "../Components/In-Person-Notarization/ReceiveDocument";
-import FAQ from "../Components/Business/FAQ";
+import FAQ from "../Components/Business/FAQbusiness";
 export const metadata = {
   title: "Business page",
   description:

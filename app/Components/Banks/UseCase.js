@@ -41,8 +41,9 @@ const UseCase = () => {
               viewport={{ once: true, amount: 0.7 }}
               className="text-lg"
             >
-              There are many authentication requirements in a lending bank.
-              These concern in many cases :
+             Lending banks have several authentication criteria.
+              These often concern:
+
             </motion.p>
             <motion.li
               variants={fadeIn("up", 0, 0.3)}
@@ -51,7 +52,7 @@ const UseCase = () => {
               viewport={{ once: true, amount: 0.7 }}
               className="m-5"
             >
-              The certification of pledge documents
+              Pledge document certification
             </motion.li>
             <motion.li
               variants={fadeIn("up", 0, 0.3)}
@@ -60,7 +61,7 @@ const UseCase = () => {
               viewport={{ once: true, amount: 0.7 }}
               className="m-5"
             >
-              The certification of pledge documents
+              Certification of deletion notes
             </motion.li>
 
             <motion.p
@@ -70,8 +71,6 @@ const UseCase = () => {
               viewport={{ once: true, amount: 0.7 }}
               className="text-lg"
             >
-              There are many authentication requirements in a lending bank.
-              These concern in many cases :
             </motion.p>
           </div>
         </div>
