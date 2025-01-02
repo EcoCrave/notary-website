@@ -30,13 +30,13 @@ export default function TestimonialsSlider() {
 
   const testimonials = [
     {
-      title: "Stayin' Alive",
+      title: "Exceptional",
       text: "Exceptional service! The process was quick and seamless, saving me time and hassle. Highly recommend for online notarization",
       author: "Emily Carter",
       rating: 5,
     },
     {
-      title: "Stayin' Alive",
+      title: "Professional",
       text: "Super convenient and professional! The online notarization process was easy to follow, and the team was very helpful. Five stars!",
       author: "James Mitchell",
       rating: 5,
