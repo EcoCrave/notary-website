@@ -11,7 +11,7 @@ const data = [
   {
     title: "For Business",
     description:
-      "Unlock peace of mind with our rapid and secure online notarization for all your important documents...",
+      "Effortless online notarization tailored for businesses—secure, fast, and reliable document solutions",
     imageUrl: "https://bluenotary.us/assets/images/for_business.png",
     gradient: "from-blue-800 to-green-700",
     topPosition: "top-[75px]",
@@ -19,7 +19,7 @@ const data = [
   {
     title: "For Individual",
     description:
-      "Unlock peace of mind with our rapid and secure online notarization for all your important documents...",
+      "Secure and convenient online notarization services designed for individuals—fast, reliable, and hassle-free",
     imageUrl: "https://bluenotary.us/assets/images/for_individual.png",
     gradient: "from-purple-500 to-green-700",
     topPosition: "top-[85px]",
@@ -27,7 +27,7 @@ const data = [
   {
     title: "For Construction",
     description:
-      "Unlock peace of mind with our rapid and secure online notarization for all your important documents...",
+      "Fast, secure online notarization services tailored for the construction industry—streamline your documentation today",
     imageUrl: "https://bluenotary.us/assets/images/for_construction.png",
     gradient: "from-teal-500 to-green-700",
     topPosition: "top-[95px]",

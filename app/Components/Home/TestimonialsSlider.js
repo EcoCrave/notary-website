@@ -31,14 +31,14 @@ export default function TestimonialsSlider() {
   const testimonials = [
     {
       title: "Stayin' Alive",
-      text: "No, Rose, they are not breathing. And they have no arms or legs … Where are they? You know what? If we come across somebody with no arms or legs, do we bother resuscitating them? I mean, what quality of life do we have there?",
-      author: "Michael Scott",
+      text: "Exceptional service! The process was quick and seamless, saving me time and hassle. Highly recommend for online notarization",
+      author: "Emily Carter",
       rating: 5,
     },
     {
       title: "Stayin' Alive",
-      text: "No, Rose, they are not breathing. And they have no arms or legs … Where are they? You know what? If we come across somebody with no arms or legs, do we bother resuscitating them? I mean, what quality of life do we have there?",
-      author: "Michael Scott",
+      text: "Super convenient and professional! The online notarization process was easy to follow, and the team was very helpful. Five stars!",
+      author: "James Mitchell",
       rating: 5,
     },
     // Add more testimonials as needed
@@ -69,8 +69,7 @@ export default function TestimonialsSlider() {
               viewport={{ once: true, amount: 0.7 }}
               className="text-gray-200 mb-6"
             >
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas
-              veritatis illo placeat harum porro optio fugit a culpa sunt id!
+              Check out what our customers are saying about our fast, secure, and reliable online notarization services
             </motion.p>
             <div className="flex gap-2">
               <motion.button
