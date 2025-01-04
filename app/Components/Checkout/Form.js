@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import useFirebase from "../../Server/authentication/useFirebase.js";
 export default function Form() {
@@ -101,7 +100,7 @@ export default function Form() {
 
       setFormData({
         assignedEmail: "",
-        address: { country: "", street: "", zipcode: "" },
+        state: { country: "", street: "", zipcode: "" },
         chosenServices: [],
         adviserEmail: "",
         dateOfBirth: "",
@@ -233,9 +232,6 @@ export default function Form() {
         onChange={handleFileChange}
       />
       <input type="submit" value="Submit" />
-      <button type="submit" className="p-3 bg-blue-500 text-white">
-        Submit
-      </button>
     </form>
   );
 }

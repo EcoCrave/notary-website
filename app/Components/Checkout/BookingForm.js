@@ -1,31 +1,73 @@
 "use client";
-import React, { useState } from "react";
+import useFirebase from "@/app/Server/authentication/useFirebase";
+import React, { useRef, useState } from "react";
 
 const BookingForm = ({ appointment_title }) => {
   const [isModalOpen, setIsModalOpen] = useState(false); // State to toggle popup
   const [step, setStep] = useState(1);
+  const f_name = useRef();
+  const l_name = useRef();
+  // Form data state.............................
 
-  // Form data state
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
+    assignedEmail: "",
     phone: "",
-    address: "",
-    governmentID: null,
-    selfieWithID: null,
-    eSignature: null,
+    state: "",
+    service: "",
+    idType: "",
   });
+  console.log(formData);
+
+  const [files, setFiles] = useState({
+    selfie: null,
+    document: null,
+    signature: null,
+  });
+  const { user, addFormData, uploadFile } = useFirebase(); // Corrected usage of the custom hook
 
   // Handle form inputs
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData((prev) => {
+      const keys = name.split(".");
+      if (keys.length > 1) {
+        const [outerKey, innerKey] = keys;
+        return {
+          ...prev,
+          [outerKey]: {
+            ...prev[outerKey],
+            [innerKey]: value,
+          },
+        };
+      } else {
+        return { ...prev, [name]: value };
+      }
+    });
   };
 
-  // Handle file uploads
-  const handleFileUpload = (e, field) => {
-    setFormData({ ...formData, [field]: e.target.files[0] });
+  const handleFileChange = (e) => {
+    const { name } = e.target;
+    const file = e.target.files[0];
+    const allowedTypes = ["image/jpeg", "image/png", "application/pdf"];
+
+    if (file && !allowedTypes.includes(file.type)) {
+      alert("Invalid file type. Please upload a JPEG, PNG, or PDF.");
+      return;
+    }
+
+    setFiles((prev) => ({ ...prev, [name]: file }));
+  };
+
+  const validateForm = () => {
+    if (!formData.assignedEmail) {
+      alert("Assigned Email and Adviser Email are required.");
+      return false;
+    }
+    if (!files.selfie || !files.document || !files.signature) {
+      alert("Please upload requred files");
+      return false;
+    }
+    return true;
   };
 
   // Step Navigation
@@ -33,9 +75,49 @@ const BookingForm = ({ appointment_title }) => {
   const prevStep = () => setStep((prev) => prev - 1);
 
   // Submit the form
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Data Submitted:", formData);
+
+    if (!validateForm()) {
+      return;
+    }
+
+    try {
+      const uploadedSelfie = files.selfie
+        ? await uploadFile("selfies", files.selfie)
+        : null;
+      const uploadedDocument = files.document
+        ? await uploadFile("documents", files.document)
+        : null;
+      const uploadedSignature = files.signature
+        ? await uploadFile("signatures", files.signature)
+        : null;
+
+      const finalData = {
+        ...formData,
+        userEmail: user.email,
+        userId: user.uid,
+        selfieURL: uploadedSelfie,
+        documentURL: uploadedDocument,
+        signatureURL: uploadedSignature,
+        createdAt: new Date(),
+      };
+      console.log("Final Data", finalData);
+      await addFormData(finalData);
+      alert("Form submitted successfully!");
+
+      setFormData({
+        assignedEmail: "",
+        phone: "",
+        state: "",
+        service: "",
+        idType: "",
+      });
+      setFiles({ selfie: null, document: null, signature: null });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Failed to submit the form. Please try again.");
+    }
   };
 
   return (
@@ -51,7 +133,7 @@ const BookingForm = ({ appointment_title }) => {
       {/* Popup Modal */}
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+          <div className="bg-gray-50 p-8 rounded-lg shadow-lg w-full max-w-md ">
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-2xl font-bold">
                 Schedule Notary Appointment
@@ -66,7 +148,7 @@ const BookingForm = ({ appointment_title }) => {
 
             {/* Step 1: Personal Information */}
             {step === 1 && (
-              <form onSubmit={(e) => e.preventDefault()}>
+              <form onSubmit={handleSubmit}>
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium mb-1">
@@ -74,7 +156,9 @@ const BookingForm = ({ appointment_title }) => {
                     </label>
                     <input
                       type="text"
-                      name="firstName"
+                      required
+                      ref={f_name}
+                      name="f_name"
                       value={formData.firstName}
                       onChange={handleChange}
                       placeholder="John"
@@ -86,8 +170,10 @@ const BookingForm = ({ appointment_title }) => {
                       Last Name
                     </label>
                     <input
+                      required
                       type="text"
-                      name="lastName"
+                      ref={l_name}
+                      name="l_name"
                       value={formData.lastName}
                       onChange={handleChange}
                       placeholder="Doe"
@@ -101,7 +187,8 @@ const BookingForm = ({ appointment_title }) => {
                   </label>
                   <input
                     type="email"
-                    name="email"
+                    required
+                    name="assignedEmail"
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="john@example.com"
@@ -123,16 +210,33 @@ const BookingForm = ({ appointment_title }) => {
                 </div>
                 <div className="mt-4">
                   <label className="block text-sm font-medium mb-1">
-                    Address
+                    State
                   </label>
                   <input
                     type="text"
-                    name="address"
-                    value={formData.address}
+                    name="state"
+                    required
+                    value={formData.state}
                     onChange={handleChange}
                     placeholder="123 Main St, City, State, ZIP"
                     className="w-full border border-gray-300 rounded p-2"
                   />
+                </div>
+                <div className="w-full mt-4 mb-3">
+                  <p className="block text-sm font-medium mb-1">
+                    Type of service :
+                  </p>
+                  <select className="w-full border border-gray-300 rounded p-2">
+                    <option value="" key="">
+                      Online Notary
+                    </option>
+                    <option value="" key="">
+                      Seal Document
+                    </option>
+                    <option value="" key="">
+                      Affidevait
+                    </option>
+                  </select>
                 </div>
                 <div className="mt-6 flex justify-end">
                   <button
@@ -151,54 +255,64 @@ const BookingForm = ({ appointment_title }) => {
               <form onSubmit={handleSubmit}>
                 <div className="space-y-6">
                   <div>
+                    <div className="w-full mb-3">
+                      <p className="block text-sm font-medium mb-2">
+                        Select id type (required) :
+                      </p>
+
+                      <select className="w-full border border-gray-300 rounded p-2">
+                        <option value="" key="">
+                          Driving License
+                        </option>
+                        <option value="" key="">
+                          NID Card
+                        </option>
+                        <option value="" key="">
+                          Passport
+                        </option>
+                      </select>
+                    </div>
                     <label className="block text-sm font-medium mb-2">
-                      Government ID
+                      ID (required) :
                     </label>
-                    <div className="border-dashed border-2 border-gray-300 rounded p-4 text-center">
+                    <div className="border-dashed border-2 border-gray-300 bg-white rounded p-4 text-center">
                       <input
                         type="file"
+                        required
+                        name="selfie"
                         multiple
                         accept="image/*,.pdf"
-                        onChange={(e) => handleFileUpload(e, "governmentID")}
+                        onChange={handleFileChange}
                       />
-                      <p className="text-sm text-gray-500 mt-2">
-                        Drag and drop your file here, or browse <br />
-                        Supported formats: image/*, .pdf
-                      </p>
                     </div>
                   </div>
                   <div>
                     <label className="block text-sm font-medium mb-2">
-                      Selfie with ID
+                      Selfie with ID (required) :
                     </label>
-                    <div className="border-dashed border-2 border-gray-300 rounded p-4 text-center">
+                    <div className="border-dashed border-2 bg-white border-gray-300 rounded p-4 text-center">
                       <input
                         type="file"
                         multiple
+                        required
+                        name="document"
                         accept="image/*"
-                        onChange={(e) => handleFileUpload(e, "selfieWithID")}
+                        onChange={handleFileChange}
                       />
-                      <p className="text-sm text-gray-500 mt-2">
-                        Drag and drop your file here, or browse <br />
-                        Supported formats: image/*
-                      </p>
                     </div>
                   </div>
                   <div>
                     <label className="block text-sm font-medium mb-2">
                       E-Signature
                     </label>
-                    <div className="border-dashed border-2 border-gray-300 rounded p-4 text-center">
+                    <div className="border-dashed border-2 bg-white border-gray-300 rounded p-4 text-center">
                       <input
                         type="file"
                         multiple
+                        name="signature"
                         accept="image/*,.pdf"
-                        onChange={(e) => handleFileUpload(e, "eSignature")}
+                        onChange={handleFileChange}
                       />
-                      <p className="text-sm text-gray-500 mt-2">
-                        Drag and drop your file here, or browse <br />
-                        Supported formats: image/*, .pdf
-                      </p>
                     </div>
                   </div>
                 </div>
