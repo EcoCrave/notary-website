@@ -32,7 +32,7 @@ const Timeline = () => {
               viewport={{ once: true, amount: 0.7 }}
               className="text-green-900 font-bold text-2xl"
             >
-              Hello
+              Simplicity
             </motion.h2>
             <motion.p
               variants={fadeIn("right", 0, 0.7)}
@@ -41,11 +41,9 @@ const Timeline = () => {
               viewport={{ once: true, amount: 0.7 }}
               className=" "
             >
-              All of the pages and components are first designed in Figma and we
-              keep a parity between the two versions even as we update the
-              project. All of the pages and components are first designed in
-              Figma and we keep a parity between the two versions even as we
-              update the project.
+              Simplified Procedure, Unmatched Competency Notarized in less than ten minutes, 
+              get your document Your one-stop shop for closing business, completing documentation,
+               and guaranteeing document processing security is websitename.
             </motion.p>
           </div>
         </li>
@@ -75,7 +73,7 @@ const Timeline = () => {
               viewport={{ once: true, amount: 0.7 }}
               className="text-green-900 font-bold text-2xl"
             >
-              Hello
+              Fraud-Proof
             </motion.h2>
             <motion.p
               variants={fadeIn("left", 0, 0.7)}
@@ -84,11 +82,8 @@ const Timeline = () => {
               viewport={{ once: true, amount: 0.7 }}
               className=" "
             >
-              All of the pages and components are first designed in Figma and we
-              keep a parity between the two versions even as we update the
-              project. All of the pages and components are first designed in
-              Figma and we keep a parity between the two versions even as we
-              update the project.
+              websitename provides fraud-proof notarizations and safe document management using biometric scanning,
+               blockchain technologies, and bank-grade verification
             </motion.p>
           </div>
         </li>
@@ -118,7 +113,7 @@ const Timeline = () => {
               viewport={{ once: true, amount: 0.7 }}
               className="text-green-900 font-bold text-2xl"
             >
-              Hello
+              Certified
             </motion.h2>
             <motion.p
               variants={fadeIn("right", 0, 0.7)}
@@ -127,11 +122,7 @@ const Timeline = () => {
               viewport={{ once: true, amount: 0.7 }}
               className=" "
             >
-              All of the pages and components are first designed in Figma and we
-              keep a parity between the two versions even as we update the
-              project. All of the pages and components are first designed in
-              Figma and we keep a parity between the two versions even as we
-              update the project.
+              websitename guarantees dependability and industry best practices by following MISMO certification and SOC2 criteria.
             </motion.p>
           </div>
         </li>
@@ -161,7 +152,7 @@ const Timeline = () => {
               viewport={{ once: true, amount: 0.7 }}
               className="text-green-900 font-bold text-2xl"
             >
-              Hello
+              Availability
             </motion.h2>
             <motion.p
               variants={fadeIn("left", 0, 0.7)}
@@ -170,11 +161,7 @@ const Timeline = () => {
               viewport={{ once: true, amount: 0.7 }}
               className=" "
             >
-              All of the pages and components are first designed in Figma and we
-              keep a parity between the two versions even as we update the
-              project. All of the pages and components are first designed in
-              Figma and we keep a parity between the two versions even as we
-              update the project.
+              websitename promptly and effectively attends to foreign customers requiring U.S.-based notarizations either domestically or overseas.
             </motion.p>
           </div>
         </li>

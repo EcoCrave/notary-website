@@ -7,7 +7,7 @@ import { fadeIn, fadeInAnimationVariants } from "@/variants";
 import Image from "next/image";
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white text-lg ">
+    <footer className="bg-gray-900 text-white text-lg">
       <div className="w-[85%] mx-auto gap-8 grid grid-cols-2 py-14 md:grid-cols-3 lg:grid-cols-5">
         {/* Logo and Address */}
         <motion.div
@@ -162,7 +162,7 @@ const Footer = () => {
       </div>
       <div className="bg-gray-950  py-5">
         <div className="text-center space-y-3 lg:flex justify-between w-[85%] mx-auto">
-          <p className="text-gray-400 text-sm">
+          <p className="text-gray-400 text-sm pt-4">
             © 2025 Online Notary. All Rights Reserved
           </p>
           <Image
