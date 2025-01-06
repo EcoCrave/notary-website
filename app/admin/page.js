@@ -1,5 +1,5 @@
-import Admin from "../Components/Admin/Admin";
-
+import Dashboard from "../Components/Admin/Dashboard";
+import ProjectStats from "../Components/Admin/ProjectStatus";
 export const metadata = {
   title: "Admin Page",
   description:
@@ -7,9 +7,10 @@ export const metadata = {
 };
 const page = () => {
   return (
-    <>
-      <Admin />
-    </>
+    <div className="mt-20">
+      <ProjectStats />
+      <Dashboard />
+    </div>
   );
 };
 

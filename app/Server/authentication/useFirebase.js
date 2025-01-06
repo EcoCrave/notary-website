@@ -1,3 +1,4 @@
+"use client";
 import { auth, storage, firestore } from "./firebaseConfig";
 import {
   doc,
@@ -28,7 +29,6 @@ import { useRef, useState } from "react";
 import { useEffect } from "react";
 
 const useFirebase = () => {
-  const [users, setUsers] = useState([]);
   const [user, setUser] = useState({});
   const [error, setError] = useState("");
   const googleProvider = new GoogleAuthProvider();
@@ -204,41 +204,41 @@ const useFirebase = () => {
 
   // Get Combined Data ....................................................
 
-  const getCombinedUserData = async () => {
-    try {
-      // Fetch all users....
-      const usersSnapshot = await getDocs(collection(firestore, "users"));
-      const users = usersSnapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      setUsers(users);
-      console.log(users);
-      // Fetch all user details....
-      const userDetailsSnapshot = await getDocs(
-        collection(firestore, "User Details")
-      );
-      const userDetails = userDetailsSnapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
+  // const getCombinedUserData = async () => {
+  //   try {
+  //     // Fetch all users
+  //     const usersSnapshot = await getDocs(collection(firestore, "users"));
+  //     const users = usersSnapshot.docs.map((doc) => ({
+  //       id: doc.id,
+  //       ...doc.data(),
+  //     }));
 
-      // Combine data based on userId.....
-      const combinedData = users.map((user) => {
-        const details =
-          userDetails.find((detail) => detail.userId === user.id) || {};
-        return {
-          ...user,
-          address: details.address || "N/A", // Default if no address found
-        };
-      });
+  //     // Fetch all user details
+  //     const userDetailsSnapshot = await getDocs(
+  //       collection(firestore, "User Details")
+  //     );
+  //     const userDetails = userDetailsSnapshot.docs.map((doc) => ({
+  //       id: doc.id,
+  //       ...doc.data(),
+  //     }));
 
-      return combinedData;
-    } catch (error) {
-      console.error("Error fetching combined user data:", error);
-      throw new Error("Failed to fetch combined user data.");
-    }
-  };
+  //     // Combine data based on userId
+  //     const combinedData = users.map((user) => {
+  //       const details =
+  //         userDetails.find((detail) => detail.userId === user.id) || {};
+  //       return {
+  //         ...user,
+  //         ...userDetails,
+  //         address: details.address || "N/A", // Default if no address found
+  //       };
+  //     });
+
+  //     return combinedData;
+  //   } catch (error) {
+  //     console.error("Error fetching combined user data:", error);
+  //     throw new Error("Failed to fetch combined user data.");
+  //   }
+  // };
 
   // ------------------Upload data to FireStore and Storage Database-------------------------------------------
 
@@ -256,17 +256,27 @@ const useFirebase = () => {
   const addFormData = async (data) => {
     try {
       const docRef = await addDoc(collection(firestore, "User Details"), data);
-      console.log("Form submitted successfully with ID:", docRef.id);
       return docRef.id;
     } catch (error) {
       console.error("Error submitting form:", error);
     }
   };
+
+  // Fetch all the users.............................
+  const getUsers = async () => {
+    const querySnapshot = await getDocs(collection(firestore, "users"));
+    return querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  };
+
   // READ: Fetch all form data
   const getFormData = async () => {
     const querySnapshot = await getDocs(collection(firestore, "User Details"));
     return querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
   };
+
+  // Get user by id ...............................
+
+  // get user's data by id...............................
 
   // UPDATE: Update form data
   const updateFormData = async (id, data) => {
@@ -291,7 +301,7 @@ const useFirebase = () => {
     passwordRef,
     addFormData,
     uploadFile,
-    users,
+    getUsers,
     getFormData,
     repasswordRef,
     handleLogout,
