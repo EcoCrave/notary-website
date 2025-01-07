@@ -1,5 +1,6 @@
 "use client";
 import useFirebase from "@/app/Server/authentication/useFirebase";
+
 import React, { useEffect, useState } from "react";
 
 const ActiveProjectsTable = () => {
@@ -45,9 +46,12 @@ const ActiveProjectsTable = () => {
               <td className="p-3">{user.uid}</td>
 
               <td>
-                <button className="border-b border-black hover:border-blue-800 hover:text-blue-800">
+                <a
+                  href={`/user/${user.uid}`}
+                  className="border-b border-black hover:border-blue-800 hover:text-blue-800"
+                >
                   View Details
-                </button>
+                </a>
               </td>
             </tr>
           ))}

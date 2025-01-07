@@ -1,24 +1,9 @@
 "use client";
 import React, { useState } from "react";
 
-const OrderDetails = () => {
+const OrderDetails = ({ data }) => {
   const [isOpen, setIsOpen] = useState(false); // State to manage modal visibility
-
-  const order = {
-    id: "#167895",
-    date: "Mon, July 22, 2023",
-    meetingDate: "July 23, 2023, 10:00 AM",
-    meetingLink: "https://example.com/meeting-link",
-    name: "Maria Aniston",
-    adviserEmail: "mariaaniston@wholesaletronics.com",
-    address: "123 Main St, Springfield, USA",
-    service: "Consultation Service",
-    status: "Approved",
-    files: [
-      { name: "File1.pdf", url: "https://example.com/file1.pdf" },
-      { name: "File2.docx", url: "https://example.com/file2.docx" },
-    ],
-  };
+  console.log("Order Details ", data);
 
   return (
     <div className=" flex  ">
@@ -50,22 +35,20 @@ const OrderDetails = () => {
               </h1>
               <div className="text-gray-500 text-lg">
                 Order ID:{" "}
-                <span className="font-semibold text-gray-700">{order.id}</span>
+                <span className="font-semibold text-gray-700">{data.id}</span>
               </div>
               <div className="text-gray-500 text-sm">
                 Scheduled Date:{" "}
-                <span className="font-semibold text-gray-700">
-                  {order.date}
-                </span>
+                <span className="font-semibold text-gray-700">{data.date}</span>
               </div>
               <span
                 className={`px-3 py-1 text-sm font-medium rounded-full ${
-                  order.status === "Approved"
+                  data.status === "Approved"
                     ? "bg-green-100 text-green-600"
                     : "bg-yellow-100 text-yellow-600"
                 }`}
               >
-                {order.status}
+                {data.status}
               </span>
             </div>
 
@@ -76,9 +59,11 @@ const OrderDetails = () => {
                 <h2 className="text-2xl font-semibold text-gray-800 mb-2">
                   Customer
                 </h2>
-                <p className="text-gray-600">Name: {order.name}</p>
-                <p className="text-gray-600">Email: {order.adviserEmail}</p>
-                <p className="text-gray-600">State: {order.address}</p>
+                <p className="text-gray-600">
+                  Name: {data.f_name + "" + data.l_name}
+                </p>
+                <p className="text-gray-600">Email: {data.assignedEmail}</p>
+                <p className="text-gray-600">State: {data.state}</p>
               </div>
 
               {/* Order Info */}
@@ -87,12 +72,12 @@ const OrderDetails = () => {
                   Order Info
                 </h2>
                 <p className="text-gray-600">
-                  Meeting Date: {order.meetingDate}
+                  Meeting Date: {data.meetingDate}
                 </p>
                 <p className="text-gray-600">
                   Meeting Link:{" "}
                   <a
-                    href={order.meetingLink}
+                    href={data.meetingLink}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-600 underline"
@@ -100,7 +85,7 @@ const OrderDetails = () => {
                     Join Meeting
                   </a>
                 </p>
-                <p className="text-gray-600">Service Type: {order.service}</p>
+                <p className="text-gray-600">Service Type: {data.service}</p>
               </div>
 
               {/* Uploaded Files */}
@@ -109,7 +94,7 @@ const OrderDetails = () => {
                   Uploaded Files
                 </h2>
                 <ul className="list-disc list-inside text-gray-600">
-                  {order.files.map((file, index) => (
+                  {data.files.map((file, index) => (
                     <li key={index}>
                       <a
                         href={file.url}

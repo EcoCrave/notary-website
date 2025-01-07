@@ -9,6 +9,8 @@ import {
   getDocs,
   updateDoc,
   deleteDoc,
+  query,
+  where,
 } from "firebase/firestore";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import {
@@ -202,44 +204,6 @@ const useFirebase = () => {
       });
   };
 
-  // Get Combined Data ....................................................
-
-  // const getCombinedUserData = async () => {
-  //   try {
-  //     // Fetch all users
-  //     const usersSnapshot = await getDocs(collection(firestore, "users"));
-  //     const users = usersSnapshot.docs.map((doc) => ({
-  //       id: doc.id,
-  //       ...doc.data(),
-  //     }));
-
-  //     // Fetch all user details
-  //     const userDetailsSnapshot = await getDocs(
-  //       collection(firestore, "User Details")
-  //     );
-  //     const userDetails = userDetailsSnapshot.docs.map((doc) => ({
-  //       id: doc.id,
-  //       ...doc.data(),
-  //     }));
-
-  //     // Combine data based on userId
-  //     const combinedData = users.map((user) => {
-  //       const details =
-  //         userDetails.find((detail) => detail.userId === user.id) || {};
-  //       return {
-  //         ...user,
-  //         ...userDetails,
-  //         address: details.address || "N/A", // Default if no address found
-  //       };
-  //     });
-
-  //     return combinedData;
-  //   } catch (error) {
-  //     console.error("Error fetching combined user data:", error);
-  //     throw new Error("Failed to fetch combined user data.");
-  //   }
-  // };
-
   // ------------------Upload data to FireStore and Storage Database-------------------------------------------
 
   const uploadFile = async (folder, file) => {
@@ -255,7 +219,7 @@ const useFirebase = () => {
   // CREATE: Add form data to Firestore
   const addFormData = async (data) => {
     try {
-      const docRef = await addDoc(collection(firestore, "User Details"), data);
+      const docRef = await addDoc(collection(firestore, "UserInfo"), data);
       return docRef.id;
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -270,24 +234,56 @@ const useFirebase = () => {
 
   // READ: Fetch all form data
   const getFormData = async () => {
-    const querySnapshot = await getDocs(collection(firestore, "User Details"));
+    const querySnapshot = await getDocs(collection(firestore, "UserInfo"));
     return querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
   };
 
   // Get user by id ...............................
 
-  // get user's data by id...............................
+  const getDataById = async (id) => {
+    try {
+      // Step 1: Fetch user data from "users" collection
+      const userDocRef = doc(firestore, "users", id); // Replace "users" with your collection name
+      const userDocSnap = await getDoc(userDocRef);
+
+      if (!userDocSnap.exists()) {
+        console.log("No such user found!");
+        return null;
+      }
+
+      const userData = { id: userDocSnap.id, ...userDocSnap.data() };
+
+      // Step 2: Fetch user details from "details" collection
+      const detailsCollection = collection(firestore, "UserInfo"); // Replace "details" with your collection name
+      const q = query(detailsCollection, where("userId", "==", id));
+      const detailsSnap = await getDocs(q);
+
+      const userDetails = detailsSnap.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+
+      // Combine user data and user details
+      const combinedData = { ...userData, details: userDetails };
+
+      console.log("Combined User Data:", combinedData);
+      return combinedData;
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+      throw new Error("Failed to fetch user data.");
+    }
+  };
 
   // UPDATE: Update form data
   const updateFormData = async (id, data) => {
-    const formRef = doc(firestore, "User Details", id);
+    const formRef = doc(firestore, "UserInfo", id);
     await updateDoc(formRef, data);
     console.log("Form data updated successfully");
   };
 
   // DELETE: Delete form data
   const deleteFormData = async (id) => {
-    const formRef = doc(firestore, "User Details", id);
+    const formRef = doc(firestore, "UserInfo", id);
     await deleteDoc(formRef);
     console.log("Form data deleted successfully");
   };
@@ -304,6 +300,7 @@ const useFirebase = () => {
     getUsers,
     getFormData,
     repasswordRef,
+    getDataById,
     handleLogout,
     handleGoogleSignIn,
     handleSignIn,
