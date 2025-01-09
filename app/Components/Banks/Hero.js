@@ -34,10 +34,9 @@ export default function Hero() {
               viewport={{ once: true, amount: 0.7 }}
               className="text-gray-700"
             >
-              Authorized bank signatories may digitally sign and have
-               our partner notaries certify papers. Let us digitize your document
-                certification procedures.
-
+              Authorized bank signatories may digitally sign and have our
+              partner notaries certify papers. Let us digitize your document
+              certification procedures.
             </motion.p>
             <div className="flex flex-wrap gap-4 mt-6">
               <motion.button

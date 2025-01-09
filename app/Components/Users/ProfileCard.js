@@ -1,5 +1,20 @@
+import { useState } from "react";
 import { FaEdit } from "react-icons/fa";
-const ProfileCard = ({ user }) => {
+import UpdateProfilePopup from "./UpdateProfilePopup";
+import { toast } from "react-toastify";
+const ProfileCard = ({ user, updateUserData, hide }) => {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [userData, setUserData] = useState(null);
+  const handleUpdate = async (updatedData) => {
+    try {
+      await updateUserData(user.uid, updatedData); // Update user data in Firestore
+      setUserData(updatedData); // Update local state
+      toast.success("Profile updated successfully!");
+    } catch (error) {
+      toast.error("Error updating profile:", error);
+    }
+  };
+
   return (
     <div className=" flex gap-x-20 rounded-lg p-6">
       <div className=" items-start">
@@ -12,11 +27,8 @@ const ProfileCard = ({ user }) => {
         <div className="mt-3">
           {/* Name and Ratings */}
           <div className="flex">
-            <h2 className="text-xl font-bold text-gray-700">
-              {user.displayName}
-            </h2>
+            <h2 className="text-3xl font-bold text-gray-700">{user.name}</h2>
           </div>
-
           {user.emailVerified === true ? (
             <p className="text-sm bg-green-500 px-2 w-fit text-white font-semibold rounded-full">
               {" "}
@@ -27,10 +39,23 @@ const ProfileCard = ({ user }) => {
               Account Not Verified
             </p>
           )}
-          <span className="flex items-start space-x-2 border-b cursor-pointer  border-black w-fit mt-3">
-            <p className="text-sm"> Edit Profile </p>
-            <FaEdit className="text-sm" />
-          </span>
+
+          {!hide && (
+            <span
+              onClick={() => setIsPopupOpen(true)}
+              className="flex items-start space-x-2 border-b cursor-pointer  border-black w-fit mt-3"
+            >
+              <p className="text-sm"> Edit Profile </p>
+              <FaEdit className="text-sm" />
+            </span>
+          )}
+
+          <UpdateProfilePopup
+            isOpen={isPopupOpen}
+            onClose={() => setIsPopupOpen(false)}
+            onUpdate={handleUpdate}
+            existingData={userData}
+          />
         </div>
       </div>
 
@@ -39,6 +64,11 @@ const ProfileCard = ({ user }) => {
         <div className="flex items-center space-x-2">
           <p className="font-semibold">User ID : </p>
           <p>{user.uid}</p>
+        </div>
+        <div className="flex items-center space-x-2">
+          <h3 className="text-2xl font-semibold border-b-2 border-gray-300">
+            Contact Info
+          </h3>{" "}
         </div>
         <div className="flex items-center space-x-2">
           <p className="font-semibold">Email : </p>

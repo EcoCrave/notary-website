@@ -41,9 +41,10 @@ const Timeline = () => {
               viewport={{ once: true, amount: 0.7 }}
               className=" "
             >
-              Simplified Procedure, Unmatched Competency Notarized in less than ten minutes, 
-              get your document Your one-stop shop for closing business, completing documentation,
-               and guaranteeing document processing security is websitename.
+              Simplified Procedure, Unmatched Competency Notarized in less than
+              ten minutes, get your document Your one-stop shop for closing
+              business, completing documentation, and guaranteeing document
+              processing security is websitename.
             </motion.p>
           </div>
         </li>
@@ -82,8 +83,9 @@ const Timeline = () => {
               viewport={{ once: true, amount: 0.7 }}
               className=" "
             >
-              websitename provides fraud-proof notarizations and safe document management using biometric scanning,
-               blockchain technologies, and bank-grade verification
+              websitename provides fraud-proof notarizations and safe document
+              management using biometric scanning, blockchain technologies, and
+              bank-grade verification
             </motion.p>
           </div>
         </li>
@@ -122,7 +124,8 @@ const Timeline = () => {
               viewport={{ once: true, amount: 0.7 }}
               className=" "
             >
-              websitename guarantees dependability and industry best practices by following MISMO certification and SOC2 criteria.
+              websitename guarantees dependability and industry best practices
+              by following MISMO certification and SOC2 criteria.
             </motion.p>
           </div>
         </li>
@@ -161,7 +164,9 @@ const Timeline = () => {
               viewport={{ once: true, amount: 0.7 }}
               className=" "
             >
-              websitename promptly and effectively attends to foreign customers requiring U.S.-based notarizations either domestically or overseas.
+              websitename promptly and effectively attends to foreign customers
+              requiring U.S.-based notarizations either domestically or
+              overseas.
             </motion.p>
           </div>
         </li>

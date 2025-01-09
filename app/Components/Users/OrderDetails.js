@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 const OrderDetails = ({ data }) => {
   const [isOpen, setIsOpen] = useState(false); // State to manage modal visibility
-  console.log("Order Details ", data);
+  // console.log("Order Details ", data);
 
   return (
     <div className=" flex  ">
@@ -94,7 +94,7 @@ const OrderDetails = ({ data }) => {
                   Uploaded Files
                 </h2>
                 <ul className="list-disc list-inside text-gray-600">
-                  {data.files.map((file, index) => (
+                  {/* {data.files.map((file, index) => (
                     <li key={index}>
                       <a
                         href={file.url}
@@ -105,7 +105,7 @@ const OrderDetails = ({ data }) => {
                         {file.name}
                       </a>
                     </li>
-                  ))}
+                  ))} */}
                 </ul>
               </div>
             </div>

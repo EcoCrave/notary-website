@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { fadeIn } from "@/variants";
 import BookingForm from "../Checkout/BookingForm";
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 const Banner = () => {
   return (
@@ -44,7 +45,8 @@ const Banner = () => {
             viewport={{ once: true, amount: 0.7 }}
           >
             Websitename streamlines digital collaboration with notaries,
-             boosting efficiency, saving time and money, and providing innovative services to your clients.
+            boosting efficiency, saving time and money, and providing innovative
+            services to your clients.
           </motion.p>
           <motion.div
             variants={fadeIn("up", 0, 0.9)}

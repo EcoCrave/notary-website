@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import useFirebase from "../../Server/authentication/useFirebase.js";
+import { toast } from "react-toastify";
 export default function Form() {
   const [formData, setFormData] = useState({
     assignedEmail: " ",
@@ -48,7 +49,7 @@ export default function Form() {
     const allowedTypes = ["image/jpeg", "image/png", "application/pdf"];
 
     if (file && !allowedTypes.includes(file.type)) {
-      alert("Invalid file type. Please upload a JPEG, PNG, or PDF.");
+      toast("Invalid file type. Please upload a JPEG, PNG, or PDF.");
       return;
     }
 
@@ -57,11 +58,11 @@ export default function Form() {
 
   const validateForm = () => {
     if (!formData.assignedEmail || !formData.adviserEmail) {
-      alert("Assigned Email and Adviser Email are required.");
+      toast("Assigned Email and Adviser Email are required.");
       return false;
     }
     if (!files.selfie || !files.document || !files.signature) {
-      alert("All files are required.");
+      toast("All files are required.");
       return false;
     }
     return true;
@@ -94,9 +95,9 @@ export default function Form() {
         signatureURL: uploadedSignature,
         createdAt: new Date(),
       };
-      console.log("Final Data", finalData);
+
       await addFormData(finalData);
-      alert("Form submitted successfully!");
+      toast.success("Form submitted successfully!");
 
       setFormData({
         assignedEmail: "",
@@ -113,7 +114,7 @@ export default function Form() {
       setFiles({ selfie: null, document: null, signature: null });
     } catch (error) {
       console.error("Error submitting form:", error);
-      alert("Failed to submit the form. Please try again.");
+      toast("Failed to submit the form. Please try again.");
     }
   };
 

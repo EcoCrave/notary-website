@@ -2,7 +2,7 @@ import OrderDetails from "./OrderDetails";
 
 const NotificationTable = ({ notifications }) => {
   if (!notifications || notifications.length === 0) {
-    return <div>No notifications available.</div>;
+    return <div>Haven't booked any appointement yeat</div>;
   }
 
   return (

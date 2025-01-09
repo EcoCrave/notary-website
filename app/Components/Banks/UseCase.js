@@ -41,9 +41,8 @@ const UseCase = () => {
               viewport={{ once: true, amount: 0.7 }}
               className="text-lg"
             >
-             Lending banks have several authentication criteria.
-              These often concern:
-
+              Lending banks have several authentication criteria. These often
+              concern:
             </motion.p>
             <motion.li
               variants={fadeIn("up", 0, 0.3)}
@@ -70,8 +69,7 @@ const UseCase = () => {
               whileInView="show"
               viewport={{ once: true, amount: 0.7 }}
               className="text-lg"
-            >
-            </motion.p>
+            ></motion.p>
           </div>
         </div>
       </div>

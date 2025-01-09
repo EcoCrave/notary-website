@@ -33,7 +33,8 @@ const WhyUs = () => {
             viewport={{ once: true, amount: 0.7 }}
             className="text-lg"
           >
-            Our product is ideal for banks' document authentication requirements. Advantages include:
+            Our product is ideal for banks' document authentication
+            requirements. Advantages include:
           </motion.p>
         </div>
 
@@ -48,7 +49,7 @@ const WhyUs = () => {
             viewport={{ once: true, amount: 0.7 }}
             className="bg-gradient-to-b from-green-50 hover:-translate-y-2 cursor-pointer duration-300 to-white shadow-md p-5 rounded "
           >
-            <h3 className="text-2xl font-semibold ">Locally Flexible            </h3>
+            <h3 className="text-2xl font-semibold ">Locally Flexible </h3>
             <p
               variants={fadeIn("up", 0, 0.3)}
               initial="hidden"
@@ -57,8 +58,8 @@ const WhyUs = () => {
               className="   text-lg mt-2"
             >
               websitename allows you to notarize documents from any location,
-               eliminating the need for in-person visits and providing convenience for businesses and individuals alike.
-
+              eliminating the need for in-person visits and providing
+              convenience for businesses and individuals alike.
             </p>
           </motion.div>
           {/* Benefit 2 */}
@@ -77,7 +78,9 @@ const WhyUs = () => {
               viewport={{ once: true, amount: 0.7 }}
               className="   text-lg mt-2"
             >
-              Reduce expenses associated with travel, office overhead, and physical document handling through efficient, paperless notarization.
+              Reduce expenses associated with travel, office overhead, and
+              physical document handling through efficient, paperless
+              notarization.
             </p>
           </motion.div>
           {/* Benefit 3 */}
@@ -96,9 +99,9 @@ const WhyUs = () => {
               viewport={{ once: true, amount: 0.7 }}
               className="   text-lg mt-2"
             >
-              websitename integrates all steps of notarization into one platform,
-               from identity verification to document management, ensuring a seamless digital experience.
-
+              websitename integrates all steps of notarization into one
+              platform, from identity verification to document management,
+              ensuring a seamless digital experience.
             </p>
           </motion.div>
           {/* Benefit 4 */}
@@ -117,7 +120,8 @@ const WhyUs = () => {
               viewport={{ once: true, amount: 0.7 }}
               className="   text-lg mt-2"
             >
-             Expedite document processing by completing notarizations online in minutes, optimizing time for both businesses and clients.
+              Expedite document processing by completing notarizations online in
+              minutes, optimizing time for both businesses and clients.
             </p>
           </motion.div>
         </div>

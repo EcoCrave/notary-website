@@ -1,6 +1,7 @@
 "use client";
 import useFirebase from "@/app/Server/authentication/useFirebase";
 import React, { useRef, useState } from "react";
+import { toast } from "react-toastify";
 
 const BookingForm = ({ appointment_title }) => {
   const [isModalOpen, setIsModalOpen] = useState(false); // State to toggle popup
@@ -16,7 +17,6 @@ const BookingForm = ({ appointment_title }) => {
     service: "",
     idType: "",
   });
-  console.log(formData);
 
   const [files, setFiles] = useState({
     selfie: null,
@@ -51,7 +51,7 @@ const BookingForm = ({ appointment_title }) => {
     const allowedTypes = ["image/jpeg", "image/png", "application/pdf"];
 
     if (file && !allowedTypes.includes(file.type)) {
-      alert("Invalid file type. Please upload a JPEG, PNG, or PDF.");
+      toast("Invalid file type. Please upload a JPEG, PNG, or PDF.");
       return;
     }
 
@@ -60,11 +60,11 @@ const BookingForm = ({ appointment_title }) => {
 
   const validateForm = () => {
     if (!formData.assignedEmail) {
-      alert("Assigned Email and Adviser Email are required.");
+      toast.success("Assigned Email and Adviser Email are required.");
       return false;
     }
     if (!files.selfie || !files.document || !files.signature) {
-      alert("Please upload requred files");
+      toast("Please upload requred files");
       return false;
     }
     return true;
@@ -102,9 +102,9 @@ const BookingForm = ({ appointment_title }) => {
         signatureURL: uploadedSignature,
         createdAt: new Date(),
       };
-      console.log("Final Data", finalData);
+
       await addFormData(finalData);
-      alert("Form submitted successfully!");
+      toast.success("Form submitted successfully!");
 
       setFormData({
         assignedEmail: "",
@@ -116,7 +116,7 @@ const BookingForm = ({ appointment_title }) => {
       setFiles({ selfie: null, document: null, signature: null });
     } catch (error) {
       console.error("Error submitting form:", error);
-      alert("Failed to submit the form. Please try again.");
+      toast.error("Failed to submit the form. Please try again.");
     }
   };
 

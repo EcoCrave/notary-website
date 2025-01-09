@@ -46,10 +46,12 @@ const Digitalization = () => {
             whileInView="show"
             className="text-gray-700"
           >
-            We designed a free platform for legal firms to maximize notarization. 
-            Personalized booking links provide you a current image with customers. 
-            <br /> 
-            We'd be pleased to propose this offer in a joint appointment and demonstrate websitename benefits
+            We designed a free platform for legal firms to maximize
+            notarization. Personalized booking links provide you a current image
+            with customers.
+            <br />
+            We'd be pleased to propose this offer in a joint appointment and
+            demonstrate websitename benefits
           </motion.p>
         </motion.div>
       </div>

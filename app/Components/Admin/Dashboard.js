@@ -24,7 +24,6 @@ const ActiveProjectsTable = () => {
   }, []);
 
   const { getUsers } = useFirebase(); // Corrected usage of the custom hook
-  console.log(users);
 
   return (
     <div className="w-[85%] mx-auto mb-10 shadow p-6 mt-6 rounded-lg">

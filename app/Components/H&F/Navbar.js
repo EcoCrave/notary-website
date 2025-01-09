@@ -5,12 +5,14 @@ import { VscThreeBars } from "react-icons/vsc";
 import { FaChevronDown } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { fadeIn, fadeInAnimationVariants } from "@/variants";
+import useFirebase from "@/app/Server/authentication/useFirebase";
 
 const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openSubMenu, setOpenSubMenu] = useState(null);
+  const { user } = useFirebase();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,6 +62,7 @@ const Navbar = () => {
         { label: "Contact Us", path: "/contact" },
       ],
     },
+
     { label: "Login / Register", path: "/login", special: true },
   ];
 

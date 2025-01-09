@@ -7,7 +7,7 @@ const SignBoard = () => {
   const canvasRef = useRef(null); // Reference for SignatureCanvas
   const [result, setResult] = useState(null); // Store the signature data URL
   const [brushColor, setBrushColor] = useState("black");
-  console.log(canvasRef.current);
+
   const handleDraw = () => {
     // Check if the canvas has been drawn on
     if (canvasRef.current && !canvasRef.current.isEmpty()) {

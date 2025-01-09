@@ -1,5 +1,6 @@
 "use client";
 
+import { sendEmail } from "@/app/contact/(connectResendMail)/resend.js";
 import React from "react";
 import {
   FaFacebook,
@@ -8,7 +9,9 @@ import {
   FaTiktok,
   FaPinterest,
 } from "react-icons/fa";
-
+function send() {
+  sendEmail();
+}
 const ContactUs = () => {
   return (
     <div className="bg-gray-100">
@@ -22,7 +25,7 @@ const ContactUs = () => {
               Feel free to contact us any time. We will get back to you as soon
               as we can!
             </p>
-            <form className="space-y-6">
+            <form action={send} className="space-y-6">
               <div className="space-y-5">
                 <label className="block text-gray-700 font-semibold text-xl">
                   Name :{" "}

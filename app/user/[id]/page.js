@@ -14,15 +14,15 @@ const page = ({ params }) => {
     };
 
     fetchData();
-  }, [params.id]); // Re-fetch data if params.id changes
+  }, [params.id]);
 
-  const { getDataById } = useFirebase(); // Corrected usage of the custom hook
-  console.log("data", userDetails.details);
+  const { getDataById } = useFirebase();
+
   return (
     <div className="mt-2">
       <div className="min-h-screen bg-gray-50 py-20 mx-auto ">
         <div className="w-[85%] mx-auto ">
-          <ProfileCard user={userDetails} />
+          <ProfileCard user={userDetails} hide={true} />
           <div className="mt-6">
             {" "}
             <h2 className="text-3xl font-bold mt-20">Orders</h2>{" "}

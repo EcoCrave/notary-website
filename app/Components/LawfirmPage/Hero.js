@@ -47,9 +47,10 @@ export default function Hero() {
               viewport={{ once: true, amount: 0.7 }}
               className="text-gray-700"
             >
-              websitename simplifies notarization with safe, remote, 
-              and online services. Partner notaries handle all document types, 
-              ensuring convenience. If unsure, select "Notarized signature" or "Signature notarized" for tailored assistance.
+              websitename simplifies notarization with safe, remote, and online
+              services. Partner notaries handle all document types, ensuring
+              convenience. If unsure, select "Notarized signature" or "Signature
+              notarized" for tailored assistance.
             </motion.p>
             <div className="flex flex-wrap gap-4 mt-6">
               <motion.button

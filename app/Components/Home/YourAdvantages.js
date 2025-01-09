@@ -38,12 +38,12 @@ const YourAdvantages = () => {
           viewport={{ once: true, amount: 0.7 }}
           className=" mx-auto pt-5 text-left md:text-center"
         >
-          Effortlessly manage complex legal tasks across borders with websitename.
-          Our platform facilitates secure, fast, and cost-effective online
-          notarisation for your global teams, eliminating the need for physical
-          appointments and extensive paperwork. Enhance your operational
-          efficiency and ensure compliance with websitename innovative digital
-          solutions, designed to streamline legal workflows.
+          Effortlessly manage complex legal tasks across borders with
+          websitename. Our platform facilitates secure, fast, and cost-effective
+          online notarisation for your global teams, eliminating the need for
+          physical appointments and extensive paperwork. Enhance your
+          operational efficiency and ensure compliance with websitename
+          innovative digital solutions, designed to streamline legal workflows.
         </motion.p>
         <Timeline />
       </div>

@@ -29,6 +29,7 @@ import {
 import { getFirestore } from "firebase/firestore";
 import { useRef, useState } from "react";
 import { useEffect } from "react";
+import { toast } from "react-toastify";
 
 const useFirebase = () => {
   const [user, setUser] = useState({});
@@ -141,7 +142,7 @@ const useFirebase = () => {
         emailVerification();
         setUser(updatedUser);
         setError("");
-        alert("Successfully Registered");
+        toast.success("Successfully Registered");
       })
       .catch((error) => {
         setError(error.message);
@@ -162,7 +163,7 @@ const useFirebase = () => {
         const signInInfo = result.user;
         setUser(signInInfo);
         setError("");
-        alert("successfully loged in");
+        toast.success("successfully loged in");
       })
       .catch((error) => {
         setError(error.message);
@@ -174,7 +175,7 @@ const useFirebase = () => {
 
   const emailVerification = () => {
     sendEmailVerification(auth.currentUser).then((result) => {
-      alert("check your email to verify");
+      toast("check your email to verify");
     });
   };
 
@@ -269,7 +270,7 @@ const useFirebase = () => {
       console.log("Combined User Data:", combinedData);
       return combinedData;
     } catch (error) {
-      console.error("Error fetching user data:", error);
+      console.log("Error fetching user data:", error);
       throw new Error("Failed to fetch user data.");
     }
   };
@@ -281,7 +282,21 @@ const useFirebase = () => {
     console.log("Form data updated successfully");
   };
 
-  // DELETE: Delete form data
+  // Update User info..........................................
+  const updateUserData = async (id, updatedData) => {
+    try {
+      const userRef = doc(firestore, "users", id);
+      await updateDoc(userRef, updatedData);
+      console.log("User data updated successfully in Firestore");
+    } catch (error) {
+      console.error("Error updating user data:", error);
+      throw new Error("Failed to update user data");
+    }
+  };
+
+  // Delete User info...........................................
+
+  // DELETE: Delete User's Details data..........................
   const deleteFormData = async (id) => {
     const formRef = doc(firestore, "UserInfo", id);
     await deleteDoc(formRef);
@@ -300,6 +315,7 @@ const useFirebase = () => {
     getUsers,
     getFormData,
     repasswordRef,
+    updateUserData,
     getDataById,
     handleLogout,
     handleGoogleSignIn,

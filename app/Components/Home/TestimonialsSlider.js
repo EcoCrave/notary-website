@@ -69,7 +69,8 @@ export default function TestimonialsSlider() {
               viewport={{ once: true, amount: 0.7 }}
               className="text-gray-200 mb-6"
             >
-              Check out what our customers are saying about our fast, secure, and reliable online notarization services
+              Check out what our customers are saying about our fast, secure,
+              and reliable online notarization services
             </motion.p>
             <div className="flex gap-2">
               <motion.button
