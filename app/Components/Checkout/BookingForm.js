@@ -125,7 +125,7 @@ const BookingForm = ({ appointment_title }) => {
       {/* Trigger Button */}
       <button
         onClick={() => setIsModalOpen(true)}
-        className="px-6 py-3 bg-green-800 text-white font-bold rounded-md"
+        className="px-6 py-3 text-white text-center font-bold rounded-md"
       >
         {appointment_title}
       </button>
@@ -148,7 +148,7 @@ const BookingForm = ({ appointment_title }) => {
 
             {/* Step 1: Personal Information */}
             {step === 1 && (
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} className="text-left">
                 <div className="grid grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium mb-1">
@@ -252,7 +252,7 @@ const BookingForm = ({ appointment_title }) => {
 
             {/* Step 2: File Uploads */}
             {step === 2 && (
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit} className="text-left">
                 <div className="space-y-6">
                   <div>
                     <div className="w-full mb-3">

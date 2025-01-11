@@ -86,10 +86,12 @@ const useFirebase = () => {
       .then(async (result) => {
         const googleUser = result.user;
         setUser(googleUser);
+        toast.success("Login Success");
         await saveUserData(googleUser); // Save user data to Firestore
       })
       .catch((error) => {
         setError(error.message);
+        toast.error("There are some issue");
       });
   };
 
@@ -99,6 +101,7 @@ const useFirebase = () => {
       .then(async (result) => {
         const facebookUser = result.user;
         setUser(facebookUser);
+        toast.success("Successfully Loged In");
         await saveUserData(facebookUser); // Save user data to Firestore
       })
       .catch((error) => {
@@ -125,6 +128,8 @@ const useFirebase = () => {
     createUserWithEmailAndPassword(
       auth,
       emailRef.current.value,
+      f_nameRef.current.value,
+      l_nameRef.current.value,
       passwordRef.current.value
     )
       .then(async (result) => {
@@ -185,6 +190,7 @@ const useFirebase = () => {
     signOut(auth)
       .then(() => {
         setUser("");
+        toast.success("Logout Successful");
       })
       .catch((error) => {
         setError(error.message);
@@ -198,7 +204,7 @@ const useFirebase = () => {
       .then(() => {
         // Password reset email sent!
 
-        setError("Please check your mail to reset the password");
+        toast("Please check your mail to reset the password");
       })
       .catch((error) => {
         setError(error.message);
@@ -294,15 +300,13 @@ const useFirebase = () => {
     }
   };
 
-  // Delete User info...........................................
-
   // DELETE: Delete User's Details data..........................
   const deleteFormData = async (id) => {
     const formRef = doc(firestore, "UserInfo", id);
     await deleteDoc(formRef);
-    console.log("Form data deleted successfully");
+    toast("Data deleted successfully");
   };
-
+  console.log(user);
   return {
     user,
     error,

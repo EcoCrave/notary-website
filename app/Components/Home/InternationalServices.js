@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { fadeIn, fadeInAnimationVariants } from "@/variants";
+import BookingForm from "../Checkout/BookingForm";
 export default function InternationalServices() {
   const services = [
     {
@@ -55,7 +56,6 @@ export default function InternationalServices() {
           of the most important services offered by our partner notaries and how
           your company can benefit from them.
         </motion.p>
-
         <div className=" lg:flex flex-col md:flex-row items-start  ">
           {/* Service List */}
           <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-1 lg:flex-col gap-4 mb-3  ">
@@ -132,9 +132,9 @@ export default function InternationalServices() {
               </div>
 
               {/* Button */}
-              <button className="bg-black text-white w-full mt-4 py-2 rounded hover:bg-gray-800">
-                Get Started
-              </button>
+              <div className="bg-black w-full mt-4  rounded hover:bg-gray-800">
+                <BookingForm appointment_title="Book Now" />
+              </div>
             </div>
           </motion.div>
         </div>

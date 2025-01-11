@@ -15,6 +15,7 @@ const data = [
     imageUrl: "https://bluenotary.us/assets/images/for_business.png",
     gradient: "from-blue-800 to-green-700",
     topPosition: "top-[75px]",
+    pageLink: "/business",
   },
   {
     title: "For Individual",
@@ -23,14 +24,16 @@ const data = [
     imageUrl: "https://bluenotary.us/assets/images/for_individual.png",
     gradient: "from-purple-500 to-green-700",
     topPosition: "top-[85px]",
+    pageLink: "/in-person-notarization",
   },
   {
-    title: "For Construction",
+    title: "For Company & Banks",
     description:
       "Fast, secure online notarization services tailored for the construction industry—streamline your documentation today",
     imageUrl: "https://bluenotary.us/assets/images/for_construction.png",
     gradient: "from-teal-500 to-green-700",
     topPosition: "top-[95px]",
+    pageLink: "/bank",
   },
 ];
 
@@ -58,7 +61,10 @@ const Services = () => (
         </motion.h2>
       </div>
       {data.map(
-        ({ title, description, imageUrl, gradient, topPosition }, index) => (
+        (
+          { title, description, imageUrl, gradient, topPosition, pageLink },
+          index
+        ) => (
           <motion.div
             variants={fadeIn("up", 0, 0.3)}
             initial="hidden"
@@ -89,7 +95,7 @@ const Services = () => (
               <div>
                 <Link
                   className="bg-green-700 p-2 rounded hover:bg-green-900 space-y-2"
-                  href=""
+                  href={pageLink}
                 >
                   Learn More
                 </Link>

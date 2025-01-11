@@ -2,6 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/variants";
+import BookingForm from "../Checkout/BookingForm";
 const Booking = () => {
   return (
     <div className="flex   mx-auto justify-center pb-10 items-center  px-4">
@@ -36,9 +37,9 @@ const Booking = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.7 }}
-          className="bg-green-700 text-white py-3 px-6 rounded-md font-semibold hover:bg-green-900 transition"
+          className="bg-green-700  rounded-md font-semibold hover:bg-green-900 transition"
         >
-          Book an appointment
+          <BookingForm appointment_title="Book an appointment" />
         </motion.button>
       </div>
     </div>

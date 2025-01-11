@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import BookingForm from "../Checkout/BookingForm";
 
 const Hero = () => {
   return (
@@ -17,8 +18,8 @@ const Hero = () => {
             With remote online notarization, you can expect to get documents
             signed and verified without having to go anywhere.
           </p>
-          <button className="mt-4 bg-black text-white py-3 px-8 rounded-md font-medium hover:bg-gray-800">
-            Book A Demo
+          <button className="mt-4 bg-black rounded-md font-medium hover:bg-gray-800">
+            <BookingForm appointment_title="Book A Demo" />
           </button>
         </div>
 

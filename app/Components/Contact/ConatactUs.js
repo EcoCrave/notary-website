@@ -1,6 +1,5 @@
 "use client";
-
-import { sendEmail } from "@/app/contact/(connectResendMail)/resend.js";
+import { sendEmail } from "@/lib/resend";
 import React from "react";
 import {
   FaFacebook,
@@ -9,8 +8,10 @@ import {
   FaTiktok,
   FaPinterest,
 } from "react-icons/fa";
-function send() {
-  sendEmail();
+import { toast } from "react-toastify";
+function send(name, email, message) {
+  sendEmail(name, email, message);
+  toast.success("Email sent successfully !");
 }
 const ContactUs = () => {
   return (
@@ -32,6 +33,7 @@ const ContactUs = () => {
                 </label>
                 <input
                   type="text"
+                  name="name"
                   placeholder="Your Name"
                   className="w-full p-2 border-b-2 border-gray-300  outline-none"
                 />
@@ -42,6 +44,7 @@ const ContactUs = () => {
                 </label>
                 <input
                   type="email"
+                  name="email"
                   placeholder="Your Email"
                   className="w-full p-2 border-b-2 border-gray-300  outline-none"
                 />
@@ -51,6 +54,7 @@ const ContactUs = () => {
                   Message :{" "}
                 </label>
                 <textarea
+                  name="message"
                   placeholder="Your Message"
                   className="w-full p-2 border-b-2 border-gray-300  outline-none"
                   rows="4"

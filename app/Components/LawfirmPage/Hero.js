@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/variants";
+import BookingForm from "../Checkout/BookingForm";
 export default function Hero() {
   return (
     <div className="bg-gradient-to-b from-blue-50 to-white py-20 ">
@@ -58,9 +59,9 @@ export default function Hero() {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.9 }}
-                className="bg-green-900 text-white py-3 px-6 rounded-md font-medium hover:bg-green-900 transition"
+                className="bg-green-900   px-6 rounded-md font-medium hover:bg-green-900 transition"
               >
-                Arrange a demo appointment
+                <BookingForm appointment_title="Arrange a demo appointment" />
               </motion.button>
               <motion.button
                 variants={fadeIn("up", 0, 1.1)}

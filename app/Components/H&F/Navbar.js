@@ -6,13 +6,14 @@ import { FaChevronDown } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { fadeIn, fadeInAnimationVariants } from "@/variants";
 import useFirebase from "@/app/Server/authentication/useFirebase";
+import { FaUserCircle } from "react-icons/fa";
 
 const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openSubMenu, setOpenSubMenu] = useState(null);
-  const { user } = useFirebase();
+  const { user, handleLogout } = useFirebase();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -63,7 +64,22 @@ const Navbar = () => {
       ],
     },
 
-    { label: "Login / Register", path: "/login", special: true },
+    user
+      ? {
+          label: (
+            <div className="flex items-center gap-1">
+              {/* <FaUserCircle className="text-2xl" /> */}
+              My Account
+            </div>
+          ),
+          path: "#",
+          hideDA: "hmm",
+          subcategories: [
+            { label: "My Account", path: "/user" },
+            { label: <div onClick={handleLogout}>Logout</div>, path: "#" },
+          ],
+        }
+      : { label: "Login / Register", path: "/login", special: true },
   ];
 
   const handleSubMenuToggle = (label) => {
@@ -96,55 +112,59 @@ const Navbar = () => {
 
         {/* Right Side - Desktop Menu */}
         <div className="hidden lg:flex items-center space-x-5">
-          {menuItems.map(({ label, path, subcategories, special }, index) => (
-            <motion.div
-              variants={fadeInAnimationVariants}
-              custom={index}
-              initial="initial"
-              whileInView="animate"
-              viewport={{ once: true }}
-              key={label}
-              className="relative group"
-            >
-              {!subcategories ? (
-                <Link
-                  className={`${
-                    special
-                      ? "px-4 py-2 bg-white text-gray-900 rounded hover:bg-green-800 hover:text-white"
-                      : "text-white hover:text-gray-300"
-                  }`}
-                  href={path}
-                >
-                  {label}
-                </Link>
-              ) : (
-                <>
+          {menuItems.map(
+            ({ label, path, subcategories, special, hideDA }, index) => (
+              <motion.div
+                variants={fadeInAnimationVariants}
+                custom={index}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+                key={label}
+                className="relative group"
+              >
+                {!subcategories ? (
                   <Link
-                    className="text-white flex items-center gap-1 hover:text-gray-300"
+                    className={`${
+                      special
+                        ? "px-4 py-2 bg-white text-gray-900 rounded hover:bg-green-800 hover:text-white"
+                        : "text-white hover:text-gray-300"
+                    }`}
                     href={path}
                   >
                     {label}
-                    <FaChevronDown className="text-[10px] text-gray-300" />
                   </Link>
-                  <div className="absolute md:w-64 -left-14 p-4 top-[69%] mt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-400 ease-in-out">
-                    <div className="bg-gray-800 rounded-md py-2">
-                      {subcategories.map(
-                        ({ label: subLabel, path: subPath }) => (
-                          <Link
-                            className="block px-6 py-4 text-white hover:bg-gray-700 rounded"
-                            key={subLabel}
-                            href={subPath}
-                          >
-                            {subLabel}
-                          </Link>
-                        )
+                ) : (
+                  <>
+                    <Link
+                      className="text-white flex items-center gap-1 hover:text-gray-300"
+                      href={path}
+                    >
+                      {label}
+                      {!hideDA && (
+                        <FaChevronDown className="text-[10px] text-gray-300" />
                       )}
+                    </Link>
+                    <div className="absolute md:w-64 -left-14 p-4 top-[69%] mt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-400 ease-in-out">
+                      <div className="bg-gray-800 rounded-md py-2">
+                        {subcategories.map(
+                          ({ label: subLabel, path: subPath }) => (
+                            <Link
+                              className="block px-6 py-4 text-white hover:bg-gray-700 rounded"
+                              key={subLabel}
+                              href={subPath}
+                            >
+                              {subLabel}
+                            </Link>
+                          )
+                        )}
+                      </div>
                     </div>
-                  </div>
-                </>
-              )}
-            </motion.div>
-          ))}
+                  </>
+                )}
+              </motion.div>
+            )
+          )}
         </div>
 
         {/* Mobile Menu Icon */}

@@ -63,6 +63,7 @@ const Login = () => {
               <form className="p-10 pb-0" onSubmit={handleSignIn}>
                 <div className="space-y-5">
                   <input
+                    required
                     ref={emailRef}
                     type="email"
                     className="border-b-2 w-full p-2"
@@ -70,6 +71,7 @@ const Login = () => {
                   />
                   <div>
                     <input
+                      required
                       ref={passwordRef}
                       type="password"
                       placeholder="Password"
@@ -95,12 +97,14 @@ const Login = () => {
                   <div className="flex gap-10">
                     <input
                       type="text"
+                      required
                       className="border-b-2 w-full p-2"
                       placeholder="First Name"
                       ref={f_nameRef}
                     />
                     <input
                       type="text"
+                      required
                       className="border-b-2 w-full p-2"
                       placeholder="Last Name"
                       ref={l_nameRef}
@@ -108,12 +112,14 @@ const Login = () => {
                   </div>
                   <input
                     type="email"
+                    required
                     className="border-b-2 w-full p-2"
                     placeholder="Email address"
                     ref={emailRef}
                   />
                   <div>
                     <input
+                      required
                       type="password"
                       placeholder="Password (more then 6 charecters)"
                       className="border-b-2 w-full p-2"
@@ -122,6 +128,7 @@ const Login = () => {
                   </div>
                   <div>
                     <input
+                      required
                       type="password"
                       placeholder="Confirm Password"
                       ref={repasswordRef}
@@ -143,10 +150,13 @@ const Login = () => {
                 ----------Or----------
               </p>
               <div className="flex justify-center items-center space-x-10">
-                <FcGoogle onClick={handleGoogleSignIn} className="text-4xl" />
+                <FcGoogle
+                  onClick={handleGoogleSignIn}
+                  className="text-4xl cursor-pointer"
+                />
                 <FaSquareFacebook
                   onClick={handleFacebookSignIn}
-                  className="text-4xl"
+                  className="text-4xl cursor-pointer"
                 />
               </div>
             </div>

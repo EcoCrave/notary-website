@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React, { useState } from "react";
 
 const Faqlawfirm = () => {
@@ -49,9 +50,9 @@ const Faqlawfirm = () => {
 
           <p className="text-gray-600 mt-4">
             Need more help?{" "}
-            <a href="#" className="text-blue-600 underline">
+            <Link href="/contact" className="text-blue-600 underline">
               Contact Us
-            </a>
+            </Link>
           </p>
         </div>
 

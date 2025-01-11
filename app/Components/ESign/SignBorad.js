@@ -3,6 +3,7 @@ import React, { useState, useRef } from "react";
 import SignatureCanvas from "react-signature-canvas";
 import { motion } from "framer-motion";
 import { fadeIn, fadeInAnimationVariants } from "@/variants";
+import BookingForm from "../Checkout/BookingForm";
 const SignBoard = () => {
   const canvasRef = useRef(null); // Reference for SignatureCanvas
   const [result, setResult] = useState(null); // Store the signature data URL
@@ -128,18 +129,20 @@ const SignBoard = () => {
                 <p className="text-white">
                   Simply enter your email address and get started.
                 </p>
-                <form className="space-y-2">
+                <div className="space-y-2">
                   <input
                     type="email"
                     placeholder="Email Address"
                     className="border p-2 w-2/3 text-center outline-none"
                   />
-                  <input
-                    type="submit"
-                    value="eSign My Document"
-                    className="border p-2 w-2/3 text-center text-white bg-green-800 hover:bg-green-900 cursor-pointer outline-none"
-                  />
-                </form>
+                  <button
+                    type=""
+                    value=""
+                    className="border  w-2/3 bg-green-800 hover:bg-green-900 cursor-pointer outline-none"
+                  >
+                    <BookingForm appointment_title="eSign My Document" />
+                  </button>
+                </div>
               </motion.div>
             )}
           </div>

@@ -1,7 +1,15 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
+import BookingForm from "../Checkout/BookingForm";
+import { FaCirclePlay } from "react-icons/fa6";
 
 const HowItWorks = () => {
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+
+  const toggleVideoPopup = () => {
+    setIsVideoOpen(!isVideoOpen);
+  };
   return (
     <div className="bg-gray-50 space-y-5 text-gray-900">
       <div className="w-[85%] mx-auto pb-10">
@@ -14,12 +22,13 @@ const HowItWorks = () => {
             In 5 steps to your online notary appointment
           </h1>
           <p className="text-gray-700 mt-4 max-w-2xl mx-auto">
-          With our platform, you can experience secure, fast, and hassle-free notarization. Follow these simple steps to have your documents notarized in just 10 minutes.
-
+            With our platform, you can experience secure, fast, and hassle-free
+            notarization. Follow these simple steps to have your documents
+            notarized in just 10 minutes.
           </p>
-          <button className="mt-6 bg-green-600 text-white py-3 px-8 rounded-md font-semibold hover:bg-green-700 transition">
-            Book appointment now
-          </button>
+          <div className="mt-6 w-fit mx-auto bg-green-600 rounded-md  hover:bg-green-700 transition">
+            <BookingForm appointment_title="Book appointment now" />
+          </div>
         </div>
 
         {/* Steps Section */}
@@ -75,16 +84,44 @@ const HowItWorks = () => {
             notary appointment and what you should have ready for it. Watch it
             and make your next appointment stress-free online.
           </p>
-          <div className="mt-8">
-            <video
-              controls
-              className="w-full bg-black max-w-lg mx-auto rounded-lg"
-              poster="/path-to-video-thumbnail.jpg"
-            >
-              <source src="/path-to-video.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+          {/* ----------------------------------------------- */}
+          <div>
+            <div className="relative  rounded-md max-w-lg mx-auto mt-10">
+              <img
+                className="rounded-xl"
+                src="https://bluenotary.us/assets/ron-banner.jpg"
+                alt="Notary Banner"
+              />
+              <div
+                className="absolute inset-0 flex justify-center items-center cursor-pointer"
+                onClick={toggleVideoPopup}
+              >
+                <FaCirclePlay className="text-7xl text-white rounded-full bg-black border" />
+              </div>
+            </div>
+            {isVideoOpen && (
+              <div className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50">
+                <div className="relative  rounded-lg shadow-lg p-4 max-w-3xl w-full">
+                  <button
+                    onClick={toggleVideoPopup}
+                    className="absolute top-2 right-2 bg-red-500 text-white rounded-full w-8 h-8 flex justify-center items-center"
+                  >
+                    ✕
+                  </button>
+                  <iframe
+                    className="w-full h-64 md:h-96"
+                    src="https://www.youtube.com/embed/hEofB08X7lI?si=SwurZyMmgpf74cOf"
+                    title="Notary Video"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+            )}
           </div>
+
+          {/* ---------------------------------------------------- */}
         </div>
       </div>
     </div>

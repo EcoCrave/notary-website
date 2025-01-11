@@ -2,6 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { fadeIn, fadeInAnimationVariants } from "@/variants";
+import BookingForm from "../Checkout/BookingForm";
 const ReadyToGo = () => {
   return (
     <div className="w-[85%] my-10 mb-24 bg-gray-900 mx-auto text-center rounded-lg p-5 space-y-4 py-16">
@@ -23,7 +24,7 @@ const ReadyToGo = () => {
       >
         Book your appointment now !
       </motion.p>
-      <motion.form
+      <motion.div
         variants={fadeIn("up", 0, 0.7)}
         initial="hidden"
         whileInView="show"
@@ -35,12 +36,10 @@ const ReadyToGo = () => {
           className="px-5 py-2 rounded outline-none"
           placeholder="email..."
         />
-        <input
-          className="text-white rounded px-5 py-2 bg-green-900  hover:bg-black cursor-pointer "
-          type="submit"
-          value="STATY THE ENGINE >"
-        />
-      </motion.form>
+        <button className=" rounded bg-green-900  hover:bg-black cursor-pointer ">
+          <BookingForm appointment_title="START THE ENGINE" />
+        </button>
+      </motion.div>
     </div>
   );
 };

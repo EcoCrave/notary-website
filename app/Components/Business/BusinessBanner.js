@@ -2,6 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/variants";
+import BookingForm from "../Checkout/BookingForm";
 const BusinessBanner = () => {
   return (
     <section className="bg-gray-50 py-24  back bg-[url('/img/bghome.png')] bg-cover bg-no-repeat bg-center">
@@ -51,8 +52,8 @@ const BusinessBanner = () => {
               className="border w-1/2 px-5 rounded-md"
               placeholder="email"
             />
-            <button className="bg-green-900 text-white py-3 px-6 rounded-md font-medium hover:bg-green-900 transition">
-              Get Started Now
+            <button className="bg-green-900  rounded-md font-medium hover:bg-green-900 transition">
+              <BookingForm appointment_title="Get Started Now" />
             </button>
           </motion.div>
         </div>
