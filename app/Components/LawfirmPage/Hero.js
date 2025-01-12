@@ -54,7 +54,7 @@ export default function Hero() {
               notarized" for tailored assistance.
             </motion.p>
             <div className="flex flex-wrap gap-4 mt-6">
-              <motion.button
+              <motion.div
                 variants={fadeIn("up", 0, 0.9)}
                 initial="hidden"
                 whileInView="show"
@@ -62,7 +62,7 @@ export default function Hero() {
                 className="bg-green-900   px-6 rounded-md font-medium hover:bg-green-900 transition"
               >
                 <BookingForm appointment_title="Arrange a demo appointment" />
-              </motion.button>
+              </motion.div>
               <motion.button
                 variants={fadeIn("up", 0, 1.1)}
                 initial="hidden"

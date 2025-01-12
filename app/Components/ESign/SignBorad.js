@@ -135,13 +135,13 @@ const SignBoard = () => {
                     placeholder="Email Address"
                     className="border p-2 w-2/3 text-center outline-none"
                   />
-                  <button
+                  <div
                     type=""
                     value=""
                     className="border  w-2/3 bg-green-800 hover:bg-green-900 cursor-pointer outline-none"
                   >
                     <BookingForm appointment_title="eSign My Document" />
-                  </button>
+                  </div>
                 </div>
               </motion.div>
             )}

@@ -52,9 +52,9 @@ const BusinessBanner = () => {
               className="border w-1/2 px-5 rounded-md"
               placeholder="email"
             />
-            <button className="bg-green-900  rounded-md font-medium hover:bg-green-900 transition">
+            <div className="bg-green-900  rounded-md font-medium hover:bg-green-900 transition">
               <BookingForm appointment_title="Get Started Now" />
-            </button>
+            </div>
           </motion.div>
         </div>
       </div>

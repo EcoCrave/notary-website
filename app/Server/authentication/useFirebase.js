@@ -15,6 +15,7 @@ import {
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import {
   createUserWithEmailAndPassword,
+  deleteUser,
   FacebookAuthProvider,
   getAuth,
   GoogleAuthProvider,
@@ -55,7 +56,6 @@ const useFirebase = () => {
           uid: user.uid,
           name: user.displayName || "No Name",
           email: user.email,
-          emailVerified: user.emailVerified,
           role: user.role || "user",
           photoURL: user.photoURL || null,
           provider: user.providerId || "email",
@@ -67,6 +67,34 @@ const useFirebase = () => {
       }
     } catch (error) {
       console.error("Error saving user data:", error);
+    }
+  };
+
+  // Login With email and password __________________________________________________
+
+  const handleSignIn = async (e) => {
+    e.preventDefault(); // Prevent default form submission behavior
+    try {
+      // Sign in the user with email and password
+      await signInWithEmailAndPassword(
+        auth,
+        emailRef.current.value,
+        passwordRef.current.value
+      );
+
+      // Success toast; no need to manually set user state
+      toast.success("Successfully logged in!");
+      setError(""); // Clear any previous errors
+    } catch (error) {
+      // Handle errors gracefully
+      setError(error.message);
+      toast.error(
+        (error.message && "Invalid email or password") ||
+          "Failed to log in. Please try again."
+      );
+    } finally {
+      // Reset the form inputs
+      e.target.reset();
     }
   };
 
@@ -128,8 +156,6 @@ const useFirebase = () => {
     createUserWithEmailAndPassword(
       auth,
       emailRef.current.value,
-      f_nameRef.current.value,
-      l_nameRef.current.value,
       passwordRef.current.value
     )
       .then(async (result) => {
@@ -146,34 +172,14 @@ const useFirebase = () => {
 
         emailVerification();
         setUser(updatedUser);
-        setError("");
         toast.success("Successfully Registered");
-      })
-      .catch((error) => {
-        setError(error.message);
-      });
-    e.target.reset();
-  };
-
-  // Login With email and password __________________________________________________
-
-  const handleSignIn = (e) => {
-    e.preventDefault();
-    signInWithEmailAndPassword(
-      auth,
-      emailRef.current.value,
-      passwordRef.current.value
-    )
-      .then((result) => {
-        const signInInfo = result.user;
-        setUser(signInInfo);
         setError("");
-        toast.success("successfully loged in");
       })
       .catch((error) => {
         setError(error.message);
+        toast.error("There is an error");
       });
-    e.target.reset();
+    // e.target.reset();
   };
 
   // Verify Account  ________________________________________________________________
@@ -272,8 +278,6 @@ const useFirebase = () => {
 
       // Combine user data and user details
       const combinedData = { ...userData, details: userDetails };
-
-      console.log("Combined User Data:", combinedData);
       return combinedData;
     } catch (error) {
       console.log("Error fetching user data:", error);
@@ -300,13 +304,64 @@ const useFirebase = () => {
     }
   };
 
+  // Delete User From FireStore ..................................
+
+  const deleteUserData = async () => {
+    const currentUser = auth.currentUser;
+
+    if (currentUser) {
+      try {
+        // Delete user data from Firestore
+        const userDocRef = doc(firestore, "users", currentUser.uid);
+        await deleteDoc(userDocRef);
+
+        // Delete user from Firebase Auth
+        await currentUser.delete();
+
+        console.log("User and their data deleted successfully");
+      } catch (error) {
+        console.error("Error deleting user and their data:", error.message);
+      }
+    } else {
+      console.log("No user is signed in");
+    }
+  };
+
+  // Delete User by ID...............................................
+
+  const deleteUserByUID = async (uid) => {
+    try {
+      await admin.auth().deleteUser(uid);
+      console.log(`User with UID ${uid} deleted successfully`);
+    } catch (error) {
+      console.error("Error deleting user:", error.message);
+    }
+  };
+
+  // Delete User From Authenticator ..................................
+
+  const deleteCurrentUser = async () => {
+    const currentUser = auth.currentUser;
+
+    if (currentUser) {
+      try {
+        await deleteUser(currentUser);
+        console.log("User deleted successfully");
+      } catch (error) {
+        console.error("Error deleting user:", error.message);
+      }
+    } else {
+      console.log("No user is signed in");
+    }
+  };
+
   // DELETE: Delete User's Details data..........................
   const deleteFormData = async (id) => {
     const formRef = doc(firestore, "UserInfo", id);
     await deleteDoc(formRef);
     toast("Data deleted successfully");
   };
-  console.log(user);
+  // console.log("user", user.email);
   return {
     user,
     error,
@@ -316,11 +371,14 @@ const useFirebase = () => {
     passwordRef,
     addFormData,
     uploadFile,
+    deleteUserData,
+    deleteCurrentUser,
     getUsers,
     getFormData,
     repasswordRef,
     updateUserData,
     getDataById,
+    deleteUserByUID,
     handleLogout,
     handleGoogleSignIn,
     handleSignIn,

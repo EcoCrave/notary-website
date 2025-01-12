@@ -8,6 +8,7 @@ const BookingForm = ({ appointment_title }) => {
   const [step, setStep] = useState(1);
   const f_name = useRef();
   const l_name = useRef();
+
   // Form data state.............................
 
   const [formData, setFormData] = useState({
@@ -121,7 +122,7 @@ const BookingForm = ({ appointment_title }) => {
   };
 
   return (
-    <div>
+    <section>
       {/* Trigger Button */}
       <button
         onClick={() => setIsModalOpen(true)}
@@ -226,7 +227,12 @@ const BookingForm = ({ appointment_title }) => {
                   <p className="block text-sm font-medium mb-1">
                     Type of service :
                   </p>
-                  <select className="w-full border border-gray-300 rounded p-2">
+                  <select
+                    name="service"
+                    value={formData.service}
+                    onChange={handleChange}
+                    className="w-full border border-gray-300 rounded p-2"
+                  >
                     <option value="" key="">
                       Online Notary
                     </option>
@@ -260,7 +266,12 @@ const BookingForm = ({ appointment_title }) => {
                         Select id type (required) :
                       </p>
 
-                      <select className="w-full border border-gray-300 rounded p-2">
+                      <select
+                        name="idType"
+                        value={formData.idType}
+                        onChange={handleChange}
+                        className="w-full border border-gray-300 rounded p-2"
+                      >
                         <option value="" key="">
                           Driving License
                         </option>
@@ -336,7 +347,7 @@ const BookingForm = ({ appointment_title }) => {
           </div>
         </div>
       )}
-    </div>
+    </section>
   );
 };
 

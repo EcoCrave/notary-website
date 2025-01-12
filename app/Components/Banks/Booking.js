@@ -32,7 +32,7 @@ const Booking = () => {
         </motion.p>
 
         {/* Button */}
-        <motion.button
+        <motion.div
           variants={fadeIn("up", 0, 0.3)}
           initial="hidden"
           whileInView="show"
@@ -40,7 +40,7 @@ const Booking = () => {
           className="bg-green-700  rounded-md font-semibold hover:bg-green-900 transition"
         >
           <BookingForm appointment_title="Book an appointment" />
-        </motion.button>
+        </motion.div>
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaEdit } from "react-icons/fa";
 import UpdateProfilePopup from "./UpdateProfilePopup";
 import { toast } from "react-toastify";
-const ProfileCard = ({ user, updateUserData, hide }) => {
+const ProfileCard = ({ user, updateUserData, hide, verify }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [userData, setUserData] = useState(null);
   const handleUpdate = async (updatedData) => {
@@ -29,7 +29,7 @@ const ProfileCard = ({ user, updateUserData, hide }) => {
           <div className="flex">
             <h2 className="text-3xl font-bold text-gray-700">{user.name}</h2>
           </div>
-          {user.emailVerified === true ? (
+          {verify === true ? (
             <p className="text-sm bg-green-500 px-2 w-fit text-white font-semibold rounded-full">
               {" "}
               Account verified{" "}

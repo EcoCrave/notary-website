@@ -3,10 +3,14 @@
 import useFirebase from "@/app/Server/authentication/useFirebase";
 import React, { useState } from "react";
 import { FcGoogle } from "react-icons/fc";
-import { FaSquareFacebook, FaXTwitter } from "react-icons/fa6";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
 const Login = () => {
   const [loginTrigered, setLoginTrigered] = useState(true);
+  const [showLoginPassword, setShowLoginPassword] = useState(false);
+  const [showRegisterPassword, setShowRegisterPassword] = useState(false);
+  const [showConfirmRegisterPassword, setShowConfirmRegisterPassword] =
+    useState(false);
   const {
     handleSignIn,
     handleFacebookSignIn,
@@ -20,6 +24,7 @@ const Login = () => {
     handleResetPassword,
     error,
   } = useFirebase();
+
   return (
     <div className="bg-gray-100">
       <div className="w-[85%] py-10 mx-auto ">
@@ -66,26 +71,37 @@ const Login = () => {
                     required
                     ref={emailRef}
                     type="email"
-                    className="border-b-2 w-full p-2"
+                    className="border-b-2 w-full p-2 outline-none"
                     placeholder="Email address"
                   />
-                  <div>
+                  <div className="flex items-center">
                     <input
                       required
                       ref={passwordRef}
-                      type="password"
+                      type={showLoginPassword ? "text" : "password"}
                       placeholder="Password"
-                      className="border-b-2 w-full p-2"
+                      className="border-b-2 w-full p-2 outline-none"
                     />
+
+                    {showLoginPassword ? (
+                      <FaRegEye
+                        className="cursor-pointer"
+                        onClick={() => setShowLoginPassword(!showLoginPassword)}
+                      />
+                    ) : (
+                      <FaRegEyeSlash
+                        className="cursor-pointer"
+                        onClick={() => setShowLoginPassword(!showLoginPassword)}
+                      />
+                    )}
                   </div>
-                  <p className="text-right">
-                    <button onClick={handleResetPassword}>
-                      {" "}
+                  <div className="text-right ">
+                    <button type="button " onClick={handleResetPassword}>
                       Forgot Password ?
                     </button>
-                  </p>
+                  </div>
                   <input
-                    className="w-full bg-green-900 rounded mt-10 text-white font-semibold p-2"
+                    className="w-full outline-none cursor-pointer bg-green-900 rounded mt-10 text-white font-semibold p-2"
                     type="submit"
                     value="Log in"
                   />
@@ -98,14 +114,14 @@ const Login = () => {
                     <input
                       type="text"
                       required
-                      className="border-b-2 w-full p-2"
+                      className="border-b-2 w-full p-2 outline-none"
                       placeholder="First Name"
                       ref={f_nameRef}
                     />
                     <input
                       type="text"
                       required
-                      className="border-b-2 w-full p-2"
+                      className="border-b-2 w-full outline-none p-2"
                       placeholder="Last Name"
                       ref={l_nameRef}
                     />
@@ -113,32 +129,66 @@ const Login = () => {
                   <input
                     type="email"
                     required
-                    className="border-b-2 w-full p-2"
+                    className="border-b-2 w-full outline-none p-2"
                     placeholder="Email address"
                     ref={emailRef}
                   />
-                  <div>
+                  <div className="flex items-center">
                     <input
                       required
-                      type="password"
+                      type={showRegisterPassword ? "text" : "password"}
                       placeholder="Password (more then 6 charecters)"
-                      className="border-b-2 w-full p-2"
+                      className="border-b-2 outline-none w-full p-2"
                       ref={passwordRef}
                     />
+                    {showRegisterPassword ? (
+                      <FaRegEye
+                        className="cursor-pointer"
+                        onClick={() =>
+                          setShowRegisterPassword(!showRegisterPassword)
+                        }
+                      />
+                    ) : (
+                      <FaRegEyeSlash
+                        className="cursor-pointer"
+                        onClick={() =>
+                          setShowRegisterPassword(!showRegisterPassword)
+                        }
+                      />
+                    )}
                   </div>
-                  <div>
+                  <div className="flex items-center">
                     <input
                       required
-                      type="password"
+                      type={showConfirmRegisterPassword ? "text" : "password"}
                       placeholder="Confirm Password"
                       ref={repasswordRef}
-                      className="border-b-2 w-full p-2"
+                      className="border-b-2 outline-none w-full p-2"
                     />
+                    {showConfirmRegisterPassword ? (
+                      <FaRegEye
+                        className="cursor-pointer"
+                        onClick={() =>
+                          setShowConfirmRegisterPassword(
+                            !showConfirmRegisterPassword
+                          )
+                        }
+                      />
+                    ) : (
+                      <FaRegEyeSlash
+                        className="cursor-pointer"
+                        onClick={() =>
+                          setShowConfirmRegisterPassword(
+                            !showConfirmRegisterPassword
+                          )
+                        }
+                      />
+                    )}
                     {/* <p>password should be at least 6 chareters long</p> */}
                   </div>
 
                   <input
-                    className="w-full rounded bg-green-900 mt-10 text-white font-semibold p-2"
+                    className="w-full outline-none cursor-pointer rounded bg-green-900 mt-10 text-white font-semibold p-2"
                     type="submit"
                     value="Register Now"
                   />
@@ -149,15 +199,16 @@ const Login = () => {
               <p className="text-center font-semibold">
                 ----------Or----------
               </p>
-              <div className="flex justify-center items-center space-x-10">
-                <FcGoogle
-                  onClick={handleGoogleSignIn}
-                  className="text-4xl cursor-pointer"
-                />
-                <FaSquareFacebook
+              <div
+                onClick={handleGoogleSignIn}
+                className="flex justify-center items-center space-x-10 cursor-pointer"
+              >
+                <FcGoogle className="text-4xl cursor-pointer" />
+                Sign In With Google
+                {/* <FaSquareFacebook
                   onClick={handleFacebookSignIn}
                   className="text-4xl cursor-pointer"
-                />
+                /> */}
               </div>
             </div>
           </div>

@@ -32,7 +32,7 @@ const Hero = () => {
             With remote online notarization, you can expect to get documents
             signed and verified without having to go anywhere.
           </motion.p>
-          <motion.button
+          <motion.div
             variants={fadeIn("up", 0, 0.7)}
             initial="hidden"
             whileInView="show"
@@ -40,7 +40,7 @@ const Hero = () => {
             className="mt-4 bg-green-700 rounded-md font-medium hover:bg-gray-800"
           >
             <BookingForm appointment_title="Book A Demo" />
-          </motion.button>
+          </motion.div>
         </div>
 
         {/* Images */}

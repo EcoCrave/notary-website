@@ -36,9 +36,9 @@ const ReadyToGo = () => {
           className="px-5 py-2 rounded outline-none"
           placeholder="email..."
         />
-        <button className=" rounded bg-green-900  hover:bg-black cursor-pointer ">
+        <div className=" rounded bg-green-900  hover:bg-black cursor-pointer ">
           <BookingForm appointment_title="START THE ENGINE" />
-        </button>
+        </div>
       </motion.div>
     </div>
   );
