@@ -32,6 +32,8 @@ import { useRef, useState } from "react";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
 
+// -------------------------------------------------------------------------
+
 const useFirebase = () => {
   const [user, setUser] = useState({});
   const [error, setError] = useState("");
@@ -304,7 +306,7 @@ const useFirebase = () => {
     }
   };
 
-  // Delete User From FireStore ..................................
+  // Delete User From FireStore .......___________________.........
 
   const deleteUserData = async () => {
     const currentUser = auth.currentUser;
@@ -331,8 +333,20 @@ const useFirebase = () => {
 
   const deleteUserByUID = async (uid) => {
     try {
-      await admin.auth().deleteUser(uid);
-      console.log(`User with UID ${uid} deleted successfully`);
+      // Query the `users` collection for a document with the matching UID
+      const usersRef = collection(firestore, "users");
+      const userQuery = query(usersRef, where("uid", "==", uid));
+      const querySnapshot = await getDocs(userQuery);
+      if (querySnapshot.empty) {
+        toast.error(`No user found }`);
+        return;
+      }
+
+      // Delete the user document(s) found
+      querySnapshot.forEach(async (userDoc) => {
+        await deleteDoc(doc(firestore, "users", userDoc.id)); // Delete document by ID
+        toast.success(`User deleted successfully.`);
+      });
     } catch (error) {
       console.error("Error deleting user:", error.message);
     }

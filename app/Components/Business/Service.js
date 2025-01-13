@@ -52,7 +52,7 @@ const Service = () => {
               variants={fadeInAnimationVariants}
               custom={index}
               initial="initial"
-              whileInView={"animate"}
+              whileInView="show"
               viewport={{ once: true }}
               className="flex items-center space-x-1 text-lg font-medium text-gray-900  transition"
             >

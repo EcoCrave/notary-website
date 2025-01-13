@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FaEdit } from "react-icons/fa";
 import UpdateProfilePopup from "./UpdateProfilePopup";
 import { toast } from "react-toastify";
+import Image from "next/image";
 const ProfileCard = ({ user, updateUserData, hide, verify }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [userData, setUserData] = useState(null);
@@ -19,7 +20,9 @@ const ProfileCard = ({ user, updateUserData, hide, verify }) => {
     <div className=" flex gap-x-20 rounded-lg p-6">
       <div className=" items-start">
         {/* User Photo */}
-        <img
+        <Image
+          width="400"
+          height="400"
           src={user.photoURL}
           alt="User"
           className="md:w-40 md:h-40  border border-gray-300"
@@ -27,7 +30,9 @@ const ProfileCard = ({ user, updateUserData, hide, verify }) => {
         <div className="mt-3">
           {/* Name and Ratings */}
           <div className="flex">
-            <h2 className="text-3xl font-bold text-gray-700">{user.name}</h2>
+            <h2 className="text-3xl font-bold text-gray-700">
+              {user.fullName}
+            </h2>
           </div>
           {verify === true ? (
             <p className="text-sm bg-green-500 px-2 w-fit text-white font-semibold rounded-full">
@@ -55,6 +60,7 @@ const ProfileCard = ({ user, updateUserData, hide, verify }) => {
             onClose={() => setIsPopupOpen(false)}
             onUpdate={handleUpdate}
             existingData={userData}
+            user={user}
           />
         </div>
       </div>

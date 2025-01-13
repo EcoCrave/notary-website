@@ -17,27 +17,25 @@ const page = ({ params }) => {
     fetchData();
   }, [params.id]);
 
-  // const { getDataById, deleteUserByUID } = useFirebase();
-  // const [isModalOpen, setIsModalOpen] = useState(false); // Modal visibility
-  // const [confirmationInput, setConfirmationInput] = useState(""); // Input for confirmation
+  const { getDataById, deleteUserByUID } = useFirebase();
+  const [isModalOpen, setIsModalOpen] = useState(false); // Modal visibility
+  const [confirmationInput, setConfirmationInput] = useState(""); // Input for confirmation
 
-  // // Function to handle delete action
-  // const handleDelete = () => {
-  //   if (confirmationInput == "DELETE") {
-  //     deleteUserByUID(params.id);
-  //     setIsModalOpen(false);
-  //     setConfirmationInput("");
-  //     toast.success("User Permanently Deleted!");
-  //     // Add your delete logic here, such as calling an API or updating the database
-  //   } else {
-  //     toast.error("You must type DELETE to confirm.");
-  //   }
-  // };
+  // Function to handle delete action
+  const handleDelete = () => {
+    if (confirmationInput == "DELETE") {
+      deleteUserByUID(params.id);
+      setIsModalOpen(false);
+      setConfirmationInput("");
+    } else {
+      toast.error("You must type DELETE to confirm.");
+    }
+  };
 
   return (
-    <div className="mt-2">
-      <div className="min-h-screen bg-gray-50 py-20 mx-auto ">
-        <div className="w-[85%] mx-auto ">
+    <div className="mt-2 ">
+      <div className="min-h-screen w-[85%] mx-auto  py-20  ">
+        <div className=" ">
           <ProfileCard user={userDetails} hide={true} />
           <div className="mt-6">
             {" "}
@@ -58,7 +56,7 @@ const page = ({ params }) => {
             </button>
 
             {/* Modal */}
-            {/* {isModalOpen && (
+            {isModalOpen && (
               <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
                 <div className="bg-white text-left rounded-lg shadow-lg p-6 w-full max-w-sm">
                   <h3 className="text-lg font-bold mb-4">Confirm Delete</h3>
@@ -89,7 +87,7 @@ const page = ({ params }) => {
                   </div>
                 </div>
               </div>
-            )} */}
+            )}
           </div>
 
           {/* -------------------- */}
