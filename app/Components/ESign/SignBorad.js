@@ -138,7 +138,7 @@ const SignBoard = () => {
                   <div
                     type=""
                     value=""
-                    className="border  w-2/3 bg-green-800 hover:bg-green-900 cursor-pointer outline-none"
+                    className="rounded-md  w-fit mx-auto bg-green-800 hover:bg-green-900 cursor-pointer outline-none"
                   >
                     <BookingForm appointment_title="eSign My Document" />
                   </div>

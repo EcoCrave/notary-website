@@ -60,7 +60,7 @@ const Banner = () => {
             viewport={{ once: true, amount: 0.9 }}
             className="gap-4 flex items-center mx-auto"
           >
-            <div className="bg-green-700">
+            <div className="bg-green-700 rounded-md">
               <BookingForm appointment_title="Arrange an appointment" />
             </div>
 

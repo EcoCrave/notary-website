@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { fadeIn } from "@/variants";
 const YourAdvantages = () => {
   return (
-    <div className="">
+    <div className="bg-gradient-to-t from-blue-50 to-white">
       <div
         variants={fadeIn("up", 0, 0.3)}
         initial="hidden"

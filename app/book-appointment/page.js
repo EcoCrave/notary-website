@@ -7,7 +7,12 @@ export const metadata = {
 };
 
 const page = () => {
-  return <>{/* <Booking /> */}</>;
+  return (
+    <>
+      {" "}
+      <Booking />
+    </>
+  );
 };
 
 export default page;

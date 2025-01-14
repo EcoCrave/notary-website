@@ -15,10 +15,10 @@ const ReachSignature = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.7 }}
-          className="rounded-3xl mb-5  flex justify-center overflow-hidden"
+          className="rounded-3xl flex justify-center overflow-hidden"
         >
           <Image
-            src="/img/bedi1.webp" // Replace this path with the actual path to the image
+            src="/img/wt.jpg" // Replace this path with the actual path to the image
             alt="Person on Laptop"
             width={500}
             height={500}

@@ -53,48 +53,49 @@ const OrderDetails = ({ data }) => {
             </div>
 
             {/* Main Content */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 space-y-3">
-              {/* Customer Info */}
-              <div className="space-y-3">
-                <h2 className="text-2xl font-semibold text-gray-800 mb-2">
-                  Customer
-                </h2>
-                <p className="text-gray-600">
-                  Name: {data.f_name + "" + data.l_name}
-                </p>
-                <p className="text-gray-600">Email: {data.assignedEmail}</p>
-                <p className="text-gray-600">State: {data.state}</p>
-              </div>
+            <div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 space-y-3">
+                {/* Customer Info */}
+                <div className="space-y-3">
+                  <h2 className="text-2xl font-semibold text-gray-800 mb-2">
+                    Customer
+                  </h2>
+                  <p className="text-gray-600">
+                    Name: {data.f_name + "" + data.l_name}
+                  </p>
+                  <p className="text-gray-600">Email: {data.assignedEmail}</p>
+                  <p className="text-gray-600">State: {data.state}</p>
+                </div>
 
-              {/* Order Info */}
-              <div className="space-y-3">
-                <h2 className="text-lg font-semibold text-gray-800 mb-2">
-                  Order Info
-                </h2>
-                <p className="text-gray-600">
-                  Meeting Date: {data.meetingDate}
-                </p>
-                <p className="text-gray-600">
-                  Meeting Link:{" "}
-                  <a
-                    href={data.meetingLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 underline"
-                  >
-                    Join Meeting
-                  </a>
-                </p>
-                <p className="text-gray-600">Service Type: {data.service}</p>
-              </div>
+                {/* Order Info */}
+                <div className="space-y-3">
+                  <h2 className="text-lg font-semibold text-gray-800 mb-2">
+                    Order Info
+                  </h2>
+                  <p className="text-gray-600">
+                    Meeting Date: {data.meetingDate}
+                  </p>
+                  <p className="text-gray-600">
+                    Meeting Link:{" "}
+                    <a
+                      href={data.meetingLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 underline"
+                    >
+                      Join Meeting
+                    </a>
+                  </p>
+                  <p className="text-gray-600">Service Type: {data.service}</p>
+                </div>
 
-              {/* Uploaded Files */}
-              <div className="col-span-1 md:col-span-2">
-                <h2 className="text-lg font-semibold text-gray-800 mb-2">
-                  Uploaded Files
-                </h2>
-                <ul className="list-disc list-inside text-gray-600">
-                  {/* {data.files.map((file, index) => (
+                {/* Uploaded Files */}
+                <div className="col-span-1 md:col-span-2">
+                  <h2 className="text-lg font-semibold text-gray-800 mb-2">
+                    Uploaded Files
+                  </h2>
+                  <ul className="list-disc list-inside text-gray-600">
+                    {/* {data.files.map((file, index) => (
                     <li key={index}>
                       <a
                         href={file.url}
@@ -106,7 +107,36 @@ const OrderDetails = ({ data }) => {
                       </a>
                     </li>
                   ))} */}
-                </ul>
+                  </ul>
+                </div>
+              </div>
+              <h1 className="text-center my-6 font-bold text-2xl">
+                Only Admin Is allowed to fill the input
+              </h1>
+              <div className="flex justify-between w-full items-center gap-10">
+                <div className="space-y-2 w-1/3">
+                  {" "}
+                  <span className=""> Set Status : </span>
+                  <select
+                    name="service"
+                    value={data.status}
+                    // onChange={handleChange}
+                    className="w-full border border-gray-300 rounded p-2"
+                  >
+                    <option value="">Select a service</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Approved">Approved</option>
+                    <option value="Finished">Finished</option>
+                  </select>
+                </div>
+                <div className="flex flex-col space-y-2 w-1/3">
+                  <label>Meeting Link</label>
+                  <input type="text" className="border p-1" />
+                </div>
+                <div className="w-1/3">
+                  <label>Meeting Time</label>
+                  <input type="text" className="border p-1" />
+                </div>
               </div>
             </div>
           </div>

@@ -23,7 +23,7 @@ const ProfileCard = ({ user, updateUserData, hide, verify }) => {
         <Image
           width="400"
           height="400"
-          src={user.photoURL}
+          src={user.photoURL || "/default-avatar.png"}
           alt="User"
           className="md:w-40 md:h-40  border border-gray-300"
         />

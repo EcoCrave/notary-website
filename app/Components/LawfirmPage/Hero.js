@@ -6,7 +6,8 @@ import { fadeIn } from "@/variants";
 import BookingForm from "../Checkout/BookingForm";
 export default function Hero() {
   return (
-    <div className="bg-gradient-to-b from-blue-50 to-white py-20 ">
+    <div className=" relative  back bg-[url('/img/law.jpg')]  py-24 ">
+      <div class="absolute inset-0 bg-black opacity-80"></div>
       <div className=" mx-auto w-[85%] flex flex-col lg:flex-row items-start lg:items-center gap-8">
         {/* Left Side Content */}
         <motion.div
@@ -14,7 +15,7 @@ export default function Hero() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.7 }}
-          className="lg:w-1/2  mb-8 order-2 lg:order-1"
+          className="lg:w-1/2 z-10  mb-8 order-2 lg:order-1"
         >
           <motion.div
             variants={fadeIn("up", 0, 0.3)}
@@ -28,7 +29,7 @@ export default function Hero() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.7 }}
-              className=" uppercase tracking-widest text-gray-500 font-semibold"
+              className=" uppercase tracking-widest text-gray-100 font-semibold"
             >
               The future is digital
             </motion.p>
@@ -37,7 +38,7 @@ export default function Hero() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.7 }}
-              className="md:text-5xl text-4xl font-bold text-gray-900 leading-tight"
+              className="md:text-5xl text-4xl font-bold text-white leading-tight"
             >
               Digitise your law firm's co-operation with notaries
             </motion.h1>
@@ -46,7 +47,7 @@ export default function Hero() {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, amount: 0.7 }}
-              className="text-gray-700"
+              className="text-gray-50"
             >
               websitename simplifies notarization with safe, remote, and online
               services. Partner notaries handle all document types, ensuring
@@ -68,7 +69,7 @@ export default function Hero() {
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.9 }}
-                className="border border-green-900 hover:text-white py-3 px-6 rounded-md font-medium hover:bg-green-900 transition"
+                className=" bg-gray-800 text-white py-3 px-6 rounded-md font-medium hover:bg-green-900 transition"
               >
                 Services
               </motion.button>
@@ -89,7 +90,7 @@ export default function Hero() {
             className="rounded-xl w-full "
             width={500}
             height={500}
-            src="/img/digitalize.webp"
+            src="/img/lawFirm.jpg"
             alt=""
           />
         </motion.div>

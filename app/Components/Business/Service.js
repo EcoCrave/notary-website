@@ -50,6 +50,7 @@ const Service = () => {
           ].map((industry, index) => (
             <motion.div
               variants={fadeInAnimationVariants}
+              key={index}
               custom={index}
               initial="initial"
               whileInView="show"

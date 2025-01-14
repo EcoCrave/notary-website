@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { fadeIn, fadeInAnimationVariants } from "@/variants";
 export default function AdvantagesSection() {
   return (
-    <div className="bg-white pb-10 px-6">
+    <div className="bg-white pt-10 pb-16 px-6">
       <div className="w-[85%] mx-auto lg:flex  gap-12">
         {/* Left Section */}
         <div>

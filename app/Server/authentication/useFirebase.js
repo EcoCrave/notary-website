@@ -12,6 +12,7 @@ import {
   query,
   where,
 } from "firebase/firestore";
+import { setCookie, deleteCookie } from "cookies-next";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import {
   createUserWithEmailAndPassword,
@@ -31,6 +32,8 @@ import { getFirestore } from "firebase/firestore";
 import { useRef, useState } from "react";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
+import { sendformSubmitionEmail } from "@/lib/resend";
+import { useRouter } from "next/navigation";
 
 // -------------------------------------------------------------------------
 
@@ -45,7 +48,7 @@ const useFirebase = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
   const repasswordRef = useRef();
-
+  const router = useRouter();
   // Save User data --------------------------
 
   const saveUserData = async (user) => {
@@ -103,11 +106,28 @@ const useFirebase = () => {
   // On Auth State Change _________________________
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         setUser(user);
+
+        // Get Firebase ID token
+        const idToken = await user.getIdToken();
+
+        // Set cookie for the Firebase ID token
+        setCookie("authToken", idToken, {
+          httpOnly: false, // Not HTTP-only since it's client-side
+          secure: process.env.NODE_ENV === "production", // Use secure cookies in production
+          maxAge: 7 * 24 * 60 * 60, // 7 days
+          path: "/", // Accessible across the site
+        });
+      } else {
+        // Clear the cookie when no user is logged in
+        deleteCookie("authToken");
+        setUser(null);
       }
     });
+
+    return () => unsubscribe();
   }, []);
 
   // Google Sign In___________________________________
@@ -197,7 +217,8 @@ const useFirebase = () => {
   const handleLogout = () => {
     signOut(auth)
       .then(() => {
-        setUser("");
+        setUser(null);
+        router.replace("/");
         toast.success("Logout Successful");
       })
       .catch((error) => {
@@ -236,6 +257,7 @@ const useFirebase = () => {
     try {
       const docRef = await addDoc(collection(firestore, "UserInfo"), data);
       return docRef.id;
+      sendformSubmitionEmail();
     } catch (error) {
       console.error("Error submitting form:", error);
     }

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { fadeIn } from "@/variants";
 const Digitalization = () => {
   return (
-    <main className=" py-1 ">
+    <main className=" pt-16 ">
       <div className=" items-center lg:flex gap-28 justify-center w-[85%] mx-auto space-y-4">
         <motion.div
           variants={fadeIn("up", 0, 0.6)}
@@ -18,7 +18,7 @@ const Digitalization = () => {
             className="rounded-xl w-full "
             width={500}
             height={500}
-            src="/img/digitalize.webp"
+            src="/img/sales-manager.jpg"
             alt=""
           />
         </motion.div>

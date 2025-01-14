@@ -1,5 +1,5 @@
 "use client";
-import { sendEmail } from "@/lib/resend";
+import { sendContactEmail, sendEmail } from "@/lib/resend";
 import React from "react";
 import {
   FaFacebook,
@@ -10,7 +10,7 @@ import {
 } from "react-icons/fa";
 import { toast } from "react-toastify";
 function send(name, email, message) {
-  sendEmail(name, email, message);
+  sendContactEmail(name, email, message);
   toast.success("Email sent successfully !");
 }
 const ContactUs = () => {

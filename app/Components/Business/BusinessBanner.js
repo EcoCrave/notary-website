@@ -5,16 +5,17 @@ import { fadeIn } from "@/variants";
 import BookingForm from "../Checkout/BookingForm";
 const BusinessBanner = () => {
   return (
-    <section className="bg-gray-50 py-24  back bg-[url('/img/bghome.png')] bg-cover bg-no-repeat bg-center">
-      <div className="w-[85%] mx-auto flex flex-col lg:flex-row items-start lg:items-center gap-10">
+    <section className="relative bg-gray-50 py-24  back bg-[url('/img/business.jpg')] bg-cover bg-no-repeat bg-center">
+      <div class="absolute inset-0 bg-black opacity-40"></div>
+      <div className="w-[85%]  mx-auto flex flex-col lg:flex-row items-start lg:items-center gap-10">
         {/* Left Side Content */}
-        <div className="lg:w-1/2 space-y-4 p-10">
+        <div className="lg:w-1/2 z-10 space-y-4 p-10">
           <motion.p
             variants={fadeIn("up", 0, 0.3)}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.7 }}
-            className="text-lg uppercase tracking-widest text-gray-500 font-semibold"
+            className="text-lg uppercase tracking-widest text-white font-semibold"
           >
             The future is digital
           </motion.p>
@@ -23,7 +24,7 @@ const BusinessBanner = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.7 }}
-            className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight"
+            className="text-4xl lg:text-5xl font-bold text-white leading-tight"
           >
             Grow Your Business and Reach Customers Nationwide
           </motion.h1>
@@ -32,7 +33,7 @@ const BusinessBanner = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.7 }}
-            className="text-gray-700 text-lg"
+            className="text-gray-50 text-lg"
           >
             Experience the convenience of{" "}
             <span className="font-bold text-xl">

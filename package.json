@@ -11,6 +11,7 @@
   "dependencies": {
     "@docuseal/react": "^1.0.47",
     "@react-pdf/renderer": "^4.0.0",
+    "cookies-next": "^5.0.2",
     "file-saver": "^2.0.5",
     "firebase": "^11.1.0",
     "firebase-admin": "^13.0.2",

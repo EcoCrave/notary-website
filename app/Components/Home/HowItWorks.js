@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { fadeIn, fadeInAnimationVariants } from "@/variants";
 export default function NotarySection() {
   return (
-    <div className="bg-gradient-to-t from-blue-50 to-white pb-20">
+    <div className="bg-gradient-to-b from-blue-50 to-white pb-20">
       <div className=" w-[85%]   mx-auto min-h-screen flex flex-col items-center ">
         <div className="mt-10  w-full gap-5 justify-center items-center grid md:grid-cols-2 ">
           <motion.div
@@ -24,7 +24,7 @@ export default function NotarySection() {
             <Step
               number="1"
               title="Create an User Account"
-              description="Quickly upload your document in any file form."
+              description="Create a user account through our authentication system."
             />
             <Step
               number="2"
@@ -34,7 +34,7 @@ export default function NotarySection() {
             <Step
               number="3"
               title="Verify Your Identity"
-              description="Check Signer's ID through Biometrics, KBA, or even Credible Witness."
+              description="Get approved by our team through email and book an appointment."
             />
             <Step
               number="4"

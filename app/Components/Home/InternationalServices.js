@@ -6,24 +6,95 @@ import BookingForm from "../Checkout/BookingForm";
 export default function InternationalServices() {
   const services = [
     {
-      title: "Power of Attorney",
-      content:
-        "A Power of Attorney is a legal document that grants one person (the agent or attorney-in-fact) the authority to act on behalf of another person (the principal) in legal or financial matters. Businesses often use POAs to authorize individuals to make decisions, sign documents, and handle transactions on behalf of the company. This is particularly useful in scenarios where executives or key decision-makers are unavailable or when dealing with international transactions requiring local representation.",
+      title: "Apostille & Legalization",
+      content: (
+        <div>
+          Provide digital apostille services for documents that need to be
+          recognized in foreign countries under the Hague Convention. For
+          non-member countries, offer legalization services to process documents
+          through consulates or embassies. <br />
+          <br />
+          <li>
+            Examples: Birth certificates, marriage certificates, business
+            agreements.{" "}
+          </li>{" "}
+          <li>
+            Add: A step-by-step guide for international clients to ensure
+            compliance.
+          </li>{" "}
+        </div>
+      ),
     },
     {
-      title: "Signature Notarisations",
-      content:
-        "Signature notarisation is a legal process that involves verifying the authenticity of a signature on a document. This ensures that the document has been signed willingly by the person involved.",
+      title: "Multi-Language Support",
+      content: (
+        <div>
+          Offer notary services in multiple languages, catering to international
+          clients. Collaborate with certified translators to provide document
+          translations and notarization in one seamless process.
+          <br />
+          <br />
+          <li>
+            Focus on high-demand languages like Spanish, French, Mandarin, and
+            Arabic.{" "}
+          </li>{" "}
+        </div>
+      ),
     },
     {
-      title: "Affidavit",
-      content:
-        "An affidavit is a written statement that is sworn to be true by the person making it. Affidavits are commonly used in legal proceedings.",
+      title: "Immigration Notarization",
+      content: (
+        <div>
+          Assist with notarizing immigration-related documents for users
+          migrating to other countries.
+          <br />
+          <br />
+          <li>
+            Examples: Visa applications, affidavits of support, sponsor
+            declarations, and travel consent forms for minors.
+          </li>{" "}
+        </div>
+      ),
     },
     {
-      title: "Certified True Copy",
-      content:
-        "A certified true copy is a copy of a document that has been verified as an exact copy of the original. This is often required for official documents.",
+      title: "Educational Documents",
+      content: (
+        <div>
+          Notarize academic certificates and transcripts for individuals
+          studying or working abroad.
+          <br />
+          <br />
+          <li>
+            Add apostille services for students applying to universities in
+            foreign countries.
+          </li>{" "}
+        </div>
+      ),
+    },
+    {
+      title: "Cross-Border Contracts",
+      content: (
+        <div>
+          Facilitate notarization of international contracts, such as:
+          <br />
+          <br />
+          <li>Partnership agreements. </li>{" "}
+          <li>Licensing and distribution agreements. </li>{" "}
+          <li>Cross-border mergers and acquisitions. </li>{" "}
+        </div>
+      ),
+    },
+    {
+      title: "International Real Estate",
+      content: (
+        <div>
+          Assist with notarizing property purchase or sale agreements for
+          clients buying or selling real estate in a different country.
+          <br />
+          <br />
+          <li>Include escrow instructions and mortgage notarizations. </li>{" "}
+        </div>
+      ),
     },
   ];
 
@@ -41,7 +112,7 @@ export default function InternationalServices() {
         >
           International Services
         </motion.h2>
-        <motion.p
+        <motion.div
           variants={fadeIn("up", 0, 0.5)}
           initial="hidden"
           whileInView="show"
@@ -55,12 +126,13 @@ export default function InternationalServices() {
           legal tasks seamlessly across borders. Below you will find an overview
           of the most important services offered by our partner notaries and how
           your company can benefit from them.
-        </motion.p>
-        <div className=" lg:flex flex-col md:flex-row items-start  ">
+        </motion.div>
+        <div className=" lg:flex flex-col md:flex-row items-start  gap-10">
           {/* Service List */}
           <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-1 lg:flex-col gap-4 mb-3  ">
             {services.map((service, index) => (
               <motion.button
+                key={index}
                 variants={fadeInAnimationVariants}
                 custom={index}
                 initial="initial"
@@ -70,7 +142,7 @@ export default function InternationalServices() {
                 className={`px-4 py-2 text-left  shadow-md  w-full rounded-lg ${
                   selectedService.title === service.title
                     ? "text-white bg-green-600 font-bold "
-                    : "text-gray-700 border-gray-300"
+                    : "text-gray-700 border-gray-300 shadow bg-white"
                 }`}
               >
                 {service.title}
@@ -90,7 +162,7 @@ export default function InternationalServices() {
               >
                 {selectedService.title}
               </motion.h3>
-              <motion.p
+              <motion.div
                 variants={fadeIn("up", 0, 0.5)}
                 initial="hidden"
                 whileInView="show"
@@ -98,7 +170,7 @@ export default function InternationalServices() {
                 className="text-gray-700 mt-4"
               >
                 {selectedService.content}
-              </motion.p>
+              </motion.div>
             </div>{" "}
           </div>
           <motion.div

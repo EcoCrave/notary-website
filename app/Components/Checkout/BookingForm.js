@@ -101,6 +101,7 @@ const BookingForm = ({ appointment_title }) => {
         selfieURL: uploadedSelfie,
         documentURL: uploadedDocument,
         signatureURL: uploadedSignature,
+        status: "In Progress",
         createdAt: new Date(),
       };
 
@@ -126,7 +127,7 @@ const BookingForm = ({ appointment_title }) => {
       {/* Trigger Button */}
       <button
         onClick={() => setIsModalOpen(true)}
-        className="px-6 py-3 text-white text-center font-bold rounded-md"
+        className="px-6 py-3 text-white text-center font-bold rounded-md "
       >
         {appointment_title}
       </button>
@@ -233,15 +234,10 @@ const BookingForm = ({ appointment_title }) => {
                     onChange={handleChange}
                     className="w-full border border-gray-300 rounded p-2"
                   >
-                    <option value="" key="">
-                      Online Notary
-                    </option>
-                    <option value="" key="">
-                      Seal Document
-                    </option>
-                    <option value="" key="">
-                      Affidevait
-                    </option>
+                    <option value="">Select a service</option>
+                    <option value="Online Notary">Online Notary</option>
+                    <option value="Seal Document">Seal Document</option>
+                    <option value="Affidavit">Affidavit</option>
                   </select>
                 </div>
                 <div className="mt-6 flex justify-end">
@@ -272,15 +268,10 @@ const BookingForm = ({ appointment_title }) => {
                         onChange={handleChange}
                         className="w-full border border-gray-300 rounded p-2"
                       >
-                        <option value="" key="">
-                          Driving License
-                        </option>
-                        <option value="" key="">
-                          NID Card
-                        </option>
-                        <option value="" key="">
-                          Passport
-                        </option>
+                        <option value="">Select ID Type</option>
+                        <option value="Driving License">Driving License</option>
+                        <option value="NID Card">NID Card</option>
+                        <option value="Passport">Passport</option>
                       </select>
                     </div>
                     <label className="block text-sm font-medium mb-2">
