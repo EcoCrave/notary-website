@@ -18,7 +18,7 @@ const Hero = () => {
             With remote online notarization, you can expect to get documents
             signed and verified without having to go anywhere.
           </p>
-          <div className="mt-4 bg-black rounded-md font-medium hover:bg-gray-800">
+          <div className="mt-4 w-fit bg-black rounded-md font-medium hover:bg-gray-800">
             <BookingForm appointment_title="Book A Demo" />
           </div>
         </div>

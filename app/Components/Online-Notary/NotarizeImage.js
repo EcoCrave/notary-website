@@ -12,6 +12,7 @@ const NotarizeImage = () => {
           <Image
             src="/img/notarize-img.svg"
             width={650}
+            alt=""
             height={650}
             className=" lg:w-[100%]"
           />
@@ -19,6 +20,7 @@ const NotarizeImage = () => {
             src="/img/hand.png"
             width={450}
             height={450}
+            alt=""
             className="mx-auto w-[30%] absolute right-[20%] -bottom-20"
           />
         </div>

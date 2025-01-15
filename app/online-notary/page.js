@@ -1,7 +1,7 @@
 import React from "react";
 import Hero from "../Components/Online-Notary/Hero";
 import Customers from "../Components/Online-Notary/Customers";
-import NotarizeImage from "../Components/Online-Notary/NotarizeImage";
+// import NotarizeImage from "../Components/Online-Notary/NotarizeImage";
 import Features from "../Components/Online-Notary/Features";
 import FAQ from "../Components/Business/FAQbusiness";
 import Services from "../Components/Online-Notary/Services";
@@ -15,7 +15,7 @@ const page = () => {
       <Hero />
       <Customers />
       <Services />
-      <NotarizeImage />
+      {/* <NotarizeImage /> */}
       <Features />
       <FAQ />
     </div>

@@ -55,6 +55,7 @@ const Customers = () => {
         >
           <Image
             src="/img/customers.png"
+            alt=""
             width={650}
             height={650}
             className="object-cover mx-auto"

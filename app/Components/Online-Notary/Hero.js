@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/variants";
 import BookingForm from "../Checkout/BookingForm";
@@ -37,7 +36,7 @@ const Hero = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.7 }}
-            className="mt-4 bg-green-700 rounded-md font-medium hover:bg-gray-800"
+            className="mt-4 bg-green-700 rounded-md font-medium hover:bg-gray-800 w-fit"
           >
             <BookingForm appointment_title="Book A Demo" />
           </motion.div>

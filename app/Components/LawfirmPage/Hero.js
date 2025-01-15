@@ -7,7 +7,7 @@ import BookingForm from "../Checkout/BookingForm";
 export default function Hero() {
   return (
     <div className=" relative  back bg-[url('/img/law.jpg')]  py-24 ">
-      <div class="absolute inset-0 bg-black opacity-80"></div>
+      <div className="absolute inset-0 bg-black opacity-80"></div>
       <div className=" mx-auto w-[85%] flex flex-col lg:flex-row items-start lg:items-center gap-8">
         {/* Left Side Content */}
         <motion.div
@@ -75,24 +75,6 @@ export default function Hero() {
               </motion.button>
             </div>
           </motion.div>
-        </motion.div>
-
-        {/* Right Side Cards */}
-
-        <motion.div
-          variants={fadeIn("up", 0, 0.6)}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.7 }}
-          className=" shadow-lg rounded-lg order-1 lg:order-2"
-        >
-          <Image
-            className="rounded-xl w-full "
-            width={500}
-            height={500}
-            src="/img/lawFirm.jpg"
-            alt=""
-          />
         </motion.div>
       </div>
     </div>
