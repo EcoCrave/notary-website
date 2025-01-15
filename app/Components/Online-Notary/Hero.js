@@ -3,6 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { fadeIn } from "@/variants";
 import BookingForm from "../Checkout/BookingForm";
+import Image from "next/image";
 const Hero = () => {
   return (
     <div className="bg-gray-50 py-16 ">
@@ -45,13 +46,19 @@ const Hero = () => {
         {/* Images */}
 
         <motion.div
-          variants={fadeIn("up", 0, 0.5)}
+          variants={fadeIn("up", 0, 1.1)}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.7 }}
-          className="w-full h-[400px] order-1 lg:order-2 bg-black text-white text-4xl flex justify-center flex-col items-center"
+          className=" order-1 lg:order-2"
         >
-          Image{" "}
+          <Image
+            className="rounded-xl w-full "
+            width={500}
+            height={500}
+            src="/img/onlineNotary.jpg"
+            alt=""
+          />
         </motion.div>
       </div>
     </div>

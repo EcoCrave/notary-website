@@ -25,8 +25,14 @@ const Hero = () => {
 
         {/* Images */}
 
-        <div className="w-full h-[400px] bg-black text-white text-4xl flex justify-center flex-col items-center">
-          Image{" "}
+        <div>
+          <Image
+            className="rounded-xl w-full "
+            width={500}
+            height={500}
+            src="/img/inperson.jpg"
+            alt=""
+          />
         </div>
       </div>
     </div>

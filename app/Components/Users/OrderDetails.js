@@ -4,8 +4,6 @@ import useFirebase from "@/app/Server/authentication/useFirebase";
 const OrderDetails = ({ data, role }) => {
   const [isOpen, setIsOpen] = useState(false); // State to manage modal visibility
   const { user } = useFirebase();
-
-  console.log("data", data);
   return (
     <div className=" flex  ">
       {/* Button to Open Modal */}

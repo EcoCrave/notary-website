@@ -64,9 +64,6 @@ const UpdateProfilePopup = ({ isOpen, onClose, onUpdate, user }) => {
         photoURL: uploadedPhotoURL, // Use uploaded URL or fallback to existing
       };
 
-      // Debugging: Log the final data to ensure it looks correct
-      console.log("Updated Data:", updatedData);
-
       // Call the parent onUpdate function
       await onUpdate(updatedData);
 

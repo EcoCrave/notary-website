@@ -1,5 +1,5 @@
 import React from "react";
-import NotarizeImage from "../Components/Online-Notary/NotarizeImage";
+// import NotarizeImage from "../Components/Online-Notary/NotarizeImage";
 import ReceiveDocument from "../Components/In-Person-Notarization/ReceiveDocument";
 import FAQ from "../Components/Business/FAQbusiness";
 import SignBoard from "../Components/ESign/SignBorad";
@@ -13,7 +13,7 @@ const page = () => {
   return (
     <div>
       <SignBoard />
-      <NotarizeImage />
+      {/* <NotarizeImage /> */}
       <ReceiveDocument />
       <FAQ />
     </div>

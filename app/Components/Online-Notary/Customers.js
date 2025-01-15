@@ -54,7 +54,7 @@ const Customers = () => {
           className=" order-1"
         >
           <Image
-            src="/img/customers.png"
+            src="/img/trust.jpg"
             alt=""
             width={650}
             height={650}
