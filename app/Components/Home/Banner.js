@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { fadeIn } from "@/variants";
 import BookingForm from "../Checkout/BookingForm";
 import Link from "next/link";
+import { sendformSubmitionEmail } from "@/lib/resend";
 
 const Banner = () => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
@@ -60,7 +61,10 @@ const Banner = () => {
             viewport={{ once: true, amount: 0.9 }}
             className="gap-4 flex items-center mx-auto"
           >
-            <div className="bg-green-700 rounded-md">
+            <div
+              // onClick={() => sendformSubmitionEmail()}
+              className="bg-green-700 rounded-md"
+            >
               <BookingForm appointment_title="Arrange an appointment" />
             </div>
 
