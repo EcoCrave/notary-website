@@ -17,7 +17,7 @@ const page = ({ params }) => {
     fetchData();
   }, [params.id]);
 
-  const { getDataById, deleteUserByUID } = useFirebase();
+  const { getDataById, deleteUserByUID, currentLogedIn } = useFirebase();
   const [isModalOpen, setIsModalOpen] = useState(false); // Modal visibility
   const [confirmationInput, setConfirmationInput] = useState(""); // Input for confirmation
 
@@ -42,7 +42,10 @@ const page = ({ params }) => {
             <h2 className="text-3xl font-bold mt-20">Applications : </h2>{" "}
           </div>
           <div className="mt-6">
-            <NotificationTable notifications={userDetails.details} />
+            <NotificationTable
+              role={currentLogedIn.role}
+              notifications={userDetails.details}
+            />
           </div>
         </div>
         <div>

@@ -35,10 +35,10 @@ import { toast } from "react-toastify";
 import { sendformSubmitionEmail } from "@/lib/resend";
 import { useRouter } from "next/navigation";
 
-// -------------------------------------------------------------------------
-
+// ----------------------------------------------
 const useFirebase = () => {
   const [user, setUser] = useState({});
+  const [currentLogedIn, setCurrentLogedIn] = useState({});
   const [error, setError] = useState("");
   const googleProvider = new GoogleAuthProvider();
   const facebookProvider = new FacebookAuthProvider();
@@ -49,6 +49,9 @@ const useFirebase = () => {
   const passwordRef = useRef();
   const repasswordRef = useRef();
   const router = useRouter();
+
+  console.log("Current", currentLogedIn);
+
   // Save User data --------------------------
 
   const saveUserData = async (user) => {
@@ -109,7 +112,7 @@ const useFirebase = () => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         setUser(user);
-
+        currentLogin(user.uid);
         // Get Firebase ID token
         const idToken = await user.getIdToken();
 
@@ -169,6 +172,24 @@ const useFirebase = () => {
       .catch((error) => {
         setError(error.message);
       });
+  };
+
+  // Currenly Loged in person.............................................
+
+  const currentLogin = async (id) => {
+    try {
+      const userDocRef = doc(firestore, "users", id); // Replace "users" with your collection name
+      const userDocSnap = await getDoc(userDocRef);
+
+      if (userDocSnap.exists()) {
+        setCurrentLogedIn({ id: userDocSnap.id, ...userDocSnap.data() });
+      } else {
+        console.error("No such user document exists!");
+        setCurrentLogedIn(null); // Handle case when the user document does not exist
+      }
+    } catch (error) {
+      console.error("Error fetching the current user document:", error);
+    }
   };
 
   // Sign Up with email address ___________________________________________
@@ -289,9 +310,8 @@ const useFirebase = () => {
       }
 
       const userData = { id: userDocSnap.id, ...userDocSnap.data() };
-
       // Step 2: Fetch user details from "details" collection
-      const detailsCollection = collection(firestore, "UserInfo"); // Replace "details" with your collection name
+      const detailsCollection = collection(firestore, "UserInfo");
       const q = query(detailsCollection, where("userId", "==", id));
       const detailsSnap = await getDocs(q);
 
@@ -401,6 +421,7 @@ const useFirebase = () => {
   return {
     user,
     error,
+    currentLogedIn,
     f_nameRef,
     l_nameRef,
     emailRef,

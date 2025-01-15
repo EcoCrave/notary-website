@@ -59,7 +59,7 @@ const Navbar = () => {
       path: "#",
       subcategories: [
         { label: "How It Works", path: "/how-it-works" },
-        { label: "Blogs", path: "#" },
+        // { label: "Blogs", path: "#" },
         { label: "Contact Us", path: "/contact" },
       ],
     },

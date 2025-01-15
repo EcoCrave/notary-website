@@ -1,6 +1,6 @@
 import OrderDetails from "./OrderDetails";
 
-const NotificationTable = ({ notifications }) => {
+const NotificationTable = ({ notifications, role }) => {
   if (!notifications || notifications.length === 0) {
     return <div>Haven't booked any appointement yeat</div>;
   }
@@ -36,7 +36,7 @@ const NotificationTable = ({ notifications }) => {
               </td>
               <td className="p-4">{item.time || "N/A"}</td>
               <td className="p-4">
-                <OrderDetails data={item} />
+                <OrderDetails role={role} data={item} />
               </td>
             </tr>
           ))}
