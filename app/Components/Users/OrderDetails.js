@@ -51,12 +51,10 @@ const OrderDetails = ({ data, role }) => {
                   {data.status}
                 </span>
               </div>
-              <div className="relative flex flex-col">
-                <h2 className="absolute top-0 right-10 text-4xl font-bold text-green-900">
-                  $40
-                </h2>
+              <div className=" text-center flex flex-col">
+                <h2 className="  text-4xl font-bold text-green-900">$40</h2>
                 <h2
-                  className={`bg-red-700 rounded text-white px-5 absolute top-10 right-10`}
+                  className={`bg-red-700 w-28 rounded-full text-white px-5  `}
                 >
                   Not paid
                 </h2>
@@ -146,8 +144,7 @@ const OrderDetails = ({ data, role }) => {
                       <span className=""> Order Status : </span>
                       <select
                         name="Order Status"
-                        value={data.status}
-                        // onChange={handleChange}
+                        defaultValue={data.status}
                         className="w-full border border-gray-300 rounded p-2"
                       >
                         <option value="">Select Status</option>
@@ -161,8 +158,7 @@ const OrderDetails = ({ data, role }) => {
                       <span className=""> Payment Status : </span>
                       <select
                         name="Payment Status"
-                        value={data.status}
-                        // onChange={handleChange}
+                        defaultValue={data.status}
                         className="w-full border border-gray-300 rounded p-2"
                       >
                         <option value="">Select Status</option>
