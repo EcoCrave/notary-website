@@ -6,13 +6,7 @@ import { fadeIn } from "@/variants";
 const YourAdvantages = () => {
   return (
     <div className="bg-gradient-to-t from-blue-50 to-white">
-      <div
-        variants={fadeIn("up", 0, 0.3)}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.7 }}
-        className="w-[85%] mx-auto space-y-4 text-center py-10 "
-      >
+      <div className="w-[85%] mx-auto space-y-4 text-center py-10 ">
         <motion.h3
           variants={fadeIn("up", 0, 0.3)}
           initial="hidden"

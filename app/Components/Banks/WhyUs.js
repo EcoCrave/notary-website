@@ -50,13 +50,7 @@ const WhyUs = () => {
             className="bg-gradient-to-b from-green-50 hover:-translate-y-2 cursor-pointer duration-300 to-white shadow-md p-5 rounded "
           >
             <h3 className="text-2xl font-semibold ">Locally Flexible </h3>
-            <p
-              variants={fadeIn("up", 0, 0.3)}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.7 }}
-              className="   text-lg mt-2"
-            >
+            <p className="   text-lg mt-2">
               websitename allows you to notarize documents from any location,
               eliminating the need for in-person visits and providing
               convenience for businesses and individuals alike.
@@ -71,13 +65,7 @@ const WhyUs = () => {
             className="bg-gradient-to-b from-blue-50 hover:-translate-y-2 cursor-pointer duration-300 shadow-md to-white p-5 rounded "
           >
             <h3 className="text-2xl font-semibold ">Cost Saving</h3>
-            <p
-              variants={fadeIn("up", 0, 0.7)}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.7 }}
-              className="   text-lg mt-2"
-            >
+            <p className="text-lg mt-2">
               Reduce expenses associated with travel, office overhead, and
               physical document handling through efficient, paperless
               notarization.
@@ -92,13 +80,7 @@ const WhyUs = () => {
             className="bg-gradient-to-b hover:-translate-y-2 cursor-pointer duration-300 from-blue-50 shadow-md to-white p-5 rounded "
           >
             <h3 className="text-2xl font-semibold ">Digital Total Solution</h3>
-            <p
-              variants={fadeIn("up", 0, 0.3)}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.7 }}
-              className="   text-lg mt-2"
-            >
+            <p className="   text-lg mt-2">
               websitename integrates all steps of notarization into one
               platform, from identity verification to document management,
               ensuring a seamless digital experience.
@@ -113,13 +95,7 @@ const WhyUs = () => {
             className="bg-gradient-to-b hover:-translate-y-2 cursor-pointer duration-300 from-blue-50 shadow-md to-white p-5 rounded "
           >
             <h3 className="text-2xl font-semibold ">Time Saving</h3>
-            <p
-              variants={fadeIn("up", 0, 0.3)}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.7 }}
-              className="   text-lg mt-2"
-            >
+            <p className="   text-lg mt-2">
               Expedite document processing by completing notarizations online in
               minutes, optimizing time for both businesses and clients.
             </p>
