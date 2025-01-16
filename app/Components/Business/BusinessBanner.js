@@ -6,7 +6,7 @@ import BookingForm from "../Checkout/BookingForm";
 const BusinessBanner = () => {
   return (
     <section className="relative bg-gray-50 py-24  back bg-[url('/img/business.jpg')] bg-cover bg-no-repeat bg-center">
-      <div class="absolute inset-0 bg-black opacity-40"></div>
+      <div className="absolute inset-0 bg-black opacity-40"></div>
       <div className="w-[85%]  mx-auto flex flex-col lg:flex-row items-start lg:items-center gap-10">
         {/* Left Side Content */}
         <div className="lg:w-1/2 z-10 space-y-4 p-10">
