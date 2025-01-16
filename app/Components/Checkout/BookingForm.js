@@ -2,6 +2,7 @@
 import useFirebase from "@/app/Server/authentication/useFirebase";
 import React, { useRef, useState } from "react";
 import { toast } from "react-toastify";
+import FileUpload from "../MultipleFileUpload/FileUpload";
 
 const BookingForm = ({ appointment_title }) => {
   const [isModalOpen, setIsModalOpen] = useState(false); // State to toggle popup
@@ -134,14 +135,14 @@ const BookingForm = ({ appointment_title }) => {
 
       {/* Popup Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-gray-50 p-8 rounded-lg shadow-lg w-full max-w-md ">
-            <div className="flex justify-between items-center mb-6">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center  justify-center z-20">
+          <div className="bg-gray-50 h-[85vh] relative overflow-visible  overflow-y-scroll p-8 rounded-lg shadow-lg w-full max-w-md ">
+            <div className="flex  justify-between items-center mb-6">
               <h2 className="text-2xl font-bold">
                 Schedule Notary Appointment
               </h2>
               <button
-                className="text-gray-500 hover:text-gray-700"
+                className=" absolute top-0 right-0 z-50 w-10 h-10 border-red-600 border-2 hover:bg-red-800 hover:text-white font-bold text-red-600 "
                 onClick={() => setIsModalOpen(false)} // Close the modal
               >
                 ✕
@@ -317,7 +318,11 @@ const BookingForm = ({ appointment_title }) => {
                       />
                     </div>
                   </div>
+                  <div>
+                    <FileUpload text="Upload Documents" />
+                  </div>
                 </div>
+                {/* --------------------------------------------------- */}
                 <div className="mt-6 flex justify-between">
                   <button
                     type="button"

@@ -30,10 +30,13 @@ const Banner = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.7 }}
-            className="uppercase font-semibold"
+            className=" font-semibold"
           >
-            Starts with only{" "}
-            <span className="font-bold text-4xl text-green-900">$25</span>
+            Starts with{" "}
+            <span className="font-bold text-5xl ml-2 text-green-900 lowercase">
+              {" "}
+              $25 Only
+            </span>
           </motion.p>
           <motion.h1
             variants={fadeIn("up", 0, 0.5)}
