@@ -37,7 +37,7 @@ const Booking = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.7 }}
-          className="bg-green-700  rounded-md font-semibold hover:bg-green-900 transition"
+          className="bg-green-700 w-fit mx-auto rounded-md font-semibold hover:bg-green-900 transition"
         >
           <BookingForm appointment_title="Book an appointment" />
         </motion.div>

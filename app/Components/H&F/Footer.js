@@ -59,17 +59,17 @@ const Footer = () => {
           <h3 className="font-bold text-3xl mb-4">Industries</h3>
           <ul className="space-y-2 text-gray-300 ">
             <li>
-              <Link href="#" className="hover:underline">
+              <Link href="/bank" className="hover:underline">
                 Bank
               </Link>
             </li>
             <li>
-              <Link href="#" className="hover:underline">
+              <Link href="/business" className="hover:underline">
                 Business
               </Link>
             </li>
             <li>
-              <Link href="#" className="hover:underline">
+              <Link href="/law-firm" className="hover:underline">
                 Law Firm
               </Link>
             </li>
@@ -86,17 +86,17 @@ const Footer = () => {
           <h3 className="font-bold text-3xl mb-4">Solutions</h3>
           <ul className="space-y-2 text-gray-300 ">
             <li>
-              <Link href="#" className="hover:underline">
+              <Link href="/online-notary" className="hover:underline">
                 Online Notarization
               </Link>
             </li>
             <li>
-              <Link href="#" className="hover:underline">
+              <Link href="/in-person-notarization" className="hover:underline">
                 In-Person Notarization
               </Link>
             </li>
             <li>
-              <Link href="#" className="hover:underline">
+              <Link href="/esignature" className="hover:underline">
                 eSignature
               </Link>
             </li>
@@ -113,7 +113,7 @@ const Footer = () => {
           <h3 className="font-bold text-3xl mb-4">Resources</h3>
           <ul className="space-y-2 text-gray-300 ">
             <li>
-              <Link href="#" className="hover:underline">
+              <Link href="/how-it-works" className="hover:underline">
                 How it works
               </Link>
             </li>
@@ -123,12 +123,12 @@ const Footer = () => {
               </Link>
             </li>
             <li>
-              <Link href="#" className="hover:underline">
+              <Link href="/contact" className="hover:underline">
                 Contact Us
               </Link>
             </li>
             <li>
-              <Link href="#" className="hover:underline">
+              <Link href="/policy" className="hover:underline">
                 Desclaimer & Policy
               </Link>
             </li>
