@@ -8,91 +8,143 @@ export default function InternationalServices() {
     {
       title: "Apostille & Legalization",
       content: (
-        <div>
-          Provide digital apostille services for documents that need to be
-          recognized in foreign countries under the Hague Convention. For
-          non-member countries, offer legalization services to process documents
-          through consulates or embassies. <br />
-          <br />
+        <div className="space-y-2">
+          <p className="mb-3">
+            Provide digital apostille services for documents that need to be
+            recognized in foreign countries under the Hague Convention. For
+            non-member countries, offer legalization services to process
+            documents through consulates or embassies.
+          </p>
+
           <li>
-            Examples: Birth certificates, marriage certificates, business
-            agreements.{" "}
-          </li>{" "}
+            A step-by-step guide for international clients to ensure compliance.
+          </li>
           <li>
-            Add: A step-by-step guide for international clients to ensure
-            compliance.
-          </li>{" "}
+            Include translation services for documents in non-native languages.
+          </li>
+          <li>
+            Offer secure digital delivery of processed documents to clients
+            worldwide.
+          </li>
+          <li>
+            Provide real-time tracking and updates throughout the legalization
+            process.
+          </li>
+          <li>
+            <strong>Examples: </strong> Birth certificates, marriage
+            certificates, business agreements.
+          </li>
         </div>
       ),
     },
     {
       title: "Multi-Language Support",
       content: (
-        <div>
-          Offer notary services in multiple languages, catering to international
-          clients. Collaborate with certified translators to provide document
-          translations and notarization in one seamless process.
-          <br />
-          <br />
+        <div className="space-y-2">
+          <p className="mb-3">
+            Offer notary services in multiple languages, catering to
+            international clients. Collaborate with certified translators to
+            provide document translations and notarization in one seamless
+            process.
+          </p>
+
           <li>
             Focus on high-demand languages like Spanish, French, Mandarin, and
-            Arabic.{" "}
-          </li>{" "}
+            Arabic.
+          </li>
+          <li>Provide expedited services for urgent document needs.</li>
+          <li>Offer mobile notary services for added convenience.</li>
+          <li>Ensure compliance with local and international regulations.</li>
         </div>
       ),
     },
     {
       title: "Immigration Notarization",
       content: (
-        <div>
-          Assist with notarizing immigration-related documents for users
-          migrating to other countries.
-          <br />
-          <br />
+        <div className="space-y-2">
+          <p className="mb-3">
+            Assist with notarizing immigration-related documents for users
+            migrating to other countries.
+          </p>
+
           <li>
-            Examples: Visa applications, affidavits of support, sponsor
-            declarations, and travel consent forms for minors.
-          </li>{" "}
+            Provide guidance on document preparation to meet country-specific
+            requirements.
+          </li>
+          <li>
+            Offer certified translation services for immigration documents.
+          </li>
+          <li>
+            Ensure secure digital submission and tracking of notarized
+            documents.
+          </li>
+          <li>
+            <strong>Examples:</strong> Visa applications, affidavits of support,
+            sponsor declarations, and travel consent forms for minors.
+          </li>
         </div>
       ),
     },
     {
       title: "Educational Documents",
       content: (
-        <div>
-          Notarize academic certificates and transcripts for individuals
-          studying or working abroad.
-          <br />
-          <br />
+        <div className="space-y-2">
+          <p className="mb-3">
+            Notarize academic certificates and transcripts for individuals
+            studying or working abroad.
+          </p>
+
           <li>
             Add apostille services for students applying to universities in
             foreign countries.
-          </li>{" "}
+          </li>
+          <li>
+            Provide certified translation of academic documents for non-native
+            languages.
+          </li>
+          <li>Ensure compliance with international accreditation standards.</li>
+          <li>
+            Offer expedited notarization services for urgent applications.
+          </li>
         </div>
       ),
     },
     {
       title: "Cross-Border Contracts",
       content: (
-        <div>
-          Facilitate notarization of international contracts, such as:
-          <br />
-          <br />
-          <li>Partnership agreements. </li>{" "}
-          <li>Licensing and distribution agreements. </li>{" "}
-          <li>Cross-border mergers and acquisitions. </li>{" "}
+        <div className="space-y-2">
+          <p className="mb-3">
+            Facilitate notarization of international contracts, such as:
+          </p>
+
+          <li>Partnership agreements.</li>
+          <li>Licensing and distribution agreements.</li>
+          <li>Cross-border mergers and acquisitions.</li>
+          <li>Franchise agreements for international markets.</li>
+          <li>Joint venture agreements with global partners.</li>
+          <li>Export and import trade contracts.</li>
         </div>
       ),
     },
     {
       title: "International Real Estate",
       content: (
-        <div>
-          Assist with notarizing property purchase or sale agreements for
-          clients buying or selling real estate in a different country.
-          <br />
-          <br />
-          <li>Include escrow instructions and mortgage notarizations. </li>{" "}
+        <div className="space-y-2">
+          <p className="mb-3">
+            Assist with notarizing property purchase or sale agreements for
+            clients buying or selling real estate in a different country.
+          </p>{" "}
+          <li>Include escrow instructions and mortgage notarizations.</li>
+          <li>
+            Provide notarization for lease agreements and rental contracts.
+          </li>
+          <li>
+            Assist with title deed certifications for international properties.
+          </li>
+          <li>
+            Offer guidance on country-specific real estate documentation
+            requirements.
+          </li>
         </div>
       ),
     },
@@ -178,7 +230,7 @@ export default function InternationalServices() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.7 }}
-            className="flex lg:justify-center"
+            className="flex mt-4 lg:mt-0 lg:justify-center"
           >
             <div className="bg-white p-8 rounded-lg shadow-md text-center  border border-gray-200">
               {/* Title */}

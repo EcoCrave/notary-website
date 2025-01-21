@@ -3,6 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { fadeIn, fadeInAnimationVariants } from "@/variants";
+import Link from "next/link";
 export default function NotarySection() {
   return (
     <div className="bg-gradient-to-b from-blue-50 to-white pb-20">
@@ -24,7 +25,16 @@ export default function NotarySection() {
             <Step
               number="1"
               title="Create an User Account"
-              description="Create a user account through our authentication system."
+              description=<span>
+                {" "}
+                <Link
+                  href="/login"
+                  className="text-blue-600 border-b-blue-600 hover:border-b-[1px]"
+                >
+                  Create an user account
+                </Link>{" "}
+                through our authentication system.
+              </span>
             />
             <Step
               number="2"
@@ -65,7 +75,9 @@ export default function NotarySection() {
 function Step({ number, title, description }) {
   return (
     <div className="space-y-2">
-      <h3 className="text-gray-500 text-md font-semibold">STEP {number}.</h3>
+      <h3 className="text-white text-md font-semibold bg-gray-900 w-fit px-2 rounded tracking-wider">
+        Step {number} :
+      </h3>
       <h2 className="text-2xl font-semibold text-gray-900">{title}</h2>
       <p className="text-gray-700 mt-2">{description}</p>
       <hr className="mt-4 border-gray-200" />

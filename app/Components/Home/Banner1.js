@@ -10,9 +10,9 @@ const Banner1 = () => {
     "/img/brand3.jpg",
     "/img/brand4.png",
     "/img/brand5.jpg",
-    "/img/brand6.jpg",
+    "/img/brand6.webp",
     "/img/brand7.jpg",
-    "/img/brand8.jpeg",
+    "/img/brand8.jpg",
     "/img/brand9.png",
     "/img/brand10.png",
   ];
@@ -47,7 +47,7 @@ const Banner1 = () => {
           {[...images, ...images].map((src, index) => (
             <img
               key={index}
-              className="w-40 h-auto inline-block"
+              className="w-40 h-auto inline-block bg-cover object-cover"
               src={src}
               alt={`Client ${index + 1}`}
             />

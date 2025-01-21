@@ -110,14 +110,12 @@ const OrderDetails = ({ data, role }) => {
                         target="_blank"
                         href={data.signatureURL}
                         className="hover:text-blue-700 hover:underline"
-                      >
-                        File 1
-                      </a>
+                      ></a>
                     </div>
                   </div>
                   <div>
                     <h2 className="text-lg font-semibold text-gray-800 mb-2">
-                      Uploaded Files
+                      Notarized Files
                     </h2>
                     <div className="list-disc list-inside flex gap-5 text-gray-600">
                       <a
@@ -125,7 +123,7 @@ const OrderDetails = ({ data, role }) => {
                         href={data.signatureURL}
                         className="hover:text-blue-700 hover:underline"
                       >
-                        File 1
+                        ID
                       </a>
                     </div>
                   </div>
