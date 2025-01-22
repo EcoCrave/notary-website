@@ -50,8 +50,6 @@ const useFirebase = () => {
   const repasswordRef = useRef();
   const router = useRouter();
 
-  console.log("Current", currentLogedIn);
-
   // Save User data --------------------------
 
   const saveUserData = async (user) => {
@@ -92,6 +90,7 @@ const useFirebase = () => {
 
       // Success toast; no need to manually set user state
       toast.success("Successfully logged in!");
+      router.replace("/user");
       setError(""); // Clear any previous errors
     } catch (error) {
       // Handle errors gracefully
@@ -141,6 +140,7 @@ const useFirebase = () => {
         setUser(googleUser);
         toast.success("Login Success");
         await saveUserData(googleUser); // Save user data to Firestore
+        router.replace("/user");
       })
       .catch((error) => {
         setError(error.message);
@@ -156,6 +156,7 @@ const useFirebase = () => {
         setUser(facebookUser);
         toast.success("Successfully Loged In");
         await saveUserData(facebookUser); // Save user data to Firestore
+        router.replace("/user");
       })
       .catch((error) => {
         setError(error.message);
@@ -184,7 +185,7 @@ const useFirebase = () => {
       if (userDocSnap.exists()) {
         setCurrentLogedIn({ id: userDocSnap.id, ...userDocSnap.data() });
       } else {
-        console.error("No such user document exists!");
+        toast.error("No such user document exists!");
         setCurrentLogedIn(null); // Handle case when the user document does not exist
       }
     } catch (error) {
@@ -216,6 +217,7 @@ const useFirebase = () => {
         emailVerification();
         setUser(updatedUser);
         toast.success("Successfully Registered");
+        router.replace("/user");
         setError("");
       })
       .catch((error) => {

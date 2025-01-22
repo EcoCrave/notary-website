@@ -1,5 +1,6 @@
 import React from "react";
 import Booking from "../Components/Booking/Booking";
+import Appointments from "../Components/Booking/Appointments";
 
 export const metadata = {
   title: "Appointment Booking",
@@ -10,6 +11,7 @@ const page = () => {
   return (
     <>
       {" "}
+      <Appointments />
       <Booking />
     </>
   );

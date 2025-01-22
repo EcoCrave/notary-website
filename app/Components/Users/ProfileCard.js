@@ -1,8 +1,11 @@
 import { useState } from "react";
+import * as animationData from "../../../public/img/animation.json";
 import { FaEdit } from "react-icons/fa";
 import UpdateProfilePopup from "./UpdateProfilePopup";
 import { toast } from "react-toastify";
 import Image from "next/image";
+import BookingForm from "../Checkout/BookingForm";
+import Lottie from "lottie-react";
 const ProfileCard = ({ user, updateUserData, hide, verify }) => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [userData, setUserData] = useState(null);
@@ -66,7 +69,7 @@ const ProfileCard = ({ user, updateUserData, hide, verify }) => {
       </div>
 
       {/* Details */}
-      <div className="mt-4 space-y-4 text-md">
+      <div className="mt-4 space-y-4 text-md ">
         <div className="flex items-center space-x-2">
           <p className="font-semibold">User ID : </p>
           <p>{user.uid}</p>
@@ -83,6 +86,30 @@ const ProfileCard = ({ user, updateUserData, hide, verify }) => {
         <div className="flex items-center space-x-2">
           <p className="font-semibold">Phone Number : </p>
           <p>{user.phoneNumber}</p>
+        </div>
+      </div>
+      <div className="bg-white rounded-lg shadow-sm p-6">
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold text-green-900 mb-4">
+            Book appointment
+          </h2>
+          <p className="text-gray-600">
+            Usually, an online meeting with the notary can take place within the
+            next 24h.
+          </p>
+        </div>
+
+        <div className="flex relative flex-col items-start ">
+          <div className="bg-green-700 rounded-md">
+            <BookingForm appointment_title="Book an appointment" />
+          </div>
+
+          <div className="  mt-8">
+            <Lottie
+              className="w-40 absolute top-0 right-0"
+              animationData={animationData}
+            />
+          </div>
         </div>
       </div>
     </div>
