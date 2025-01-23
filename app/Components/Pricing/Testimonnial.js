@@ -11,7 +11,7 @@ const Testimonial = () => {
             <span className="text-2xl lg:text-3xl">
               We've been able to{" "}
               <strong>streamline our processes considerably</strong> and{" "}
-              <strong>make our customers lives easier</strong> using BlueNotary.
+              <strong>make our customers lives easier</strong> using Notary Blocks.
               Their product is great and is constantly being improved by the
               development team to improve the user experience and features. They
               are <strong>customer focused</strong> and swift to respond to any
