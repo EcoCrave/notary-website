@@ -49,7 +49,7 @@ export default function Hero() {
               viewport={{ once: true, amount: 0.7 }}
               className="text-gray-50"
             >
-              websitename simplifies notarization with safe, remote, and online
+              Notary Blocks simplifies notarization with safe, remote, and online
               services. Partner notaries handle all document types, ensuring
               convenience. If unsure, select "Notarized signature" or "Signature
               notarized" for tailored assistance.

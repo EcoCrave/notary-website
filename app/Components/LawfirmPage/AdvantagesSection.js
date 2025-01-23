@@ -14,7 +14,7 @@ export default function AdvantagesSection() {
             viewport={{ once: true, amount: 0.7 }}
             className="text-lg uppercase tracking-widest text-gray-500 font-semibold"
           >
-            Why websitename
+            Why Notary Blocks
           </motion.p>
           <motion.h2
             variants={fadeIn("up", 0, 0.5)}
@@ -24,7 +24,7 @@ export default function AdvantagesSection() {
             className="text-4xl md:text-5xl pr-10 font-bold text-gray-900 leading-tight my-2 mb-6"
           >
             Advantages{" "}
-            <span className="text-green-900">websitename appointments</span> for
+            <span className="text-green-900">Notary Blocks appointments</span> for
             your law firm
           </motion.h2>
         </div>

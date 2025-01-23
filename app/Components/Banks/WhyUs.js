@@ -24,7 +24,7 @@ const WhyUs = () => {
             viewport={{ once: true, amount: 0.7 }}
             className="text-4xl lg:text-5xl pr-10 font-bold text-green-900 leading-tight mt-2"
           >
-            Why use websitename?{" "}
+            Why use Notary Blocks?{" "}
           </motion.h2>
           <motion.p
             variants={fadeIn("up", 0, 0.7)}
@@ -51,7 +51,7 @@ const WhyUs = () => {
           >
             <h3 className="text-2xl font-semibold ">Locally Flexible </h3>
             <p className="   text-lg mt-2">
-              websitename allows you to notarize documents from any location,
+              Notary Blocks allows you to notarize documents from any location,
               eliminating the need for in-person visits and providing
               convenience for businesses and individuals alike.
             </p>
@@ -81,7 +81,7 @@ const WhyUs = () => {
           >
             <h3 className="text-2xl font-semibold ">Digital Total Solution</h3>
             <p className="   text-lg mt-2">
-              websitename integrates all steps of notarization into one
+              Notary Blocks integrates all steps of notarization into one
               platform, from identity verification to document management,
               ensuring a seamless digital experience.
             </p>

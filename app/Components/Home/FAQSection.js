@@ -12,19 +12,19 @@ export default function FAQSection() {
         "Online notarization connects you with a licensed notary via a secure video call. After verifying your identity, you digitally sign the document, and the notary applies an electronic seal.",
     },
     {
-      question: "What documents can be notarized on websitename?",
+      question: "What documents can be notarized on Notary Blocks?",
       answer:
-        "Documents such as affidavits, powers of attorney, real estate papers, and more can be notarized on Websitename.",
+        "Documents such as affidavits, powers of attorney, real estate papers, and more can be notarized on Notary Blocks.",
     },
     {
       question: "Can you Notarize documents from overseas?",
       answer:
-        "Yes, Websitename enables notarization of documents from abroad, provided the document is valid in the U.S. or the intended jurisdiction.",
+        "Yes, Notary Blocks enables notarization of documents from abroad, provided the document is valid in the U.S. or the intended jurisdiction.",
     },
     {
-      question: "What types of documents can be notarized on websitename?",
+      question: "What types of documents can be notarized on Notary Blocks?",
       answer:
-        "Websitename can notarize a variety of documents, including legal, financial, and personal ones.",
+        "Notary Blocks can notarize a variety of documents, including legal, financial, and personal ones.",
     },
     {
       question: "Is online notarization legal?",

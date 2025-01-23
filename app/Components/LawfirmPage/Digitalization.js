@@ -51,7 +51,7 @@ const Digitalization = () => {
             with customers.
             <br />
             We'd be pleased to propose this offer in a joint appointment and
-            demonstrate websitename benefits
+            demonstrate Notary Blocks benefits
           </motion.p>
         </motion.div>
       </div>

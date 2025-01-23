@@ -19,7 +19,7 @@ const Features = () => {
               <h3 className="text-2xl font-semibold ">Notarize Anywhere</h3>
               <p className="  text-lg mt-2">
               Forget scheduling a visit to a notary or running to one.
-             Websitename lets you notarize papers conveniently from your home or business using a computer, 
+             Notary Blocks lets you notarize papers conveniently from your home or business using a computer, 
              iPad, or even your phone.
               </p>
             </div>
@@ -28,7 +28,7 @@ const Features = () => {
               <h3 className="text-2xl font-semibold ">Fast & Secure</h3>
               <p className="   text-lg mt-2">
               Simplified Procedure, Unmatched Competency Notarized in less than ten minutes, get your document Your one-stop shop for closing business, 
-              completing documentation, and guaranteeing document processing security is websitename
+              completing documentation, and guaranteeing document processing security is Notary Blocks
               </p>
             </div>
             {/* Benefit 3 */}
@@ -36,7 +36,7 @@ const Features = () => {
               <h3 className="text-2xl font-semibold ">
               Fraud-Proof Notarization              </h3>
               <p className="   text-lg mt-2">
-              Websitename offers fraud-resistant notarizations and secure document handling through biometric scanning, blockchain technology, and bank-level verification.
+              Notary Blocks offers fraud-resistant notarizations and secure document handling through biometric scanning, blockchain technology, and bank-level verification.
 
               </p>
             </div>
@@ -44,7 +44,7 @@ const Features = () => {
             <div className="bg-white   transform hover:-translate-y-2 cursor-pointer duration-300 p-10 rounded text-black shadow-md">
               <h3 className="text-2xl font-semibold ">Certified Reliability</h3>
               <p className="   text-lg mt-2">
-              Websitename ensures reliability and adherence to industry standards by complying with MISMO certification and SOC2 requirements.
+              Notary Blocks ensures reliability and adherence to industry standards by complying with MISMO certification and SOC2 requirements.
 
               </p>
             </div>

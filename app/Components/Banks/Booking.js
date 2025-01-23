@@ -26,7 +26,7 @@ const Booking = () => {
           viewport={{ once: true, amount: 0.7 }}
           className="text-gray-200 lg:w-1/2 text-lg mx-auto mb-6"
         >
-          websitename appointments with our partner notary’s offices are a
+          Notary Blocks appointments with our partner notary’s offices are a
           simple, fast and flexible way to handle your notarial matters. Book an
           appointment with a partner notary’s office in a video call now.
         </motion.p>

@@ -39,7 +39,7 @@ const Login = () => {
               anywhere. <br /> anytime.
             </h1>
             <p className="text-xl pt-4">
-              notarity makes working with notaries a breeze.
+              Notary Blocks makes working with notaries a breeze.
             </p>
           </div>
           <div className="lg:w-1/2 p-10 space-y-8 rounded bg-white">
