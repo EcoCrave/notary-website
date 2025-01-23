@@ -20,7 +20,7 @@ const ProfileCard = ({ user, updateUserData, hide, verify }) => {
   };
 
   return (
-    <div className=" flex justify-between items-center rounded-lg p-6">
+    <div className=" flex justify-between items-center rounded-lg py-6">
       <div className="flex space-x-8">
         <div className=" ">
           {/* User Photo */}
