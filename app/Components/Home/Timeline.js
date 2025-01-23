@@ -41,10 +41,8 @@ const Timeline = () => {
               viewport={{ once: true, amount: 0.7 }}
               className=" "
             >
-              Simplified Procedure, Unmatched Competency Notarized in less than
-              ten minutes, get your document Your one-stop shop for closing
-              business, completing documentation, and guaranteeing document
-              processing security is Notary Blocks.
+              Notarized in less than ten minutes! Notary Blocks is your one-stop shop for closing business deals, 
+              completing documentation, and ensuring secure document processing.
             </motion.p>
           </div>
         </li>
