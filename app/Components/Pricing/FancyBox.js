@@ -51,7 +51,11 @@ const FancyBox = (props) => {
             <PricingBox title="Additional Signers" cost={5} />
             <PricingBox title="Additional Docs" cost={0} />
             <PricingBox title="Your Own Witness" cost={0} />
+<<<<<<< HEAD
 
+=======
+            <PricingBox title="Notary Blocks Witness" cost={0} />
+>>>>>>> f215d5da77ff934f27a0454dfb238621bd0934e6
             <PricingBox title="Hidden Costs" cost={0} highlight />
           </div>
 
@@ -95,7 +99,11 @@ const FancyBox = (props) => {
 
             <ul className="mt-6 space-y-4">
               <li>✔ Volume Discount</li>
+<<<<<<< HEAD
               <li>✔ Access to our API</li>
+=======
+              <li>✔ Access to Notary Blocks API</li>
+>>>>>>> f215d5da77ff934f27a0454dfb238621bd0934e6
               <li>✔ White Label Solution</li>
               <li>✔ CRM / LMS Integration</li>
               <li>✔ Dedicated Customer Success Manager</li>

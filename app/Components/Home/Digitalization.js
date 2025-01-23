@@ -7,7 +7,7 @@ const Digitalization = () => {
         <div className="w-1/2 relative">
           <img
             className="rounded-xl"
-            src="https://notarity.com/wp-content/uploads/2023/04/notarity_website_17-1024x685.jpg.webp"
+            src="https://Notary Blocks.com/wp-content/uploads/2023/04/notarity_website_17-1024x685.jpg.webp"
             alt=""
           />
         </div>
@@ -18,7 +18,7 @@ const Digitalization = () => {
           </h1>
           <p>
             Over 17,000 certified online notaries performing on the
-            blockchain-secured websitename platform.
+            blockchain-secured Notary Blocks platform.
           </p>
           <div className="gap-4 flex mx-auto">
             <button className="bg-green-800 px-4 py-2 rounded-md text-white">

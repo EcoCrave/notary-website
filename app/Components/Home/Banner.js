@@ -54,7 +54,7 @@ const Banner = () => {
             whileInView="show"
             viewport={{ once: true, amount: 0.7 }}
           >
-            Websitename streamlines digital collaboration with notaries,
+            Notary Blocks streamlines digital collaboration with notaries,
             boosting efficiency, saving time and money, and providing innovative
             services to your clients.
           </motion.p>
