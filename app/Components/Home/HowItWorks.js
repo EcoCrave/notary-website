@@ -6,9 +6,9 @@ import { fadeIn, fadeInAnimationVariants } from "@/variants";
 import Link from "next/link";
 export default function NotarySection() {
   return (
-    <div className=" pb-10">
-      <div className=" w-[85%]   mx-auto min-h-screen flex flex-col items-center ">
-        <div className="mt-10  w-full gap-10  items-center grid md:grid-cols-2 ">
+    <div className=" pb-8">
+      <div className=" w-[85%] mx-auto min-h-screen flex flex-col items-center ">
+        <div className=" w-full gap-10  items-center grid md:grid-cols-2 ">
           <motion.div
             variants={fadeIn("left", 0, 0.5)}
             initial="hidden"
