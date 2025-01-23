@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { fadeIn, fadeInAnimationVariants } from "@/variants";
 import useFirebase from "@/app/Server/authentication/useFirebase";
 import { FaUserCircle } from "react-icons/fa";
+import Image from "next/image";
 
 const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -107,7 +108,7 @@ const Navbar = () => {
           className="text-xl font-bold text-white hover:text-gray-300"
           href="/"
         >
-          Online Notary
+          <Image src="/img/notary-logo.png" width={150} height={120} />
         </Link>
 
         {/* Right Side - Desktop Menu */}

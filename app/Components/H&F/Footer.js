@@ -18,8 +18,12 @@ const Footer = () => {
           className=" space-y-5"
         >
           <div className="flex items-center space-x-2">
-            {/* <img src="" alt="Logo" className="h-8" /> */}
-            <h3 className="text-3xl font-bold">Online Notary</h3>
+            <Link
+              className="text-xl font-bold text-white hover:text-gray-300"
+              href="/"
+            >
+              <Image src="/img/notary-logo.png" width={150} height={120} />
+            </Link>
           </div>
           <p className="text-gray-300">
             1 East Erie Street, 1 East Erie Street, 1 East Erie Street, 1 East
