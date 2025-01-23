@@ -20,75 +20,78 @@ const ProfileCard = ({ user, updateUserData, hide, verify }) => {
   };
 
   return (
-    <div className=" flex gap-x-20 rounded-lg p-6">
-      <div className=" items-start">
-        {/* User Photo */}
-        <Image
-          width="400"
-          height="400"
-          src={user.photoURL || "/default-avatar.png"}
-          alt="User"
-          className="md:w-40 md:h-40  border border-gray-300"
-        />
-        <div className="mt-3">
-          {/* Name and Ratings */}
+    <div className=" flex justify-between items-center rounded-lg p-6">
+      <div className="flex space-x-8">
+        <div className=" ">
+          {/* User Photo */}
+          <Image
+            width="400"
+            height="400"
+            src={user.photoURL || "/img/avatar.webp"}
+            alt="User"
+            className="md:w-40 md:h-40  border border-gray-300"
+          />
+          <div className="mt-3">
+            {/* Name and Ratings */}
+
+            {verify === true ? (
+              <p className="text-sm bg-green-500 px-2 w-fit text-white font-semibold rounded-full">
+                {" "}
+                verified*{" "}
+              </p>
+            ) : (
+              <p className="text-sm bg-red-500 px-2 w-fit text-white font-semibold rounded-full">
+                Not Verified
+              </p>
+            )}
+
+            {!hide && (
+              <span
+                onClick={() => setIsPopupOpen(true)}
+                className="flex items-start space-x-2 border-b cursor-pointer  border-black w-fit mt-3"
+              >
+                <p className="text-sm"> Edit Profile </p>
+                <FaEdit className="text-sm" />
+              </span>
+            )}
+
+            <UpdateProfilePopup
+              isOpen={isPopupOpen}
+              onClose={() => setIsPopupOpen(false)}
+              onUpdate={handleUpdate}
+              existingData={userData}
+              user={user}
+            />
+          </div>
+        </div>
+
+        {/* Details */}
+        <div className=" space-y-4  ">
           <div className="flex">
             <h2 className="text-3xl font-bold text-gray-700">
               {user.fullName}
             </h2>
           </div>
-          {verify === true ? (
-            <p className="text-sm bg-green-500 px-2 w-fit text-white font-semibold rounded-full">
-              {" "}
-              Account verified{" "}
-            </p>
-          ) : (
-            <p className="text-sm bg-red-500 px-2 w-fit text-white font-semibold rounded-full">
-              Account Not Verified
-            </p>
-          )}
-
-          {!hide && (
-            <span
-              onClick={() => setIsPopupOpen(true)}
-              className="flex items-start space-x-2 border-b cursor-pointer  border-black w-fit mt-3"
-            >
-              <p className="text-sm"> Edit Profile </p>
-              <FaEdit className="text-sm" />
-            </span>
-          )}
-
-          <UpdateProfilePopup
-            isOpen={isPopupOpen}
-            onClose={() => setIsPopupOpen(false)}
-            onUpdate={handleUpdate}
-            existingData={userData}
-            user={user}
-          />
+          <div className="flex ">
+            <p className="font-semibold">ID: </p>
+            <p>{user.uid}</p>
+          </div>
+          <div className=" space-x-2">
+            <h3 className="text-2xl font-semibold border-b-2 border-gray-300">
+              Contact Info
+            </h3>{" "}
+          </div>
+          <div className="flex space-x-2">
+            <p className="font-semibold">Email: </p>
+            <p>{user.email}</p>
+          </div>
+          <div className="flex space-x-2">
+            <p className="font-semibold">Phone Number: </p>
+            <p>{user.phoneNumber}</p>
+          </div>
         </div>
       </div>
-
-      {/* Details */}
-      <div className="mt-4 space-y-4 text-md ">
-        <div className="flex items-center space-x-2">
-          <p className="font-semibold">User ID : </p>
-          <p>{user.uid}</p>
-        </div>
-        <div className="flex items-center space-x-2">
-          <h3 className="text-2xl font-semibold border-b-2 border-gray-300">
-            Contact Info
-          </h3>{" "}
-        </div>
-        <div className="flex items-center space-x-2">
-          <p className="font-semibold">Email : </p>
-          <p>{user.email}</p>
-        </div>
-        <div className="flex items-center space-x-2">
-          <p className="font-semibold">Phone Number : </p>
-          <p>{user.phoneNumber}</p>
-        </div>
-      </div>
-      <div className="bg-white rounded-lg shadow-sm p-6">
+      <div className="bg-white rounded-lg shadow-sm p-6 max-w-[50%]">
         <div className="mb-8">
           <h2 className="text-2xl font-bold text-green-900 mb-4">
             Book appointment
@@ -99,17 +102,11 @@ const ProfileCard = ({ user, updateUserData, hide, verify }) => {
           </p>
         </div>
 
-        <div className="flex relative flex-col items-start ">
-          <div className="bg-green-700 rounded-md">
+        <div className="flex justify-between items-start  ">
+          <div className="bg-green-700 rounded-md w-fit">
             <BookingForm appointment_title="Book an appointment" />
           </div>
-
-          <div className="  mt-8">
-            <Lottie
-              className="w-40 absolute top-0 right-0"
-              animationData={animationData}
-            />
-          </div>
+          <Lottie className="w-40 -mt-10" animationData={animationData} />
         </div>
       </div>
     </div>
