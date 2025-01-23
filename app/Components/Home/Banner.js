@@ -6,6 +6,7 @@ import { fadeIn } from "@/variants";
 import BookingForm from "../Checkout/BookingForm";
 import Link from "next/link";
 import { sendformSubmitionEmail } from "@/lib/resend";
+import Image from "next/image";
 
 const Banner = () => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
@@ -88,9 +89,11 @@ const Banner = () => {
           viewport={{ once: true, amount: 0.7 }}
           className="relative rounded-md"
         >
-          <img
+          <Image
+            width={700}
+            height={700}
             className="rounded-xl"
-            src="https://bluenotary.us/assets/ron-banner.jpg"
+            src="/img/notary.jpg"
             alt="Notary Banner"
           />
           <div

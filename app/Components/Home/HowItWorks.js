@@ -6,9 +6,9 @@ import { fadeIn, fadeInAnimationVariants } from "@/variants";
 import Link from "next/link";
 export default function NotarySection() {
   return (
-    <div className="bg-gradient-to-b from-blue-50 to-white pb-20">
+    <div className=" pb-10">
       <div className=" w-[85%]   mx-auto min-h-screen flex flex-col items-center ">
-        <div className="mt-10  w-full gap-5 justify-center items-center grid md:grid-cols-2 ">
+        <div className="mt-10  w-full gap-10  items-center grid md:grid-cols-2 ">
           <motion.div
             variants={fadeIn("left", 0, 0.5)}
             initial="hidden"
@@ -57,12 +57,12 @@ export default function NotarySection() {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.7 }}
-            className="flex order-1   flex-col md:flex-row items-center mt-16 space-y-8 md:space-y-0 md:space-x-12"
+            className="flex order-1 mx-auto  flex-col md:flex-row items-center mt-16 space-y-8 md:space-y-0 md:space-x-12"
           >
             <Image
-              src="/img/how-it-works.png"
-              width={600}
-              height={600}
+              src="/img/meeting.jpg"
+              width={800}
+              height={800}
               alt="How it works"
             />
           </motion.div>

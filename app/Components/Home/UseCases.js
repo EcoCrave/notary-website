@@ -6,13 +6,14 @@ import { FaFingerprint } from "react-icons/fa";
 import { IoSettingsOutline } from "react-icons/io5";
 import { motion } from "framer-motion";
 import { fadeIn, fadeInAnimationVariants } from "@/variants";
+import Image from "next/image";
 
 const data = [
   {
     title: "For Business",
     description:
       "Effortless online notarization tailored for businesses—secure, fast, and reliable document solutions",
-    imageUrl: "https://bluenotary.us/assets/images/for_business.png",
+    imageUrl: "/img/businessman.jpg",
     gradient: "from-blue-800 to-green-700",
     topPosition: "top-[75px]",
     pageLink: "/business",
@@ -21,7 +22,7 @@ const data = [
     title: "For Individual",
     description:
       "Secure and convenient online notarization services designed for individuals—fast, reliable, and hassle-free",
-    imageUrl: "https://bluenotary.us/assets/images/for_individual.png",
+    imageUrl: "/img/lawer.jpg",
     gradient: "from-purple-500 to-green-700",
     topPosition: "top-[85px]",
     pageLink: "/in-person-notarization",
@@ -30,7 +31,7 @@ const data = [
     title: "For Company & Banks",
     description:
       "Fast, secure online notarization services tailored for the construction industry—streamline your documentation today",
-    imageUrl: "https://bluenotary.us/assets/images/for_construction.png",
+    imageUrl: "/img/construction.jpg",
     gradient: "from-teal-500 to-green-700",
     topPosition: "top-[95px]",
     pageLink: "/bank",
@@ -71,7 +72,7 @@ const Services = () => (
             whileInView="show"
             viewport={{ once: true, amount: 0.7 }}
             key={index}
-            className={`md:w-[87%] p-10 rounded-3xl md:flex items-center md:justify-center gap-10 bg-gradient-to-r ${gradient} shadow-md m-auto my-8  sticky ${topPosition}`}
+            className={`md:w-[87%] p-10 rounded-3xl md:flex items-center md:justify-between gap-10 bg-gradient-to-r ${gradient} shadow-md m-auto my-8  sticky ${topPosition}`}
           >
             <div className="space-y-5 text-white md:w-1/2">
               <h2 className="md:text-4xl text-3xl text-white font-bold">
@@ -101,8 +102,14 @@ const Services = () => (
                 </Link>
               </div>
             </div>
-            <div>
-              <img className="md:h-80" src={imageUrl} alt="" />
+            <div className="rounded-md  ">
+              <Image
+                width={500}
+                height={500}
+                className="rounded-md w-[74%] my-5 mx-auto"
+                src={imageUrl}
+                alt=""
+              />
             </div>
           </motion.div>
         )

@@ -89,7 +89,7 @@ const HowItWorks = () => {
             <div className="relative  rounded-md max-w-lg mx-auto mt-10">
               <img
                 className="rounded-xl"
-                src="https://bluenotary.us/assets/ron-banner.jpg"
+                src="/img/notary.jpg"
                 alt="Notary Banner"
               />
               <div
