@@ -108,7 +108,7 @@ const Navbar = () => {
           className="text-xl font-bold text-white hover:text-gray-300"
           href="/"
         >
-          <Image alt="" src="/img/notary-logo.png" width={150} height={120} />
+          <Image alt="" src="/img/notary-logo.png" width={150} height={150} />
         </Link>
 
         {/* Right Side - Desktop Menu */}
