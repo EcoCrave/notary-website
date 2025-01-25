@@ -34,7 +34,7 @@ const Banner = () => {
             className=" font-semibold"
           >
             Starts with{" "}
-            <span className="font-bold text-2xl  bg-red-600 ml-2 p-2 rounded text-white lowercase">
+            <span className="font-bold text-2xl  bg-gray-900 ml-2 p-2 rounded text-white lowercase">
               {" "}
               $25 Only
             </span>

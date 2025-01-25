@@ -185,8 +185,8 @@ const useFirebase = () => {
       if (userDocSnap.exists()) {
         setCurrentLogedIn({ id: userDocSnap.id, ...userDocSnap.data() });
       } else {
-        toast.error("No such user document exists!");
         setCurrentLogedIn(null); // Handle case when the user document does not exist
+        toast.error("No such user document exists!");
       }
     } catch (error) {
       console.error("Error fetching the current user document:", error);
@@ -358,13 +358,12 @@ const useFirebase = () => {
     if (currentUser) {
       try {
         // Delete user data from Firestore
+        router.replace("/");
         const userDocRef = doc(firestore, "users", currentUser.uid);
         await deleteDoc(userDocRef);
-
         // Delete user from Firebase Auth
         await currentUser.delete();
-
-        console.log("User and their data deleted successfully");
+        toast("User and their data deleted successfully");
       } catch (error) {
         console.error("Error deleting user and their data:", error.message);
       }
@@ -385,10 +384,14 @@ const useFirebase = () => {
         toast.error(`No user found }`);
         return;
       }
+      // Delete User ...........................
+
+      await getAuth().deleteUser(uid);
 
       // Delete the user document(s) found
       querySnapshot.forEach(async (userDoc) => {
         await deleteDoc(doc(firestore, "users", userDoc.id)); // Delete document by ID
+
         toast.success(`User deleted successfully.`);
       });
     } catch (error) {

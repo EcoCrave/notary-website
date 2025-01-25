@@ -1,33 +1,18 @@
 "use client";
-
 import NotificationTable from "@/app/Components/Users/NotificationTable";
 import ProfileCard from "@/app/Components/Users/ProfileCard";
 import useFirebase from "@/app/Server/authentication/useFirebase";
-import { use } from "react";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { toast } from "react-toastify";
 
-const Page = ({ params }) => {
-  // Unwrap the params using React.use()
-  const { id } = use(params);
-  const [userDetails, setUserDetails] = useState([]);
-  const { getDataById, deleteUserByUID, currentLogedIn } = useFirebase();
+const UserProfileClient = ({ userDetails, userId }) => {
+  const { deleteUserByUID, currentLogedIn } = useFirebase();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [confirmationInput, setConfirmationInput] = useState("");
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await getDataById(id);
-      setUserDetails(data);
-    };
-
-    fetchData();
-  }, [id, getDataById]);
-
-  // Function to handle delete action
   const handleDelete = () => {
     if (confirmationInput === "DELETE") {
-      deleteUserByUID(id);
+      deleteUserByUID(userId);
       setIsModalOpen(false);
       setConfirmationInput("");
     } else {
@@ -37,8 +22,8 @@ const Page = ({ params }) => {
 
   return (
     <div className="mt-2 ">
-      <div className="min-h-screen w-[85%] mx-auto py-20">
-        <div>
+      <div className="min-h-screen w-[85%] mx-auto  py-20  ">
+        <div className=" ">
           <ProfileCard user={userDetails} hide={true} />
           <div className="mt-6">
             <h2 className="text-3xl font-bold mt-20">Applications : </h2>
@@ -98,4 +83,4 @@ const Page = ({ params }) => {
   );
 };
 
-export default Page;
+export default UserProfileClient;
