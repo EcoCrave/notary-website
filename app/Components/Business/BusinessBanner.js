@@ -9,7 +9,7 @@ const BusinessBanner = () => {
       <div className="absolute inset-0 bg-black opacity-40"></div>
       <div className="w-[85%]  mx-auto flex flex-col lg:flex-row items-start lg:items-center gap-10">
         {/* Left Side Content */}
-        <div className="lg:w-1/2 z-10 space-y-4 p-10">
+        <div className="lg:w-1/2 z-10 space-y-4 py-10">
           <motion.p
             variants={fadeIn("up", 0, 0.3)}
             initial="hidden"
