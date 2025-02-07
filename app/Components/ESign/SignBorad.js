@@ -30,7 +30,7 @@ const SignBoard = () => {
     <div className="space-y-24 bg-gradient-to-t from-blue-50 to-white">
       <div className="mx-auto w-[85%] pb-20 flex justify-center text-center  ">
         {/* Signature Canvas */}
-        <div className="space-y-3">
+        <div className="space-y-3 w-full">
           <motion.h1
             variants={fadeIn("up", 0, 0.3)}
             initial="hidden"
@@ -54,15 +54,23 @@ const SignBoard = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.7 }}
-            className="border mx-auto w-[1000px] bg-white rounded"
+            className="border mx-auto lg:w-[80%] h-80 md:h-96 bg-white rounded p-4"
           >
             <SignatureCanvas
               ref={canvasRef}
-              onEnd={handleDraw} // Trigger handleDraw when the user finishes drawing
+              onEnd={handleDraw}
               penColor={brushColor}
               maxWidth={3}
-              canvasProps={{ width: 1000, height: 400, className: "sigCanvas" }}
+              canvasProps={{
+                className: "sigCanvas w-full h-full",
+              }}
               className="border w-full border-red-500"
+              style={{
+                width: "100%",
+                height: "100%",
+
+                maxHeight: "600px",
+              }}
             />
           </motion.div>
           <motion.div
@@ -70,7 +78,7 @@ const SignBoard = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.7 }}
-            className="mt-4 flex items-center justify-between"
+            className="mt-4 mx-auto flex items-center justify-between md:w-[80%]"
           >
             <div className="flex space-x-2">
               <div
@@ -106,7 +114,7 @@ const SignBoard = () => {
             </button>
           </motion.div>
 
-          <div>
+          <div className="lg:w-[80%] mx-auto">
             {/* Conditional Download Link */}
             {result && (
               <motion.div

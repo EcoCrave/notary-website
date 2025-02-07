@@ -136,7 +136,7 @@ const steps = [
     title: "Book an appointment",
     description:
       "The first step to your online notary appointment is to book a preferred date. Pick a time and date that works for you, upload your documents, and give us additional details for your specific case.",
-    image: "/img/calender.webp",
+    image: "/img/booking_notary.png",
   },
   {
     step: "02 / 05",
@@ -153,27 +153,27 @@ const steps = [
         and make use of their services.
       </>
     ),
-    image: "/img/calender.webp",
+    image: "/img/booking_notary.png",
   },
   {
     step: "03 / 05",
     title: "Verify your identity",
     description:
       "As soon as your appointment is confirmed, you will be asked to verify your identity through a secure platform.",
-    image: "/img/calender.webp",
+    image: "/img/booking_notary.png",
   },
   {
     step: "04 / 05",
     title: "Online appointment & signing",
     description:
       "Meet with the notary online to complete the notarization process for your documents.",
-    image: "/img/calender.webp",
+    image: "/img/booking_notary.png",
   },
   {
     step: "05 / 05",
     title: "Receive your documents",
     description:
       "After the appointment, download your notarized documents securely from our platform.",
-    image: "/img/calender.webp",
+    image: "/img/booking_notary.png",
   },
 ];

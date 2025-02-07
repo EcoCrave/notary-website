@@ -3,19 +3,20 @@
 import { useState } from "react";
 import { FaUpload } from "react-icons/fa";
 import { IoCloseSharp } from "react-icons/io5";
-export default function FileUpload({ text }) {
-  const [files, setFiles] = useState([]);
+
+export default function FileUpload({ text, onFileChange, initialFiles = [] }) {
+  const [files, setFiles] = useState(initialFiles);
 
   const handleFileUpload = (event) => {
     event.preventDefault();
-    const newFiles = Array.from(event.target.files);
-    setFiles((prev) => [...prev, ...newFiles]);
+    const newFiles = Array.from(event.target.files || []);
+    updateFiles([...files, ...newFiles]);
   };
 
   const handleDrop = (event) => {
     event.preventDefault();
     const newFiles = Array.from(event.dataTransfer.files);
-    setFiles((prev) => [...prev, ...newFiles]);
+    updateFiles([...files, ...newFiles]);
   };
 
   const handleDragOver = (event) => {
@@ -23,11 +24,16 @@ export default function FileUpload({ text }) {
   };
 
   const removeFile = (fileToRemove) => {
-    setFiles(files.filter((file) => file !== fileToRemove));
+    updateFiles(files.filter((file) => file !== fileToRemove));
+  };
+
+  const updateFiles = (newFiles) => {
+    setFiles(newFiles);
+    onFileChange(newFiles);
   };
 
   const getFileIcon = (fileName) => {
-    const extension = fileName.split(".").pop().toLowerCase();
+    const extension = fileName.split(".").pop()?.toLowerCase();
     switch (extension) {
       case "pdf":
         return "Pdf";
@@ -40,32 +46,34 @@ export default function FileUpload({ text }) {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto p-6">
-      <h2 className="text-xl font-semibold mb-4 text-center">{text}</h2>
+    <div className="mx-auto">
+      <h2 className="text-lg text-center my-2 font-semibold mb-4">{text}</h2>
 
-      {/* Upload Area */}
       <div
-        className="border-2 border-dashed border-green-700 rounded-lg p-8 mb-4 text-center"
+        className="text-center"
         onDrop={handleDrop}
         onDragOver={handleDragOver}
       >
-        <input
-          type="file"
-          onChange={handleFileUpload}
-          className="hidden"
-          id="fileInput"
-          multiple
-        />
-        <label
-          htmlFor="fileInput"
-          className="cursor-pointer flex flex-col items-center"
-        >
-          <FaUpload className="w-12 h-12 text-green-800 mb-2" />
-          <span className="text-green-500">Click To Upload</span>
-        </label>
+        <div className="rounded-md w-fit mx-auto bg-green-900 py-1 px-5 text-white font-semibold text-center">
+          <input
+            type="file"
+            onChange={handleFileUpload}
+            className="hidden"
+            id="fileInput"
+            multiple
+          />
+          <label
+            htmlFor="fileInput"
+            className="cursor-pointer flex space-x-2 items-center"
+          >
+            <FaUpload className="text-white mb-2" />
+            <span>Upload files</span>
+          </label>
+        </div>
+        <span>-or-</span>
+        <p>Drag and drop</p>
       </div>
 
-      {/* File List */}
       {files.length > 0 && (
         <div className="mt-4">
           <h3 className="text-gray-600 mb-2">Uploaded Documents</h3>

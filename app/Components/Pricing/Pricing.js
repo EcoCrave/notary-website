@@ -1,4 +1,6 @@
 import React from "react";
+import BookingForm from "../Checkout/BookingForm";
+import Link from "next/link";
 
 const Pricing = () => {
   return (
@@ -22,9 +24,12 @@ const Pricing = () => {
               Earn $5 per completed notarization from our on-demand queue. Set
               the price when notarizing a document for your own customers.
             </p>
-            <button className="bg-green-600 text-white py-2 px-4 rounded-lg w-full font-semibold hover:bg-green-700">
-              Notarize a document now
-            </button>
+            <Link
+              href="/contact"
+              className="bg-green-600 text-white py-2 px-4 rounded-lg w-full font-semibold hover:bg-green-700"
+            >
+              Contact Now
+            </Link>
             <hr className="my-6 border-gray-700" />
             <ul className="text-lg space-y-3">
               <li>
@@ -60,9 +65,10 @@ const Pricing = () => {
               <li>$10 for each on-demand witness</li>
               <li>$5 for each additional signer</li>
             </ul>
-            <button className="bg-green-600 text-white py-2 px-4 rounded-lg w-full font-semibold hover:bg-green-700">
-              Notarize a document now
-            </button>
+
+            <div className="bg-green-600 text-white  rounded-lg w-full font-semibold hover:bg-green-700">
+              <BookingForm appointment_title="Notarize a document now" />
+            </div>
             <hr className="my-6 border-gray-700" />
             <ul className="text-lg space-y-3">
               <li>✔ Legal nationwide</li>
@@ -92,9 +98,12 @@ const Pricing = () => {
               Create a business account on Proof and secure all of your
               important transactions
             </p>
-            <button className="bg-green-600 text-white py-2 px-4 rounded-lg w-full font-semibold hover:bg-green-700">
-              Notarize a document now
-            </button>
+            <Link
+              href="/contact"
+              className="bg-green-600 text-white py-2 px-4 rounded-lg w-full font-semibold hover:bg-green-700"
+            >
+              Contact Now
+            </Link>
             <hr className="my-6 border-gray-700" />
             <ul className="text-lg space-y-3">
               <li>✔ Legal nationwide</li>

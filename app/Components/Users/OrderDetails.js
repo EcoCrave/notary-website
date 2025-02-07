@@ -2,9 +2,20 @@
 import React, { useState } from "react";
 import useFirebase from "@/app/Server/authentication/useFirebase";
 import FileUpload from "../MultipleFileUpload/FileUpload";
+import AdminUpdateForm from "./AdminUpdateForm";
 const OrderDetails = ({ data, role }) => {
   const [isOpen, setIsOpen] = useState(false); // State to manage modal visibility
   const { user } = useFirebase();
+  // date formation.................................
+  const formattedDate = new Date(
+    data.createdAt.seconds * 1000
+  ).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
+  console.log("data", data);
   return (
     <div className=" flex  ">
       {/* Button to Open Modal */}
@@ -33,11 +44,11 @@ const OrderDetails = ({ data, role }) => {
             <div className="mt-5 flex justify-between">
               <div className="mb-6 space-y-3">
                 <div className="text-gray-500 text-lg">
-                  Order ID:{" "}
+                  Order ID :{" "}
                   <span className="font-semibold text-gray-700">{data.id}</span>
                 </div>
                 <div className="text-gray-500 text-sm">
-                  Application Date:{" "}
+                  Applied on : {formattedDate}
                   <span className="font-semibold text-gray-700">
                     {data.date}
                   </span>
@@ -53,11 +64,17 @@ const OrderDetails = ({ data, role }) => {
                 </span>
               </div>
               <div className=" text-center flex flex-col">
-                <h2 className="  text-4xl font-bold text-green-900">$40</h2>
+                <h2 className="text-4xl font-bold text-green-900">
+                  ${data.totalCost}
+                </h2>
                 <h2
-                  className={`bg-red-700 w-28 rounded-full text-white px-5  `}
+                  className={
+                    data.paymentStatus == "Paid"
+                      ? "bg-green-700 w-28 rounded-full text-white px-5"
+                      : "bg-red-700 w-28 rounded-full text-white px-5"
+                  }
                 >
-                  Not paid
+                  {data.paymentStatus}
                 </h2>
               </div>
             </div>
@@ -71,19 +88,22 @@ const OrderDetails = ({ data, role }) => {
                     Customer
                   </h2>
                   <p className="text-gray-600">
-                    Name: {data.f_name + "" + data.l_name}
+                    Name: {data.firstName + " " + data.lastName}
                   </p>
                   <p className="text-gray-600">Email: {data.assignedEmail}</p>
+                  <p className="text-gray-600">Country: {data.country}</p>
                   <p className="text-gray-600">State: {data.state}</p>
+                  <p className="text-gray-600">Location: {data.location}</p>
+                  <p className="text-gray-600">Zip Code: {data.zipCode}</p>
                 </div>
 
                 {/* Order Info */}
                 <div className="space-y-2">
-                  <h2 className="text-lg font-semibold text-gray-800 mb-2">
+                  <h2 className="text-2xl font-semibold text-gray-800 mb-2">
                     Booking Info
                   </h2>
                   <p className="text-gray-600">
-                    Meeting Time: {data.meetingDate}
+                    Meeting Time: {data.meetingTime}
                   </p>
                   <p className="text-gray-600">
                     Meeting Link:{" "}
@@ -93,39 +113,79 @@ const OrderDetails = ({ data, role }) => {
                       rel="noopener noreferrer"
                       className="text-blue-600 underline"
                     >
-                      Join Meeting
+                      {data.meetingLink}
                     </a>
                   </p>
                   <p className="text-gray-600">Service Type: {data.service}</p>
                 </div>
 
-                {/* Uploaded Files */}
+                {/*------------------------------------- Uploaded Files --------------------------------------------- */}
+
                 <div className="grid grid-cols-2 gap-10 py-5 pr-5 col-span-1 md:col-span-2">
                   <div>
                     <h2 className="text-lg font-semibold text-gray-800 mb-2">
                       Uploaded Files
                     </h2>
+                    <div className="list-disc list-inside  gap-5 text-gray-600">
+                      <a
+                        target="_blank"
+                        href={data.signatureURLs[0]}
+                        className="hover:text-blue-700 hover:underline"
+                      >
+                        Singnature
+                      </a>
+                    </div>
                     <div className="list-disc list-inside flex gap-5 text-gray-600">
                       <a
                         target="_blank"
-                        href={data.signatureURL}
+                        href={data.selfieURLs[0]}
                         className="hover:text-blue-700 hover:underline"
-                      ></a>
+                      >
+                        Selfie with ID
+                      </a>
+                    </div>
+                    <div className="list-disc list-inside flex gap-5 text-gray-600">
+                      <a
+                        target="_blank"
+                        href={data.nidURLs}
+                        className="hover:text-blue-700 hover:underline"
+                      >
+                        ID
+                      </a>
+                    </div>
+                    <div className=" gap-5 text-gray-600">
+                      <h2 className="mt-5 text-md font-semibold">
+                        Documents :
+                      </h2>
+
+                      {data.documentURLs.map((file, i) => (
+                        <div className="mt-[3px] " key={i}>
+                          <a
+                            target="_blank"
+                            href={file}
+                            className="hover:text-blue-700 hover:underline"
+                          >
+                            File {i + 1}
+                          </a>
+                        </div>
+                      ))}
                     </div>
                   </div>
                   <div>
                     <h2 className="text-lg font-semibold text-gray-800 mb-2">
                       Notarized Files
                     </h2>
-                    <div className="list-disc list-inside flex gap-5 text-gray-600">
-                      <a
-                        target="_blank"
-                        href={data.signatureURL}
-                        className="hover:text-blue-700 hover:underline"
-                      >
-                        ID
-                      </a>
-                    </div>
+                    {data.notarizedDocuments.map((file, i) => (
+                      <div className="mt-[3px]" key={i}>
+                        <a
+                          target="_blank"
+                          className="hover:text-blue-700 hover:underline"
+                          href={file}
+                        >
+                          Notarized File {i + 1}
+                        </a>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -134,8 +194,8 @@ const OrderDetails = ({ data, role }) => {
 
               {role == "admin" && (
                 <>
-                  <h1 className=" my-6 font-bold text-2xl">
-                    Only Admin Is allowed to fill the input
+                  {/* <h1 className=" my-6 font-bold text-2xl">
+                    Only Admin/Notary Is allowed to fill the input
                   </h1>
                   <form>
                     <div className="grid grid-cols-2 lg:grid-cols-3 justify-between w-full items-center gap-5">
@@ -188,7 +248,8 @@ const OrderDetails = ({ data, role }) => {
                     <button className="bg-green-700 text-white p-2 px-8 ">
                       Submit Files
                     </button>
-                  </form>
+                  </form> */}
+                  <AdminUpdateForm data={data} id={data.id} />
                 </>
               )}
             </div>

@@ -16,15 +16,15 @@ const Banner = () => {
   };
 
   return (
-    <main className="py-20 lg:py-28 bg-gradient-to-b from-blue-50 to-white">
-      <div className="w-[85%] items-center grid lg:grid-cols-2 gap-12 mx-auto">
-        {/* Left Content */}
+    <main className="py-16 lg:py-28 bg-gradient-to-b from-blue-50 to-white">
+      <div className="w-[85%] items-center lg:flex justify-between gap-12 mx-auto space-y-5">
+        {/*---------------- Left Content ------------*/}
         <motion.div
           variants={fadeIn("up", 0, 0.3)}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.7 }}
-          className="space-y-8"
+          className="space-y-8 lg:w-[50%]"
         >
           <motion.p
             variants={fadeIn("up", 0, 0.3)}
@@ -65,10 +65,7 @@ const Banner = () => {
             viewport={{ once: true, amount: 0.9 }}
             className="gap-4 flex items-center mx-auto"
           >
-            <div
-              // onClick={() => sendformSubmitionEmail()}
-              className="bg-green-700 rounded-md"
-            >
+            <div className="bg-green-700 rounded-md">
               <BookingForm appointment_title="Arrange an appointment" />
             </div>
 

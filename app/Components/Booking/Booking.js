@@ -1,12 +1,23 @@
 "use client";
-import React from "react";
-import { InlineWidget } from "react-calendly";
-const Booking = () => {
+import React, { useEffect, useState } from "react";
+import { PopupButton } from "react-calendly";
+
+const Booking = ({ setIsModalOpen }) => {
+  const [rootElement, setRootElement] = useState(null);
+  useEffect(() => {
+    setRootElement(document.body); // Attach popup to body
+  }, []);
+
   return (
-    <div>
-      <div className="w-full  pt-10 ">
-        <InlineWidget url="https://calendly.com/ecocraveworld/notarize-document" />
-      </div>
+    <div className="flex flex-col  ">
+      {rootElement && (
+        <PopupButton
+          url="https://calendly.com/ecocraveworld/30min"
+          rootElement={rootElement} // Ensure it's attached to a valid DOM element
+          text="Schedule Booking!"
+          className="px-4 py-2 bg-black text-white rounded-md shadow-md hover:bg-black transition-all"
+        />
+      )}
     </div>
   );
 };

@@ -28,7 +28,6 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
 import { useRef, useState } from "react";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
@@ -49,7 +48,7 @@ const useFirebase = () => {
   const passwordRef = useRef();
   const repasswordRef = useRef();
   const router = useRouter();
-
+  const [submitSuccess, setSubmitSuccess] = useState(false);
   // Save User data --------------------------
 
   const saveUserData = async (user) => {
@@ -265,23 +264,30 @@ const useFirebase = () => {
 
   // ------------------Upload data to FireStore and Storage Database-------------------------------------------
 
-  const uploadFile = async (folder, file) => {
+  const uploadFile = async (folder, files) => {
     try {
-      const fileRef = ref(storage, `${folder}/${file.name}`);
-      const uploadTask = await uploadBytes(fileRef, file);
-      return await getDownloadURL(uploadTask.ref);
+      const uploadPromises = files.map(async (file) => {
+        const fileRef = ref(storage, `${folder}/${file.name}`);
+        const uploadTask = await uploadBytes(fileRef, file);
+        return getDownloadURL(uploadTask.ref);
+      });
+
+      return Promise.all(uploadPromises);
     } catch (error) {
-      console.error("Error uploading file:", error);
+      console.error("Error uploading files:", error);
       throw new Error("File upload failed");
     }
   };
+
   // CREATE: Add form data to Firestore
   const addFormData = async (data) => {
     try {
       const docRef = await addDoc(collection(firestore, "UserInfo"), data);
-      return docRef.id;
       sendformSubmitionEmail();
+      setSubmitSuccess(ture);
+      return docRef.id;
     } catch (error) {
+      setSubmitSuccess(false);
       console.error("Error submitting form:", error);
     }
   };
@@ -437,9 +443,12 @@ const useFirebase = () => {
     deleteCurrentUser,
     getUsers,
     getFormData,
+    updateFormData,
     repasswordRef,
     updateUserData,
     getDataById,
+    submitSuccess,
+    setSubmitSuccess,
     deleteUserByUID,
     handleLogout,
     handleGoogleSignIn,
