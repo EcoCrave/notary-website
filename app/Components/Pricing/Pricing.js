@@ -66,8 +66,11 @@ const Pricing = () => {
               <li>$5 for each additional signer</li>
             </ul>
 
-            <div className="bg-green-600 text-white  rounded-lg w-full font-semibold hover:bg-green-700">
-              <BookingForm appointment_title="Notarize a document now" />
+            <div className="bg-green-600   rounded-lg w-full  hover:bg-green-700">
+              <BookingForm
+                appointment_title="Notarize a document now"
+                className=""
+              />
             </div>
             <hr className="my-6 border-gray-700" />
             <ul className="text-lg space-y-3">

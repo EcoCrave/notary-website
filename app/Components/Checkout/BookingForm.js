@@ -216,7 +216,7 @@ const BookingForm = ({ appointment_title }) => {
                 </p>
               </div>
               <button
-                className=" text-xl "
+                className="text-black text-xl "
                 onClick={() => setIsModalOpen(false)} // Close the modal
               >
                 ✕
@@ -225,7 +225,10 @@ const BookingForm = ({ appointment_title }) => {
 
             {/* Step 1: File Uploads */}
             {step === 1 && (
-              <form onSubmit={handleSubmit} className="text-left px-8">
+              <form
+                onSubmit={handleSubmit}
+                className="text-left text-black px-8"
+              >
                 <div className="space-y-3">
                   <div className="bg-white p-4 shadow-sm rounded space-y-2">
                     <div className="w-full mb-3">
@@ -509,7 +512,10 @@ const BookingForm = ({ appointment_title }) => {
 
             {/* Step 3: File Uploads */}
             {step === 3 && (
-              <form onSubmit={handleSubmit} className="text-left px-8">
+              <form
+                onSubmit={handleSubmit}
+                className="text-left text-black px-8"
+              >
                 <div className="space-y-3">
                   <div>
                     <h3 className="text-xl font-semibold mb-1">Contact Info</h3>
