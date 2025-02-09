@@ -1,8 +1,6 @@
 "use client";
 import useFirebase from "@/app/Server/authentication/useFirebase";
-
 import React, { useEffect, useState } from "react";
-
 const ActiveProjectsTable = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);

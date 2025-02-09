@@ -1,11 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import useFirebase from "@/app/Server/authentication/useFirebase";
-import FileUpload from "../MultipleFileUpload/FileUpload";
 import AdminUpdateForm from "./AdminUpdateForm";
 const OrderDetails = ({ data, role }) => {
   const [isOpen, setIsOpen] = useState(false); // State to manage modal visibility
-  const { user } = useFirebase();
+
   // date formation.................................
   const formattedDate = new Date(
     data.createdAt.seconds * 1000
@@ -15,7 +13,6 @@ const OrderDetails = ({ data, role }) => {
     day: "numeric",
   });
 
-  console.log("data", data);
   return (
     <div className=" flex  ">
       {/* Button to Open Modal */}
@@ -102,6 +99,9 @@ const OrderDetails = ({ data, role }) => {
                   <h2 className="text-2xl font-semibold text-gray-800 mb-2">
                     Booking Info
                   </h2>
+                  <p className="text-gray-600">
+                    Meeting Date: {data.meetingDate}
+                  </p>
                   <p className="text-gray-600">
                     Meeting Time: {data.meetingTime}
                   </p>
@@ -192,66 +192,12 @@ const OrderDetails = ({ data, role }) => {
 
               {/* Only Admin can see this section..................... */}
 
-              {role == "admin" && (
-                <>
-                  {/* <h1 className=" my-6 font-bold text-2xl">
-                    Only Admin/Notary Is allowed to fill the input
-                  </h1>
-                  <form>
-                    <div className="grid grid-cols-2 lg:grid-cols-3 justify-between w-full items-center gap-5">
-                      <div className="space-y-2 ">
-                        {" "}
-                        <span className=""> Order Status : </span>
-                        <select
-                          name="Order Status"
-                          defaultValue={data.status}
-                          className="w-full border border-gray-300 rounded p-2"
-                        >
-                          <option value="">Select Status</option>
-                          <option value="In Progress">In Progress</option>
-                          <option value="Approved">Approved</option>
-                          <option value="Finished">Finished</option>
-                        </select>
-                      </div>
-                      <div className="space-y-2 ">
-                        {" "}
-                        <span className=""> Payment Status : </span>
-                        <select
-                          name="Payment Status"
-                          defaultValue={data.status}
-                          className="w-full border border-gray-300 rounded p-2"
-                        >
-                          <option value="">Select Status</option>
-                          <option value="In Progress">Not Paid</option>
-                          <option value="Approved">Paid</option>
-                        </select>
-                      </div>
-                      <div className="flex flex-col space-y-2 ">
-                        <label>Meeting Link</label>
-                        <input type="text" className="border p-1" />
-                      </div>
-                      <div className="">
-                        <label>Meeting Time</label>
-                        <input type="text" className="border p-1" />
-                      </div>
-                    </div>
-                    <button
-                      type="submit"
-                      className="w-fit p-2 bg-black text-white mt-5 px-8"
-                    >
-                      {" "}
-                      Submit{" "}
-                    </button>
-                  </form>
-                  <form className="text-center">
-                    <FileUpload text="Upload Notarized Documents" />
-                    <button className="bg-green-700 text-white p-2 px-8 ">
-                      Submit Files
-                    </button>
-                  </form> */}
-                  <AdminUpdateForm data={data} id={data.id} />
-                </>
-              )}
+              {role == "admin" ||
+                (role == "notary" && (
+                  <>
+                    <AdminUpdateForm data={data} id={data.id} />
+                  </>
+                ))}
             </div>
           </div>
         </div>

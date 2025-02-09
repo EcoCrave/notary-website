@@ -17,7 +17,7 @@ const ProfilePage = () => {
   } = useFirebase(); // Move useFirebase to the top
   const [isModalOpen, setIsModalOpen] = useState(false); // Modal visibility
   const [confirmationInput, setConfirmationInput] = useState(""); // Input for confirmation
-  // console.log("user role", user);
+
   // Function to handle delete action
   const handleDelete = () => {
     if (confirmationInput === "DELETE") {
@@ -32,7 +32,6 @@ const ProfilePage = () => {
       toast.error("You must type DELETE to confirm.");
     }
   };
-  console.log("User", user);
   const [userDetails, setUserDetails] = useState({});
 
   useEffect(() => {

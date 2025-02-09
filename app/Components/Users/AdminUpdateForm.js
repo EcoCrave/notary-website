@@ -10,6 +10,7 @@ const AdminUpdateForm = ({ data, id }) => {
     status: data.status || "",
     paymentStatus: data.paymentStatus || "",
     meetingLink: data.meetingLink || "",
+    meetingDate: data.meetingDate || "",
     meetingTime: data.meetingTime || "",
   });
 
@@ -99,12 +100,24 @@ const AdminUpdateForm = ({ data, id }) => {
             />
           </div>
           <div className="">
+            <label>Meeting Date</label>
+            <input
+              type="text"
+              name="meetingDate"
+              value={formData.meetingDate}
+              onChange={handleChange}
+              placeholder="12th jun, 2025"
+              className="border p-1"
+            />
+          </div>
+          <div className="">
             <label>Meeting Time</label>
             <input
               type="text"
               name="meetingTime"
               value={formData.meetingTime}
               onChange={handleChange}
+              placeholder="12.30pm"
               className="border p-1"
             />
           </div>

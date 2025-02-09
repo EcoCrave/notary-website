@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 import { fadeIn } from "@/variants";
 import BookingForm from "../Checkout/BookingForm";
 import Link from "next/link";
-import { sendformSubmitionEmail } from "@/lib/resend";
 import Image from "next/image";
+import useFirebase from "@/app/Server/authentication/useFirebase";
 
 const Banner = () => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
@@ -15,6 +15,8 @@ const Banner = () => {
     setIsVideoOpen(!isVideoOpen);
   };
 
+  const { currentLogedIn } = useFirebase();
+  console.log(currentLogedIn);
   return (
     <main className="py-16 lg:py-28 bg-gradient-to-b from-blue-50 to-white">
       <div className="w-[85%] items-center lg:flex justify-between gap-12 mx-auto space-y-5">

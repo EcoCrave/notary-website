@@ -16,8 +16,6 @@ export async function POST(req) {
       );
     }
 
-    console.log("Creating checkout session for:", { price, name, quantity });
-
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       line_items: [
@@ -38,8 +36,6 @@ export async function POST(req) {
       )}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${req.headers.get("origin")}`,
     });
-
-    console.log("Checkout session created:", session.id);
 
     return NextResponse.json({ sessionId: session.id });
   } catch (error) {

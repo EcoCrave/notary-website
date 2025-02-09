@@ -12,7 +12,6 @@ const BookingForm = ({ appointment_title }) => {
   const [pages, setPages] = useState(1);
   const [price, setPrice] = useState(0);
   const totalPrice = pages * price;
-  console.log("Total Price", totalPrice);
   // Form data state.............................
 
   const [formData, setFormData] = useState({
@@ -30,8 +29,6 @@ const BookingForm = ({ appointment_title }) => {
 
   // Console Form data........................................
 
-  console.log("Form Data", formData);
-
   // _--____------_______------______-------______------________
 
   const [files, setFiles] = useState({
@@ -43,11 +40,6 @@ const BookingForm = ({ appointment_title }) => {
   const handleDocumentChange = (newDocuments) => {
     setFiles((prev) => ({ ...prev, document: newDocuments }));
   };
-  console.log("selfie", files.selfie);
-  console.log("document", files.document);
-  console.log("uploadedID", files.uploadedID);
-  console.log("signature", files.signature);
-
   const { user, addFormData, uploadFile, submitSuccess, setSubmitSuccess } =
     useFirebase(); // Corrected usage of the custom hook
 

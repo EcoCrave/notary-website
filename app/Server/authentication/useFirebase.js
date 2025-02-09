@@ -66,9 +66,9 @@ const useFirebase = () => {
           provider: user.providerId || "email",
           createdAt: new Date(),
         });
-        console.log("User data saved successfully");
+        toast("User data saved successfully");
       } else {
-        console.log("User data already exists in Firestore");
+        toast("User data already exists in Firestore");
       }
     } catch (error) {
       console.error("Error saving user data:", error);
@@ -313,7 +313,7 @@ const useFirebase = () => {
       const userDocSnap = await getDoc(userDocRef);
 
       if (!userDocSnap.exists()) {
-        console.log("No such user found!");
+        toast("No such user found!");
         return null;
       }
 
@@ -332,7 +332,7 @@ const useFirebase = () => {
       const combinedData = { ...userData, details: userDetails };
       return combinedData;
     } catch (error) {
-      console.log("Error fetching user data:", error);
+      toast("Error fetching user data:", error);
       throw new Error("Failed to fetch user data.");
     }
   };
@@ -341,7 +341,7 @@ const useFirebase = () => {
   const updateFormData = async (id, data) => {
     const formRef = doc(firestore, "UserInfo", id);
     await updateDoc(formRef, data);
-    console.log("Form data updated successfully");
+    toast("Form data updated successfully");
   };
 
   // Update User info..........................................
@@ -349,7 +349,7 @@ const useFirebase = () => {
     try {
       const userRef = doc(firestore, "users", id);
       await updateDoc(userRef, updatedData);
-      console.log("User data updated successfully in Firestore");
+      toast("User data updated successfully in Firestore");
     } catch (error) {
       console.error("Error updating user data:", error);
       throw new Error("Failed to update user data");
@@ -374,7 +374,7 @@ const useFirebase = () => {
         console.error("Error deleting user and their data:", error.message);
       }
     } else {
-      console.log("No user is signed in");
+      toast("No user is signed in");
     }
   };
 
@@ -413,12 +413,12 @@ const useFirebase = () => {
     if (currentUser) {
       try {
         await deleteUser(currentUser);
-        console.log("User deleted successfully");
+        toast("User deleted successfully");
       } catch (error) {
         console.error("Error deleting user:", error.message);
       }
     } else {
-      console.log("No user is signed in");
+      toast("No user is signed in");
     }
   };
 
@@ -428,7 +428,6 @@ const useFirebase = () => {
     await deleteDoc(formRef);
     toast("Data deleted successfully");
   };
-  // console.log("user", user.email);
   return {
     user,
     error,

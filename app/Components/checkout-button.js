@@ -33,8 +33,6 @@ export default function CheckoutButton({ price, name }) {
 
       const { sessionId } = data;
 
-      console.log("Session ID:", sessionId); // Log the session ID
-
       const stripe = await stripePromise;
       if (!stripe) {
         throw new Error("Failed to load Stripe");

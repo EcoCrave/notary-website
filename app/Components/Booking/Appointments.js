@@ -1,11 +1,28 @@
 // import { Calendar, ChevronLeft, ChevronRight, Search } from "lucide-react";
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CheckoutButton from "../checkout-button";
+import useFirebase from "@/app/Server/authentication/useFirebase";
+import BookingForm from "../Checkout/BookingForm";
 
 export default function Appointments() {
   const [appointment, setAppointment] = useState(true);
+  const [userDetails, setUserDetails] = useState("");
+  const { getDataById, user } = useFirebase();
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if (user?.uid) {
+          const data = await getDataById(user.uid);
+          setUserDetails(data);
+        }
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+    fetchData();
+  }, [user?.uid]);
   return (
     <div className="w-full bg-gray-50">
       <div className="w-[85%] mx-auto py-10 bg-gray-50 mt-10 grid md:grid-cols-2 gap-8">
@@ -16,21 +33,38 @@ export default function Appointments() {
               Next appointments
             </h1>
           </div>
-          {appointment ? (
+          {userDetails.details ? (
             <div className="space-y-5">
-              <div className="bg-gray-50 p-3 shadow-md rounded-md flex justify-between items-center">
-                <div className="flex flex-col px-4 py-3 bg-gradient-to-r from-gray-100 rounded-md to-white font-mono">
-                  <span className="text-2xl font-bold text-gray-900 ">
-                    Jun 12th,2025
-                  </span>
-                  <span>10.30 UST</span>
-                </div>
+              {userDetails.details.map((detail, index) => (
+                <div
+                  key={index}
+                  className="bg-gray-50 p-3 shadow-md rounded-md flex justify-between items-center"
+                >
+                  <div className="flex flex-col px-4 py-3 bg-gradient-to-r from-gray-100 rounded-md to-white font-mono">
+                    <span className="text-2xl font-bold text-gray-900 ">
+                      {detail.meetingDate}
+                    </span>
+                    <span>{detail.meetingTime}</span>
+                  </div>
 
-                {/*------------------------------- Payment Button --------------------------------- */}
-                <div>
-                  <CheckoutButton price={19.99} name="Sample Product" />
+                  {/*------------------------------- Payment Button --------------------------------- */}
+                  <div>
+                    <p className="text-center text-green-800">
+                      ${detail.totalCost}
+                    </p>
+                    {!detail.paymentStatus == "Paid" ? (
+                      <CheckoutButton
+                        price={detail.totalCost}
+                        name="Sample Product"
+                      />
+                    ) : (
+                      <span className="px-5 bg-green-800 text-white py-1 rounded-full mt-2">
+                        Paid
+                      </span>
+                    )}
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
           ) : (
             <div className="flex flex-col items-center justify-center min-h-[400px] gap-6">
@@ -51,19 +85,8 @@ export default function Appointments() {
             </p>
           </div>
 
-          <div className="flex flex-col items-start gap-6">
-            <button className="bg-green-600 hover:bg-green-700">
-              Book appointment
-            </button>
-
-            <div className="relative w-full h-64 mt-8">
-              <Image
-                src="/placeholder.svg"
-                alt="Calendar illustration"
-                fill
-                className="object-contain"
-              />
-            </div>
+          <div className="bg-green-700 w-fit rounded-md">
+            <BookingForm appointment_title="Book Now" />
           </div>
         </div>
       </div>
