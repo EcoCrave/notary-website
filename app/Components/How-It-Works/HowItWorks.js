@@ -133,13 +133,6 @@ export default HowItWorks;
 const steps = [
   {
     step: "01 / 05",
-    title: "Book an appointment",
-    description:
-      "The first step to your online notary appointment is to book a preferred date. Pick a time and date that works for you, upload your documents, and give us additional details for your specific case.",
-    image: "/img/booking_notary.png",
-  },
-  {
-    step: "02 / 05",
     title: "Create an account",
     description: (
       <>
@@ -153,14 +146,22 @@ const steps = [
         and make use of their services.
       </>
     ),
+    image: "/img/login.png",
+  },
+  {
+    step: "02 / 05",
+    title: "Book an appointment",
+    description:
+      "The first step to your online notary appointment is to book a preferred date. Pick a time and date that works for you, upload your documents, and give us additional details for your specific case.",
     image: "/img/booking_notary.png",
   },
+
   {
     step: "03 / 05",
     title: "Verify your identity",
     description:
       "As soon as your appointment is confirmed, you will be asked to verify your identity through a secure platform.",
-    image: "/img/booking_notary.png",
+    image: "/img/verify.png",
   },
   {
     step: "04 / 05",
@@ -174,6 +175,6 @@ const steps = [
     title: "Receive your documents",
     description:
       "After the appointment, download your notarized documents securely from our platform.",
-    image: "/img/booking_notary.png",
+    image: "/img/details.png",
   },
 ];

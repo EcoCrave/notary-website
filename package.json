@@ -11,6 +11,8 @@
   "dependencies": {
     "@docuseal/react": "^1.0.47",
     "@react-pdf/renderer": "^4.0.0",
+    "@stripe/react-stripe-js": "^3.1.1",
+    "@stripe/stripe-js": "^5.6.0",
     "cookies-next": "^5.1.0",
     "file-saver": "^2.0.5",
     "firebase": "^11.1.0",
@@ -32,7 +34,8 @@
     "react-slick": "^0.30.2",
     "react-toastify": "^11.0.2",
     "resend": "^4.0.1",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "stripe": "^17.6.0"
   },
   "devDependencies": {
     "postcss": "^8",
