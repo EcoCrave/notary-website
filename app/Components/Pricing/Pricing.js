@@ -1,13 +1,21 @@
+"use client";
 import React from "react";
 import BookingForm from "../Checkout/BookingForm";
 import Link from "next/link";
-
+import { fadeIn, fadeInAnimationVariants } from "@/variants";
+import { motion } from "framer-motion";
 const Pricing = () => {
   return (
     <div className="bg-gray-100 py-16">
       <div className="w-[85%] mx-auto  space-y-8">
         <h1 className="lg:text-5xl text-4xl font-bold">Pricing</h1>
-        <div className="grid lg:grid-cols-3 gap-8">
+        <motion.div
+          variants={fadeInAnimationVariants}
+          initial="initial"
+          whileInView={"animate"}
+          viewport={{ once: true }}
+          className="grid lg:grid-cols-3 gap-8"
+        >
           {/* Card 1 */}
           <div className="bg-slate-300 text-black p-8 rounded-lg shadow-lg">
             <h2 className="text-4xl text-black font-bold mb-4">
@@ -119,7 +127,7 @@ const Pricing = () => {
               </li>
             </ul>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

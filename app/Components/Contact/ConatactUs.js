@@ -138,7 +138,7 @@ const ContactUs = () => {
                   <span className="text-green-400 font-semibold text-lg mr-2">
                     Email:
                   </span>
-                  <span>info@flightmantra.com</span>
+                  <span>info@notaryblocks.com</span>
                 </motion.li>
                 <motion.li
                   whileHover={{ scale: 1.05 }}

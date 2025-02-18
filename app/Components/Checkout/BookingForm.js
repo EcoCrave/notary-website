@@ -4,14 +4,17 @@ import React, { useRef, useState } from "react";
 import { toast } from "react-toastify";
 import FileUpload from "../MultipleFileUpload/FileUpload";
 import Booking from "../Booking/Booking";
+import SingleBoard from "../ESign/SingleBoard";
+import useHooks from "../Hooks/useHooks";
 
 const BookingForm = ({ appointment_title }) => {
   const [isModalOpen, setIsModalOpen] = useState(false); // State to toggle popup
   const [step, setStep] = useState(1);
-
+  const [result, setResult] = useState(null);
   const [pages, setPages] = useState(1);
   const [price, setPrice] = useState(0);
   const totalPrice = pages * price;
+  const { canOpen, setCanOpen } = useHooks();
   // Form data state.............................
 
   const [formData, setFormData] = useState({
@@ -29,17 +32,17 @@ const BookingForm = ({ appointment_title }) => {
 
   // Console Form data........................................
 
-  // _--____------_______------______-------______------________
-
   const [files, setFiles] = useState({
     selfie: [],
     document: [],
     uploadedID: [],
     signature: [],
   });
+
   const handleDocumentChange = (newDocuments) => {
     setFiles((prev) => ({ ...prev, document: newDocuments }));
   };
+
   const { user, addFormData, uploadFile, submitSuccess, setSubmitSuccess } =
     useFirebase(); // Corrected usage of the custom hook
 
@@ -139,7 +142,7 @@ const BookingForm = ({ appointment_title }) => {
           ? await uploadFile("documents", files.document)
           : [];
       const uploadedSignatures =
-        files.signature.length > 0
+        files.signature.length > 0 && files.signature[0] instanceof File
           ? await uploadFile("signatures", files.signature)
           : [];
 
@@ -174,7 +177,7 @@ const BookingForm = ({ appointment_title }) => {
         location: "",
         zipCode: "",
       });
-      setFiles({ selfie: [], document: [], uploadedID: [], signature: [] });
+      setFiles({ selfie: [], document: [], uploadedID: [], signature: result });
     } catch (error) {
       console.error("Error submitting form:", error);
       toast.error("Failed to submit the form. Please try again.");
@@ -187,7 +190,6 @@ const BookingForm = ({ appointment_title }) => {
       <button
         onClick={() => {
           setIsModalOpen(true);
-          setSubmitSuccess(true);
         }}
         className="px-6 py-3 text-white text-center font-bold rounded-md "
       >
@@ -268,25 +270,36 @@ const BookingForm = ({ appointment_title }) => {
                     </div>
                   </div>
                   <div className="bg-white p-4 rounded-md shadow-sm space-y-3 ">
-                    <div>
-                      <label className="block text-green-900 text-sm font-semibold  mb-2">
-                        Upload Signature :
-                      </label>
-                      <input
-                        type="file"
-                        multiple
-                        // required
-                        name="signature"
-                        accept="image/*"
-                        onChange={handleFileChange}
+                    {!canOpen ? (
+                      <div className="">
+                        <div>
+                          <label className="block text-green-900 text-sm font-semibold  mb-2">
+                            Upload Signature :
+                          </label>
+                          <input
+                            type="file"
+                            multiple
+                            // required
+                            name="signature"
+                            accept="image/*"
+                            onChange={handleFileChange}
+                          />
+                        </div>
+                        <p className="pt-3"> --- or ---</p>
+                      </div>
+                    ) : (
+                      ""
+                    )}
+
+                    <div className="text-gray-400">
+                      <SingleBoard
+                        setResult={(file) =>
+                          setFiles((prev) => ({ ...prev, signature: [file] }))
+                        }
+                        setCanOpen={setCanOpen}
+                        canOpen={canOpen}
                       />
                     </div>
-
-                    {/* <div className="text-gray-400">
-                      ---------- or create one ------------
-                    </div> */}
-
-                    <div> </div>
                   </div>
                   <div className="bg-white text-black p-4 rounded-md shadow-sm">
                     <p className="block text-green-900 text-sm font-semibold mb-2">
@@ -530,20 +543,7 @@ const BookingForm = ({ appointment_title }) => {
                     </li>
                     <li className="list-none">Zip Code : {formData.zipCode}</li>
                   </div>
-                  {/* <div>
-                    <h3 className="text-xl font-semibold mb-1">
-                      Identity Verification
-                    </h3>
-                    <li className="list-none">ID type : {formData.idType} </li>
-                    <li className="list-none">ID image : File 1 </li>
-                    <li className="list-none">Selfie with id : File 2</li>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-semibold mb-1">Notary Files</h3>
-                    <li className="list-none">File: 1 </li>
-                    <li className="list-none">File: 2 </li>
-                    <li className="list-none">File: 3 </li>
-                  </div> */}
+
                   <div className="bg-gray-900 text-white p-4 flex justify-between items-center rounded-lg">
                     <div>
                       <h3 className="text-lg font-semibold mb-1">
@@ -574,7 +574,7 @@ const BookingForm = ({ appointment_title }) => {
                   >
                     {submitSuccess ? (
                       <Booking
-                        onClick={handleSubmit}
+                        // onClick={handleSubmit}
                         type="submit"
                         setIsModalOpen={setIsModalOpen}
                         setPages={setPages}

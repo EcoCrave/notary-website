@@ -158,7 +158,7 @@ const OrderDetails = ({ data, role }) => {
                         Documents :
                       </h2>
 
-                      {data.documentURLs.map((file, i) => (
+                      {data.documentURLs?.map((file, i) => (
                         <div className="mt-[3px] " key={i}>
                           <a
                             target="_blank"
@@ -175,7 +175,7 @@ const OrderDetails = ({ data, role }) => {
                     <h2 className="text-lg font-semibold text-gray-800 mb-2">
                       Notarized Files
                     </h2>
-                    {data.notarizedDocuments.map((file, i) => (
+                    {data.notarizedDocuments?.map((file, i) => (
                       <div className="mt-[3px]" key={i}>
                         <a
                           target="_blank"

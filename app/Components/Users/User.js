@@ -67,8 +67,8 @@ const ProfilePage = () => {
 
         <div className="mt-6">
           <NotificationTable
-            role={currentLogedIn.role}
-            notifications={userDetails.details}
+            role={currentLogedIn?.role}
+            notifications={userDetails?.details}
           />
         </div>
         <div>

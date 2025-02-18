@@ -31,7 +31,7 @@ import {
 import { useRef, useState } from "react";
 import { useEffect } from "react";
 import { toast } from "react-toastify";
-import { sendformSubmitionEmail } from "@/lib/resend";
+import { sendBookingConfirmationEmail } from "@/lib/resend";
 import { useRouter } from "next/navigation";
 
 // ----------------------------------------------
@@ -53,6 +53,32 @@ const useFirebase = () => {
 
   const saveUserData = async (user) => {
     const userRef = doc(firestore, "users", user.uid); // Firestore 'users' collection with user UID as document ID
+    try {
+      // Check if user data already exists
+      const userDoc = await getDoc(userRef);
+      if (!userDoc.exists()) {
+        await setDoc(userRef, {
+          uid: user.uid,
+          name: user.displayName || "No Name",
+          email: user.email,
+          role: user.role || "user",
+          photoURL: user.photoURL || null,
+          provider: user.providerId || "email",
+          createdAt: new Date(),
+        });
+        toast("User data saved successfully");
+      } else {
+        toast("User data already exists in Firestore");
+      }
+    } catch (error) {
+      console.error("Error saving user data:", error);
+    }
+  };
+
+  // Save Notary data --------------------------
+
+  const saveNotaryData = async (user) => {
+    const userRef = doc(firestore, "Public Notaries", user.email); // Firestore 'users' collection with user UID as document ID
     try {
       // Check if user data already exists
       const userDoc = await getDoc(userRef);
@@ -131,7 +157,7 @@ const useFirebase = () => {
     return () => unsubscribe();
   }, []);
 
-  // Google Sign In___________________________________
+  // Google Sign In ___________________________________
   const handleGoogleSignIn = () => {
     signInWithPopup(auth, googleProvider)
       .then(async (result) => {
@@ -147,7 +173,8 @@ const useFirebase = () => {
       });
   };
 
-  // Facebook Sign In____________________________________
+  // Facebook Sign In _______________________________
+
   const handleFacebookSignIn = () => {
     signInWithPopup(auth, facebookProvider)
       .then(async (result) => {
@@ -162,7 +189,7 @@ const useFirebase = () => {
       });
   };
 
-  // Set Display name_________________________________
+  // Set Display name__________________________________
 
   const displayName = () => {
     updateProfile(auth.currentUser, {
@@ -174,18 +201,23 @@ const useFirebase = () => {
       });
   };
 
-  // Currenly Loged in person.............................................
+  // Currenly Loged in person .............................................
 
   const currentLogin = async (id) => {
     try {
       const userDocRef = doc(firestore, "users", id); // Replace "users" with your collection name
+      const notaryDocRef = doc(firestore, "Public Notaries", id); // Replace "users" with your collection name
+
       const userDocSnap = await getDoc(userDocRef);
+      const notaryDocSnap = await getDoc(notaryDocRef);
 
       if (userDocSnap.exists()) {
         setCurrentLogedIn({ id: userDocSnap.id, ...userDocSnap.data() });
+      }
+      if (notaryDocSnap.exists()) {
+        setCurrentLogedIn({ id: notaryDocSnap.id, ...notaryDocSnap.data() });
       } else {
         setCurrentLogedIn(null); // Handle case when the user document does not exist
-        toast.error("No such user document exists!");
       }
     } catch (error) {
       console.error("Error fetching the current user document:", error);
@@ -223,15 +255,74 @@ const useFirebase = () => {
         setError(error.message);
         toast.error("There is an error");
       });
-    // e.target.reset();
+    e.target.reset();
+  };
+
+  // Public Notary Sign Up with email address ___________________________________________
+
+  const handleSignUpNotary = async (e) => {
+    e.preventDefault();
+    try {
+      const email = emailRef.current.value.trim();
+      const password = passwordRef.current.value.trim();
+
+      if (!email || !password) {
+        throw new Error("Email and Password are required");
+      }
+
+      const result = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const signedUpUser = result.user;
+
+      await updateProfile(auth.currentUser, {
+        displayName: `${f_nameRef.current.value} ${l_nameRef.current.value}`,
+      });
+      await auth.currentUser.reload();
+      const updatedUser = {
+        ...signedUpUser,
+        displayName: auth.currentUser.displayName,
+      };
+
+      // Save user data in Firestore
+      await saveNotaryData(updatedUser);
+
+      // Send email verification
+      emailVerification();
+
+      // Set user state
+      setUser(updatedUser);
+      toast.success("Successfully Registered");
+
+      router.replace("/user");
+      setError("");
+
+      e.target.reset();
+    } catch (error) {
+      console.error("Error during sign-up:", error);
+      setError(error.message);
+      toast.error(error.message || "There is an error");
+    }
   };
 
   // Verify Account  ________________________________________________________________
 
   const emailVerification = () => {
-    sendEmailVerification(auth.currentUser).then((result) => {
-      toast("check your email to verify");
-    });
+    const actionCodeSettings = {
+      url: "https://notaryblocks.com", // Redirect after verification
+      handleCodeInApp: false, // Keep Firebase's default verification page
+    };
+
+    sendEmailVerification(auth.currentUser, actionCodeSettings)
+      .then(() => {
+        toast.success("Check your email to verify your account.");
+      })
+      .catch((error) => {
+        console.error("Email verification error:", error);
+        toast.error("Failed to send verification email.");
+      });
   };
 
   // Log Out ______________________________________________________________
@@ -283,8 +374,10 @@ const useFirebase = () => {
   const addFormData = async (data) => {
     try {
       const docRef = await addDoc(collection(firestore, "UserInfo"), data);
-      sendformSubmitionEmail();
-      setSubmitSuccess(ture);
+
+      setSubmitSuccess(true);
+      console.log(data);
+      sendBookingConfirmationEmail(data);
       return docRef.id;
     } catch (error) {
       setSubmitSuccess(false);
@@ -313,7 +406,6 @@ const useFirebase = () => {
       const userDocSnap = await getDoc(userDocRef);
 
       if (!userDocSnap.exists()) {
-        toast("No such user found!");
         return null;
       }
 
@@ -447,6 +539,7 @@ const useFirebase = () => {
     updateUserData,
     getDataById,
     submitSuccess,
+    handleSignUpNotary,
     setSubmitSuccess,
     deleteUserByUID,
     handleLogout,

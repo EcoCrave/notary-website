@@ -27,7 +27,7 @@ const ProfileCard = ({ user, updateUserData, hide, verify }) => {
           <Image
             width="400"
             height="400"
-            src={user.photoURL || "/img/avatar.webp"}
+            src={user?.photoURL || "/img/avatar.webp"}
             alt="User"
             className="md:w-40 md:h-40  border border-gray-300"
           />
@@ -69,12 +69,12 @@ const ProfileCard = ({ user, updateUserData, hide, verify }) => {
         <div className=" space-y-4  ">
           <div className="flex">
             <h2 className="text-3xl font-bold text-gray-700">
-              {user.fullName}
+              {user?.fullName}
             </h2>
           </div>
           <div className="flex ">
             <p className="font-semibold">ID: </p>
-            <p>{user.uid}</p>
+            <p>{user?.uid}</p>
           </div>
           <div className=" space-x-2">
             <h3 className="text-2xl font-semibold border-b-2 border-gray-300">
@@ -83,11 +83,11 @@ const ProfileCard = ({ user, updateUserData, hide, verify }) => {
           </div>
           <div className="flex space-x-2">
             <p className="font-semibold">Email: </p>
-            <p>{user.email}</p>
+            <p>{user?.email}</p>
           </div>
           <div className="flex space-x-2">
             <p className="font-semibold">Phone Number: </p>
-            <p>{user.phoneNumber}</p>
+            <p>{user?.phoneNumber}</p>
           </div>
         </div>
       </div>
