@@ -34,9 +34,10 @@ import { toast } from "react-toastify";
 import { sendBookingConfirmationEmail } from "@/lib/resend";
 import { useRouter } from "next/navigation";
 
-// ----------------------------------------------
+// ------------------------------------------
 const useFirebase = () => {
   const [user, setUser] = useState({});
+
   const [currentLogedIn, setCurrentLogedIn] = useState({});
   const [error, setError] = useState("");
   const googleProvider = new GoogleAuthProvider();
@@ -52,7 +53,7 @@ const useFirebase = () => {
   // Save User data --------------------------
 
   const saveUserData = async (user) => {
-    const userRef = doc(firestore, "users", user.uid); // Firestore 'users' collection with user UID as document ID
+    const userRef = doc(firestore, "users", user.email); // Firestore 'users' collection with user UID as document ID
     try {
       // Check if user data already exists
       const userDoc = await getDoc(userRef);
@@ -136,7 +137,8 @@ const useFirebase = () => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
         setUser(user);
-        currentLogin(user.uid);
+
+        currentLogin(user.uid, user.email);
         // Get Firebase ID token
         const idToken = await user.getIdToken();
 
@@ -201,30 +203,26 @@ const useFirebase = () => {
       });
   };
 
-  // Currenly Loged in person .............................................
+  // Currenly Loged in person .....................................................
 
-  const currentLogin = async (id) => {
-    try {
-      const userDocRef = doc(firestore, "users", id); // Replace "users" with your collection name
-      const notaryDocRef = doc(firestore, "Public Notaries", id); // Replace "users" with your collection name
+  const currentLogin = async (id, email) => {
+    const userDocRef = doc(firestore, "users", id);
+    const notaryDocRef = doc(firestore, "Public Notaries", email);
 
-      const userDocSnap = await getDoc(userDocRef);
-      const notaryDocSnap = await getDoc(notaryDocRef);
+    const [userDocSnap, notaryDocSnap] = await Promise.all([
+      getDoc(userDocRef),
+      getDoc(notaryDocRef),
+    ]);
 
-      if (userDocSnap.exists()) {
-        setCurrentLogedIn({ id: userDocSnap.id, ...userDocSnap.data() });
-      }
-      if (notaryDocSnap.exists()) {
-        setCurrentLogedIn({ id: notaryDocSnap.id, ...notaryDocSnap.data() });
-      } else {
-        setCurrentLogedIn(null); // Handle case when the user document does not exist
-      }
-    } catch (error) {
-      console.error("Error fetching the current user document:", error);
+    if (notaryDocSnap.exists()) {
+      setCurrentLogedIn({ id: notaryDocSnap.id, ...notaryDocSnap.data() });
+    } else if (userDocSnap.exists()) {
+      setCurrentLogedIn({ id: userDocSnap.id, ...userDocSnap.data() });
+    } else {
+      setCurrentLogedIn(null);
     }
   };
-
-  // Sign Up with email address ___________________________________________
+  // Sign Up with email address ____________ _ _ _ ___ _ _ _ ________________
 
   const handleSignUp = (e) => {
     e.preventDefault();
@@ -294,6 +292,7 @@ const useFirebase = () => {
 
       // Set user state
       setUser(updatedUser);
+
       toast.success("Successfully Registered");
 
       router.replace("/user");
@@ -376,12 +375,27 @@ const useFirebase = () => {
       const docRef = await addDoc(collection(firestore, "UserInfo"), data);
 
       setSubmitSuccess(true);
-      console.log(data);
+
       sendBookingConfirmationEmail(data);
       return docRef.id;
     } catch (error) {
       setSubmitSuccess(false);
       console.error("Error submitting form:", error);
+    }
+  };
+
+  // Fetch admins ..................................
+  const getAdminUsers = async () => {
+    try {
+      // Query Firestore to get only users with role = "admin"
+      const usersRef = collection(firestore, "users");
+      const q = query(usersRef, where("role", "==", "admin"));
+
+      const querySnapshot = await getDocs(q);
+      return querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+    } catch (error) {
+      console.error("Error fetching admin users:", error);
+      return [];
     }
   };
 
@@ -391,13 +405,28 @@ const useFirebase = () => {
     return querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
   };
 
+  // Fetch Notary...........................................
+
+  const getNotary = async () => {
+    const querySnapshot = await getDocs(
+      collection(firestore, "Public Notaries")
+    );
+    return querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  };
+  // Fetch Notary by id ...........................................
+
+  const getNotaryByID = async (id) => {
+    const querySnapshot = await getDocs(
+      collection(firestore, "Public Notaries")
+    );
+    return querySnapshot.docs.map((doc) => ({ uid: id, ...doc.data() }));
+  };
+
   // READ: Fetch all form data
   const getFormData = async () => {
     const querySnapshot = await getDocs(collection(firestore, "UserInfo"));
     return querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
   };
-
-  // Get user by id ...............................
 
   const getDataById = async (id) => {
     try {
@@ -536,11 +565,14 @@ const useFirebase = () => {
     getFormData,
     updateFormData,
     repasswordRef,
+    getNotary,
+    getAdminUsers,
     updateUserData,
     getDataById,
     submitSuccess,
     handleSignUpNotary,
     setSubmitSuccess,
+    getNotaryByID,
     deleteUserByUID,
     handleLogout,
     handleGoogleSignIn,

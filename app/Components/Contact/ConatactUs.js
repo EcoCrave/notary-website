@@ -1,4 +1,6 @@
 "use client";
+
+import { useState } from "react";
 import { sendContactEmail } from "@/lib/resend";
 import { motion } from "framer-motion";
 import {
@@ -10,12 +12,30 @@ import {
 } from "react-icons/fa";
 import { toast } from "react-toastify";
 
-function send(name, email, message) {
-  sendContactEmail(name, email, message);
-  toast.success("Email sent successfully!");
-}
-
 const ContactUs = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.target);
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const message = formData.get("message");
+
+    try {
+      await sendContactEmail(name, email, message);
+      toast.success("Email sent successfully!");
+      e.target.reset(); // Clear the form
+    } catch (error) {
+      console.error("Error sending email:", error);
+      toast.error("Failed to send email. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen py-12 px-4 sm:px-6 lg:px-8">
       <motion.div
@@ -40,18 +60,7 @@ const ContactUs = () => {
                 Feel free to contact us any time. We will get back to you as
                 soon as we can!
               </p>
-              <form
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  const formData = new FormData(e.target);
-                  send(
-                    formData.get("name"),
-                    formData.get("email"),
-                    formData.get("message")
-                  );
-                }}
-                className="space-y-6"
-              >
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label
                     htmlFor="name"
@@ -104,9 +113,10 @@ const ContactUs = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   type="submit"
-                  className="w-full py-3 px-4 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-md font-semibold hover:from-green-700 hover:to-green-800 transition duration-300 ease-in-out"
+                  disabled={isSubmitting}
+                  className="w-full py-3 px-4 bg-gradient-to-r from-green-600 to-green-700 text-white rounded-md font-semibold hover:from-green-700 hover:to-green-800 transition duration-300 ease-in-out disabled:opacity-50"
                 >
-                  Send Message
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </motion.button>
               </form>
             </motion.div>

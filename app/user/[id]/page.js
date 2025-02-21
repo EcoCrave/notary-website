@@ -1,5 +1,7 @@
 "use client";
 
+import AdminProfile from "@/app/Components/Users/AdminProfile";
+import NotaryProfile from "@/app/Components/Users/NotaryProfile";
 import NotificationTable from "@/app/Components/Users/NotificationTable";
 import ProfileCard from "@/app/Components/Users/ProfileCard";
 import useFirebase from "@/app/Server/authentication/useFirebase";
@@ -11,19 +13,19 @@ const Page = ({ params }) => {
   // Unwrap the params using React.use()
   const { id } = use(params);
   const [userDetails, setUserDetails] = useState([]);
-  const { getDataById, deleteUserByUID, currentLogedIn } = useFirebase();
+  const { getDataById, deleteUserByUID, currentLogedIn, getNotaryByID } =
+    useFirebase();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [confirmationInput, setConfirmationInput] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await getDataById(id);
+      const data = (await getDataById(id)) || (await getNotaryByID(id));
       setUserDetails(data);
     };
 
     fetchData();
   }, [id, getDataById]);
-
   // Function to handle delete action
   const handleDelete = () => {
     if (confirmationInput === "DELETE") {
@@ -38,18 +40,39 @@ const Page = ({ params }) => {
   return (
     <div className="mt-2 ">
       <div className="min-h-screen w-[85%] mx-auto py-20">
-        <div>
-          <ProfileCard user={userDetails} hide={true} />
-          <div className="mt-6">
-            <h2 className="text-3xl font-bold mt-20">Applications : </h2>
+        {userDetails.role == "user" && (
+          <div>
+            <ProfileCard user={userDetails} hide={true} />
+            <div className="mt-6">
+              <h2 className="text-3xl font-bold mt-20">Applications : </h2>
+            </div>
+            <div className="mt-6">
+              <NotificationTable
+                role={currentLogedIn.role}
+                notifications={userDetails.details}
+              />
+            </div>
           </div>
-          <div className="mt-6">
-            <NotificationTable
-              role={currentLogedIn.role}
-              notifications={userDetails.details}
-            />
-          </div>
-        </div>
+        )}
+
+        {userDetails.role == "admin" && (
+          <AdminProfile
+            role={currentLogedIn.role}
+            notifications={userDetails}
+          />
+        )}
+        {/* {userDetails[0].role == "notary" && (
+          <NotaryProfile
+            role={currentLogedIn.role}
+            notifications={userDetails[0]}
+          />
+        )} */}
+        {userDetails[0]?.role == "notary" && (
+          <NotaryProfile
+            role={currentLogedIn.role}
+            notifications={userDetails[0]}
+          />
+        )}
         <div>
           <div className="text-right mt-10">
             <button

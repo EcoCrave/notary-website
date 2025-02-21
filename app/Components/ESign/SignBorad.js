@@ -7,7 +7,6 @@ import BookingForm from "../Checkout/BookingForm";
 const SignBoard = () => {
   const canvasRef = useRef(null); // Reference for SignatureCanvas
   const [result, setResult] = useState(null); // Store the signature data URL
-  console.log("result", result);
   const [brushColor, setBrushColor] = useState("black");
 
   const handleDraw = () => {

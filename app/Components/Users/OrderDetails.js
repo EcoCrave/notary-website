@@ -52,7 +52,7 @@ const OrderDetails = ({ data, role }) => {
                 </div>
                 <span
                   className={`px-3 py-1 text-sm font-medium rounded-full ${
-                    data.status === "Approved"
+                    data.status == "approved"
                       ? "bg-green-100 text-green-600"
                       : "bg-yellow-100 text-yellow-600"
                   }`}
@@ -192,12 +192,13 @@ const OrderDetails = ({ data, role }) => {
 
               {/* Only Admin can see this section..................... */}
 
-              {role == "admin" ||
-                (role == "notary" && (
-                  <>
-                    <AdminUpdateForm data={data} id={data.id} />
-                  </>
-                ))}
+              {role == "admin" ? (
+                <AdminUpdateForm data={data} id={data.id} />
+              ) : role == "notary" ? (
+                <AdminUpdateForm data={data} id={data.id} />
+              ) : (
+                ""
+              )}
             </div>
           </div>
         </div>

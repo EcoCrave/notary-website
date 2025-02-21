@@ -6,6 +6,7 @@ import FileUpload from "../MultipleFileUpload/FileUpload";
 import Booking from "../Booking/Booking";
 import SingleBoard from "../ESign/SingleBoard";
 import useHooks from "../Hooks/useHooks";
+import { sendBookingConfirmationEmail } from "@/lib/resend";
 
 const BookingForm = ({ appointment_title }) => {
   const [isModalOpen, setIsModalOpen] = useState(false); // State to toggle popup
@@ -44,7 +45,7 @@ const BookingForm = ({ appointment_title }) => {
   };
 
   const { user, addFormData, uploadFile, submitSuccess, setSubmitSuccess } =
-    useFirebase(); // Corrected usage of the custom hook
+    useFirebase();
 
   // Handle form inputs--------------------------------------------
   const handleChange = (e) => {
@@ -162,6 +163,7 @@ const BookingForm = ({ appointment_title }) => {
       };
 
       await addFormData(finalData);
+      sendBookingConfirmationEmail(formData.assignedEmail, formData.firstName);
       toast.success("Form submitted successfully!");
 
       // Reset form data and files
