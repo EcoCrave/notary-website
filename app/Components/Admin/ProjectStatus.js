@@ -1,15 +1,45 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MdAdminPanelSettings } from "react-icons/md";
 import { FaUser, FaUsers } from "react-icons/fa";
 import { RiPassPendingFill } from "react-icons/ri";
 import { toast } from "react-toastify";
+import useFirebase from "@/app/Server/authentication/useFirebase";
 
 const ProjectStats = ({ activeButton, setActiveButton, role }) => {
+  const [users, setUsers] = useState("");
+  const [notary, setNotary] = useState("");
+  const [admin, setAdmin] = useState("");
+  const [applications, setApplications] = useState("");
+  const { getUsers, getAdminUsers, getNotary, getFormData } = useFirebase();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const users = await getUsers();
+        setUsers(users);
+        const admin = await getAdminUsers();
+        setAdmin(admin);
+        const notary = await getNotary();
+        setNotary(notary);
+        const applications = await getFormData();
+        setApplications(applications);
+      } catch (err) {
+        setError(err.message);
+      }
+    };
+    fetchData();
+  }, []);
+
+  console.log(users.length);
+  console.log(notary);
+  console.log(admin);
+  console.log("applications", applications);
+
   const stats = [
     {
       label: "Admins",
-      count: 18,
+      count: admin.length,
       completed: 2,
       icon: (
         <MdAdminPanelSettings
@@ -20,19 +50,18 @@ const ProjectStats = ({ activeButton, setActiveButton, role }) => {
     },
     {
       label: "Users",
-      count: 132,
-      completed: 28,
+      count: users.length,
       icon: <FaUser className="text-green-900 text-[33px]" />,
     },
     {
       label: "Public Notary",
-      count: 12,
+      count: notary.length,
       completed: 1,
       icon: <FaUsers className="text-green-900 text-[50px]" />,
     },
     {
       label: "Applications",
-      count: "7",
+      count: applications.length,
       completed: "5%",
       icon: <RiPassPendingFill className={`text-green-900 text-[50px]`} />,
     },

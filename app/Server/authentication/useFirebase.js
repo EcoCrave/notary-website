@@ -116,7 +116,11 @@ const useFirebase = () => {
 
       // Success toast; no need to manually set user state
       toast.success("Successfully logged in!");
-      router.replace("/user");
+      if (currentLogedIn.role == "user") {
+        router.replace("/user");
+      } else {
+        router.replace("/admin");
+      }
       setError(""); // Clear any previous errors
     } catch (error) {
       // Handle errors gracefully
@@ -167,7 +171,11 @@ const useFirebase = () => {
         setUser(googleUser);
         toast.success("Login Success");
         await saveUserData(googleUser); // Save user data to Firestore
-        router.replace("/user");
+        if (currentLogedIn.role == "user") {
+          router.replace("/user");
+        } else {
+          router.replace("/admin");
+        }
       })
       .catch((error) => {
         setError(error.message);
@@ -184,7 +192,11 @@ const useFirebase = () => {
         setUser(facebookUser);
         toast.success("Successfully Loged In");
         await saveUserData(facebookUser); // Save user data to Firestore
-        router.replace("/user");
+        if (currentLogedIn.role == "user") {
+          router.replace("/user");
+        } else {
+          router.replace("/admin");
+        }
       })
       .catch((error) => {
         setError(error.message);
@@ -295,7 +307,7 @@ const useFirebase = () => {
 
       toast.success("Successfully Registered");
 
-      router.replace("/user");
+      router.replace("/admin");
       setError("");
 
       e.target.reset();
