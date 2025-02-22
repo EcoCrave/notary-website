@@ -413,9 +413,29 @@ const useFirebase = () => {
     );
     return querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
   };
+  // Fetch Notary by Email ...........................................
+
+  const getNotaryByEmail = async (id) => {
+    try {
+      const docRef = doc(firestore, "Public Notaries", id); // Fetch specific document
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        return { email: id, ...docSnap.data() };
+      } else {
+        console.log("No matching document found");
+        return null;
+      }
+    } catch (error) {
+      console.error("Error fetching Notary:", error);
+      return null;
+    }
+  };
+
   // Fetch Notary by id ...........................................
 
   const getNotaryByID = async (id) => {
+    console.log("id", id);
     const querySnapshot = await getDocs(
       collection(firestore, "Public Notaries")
     );
@@ -571,6 +591,7 @@ const useFirebase = () => {
     getDataById,
     submitSuccess,
     handleSignUpNotary,
+    getNotaryByEmail,
     setSubmitSuccess,
     getNotaryByID,
     deleteUserByUID,

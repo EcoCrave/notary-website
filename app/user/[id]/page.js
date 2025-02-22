@@ -54,19 +54,13 @@ const Page = ({ params }) => {
             </div>
           </div>
         )}
-
         {userDetails.role == "admin" && (
           <AdminProfile
             role={currentLogedIn.role}
             notifications={userDetails}
           />
         )}
-        {/* {userDetails[0].role == "notary" && (
-          <NotaryProfile
-            role={currentLogedIn.role}
-            notifications={userDetails[0]}
-          />
-        )} */}
+
         {userDetails[0]?.role == "notary" && (
           <NotaryProfile
             role={currentLogedIn.role}

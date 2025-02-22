@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import NotificationTable from "./NotificationTable";
 import ProfileCard from "./ProfileCard";
 import { toast } from "react-toastify";
+import AdminProfile from "./AdminProfile";
+import NotaryProfile from "./NotaryProfile";
 
 const ProfilePage = () => {
   const {
@@ -12,7 +14,9 @@ const ProfilePage = () => {
     updateUserData,
     deleteCurrentUser,
     currentLogedIn,
+    getNotaryByID,
     deleteUserData,
+    getNotaryByEmail,
     handleLogout,
   } = useFirebase(); // Move useFirebase to the top
   const [isModalOpen, setIsModalOpen] = useState(false); // Modal visibility
@@ -36,18 +40,18 @@ const ProfilePage = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        if (user?.uid) {
-          const data = await getDataById(user.uid);
-          setUserDetails(data);
-        }
-      } catch (error) {
-        console.error("Error fetching user data:", error);
+      if (currentLogedIn.role == "notary") {
+        const data = await getNotaryByEmail(currentLogedIn?.email);
+        setUserDetails(data);
+      }
+      if (currentLogedIn.role == "admin" || currentLogedIn.role == "user") {
+        const data = await getDataById(currentLogedIn?.uid);
+        setUserDetails(data);
       }
     };
 
     fetchData();
-  }, [user?.uid]);
+  }, [currentLogedIn.uid]);
 
   if (!user) {
     return <div>Loading user...</div>;
@@ -56,21 +60,36 @@ const ProfilePage = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-20 mx-auto ">
       <div className="w-[85%] mx-auto ">
-        <ProfileCard
-          verify={user.emailVerified}
-          updateUserData={updateUserData}
-          user={userDetails}
-        />
-        <div className="mt-6">
-          <h2 className="text-3xl font-bold mt-20">Applications : </h2>
-        </div>
+        {userDetails?.role == "user" && (
+          <div>
+            <ProfileCard user={userDetails} hide={true} />
+            <div className="mt-6">
+              <h2 className="text-3xl font-bold mt-20">Applications : </h2>
+            </div>
+            <div className="mt-6">
+              <NotificationTable
+                role={currentLogedIn.role}
+                notifications={userDetails.details}
+              />
+            </div>
+          </div>
+        )}
 
-        <div className="mt-6">
-          <NotificationTable
-            role={currentLogedIn?.role}
-            notifications={userDetails?.details}
+        {userDetails?.role == "admin" && (
+          <AdminProfile
+            role={currentLogedIn.role}
+            notifications={userDetails}
           />
-        </div>
+        )}
+
+        {userDetails?.role == "notary" && (
+          <NotaryProfile
+            role={currentLogedIn.role}
+            notifications={userDetails}
+          />
+        )}
+
+        {/* ------------------------------------------------------------------ */}
         <div>
           {/* <button>Delete User</button> */}
           <div className="text-right mt-10">
