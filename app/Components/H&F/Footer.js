@@ -30,10 +30,7 @@ const Footer = () => {
               />
             </Link>
           </div>
-          <p className="text-gray-300">
-            1 East Erie Street, 1 East Erie Street, 1 East Erie Street, 1 East
-            Erie Street,
-          </p>
+          <p className="text-gray-300">6295 NW 159TH PL , Portland</p>
 
           {/* Social Media Icons */}
           <div className="flex space-x-8 pt-3 ">
@@ -58,7 +55,8 @@ const Footer = () => {
           </div>
         </motion.div>
 
-        {/* Industries */}
+        {/* ---------------------------------------Industries----------------------------------- */}
+
         <motion.div
           variants={fadeIn("up", 0, 0.5)}
           initial="hidden"

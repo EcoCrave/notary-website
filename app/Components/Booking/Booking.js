@@ -14,7 +14,7 @@ const Booking = ({ setIsModalOpen }) => {
         <PopupButton
           url="https://calendly.com/ecocraveworld/30min"
           rootElement={rootElement} // Ensure it's attached to a valid DOM element
-          text="Schedule Booking!"
+          text="Schedule Booking"
           className="px-4 py-2 bg-black text-white rounded-md shadow-md hover:bg-black transition-all"
         />
       )}

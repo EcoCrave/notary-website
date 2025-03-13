@@ -180,6 +180,7 @@ const BookingForm = ({ appointment_title }) => {
         zipCode: "",
       });
       setFiles({ selfie: [], document: [], uploadedID: [], signature: result });
+      setStep((prev) => prev + 1);
     } catch (error) {
       console.error("Error submitting form:", error);
       toast.error("Failed to submit the form. Please try again.");
@@ -229,7 +230,8 @@ const BookingForm = ({ appointment_title }) => {
                   <div className="bg-white p-4 shadow-sm rounded space-y-2">
                     <div className="w-full mb-3">
                       <p className="block text-md font-semibold mb-2">
-                        Identity Verification (required) :
+                        Identity Verification{" "}
+                        <span className="text-red-700 text-lg">*</span> :{" "}
                       </p>
 
                       <select
@@ -246,7 +248,8 @@ const BookingForm = ({ appointment_title }) => {
                     </div>
                     <div className="py-2">
                       <label className="block text-green-900 text-sm font-semibold  mb-2">
-                        ID (required) :
+                        ID (required){" "}
+                        <span className="text-red-700 text-lg">*</span> :
                       </label>
                       <input
                         type="file"
@@ -259,7 +262,8 @@ const BookingForm = ({ appointment_title }) => {
                     </div>
                     <div>
                       <label className="block text-green-900 text-sm font-semibold  mb-2">
-                        Selfie with ID (required) :
+                        Selfie with ID (required){" "}
+                        <span className="text-red-700 text-lg">*</span> :
                       </label>
                       <input
                         type="file"
@@ -305,7 +309,8 @@ const BookingForm = ({ appointment_title }) => {
                   </div>
                   <div className="bg-white text-black p-4 rounded-md shadow-sm">
                     <p className="block text-green-900 text-sm font-semibold mb-2">
-                      Total Pages :
+                      Total Pages{" "}
+                      <span className="text-red-700 text-lg">*</span> :
                     </p>
                     <div className="flex space-x-5">
                       <li
@@ -360,7 +365,7 @@ const BookingForm = ({ appointment_title }) => {
                   </div>
                   <div className="bg-white p-4 rounded-md shadow-sm">
                     <p className="block text-green-900 text-sm font-semibold mb-1">
-                      Service :
+                      Service <span className="text-red-700 text-lg">*</span> :
                     </p>
                     <select
                       name="service"
@@ -402,7 +407,8 @@ const BookingForm = ({ appointment_title }) => {
                 <div className="bg-white shadow-sm rounded p-4">
                   <h2 className="block text-lg font-medium mb-5">
                     {" "}
-                    Contact Information :
+                    Contact Information
+                    <span className="text-red-700 text-lg">*</span> :
                   </h2>
 
                   <div className="grid grid-cols-2 gap-4">
@@ -452,7 +458,10 @@ const BookingForm = ({ appointment_title }) => {
                   </div>
                 </div>
                 <div className="mt-4 shadow-sm  bg-white p-4 space-y-3 rounded">
-                  <h2 className="block text-lg font-medium mb-5"> Address :</h2>
+                  <h2 className="block text-lg font-medium mb-5">
+                    {" "}
+                    Address<span className="text-red-700 text-lg">*</span> :
+                  </h2>
 
                   <div className="grid grid-cols-2 gap-4">
                     <input
@@ -574,21 +583,31 @@ const BookingForm = ({ appointment_title }) => {
                     type="submit"
                     className="text-white flex justify-center px-4 rounded-md bg-black"
                   >
-                    {submitSuccess ? (
-                      <Booking
-                        // onClick={handleSubmit}
-                        type="submit"
-                        setIsModalOpen={setIsModalOpen}
-                        setPages={setPages}
-                      />
-                    ) : (
-                      <button type="submit" onClick={handleSubmit}>
-                        Confirm Data
-                      </button>
-                    )}
+                    <button type="submit" onClick={handleSubmit}>
+                      Confirm Data
+                    </button>
                   </div>
                 </div>
               </form>
+            )}
+
+            {step == 4 && (
+              <div className="text-left text-black px-8">
+                {/* -------- + -  - + -- + -- + -- + -- + -- + -- + -- + -- + ------+------ */}
+                <div className="mt-6 flex justify-between">
+                  <div
+                    type="submit"
+                    className="text-white flex justify-center px-4 rounded-md bg-black"
+                  >
+                    <Booking
+                      // onClick={handleSubmit}
+                      type="submit"
+                      setIsModalOpen={setIsModalOpen}
+                      setPages={setPages}
+                    />
+                  </div>
+                </div>
+              </div>
             )}
           </div>
         </div>
