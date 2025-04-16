@@ -97,7 +97,7 @@ const Banner = () => {
           />
           <div
             className="absolute inset-0 flex justify-center items-center cursor-pointer"
-            onClick={toggleVideoPopup}
+            // onClick={toggleVideoPopup}
           >
             <FaCirclePlay className="text-7xl text-white rounded-full bg-black border" />
           </div>

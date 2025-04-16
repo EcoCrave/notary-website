@@ -7,9 +7,9 @@ import Service from "../Components/Business/Service";
 import ReceiveDocument from "../Components/In-Person-Notarization/ReceiveDocument";
 import FAQ from "../Components/Business/FAQbusiness";
 export const metadata = {
-  title: "Business page",
+  title: "In Person Notarization Services Near You Today",
   description:
-    "This is the business page where we can talk about how we can help you to grow your business",
+    "In Person Notarization by certified professionals. Quick, reliable, and legally binding notarization services available at your convenience. Book now!",
 };
 
 const page = () => {

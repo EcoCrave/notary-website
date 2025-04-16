@@ -66,7 +66,7 @@ const Footer = () => {
           <h3 className="font-bold text-3xl mb-4">Industries</h3>
           <ul className="space-y-2 text-gray-300 ">
             <li>
-              <Link href="/bank" className="hover:underline">
+              <Link href="/company-bank" className="hover:underline">
                 Bank
               </Link>
             </li>

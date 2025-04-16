@@ -6,9 +6,9 @@ import Service from "../Components/Business/Service";
 import WorryFreeBusiness from "../Components/Business/WorryFreeBusiness";
 import Banner1 from "../Components/Home/Banner1";
 export const metadata = {
-  title: "Business page",
+  title: "Business Documents for Smooth Operations & Growth",
   description:
-    "This is the business page where we can talk about how we can help you to grow your business",
+    "Business documents streamline operations, support legal compliance, enhance communication, and drive strategic planning across all departments effectively.",
 };
 
 const BusinessService = () => {
@@ -20,7 +20,7 @@ const BusinessService = () => {
       <Service />
       <ReachSignature />
       <ReadyToGo />
-      <FAQbusiness/>
+      <FAQbusiness />
     </div>
   );
 };

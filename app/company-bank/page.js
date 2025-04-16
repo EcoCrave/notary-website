@@ -6,9 +6,9 @@ import Process from "../Components/Banks/Process";
 import Booking from "../Components/Banks/Booking";
 import FAQSection from "../Components/Home/FAQSection";
 export const metadata = {
-  title: "hello world",
+  title: "Company and Banks: Financial Partnerships That Matter",
   description:
-    "This is the business page where we can talk about how we can help you to grow your business",
+    "Company and Banks: Explore strategic financial partnerships, banking solutions, and how companies collaborate with banks to ensure stable business growth.",
 };
 const page = () => {
   return (

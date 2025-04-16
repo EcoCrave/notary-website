@@ -34,7 +34,7 @@ const data = [
     imageUrl: "/img/construction.jpg",
     gradient: "from-teal-500 to-green-700",
     topPosition: "top-[95px]",
-    pageLink: "/bank",
+    pageLink: "/company-bank",
   },
 ];
 

@@ -9,12 +9,14 @@ import BookingForm from "../Checkout/BookingForm";
 export default function Appointments() {
   const [appointment, setAppointment] = useState(true);
   const [userDetails, setUserDetails] = useState("");
-  const { getDataById, user } = useFirebase();
+  const { getDataById, user, currentLogedIn } = useFirebase();
+  console.log("Current Log", currentLogedIn);
   useEffect(() => {
     const fetchData = async () => {
       try {
         if (user?.uid) {
           const data = await getDataById(user.uid);
+          console.log("data", data);
           setUserDetails(data);
         }
       } catch (error) {
@@ -33,7 +35,7 @@ export default function Appointments() {
               Next appointments
             </h1>
           </div>
-          {userDetails.details ? (
+          {userDetails?.details ? (
             <div className="space-y-5">
               {userDetails.details.map((detail, index) => (
                 <div
@@ -48,6 +50,7 @@ export default function Appointments() {
                   </div>
 
                   {/*------------------------------- Payment Button --------------------------------- */}
+
                   <div>
                     <p className="text-center text-green-800">
                       ${detail.totalCost}

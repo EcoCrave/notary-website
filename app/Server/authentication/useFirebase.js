@@ -50,6 +50,7 @@ const useFirebase = () => {
   const repasswordRef = useRef();
   const router = useRouter();
   const [submitSuccess, setSubmitSuccess] = useState(false);
+
   // Save User data --------------------------
 
   const saveUserData = async (user) => {

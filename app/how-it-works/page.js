@@ -1,9 +1,9 @@
 import React from "react";
 import HowItWorks from "../Components/How-It-Works/HowItWorks";
 export const metadata = {
-  title: "Business page",
+  title: "How It Works: Simple Steps to Get Started Today",
   description:
-    "This is the business page where we can talk about how we can help you to grow your business",
+    "How it Works: Discover how our easy process helps you get started quickly, with step-by-step guidance and full support every step of the way.",
 };
 
 const page = () => {

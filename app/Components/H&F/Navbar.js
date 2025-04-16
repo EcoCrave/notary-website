@@ -43,7 +43,7 @@ const Navbar = () => {
       subcategories: [
         { label: "For Law Firms", path: "/law-firm" },
         { label: "For Business", path: "/business" },
-        { label: "Company & Banks", path: "/bank" },
+        { label: "Company & Banks", path: "/company-bank" },
       ],
     },
     {

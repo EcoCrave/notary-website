@@ -1,9 +1,9 @@
 import React from "react";
 import ContactUs from "../Components/Contact/ConatactUs";
 export const metadata = {
-  title: "Business page",
+  title: "Contact Us for Support, Orders & Business Inquiries",
   description:
-    "This is the business page where we can talk about how we can help you to grow your business",
+    "Contact us for questions, order updates, collaborations, or support. We’re here to help with all your inquiries—quick, friendly, and reliable.",
 };
 
 const page = () => {
