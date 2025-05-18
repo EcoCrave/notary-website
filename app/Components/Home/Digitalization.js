@@ -24,7 +24,7 @@ const Digitalization = () => {
             <button className="bg-green-800 px-4 py-2 rounded-md text-white">
               Arrange a demo appointment
             </button>
-            <button className=" px-4 py-2 rounded-md text-black border border-2">
+            <button className=" px-4 py-2 rounded-md text-black  border-2">
               Arrange a demo appointment
             </button>
           </div>

@@ -1,3 +1,5 @@
+"use client";
+
 import useFirebase from "@/app/Server/authentication/useFirebase";
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
