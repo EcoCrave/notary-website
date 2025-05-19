@@ -16,6 +16,10 @@ const nextConfig = {
         pathname: "/v0/b/**",
       },
     ],
+    unoptimized: process.env.NODE_ENV === "production", // OK if intentional
+  },
+  experimental: {
+    serverExternalPackages: ["firebase", "firebase-admin"],
   },
 };
 

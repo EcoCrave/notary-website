@@ -1,12 +1,13 @@
-import React from "react";
-import User from "../Components/Users/User";
+"use client";
 
-const page = () => {
-  return (
-    <>
-      <User />
-    </>
-  );
-};
+import dynamic from "next/dynamic";
 
-export default page;
+// Updated path for components inside app directory
+const UserWithNoSSR = dynamic(() => import("../Components/Users/User.js"), {
+  ssr: false,
+  loading: () => <div>Loading...</div>,
+});
+
+export default function Page() {
+  return <UserWithNoSSR />;
+}

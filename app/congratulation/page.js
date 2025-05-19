@@ -1,3 +1,5 @@
+"use client";
+
 import Congratulation from "../Components/Congratulation/Congratulation";
 
 const page = () => {
